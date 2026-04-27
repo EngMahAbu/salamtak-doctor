@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout_All"
+        android:background="@color/video_screen_color"
+>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_VoiceCallng"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+
+        <TextView
+                android:id="@+id/infoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="15dp"
+                android:textSize="13sp"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/iv_voiceEndCall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="20dp"
+                android:text="@string/press_the_button_to_join_a_channel"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_step1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="90dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_steps"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_shape1"
+                    android:layout_width="50dp"
+                    android:layout_height="65dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_shape1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_shape2"
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/ic_shape2"
+                    app:layout_constraintBottom_toBottomOf="@+id/layout_steps"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/layout_steps"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+                android:id="@+id/tv_Vname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text=""
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_step1"
+
+        />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_voiceSpeaker"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/background_agoraicon"
+                android:padding="10dp"
+                android:layout_marginStart="40dp"
+                android:src="@drawable/ic_speaker"
+                app:layout_constraintBottom_toTopOf="@+id/iv_voiceEndCall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_voiceMic"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_voiceMic"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/background_agoraicon"
+                android:padding="8dp"
+                android:src="@drawable/ic_mic"
+                app:layout_constraintBottom_toTopOf="@+id/iv_voiceEndCall"
+                app:layout_constraintEnd_toStartOf="@+id/iv_voiceSpeaker"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_voiceEndCall"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/background_iconcallovalgreen"
+                android:padding="10dp"
+                android:src="@drawable/ic_vediocall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
