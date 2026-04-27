@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:background="@drawable/box_corner_top_white"
+            android:elevation="@dimen/_5sdp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <View
+                android:id="@+id/slide_view"
+                android:layout_width="@dimen/_99sdp"
+                android:layout_height="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/gray_60"
+                android:elevation="@dimen/_5sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/header_title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/dates"
+                android:textColor="@color/title_color_black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/slide_view" />
+
+
+            <LinearLayout
+                android:id="@+id/linear_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/header_title_txt">
+
+                <TextView
+                    android:id="@+id/from_date_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_solid_border_more"
+                    android:fontFamily="@font/my_font_medium"
+                    android:padding="16dp"
+                    android:text="@string/From"
+                    android:textColor="@color/title_color_black"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@drawable/ic_small_next_gray" />
+
+
+                <TextView
+                    android:id="@+id/to_date_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_solid_border_more"
+                    android:fontFamily="@font/my_font_medium"
+                    android:padding="16dp"
+                    android:text="@string/to"
+                    android:textColor="@color/title_color_black"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@drawable/ic_small_next_gray" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/done_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_43sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/bg_btn_blue"
+                android:fontFamily="@font/my_font_semibold"
+                android:gravity="center"
+                android:text="@string/done"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guid_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guid_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
