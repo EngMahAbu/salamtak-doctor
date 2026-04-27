@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_round_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="@drawable/otp_border"
+        android:backgroundTint="@color/black"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:fontFamily="@font/avenirs_semibold"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        android:text="@string/add_new_vacation"/>
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mCard_vacation_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_19sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:cardElevation="@dimen/_2sdp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sublinear"
+        app:layout_goneMarginTop="@dimen/_30sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:hint="@string/vacation_name"
+            android:textSize="@dimen/_12ssp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="#AEB3BE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/vactoionEt"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@color/white"
+                android:fontFamily="@font/avenir_regular"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:elevation="@dimen/_2sdp"
+        android:background="@drawable/otp_border">
+        <TextView
+            android:id="@+id/operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:elevation="@dimen/_4sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:text="@string/vacation_date_from"
+            android:textColor="@color/hint_color"
+            android:textSize="@dimen/_8ssp"
+            />
+        <TextView
+            android:id="@+id/vactoionFromEt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@id/operation"
+            android:elevation="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_23sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:hint=""
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/calendar">
+
+        </ImageView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:elevation="@dimen/_2sdp"
+        android:background="@drawable/otp_border">
+        <TextView
+            android:id="@+id/operation2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:elevation="@dimen/_4sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:text="@string/vacation_date_to"
+            android:textColor="@color/hint_color"
+            android:textSize="@dimen/_8ssp"
+            />
+        <TextView
+            android:id="@+id/vactoionToEt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@id/operation2"
+            android:elevation="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_23sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:hint=""
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/calendar">
+
+        </ImageView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:elevation="@dimen/_2sdp"
+        android:background="@drawable/otp_border">
+        <TextView
+            android:id="@+id/operation1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:elevation="@dimen/_4sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:text="@string/clinic"
+            android:textColor="@color/hint_color"
+            android:textSize="@dimen/_8ssp"
+            />
+        <TextView
+            android:id="@+id/clinicEt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@id/operation1"
+            android:elevation="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_23sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:text="@string/clinic_name"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/arrow___down_3">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveVacation_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_margin="@dimen/_12sdp"
+        android:backgroundTint="@color/new_themeBlue_color"
+        android:fontFamily="@font/avenir_bold"
+        android:gravity="center"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:cornerRadius="@dimen/_6sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mCardCheckupfee" />
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+  >
+
+    <TextView
+        android:id="@+id/bottomtxtview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:text="Do you want to exit from adding a new period"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:fontFamily="@font/avenir_bold">
+
+    </TextView>
+    <TextView
+        android:id="@+id/tv_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:text="If you exit this page, your information is not saved"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#B7B7B7"
+        android:fontFamily="@font/avenir_regular">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_19sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_24sdp"
+        android:weightSum="2">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/yes_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            app:cornerRadius="@dimen/_6sdp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/avenir_regular"
+            android:text="Yes"
+            app:strokeColor="#CB544B"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            app:strokeWidth="@dimen/_1sdp"
+            android:textAllCaps="false"
+            android:textColor="#CB544B"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/No_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_weight="1"
+            android:text="No"
+            app:strokeColor="#CB544B"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:backgroundTint="#CB544B"
+            app:cornerRadius="@dimen/_6sdp"
+            android:fontFamily="@font/avenir_regular"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_round_bg">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:text="Actions"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:fontFamily="@font/avenir_bold">
+
+    </TextView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnComplete"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        app:cornerRadius="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:backgroundTint="@color/zm_v1_green_5"
+        android:fontFamily="@font/avenir_regular"
+        android:text="@string/complete"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNoShow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        app:cornerRadius="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/avenir_regular"
+        android:text="@string/no_show"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancle_button_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_margin="@dimen/_12sdp"
+        android:text="Cancel Appointment"
+        android:backgroundTint="#E8E8FD"
+        app:cornerRadius="@dimen/_6sdp"
+        android:fontFamily="@font/avenir_regular"
+        android:visibility="visible"
+        android:textAllCaps="false"
+        android:textColor="@color/new_themeBlue_color"
+        android:textSize="@dimen/_10ssp" />
+
+
+</LinearLayout>
