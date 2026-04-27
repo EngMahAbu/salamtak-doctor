@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/emr_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_emr_details"
+        app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/start_guid_line"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/instructions_emr_txt"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_solid_border_more"
+        android:textColorHint="@color/text_gray"
+        app:boxBackgroundMode="none"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:hintEnabled="true"
+        android:padding="4dp"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+        app:layout_constraintStart_toStartOf="@id/start_guid_line"
+        app:layout_constraintTop_toBottomOf="@id/emr_recycler_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/instructions_emr_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+            android:focusable="false"
+            android:hint="@string/instructions"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guid_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guid_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
