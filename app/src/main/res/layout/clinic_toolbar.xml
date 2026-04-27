@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <ImageView
+            android:id="@+id/circular_background"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:visibility="gone"
+            android:src="@drawable/ic_circle_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/one_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:fontFamily="@font/my_font_bold"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toBottomOf="@id/circular_background"
+            app:layout_constraintStart_toStartOf="@id/circular_background"
+            app:layout_constraintTop_toTopOf="@id/circular_background" />
+
+        <TextView
+            android:id="@+id/ratio_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:text="/4"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="@id/circular_background"
+            app:layout_constraintStart_toEndOf="@id/one_tv"
+            app:layout_constraintTop_toTopOf="@id/circular_background" />
+
+        <TextView
+            android:id="@+id/clinic_header_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/my_font_bold"
+            android:text="@string/clinic_info"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_18ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/circular_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/circular_background" />
+
+        <TextView
+            android:id="@+id/profile_next_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/my_font_regular"
+            android:text="@string/next_clinic_schedule"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toStartOf="@id/clinic_header_tv"
+            app:layout_constraintTop_toBottomOf="@id/clinic_header_tv" />
+
+        <ImageView
+            android:id="@+id/iv_checked"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_margin="@dimen/_12sdp"
+            android:indeterminateOnly="false"
+            android:src="@drawable/ic_check_white"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/circular_determinative_pb"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:visibility="gone"
+            android:progress="33"
+            android:progressDrawable="@drawable/progress_bg_gray"
+            android:secondaryProgress="100"
+            app:layout_constraintStart_toEndOf="@id/iv_checked"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_back_bg"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:visibility="gone"
+            android:src="@drawable/bg_btn_gray_transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back_bg"
+            app:layout_constraintEnd_toEndOf="@id/iv_back_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_back_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_back_bg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
