@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="whatsUp"
+            type="com.salamtak.domain.entities.response.GetAdImagesDto" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/my_font_semibold"
+            android:lines="1"
+            android:text="@string/company_name"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColor="@color/head_color"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_image" />
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/third_party_player_view"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rl_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_6sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    />
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:background="@color/transparent"
+                    android:layout_marginBottom="-10dp"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    app:tabIndicatorColor="@color/white"/>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/desc_whats_up_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:text="@string/clinic_description"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:textColor="@color/gray_60"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="@+id/rl_image"
+            app:layout_constraintStart_toStartOf="@+id/title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="Show More"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/desc_whats_up_tv"
+            app:layout_constraintStart_toStartOf="@+id/desc_whats_up_tv"
+            app:layout_constraintTop_toBottomOf="@+id/desc_whats_up_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

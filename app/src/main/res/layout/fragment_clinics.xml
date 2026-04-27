@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/authentication_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="gone"
+            android:elevation="@dimen/_5sdp" />
+
+        <RelativeLayout
+            android:id="@+id/clinics_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/clinics"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/clinics_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/my_font_bold"
+            android:text="@string/clinics"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_24ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/clinics_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            app:layout_constraintBottom_toTopOf="@id/add_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinics_tv"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_clinic" />
+
+        <RelativeLayout
+            android:id="@+id/add_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            app:cornerRadius="@dimen/_6sdp"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_chooselang_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintTop_toBottomOf="@+id/clinics_rv">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plus"
+                app:tint="@color/white"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/text">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:fontFamily="@font/avenir_medium"
+                android:text="@string/add_new_clinic"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/empty_page_layout"
+            layout="@layout/layout_empty_page"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

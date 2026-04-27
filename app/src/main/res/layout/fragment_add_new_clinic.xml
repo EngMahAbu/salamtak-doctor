@@ -1,0 +1,1379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_gray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_btn_blue"
+            android:backgroundTint="#E8E8FD"
+            android:drawableLeft="@drawable/frame__2_"
+            android:drawablePadding="@dimen/_6sdp"
+            android:elevation="@dimen/_2sdp"
+            android:fontFamily="@font/avenir_regular"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingVertical="@dimen/_6sdp"
+            android:text="@string/help"
+            android:textColor="@color/new_themeBlue_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:id="@+id/clinics_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_editClinicstxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="2dp"
+                android:drawableStart="@drawable/ic_arrowleft"
+                android:drawablePadding="@dimen/_6sdp"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/edit_clinic"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/help2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/help"
+                android:padding="@dimen/_2sdp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_Clinicprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:drawablePadding="@dimen/_6sdp"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/clinic_profile"
+                android:drawableStart="@drawable/ic_arrowleft"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"
+                android:visibility="gone">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_saveedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/save_edit"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone">
+
+            </TextView>
+
+        </RelativeLayout>
+        <RadioGroup
+            android:id="@+id/steps_radio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clinics_tv">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/info_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:text="@string/info_clinic"
+                android:textColor="@color/choose_selector"
+                android:textSize="@dimen/_8ssp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/location_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:text="@string/location"
+                android:textColor="@color/choose_selector"
+                android:textSize="@dimen/_8ssp" />
+
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/schedule_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:text="@string/schedule"
+                android:textColor="@color/choose_selector"
+                android:textSize="@dimen/_8ssp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/vaction_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:text="@string/vacations"
+                android:textColor="@color/choose_selector"
+                android:textSize="@dimen/_8ssp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/gallery_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:text="@string/gallery"
+                android:textColor="@color/choose_selector"
+                android:textSize="@dimen/_8ssp" />
+
+        </RadioGroup>
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:textSize="@dimen/_4ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clinics_tv"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/blue"
+            app:spb_descriptionTopSpaceIncrementer="8dp"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#AEB3BE"
+            app:spb_stateDescriptionSize="10sp"
+            app:spb_stateForegroundColor="@color/green"
+            app:spb_stateNumberBackgroundColor="@color/blue"
+            app:spb_stateNumberForegroundColor="@color/blue" />
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/poly_your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:textSize="@dimen/_4ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clinics_tv"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/blue"
+            app:spb_descriptionTopSpaceIncrementer="8dp"
+            app:spb_maxStateNumber="three"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#AEB3BE"
+            app:spb_stateDescriptionSize="10sp"
+            app:spb_stateForegroundColor="@color/green"
+            app:spb_stateNumberBackgroundColor="@color/blue"
+            app:spb_stateNumberForegroundColor="@color/blue" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/steps_radio">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_v"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".96" />
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/authentication_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/edit_clinic_toolbar"
+                    layout="@layout/appointment_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_130sdp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/first_guideline_horizontal" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/first_guideline_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/sec_guideline_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.12" />
+
+                <TextView
+                    android:id="@+id/tv_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:fontFamily="@font/my_font_semibold"
+                    android:letterSpacing=".02"
+                    android:lineSpacingExtra="1dp"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="@string/logout"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/toolbar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+
+                <include
+                    android:id="@+id/clinic_toolbar"
+                    layout="@layout/clinic_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/upload_photo_bg"
+                    android:layout_width="@dimen/_56sdp"
+                    android:layout_height="@dimen/_56sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/edit_clinic"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundShep" />
+
+                <ImageView
+                    android:id="@+id/upload_photo_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="-8dp"
+                    android:background="@drawable/group_71080583"
+                    app:layout_constraintBottom_toBottomOf="@+id/upload_photo_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/upload_photo_bg" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/uploadtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/upload_clinic_logo"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/upload_photo_bg"
+                    app:layout_constraintStart_toStartOf="@+id/upload_photo_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_photo_bg" />
+
+                <ImageView
+                    android:id="@+id/upload_photo_bg1"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/photo_bg_squared"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/upload_photo_iv2"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_image_corner"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/upload_photo_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/upload_photo_bg" />
+
+
+                <TextView
+                    android:id="@+id/upload_photo_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:text="@string/upload_clinic_pic"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upload_photo_bg" />
+
+                <TextView
+                    android:id="@+id/photo_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/uploadtxt" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mCard_Clinic_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_19sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/uploadtxt"
+                    app:layout_goneMarginTop="@dimen/_30sdp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/filledTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_clinic_name"
+                        android:paddingTop="3dp"
+                        android:textSize="@dimen/_12ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@android:color/transparent"
+                        app:boxStrokeWidth="0dp"
+                        app:hintTextColor="#AEB3BE">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clinic_name_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/white"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ.-_\/"
+                            android:fontFamily="@font/avenir_regular"
+                            android:gravity="start|top"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:paddingBottom="2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Clinic_nameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="gggggggg"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mcard_Clinic_Arabic_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_Clinic_name" />
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/clinic_name_label"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/_20sdp"-->
+                <!--                    android:fontFamily="@font/my_font_medium"-->
+                <!--                    android:text="@string/enter_clinic_name"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    android:visibility="gone"-->
+                <!--                    app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/photo_error_txt" />-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/clinic_name_et2"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="8dp"-->
+                <!--                    android:background="@drawable/bg_btn_border_gray_transprent"-->
+                <!--                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "-->
+                <!--                    android:hint="@string/enter_clinic_name"-->
+                <!--                    android:inputType="text"-->
+                <!--                    android:maxLines="1"-->
+                <!--                    android:visibility="gone"-->
+                <!--                    android:maxLength="50"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:singleLine="true"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+                <!--                    app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/clinic_name_label" />-->
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/clinic_name_ar_label"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="8dp"-->
+                <!--                    android:fontFamily="@font/my_font_medium"-->
+                <!--                    android:text="@string/enter_clinic_name_ar"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/mCard_Clinic_name" />-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/clinic_name_ar_et"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="4dp"-->
+                <!--                    android:background="@drawable/bg_btn_border_gray_transprent"-->
+                <!--                    android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."-->
+                <!--                    android:hint="@string/enter_clinic_name_ar"-->
+                <!--                    android:inputType="text"-->
+                <!--                    android:maxLines="1"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:maxLength="50"-->
+                <!--                    android:singleLine="true"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+                <!--                    app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/clinic_name_ar_label" />-->
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcard_Clinic_Arabic_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_Clinic_name"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/clinic_name_in_arabic"
+                        app:boxBackgroundMode="none"
+                        app:hintTextColor="#AEB3BE"
+                        app:boxStrokeColor="@android:color/transparent"
+                        app:boxStrokeWidth="0dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clinic_name_ar_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/white"
+                            android:digits="./\ أغظضذخثتشرقصجفعسنملةىكيطئءؤحزوهدبا"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="2dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Clinic_Arabic_nameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="gggggggg"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mcardEmail_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mcard_Clinic_Arabic_layout" />
+                <!--                <TextView-->
+                <!--                    android:id="@+id/clinic_email_label"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="8dp"-->
+                <!--                    android:fontFamily="@font/my_font_medium"-->
+                <!--                    android:text="@string/email"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/mcard_Clinic_Arabic_layout" />-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/email_et"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="4dp"-->
+                <!--                    android:background="@drawable/bg_btn_border_gray_transprent"-->
+                <!--                    android:hint="@string/email"-->
+                <!--                    android:inputType="text"-->
+                <!--                    android:maxLines="1"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@.1234567890"-->
+                <!--                    android:singleLine="true"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+                <!--                    app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/clinic_email_label" />-->
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardEmail_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@+id/mcard_Clinic_Arabic_layout"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/clinic_emails"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@android:color/transparent"
+                        app:boxStrokeWidth="0dp"
+                        app:hintTextColor="#AEB3BE">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textEmailAddress"
+                            android:paddingBottom="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_mcardEmail_nameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="gggggggg"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mcardphone_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardEmail_layout" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardphone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@id/mcardEmail_layout"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/addphone"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@android:color/transparent"
+                        app:boxStrokeWidth="0dp"
+                        app:hintTextColor="#AEB3BE">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clinic_phone_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:paddingBottom="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_mcardphone_nameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="gggggggg"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/linear_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardphone_layout" />
+
+                <LinearLayout
+                    android:id="@+id/linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/mcardphone_layout">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mcardphone_layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/_1sdp"
+                        android:layout_weight="2"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="@dimen/_2sdp"
+                        tools:layout_editor_absoluteX="21dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/addphone2"
+                            android:textSize="@dimen/_10ssp"
+                            app:boxBackgroundMode="none"
+                            app:boxStrokeColor="@android:color/transparent"
+                            app:boxStrokeWidth="0dp"
+                            app:hintTextColor="#AEB3BE">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/clinic_phone2_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@color/white"
+                                android:fontFamily="@font/avenir_regular"
+                                android:inputType="number"
+                                android:maxLength="11"
+                                android:maxLines="1"
+                                android:paddingBottom="3dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <RelativeLayout
+                        android:id="@+id/add_btn_clinic"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/otp_border"
+                        android:backgroundTint="#DFDEDE"
+                        app:cornerRadius="@dimen/_4sdp">
+
+                        <ImageView
+                            android:id="@+id/plus"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/union">
+
+                        </ImageView>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardphone_layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@id/linear_layout"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone Number 3"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#AEB3BE">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clinic_phone3_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcard_Durationofconsultation_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardphone_layout3"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/durationofconsultation"
+                        app:boxBackgroundMode="none"
+                        app:hintTextColor="#AEB3BE"
+                        app:boxStrokeColor="@android:color/transparent"
+                        app:boxStrokeWidth="0dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clinic_Durationofconsultation"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="number"
+                            android:paddingBottom="2dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/services_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/otp_border"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/chooseservices"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/insuranceCompany_select"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/mcard_Durationofconsultation_layout" />
+
+                <TextView
+                    android:id="@+id/services_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:elevation="@dimen/_4sdp"
+                   android:text="@string/chooseservices"
+                    android:fontFamily="@font/my_font_regular"
+                    android:textColor="@color/hint_color"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@+id/services_select"
+                    app:layout_constraintTop_toTopOf="@+id/services_select" />
+
+                <ImageView
+                    android:id="@+id/iv_spinner"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/arrow___down_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/services_select"
+                    app:layout_constraintEnd_toEndOf="@+id/services_select"
+                    app:layout_constraintTop_toTopOf="@+id/services_select" />
+
+
+                <TextView
+                    android:id="@+id/insuranceCompany_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/otp_border"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/choose_your_insurance_company"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/services_select" />
+                <TextView
+                    android:id="@+id/insuranceCompany_select_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:elevation="2dp"
+                    android:text="@string/choose_your_insurance_company"
+                    android:fontFamily="@font/my_font_regular"
+                    android:textColor="@color/hint_color"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/insuranceCompany_select" />
+
+                <TextView
+                    android:id="@+id/features_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/otp_border"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/clinicsfeatures"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/insuranceCompany_select" />
+                <TextView
+                    android:id="@+id/features_select_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:text="@string/clinicsfeatures"
+                    android:fontFamily="@font/my_font_regular"
+                    android:textColor="@color/hint_color"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/features_select" />
+
+                <ImageView
+                    android:id="@+id/ivfeatures_spinner"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/arrow___down_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/features_select"
+                    app:layout_constraintEnd_toEndOf="@+id/features_select"
+                    app:layout_constraintTop_toTopOf="@+id/features_select" />
+                <ImageView
+                    android:id="@+id/ivinsurance_spinner"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/arrow___down_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/insuranceCompany_select"
+                    app:layout_constraintEnd_toEndOf="@+id/insuranceCompany_select"
+                    app:layout_constraintTop_toTopOf="@+id/insuranceCompany_select" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:backgroundTint="@color/new_themeBlue_color"
+                    android:fontFamily="@font/avenir_bold"
+                    android:gravity="center"
+                    android:text="@string/next_"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:cornerRadius="@dimen/_6sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/features_select"
+                    tools:layout_editor_absoluteX="16dp" />
+
+
+                <TextView
+                    android:id="@+id/location_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/enter_address"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/services_select" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:hint="@string/enter_address"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:paddingEnd="@dimen/_30sdp"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/location_txt" />
+
+                <TextView
+                    android:id="@+id/error_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:text="@string/select_your_location_first"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_et" />
+
+                <ImageView
+                    android:id="@+id/pick_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:src="@drawable/ic_location"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/address_et"
+                    app:layout_constraintEnd_toEndOf="@id/address_et"
+                    app:layout_constraintTop_toTopOf="@id/address_et"
+                    app:tint="@color/head_color" />
+
+                <TextView
+                    android:id="@+id/city_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/city"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/error_location" />
+
+                <TextView
+                    android:id="@+id/city_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_spinner_sky_drop2"
+                    android:elevation="@dimen/_5sdp"
+                    android:entries="@array/city_arr"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center"
+                    android:hint="@string/city"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_v"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/city_txt" />
+
+                <TextView
+                    android:id="@+id/city_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/city_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/city_select" />
+
+                <TextView
+                    android:id="@+id/area_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/area"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/error_location" />
+
+                <TextView
+                    android:id="@+id/area_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_spinner_sky_drop2"
+                    android:elevation="@dimen/_5sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center"
+                    android:hint="@string/area"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/area_txt" />
+
+                <TextView
+                    android:id="@+id/street_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/street"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/city_error_txt" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/street_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:gravity="center"
+                    android:hint="@string/street"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_v"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/street_txt" />
+
+                <TextView
+                    android:id="@+id/street_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/street_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/street_et" />
+
+                <TextView
+                    android:id="@+id/building_num_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/building_no"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/city_error_txt" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/building_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:gravity="center"
+                    android:hint="Block"
+                    android:inputType="text"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/building_num_txt" />
+
+                <TextView
+                    android:id="@+id/building_num_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/building_number_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/building_et" />
+
+                <TextView
+                    android:id="@+id/floor_num_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/floor_no"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/street_error_txt" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/floor_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:gravity="center"
+                    android:hint="@string/floor_no"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/guideline_v"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/floor_num_txt" />
+
+                <TextView
+                    android:id="@+id/floor_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/floor_number_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/floor_et" />
+
+                <TextView
+                    android:id="@+id/appartment_num_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/apartment_no"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/building_num_error_txt" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/apartment_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:gravity="center"
+                    android:hint="@string/apartment_no"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/appartment_num_txt" />
+
+                <TextView
+                    android:id="@+id/apartment_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/appartment_number_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline_v"
+                    app:layout_constraintTop_toBottomOf="@id/apartment_et" />
+
+                <!--                    <EditText-->
+                <!--                        android:id="@+id/building_et"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginHorizontal="@dimen/_10sdp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:background="@drawable/bg_btn_border_gray_transprent"-->
+                <!--                        android:hint="Block"-->
+                <!--                        android:maxLines="1"-->
+                <!--                        android:padding="12dp"-->
+                <!--                        android:singleLine="true" />-->
+
+                <!--                </LinearLayout>-->
+
+                <include
+                    android:id="@+id/profile_bottom_toolbar"
+                    layout="@layout/bottom_tb_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/floor_error_txt" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/layoutBottomsheetpersistant"
+        layout="@layout/layout_insurance"
+        android:visibility="visible"
+        />
+    <include
+        android:id="@+id/layoutBottomsheetpersistantfeatures"
+        layout="@layout/layout_insurance"
+        android:visibility="visible"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

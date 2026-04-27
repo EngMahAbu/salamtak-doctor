@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".salamtakdoctor.salamtak_doctor.LegalDocument.LegalDocument">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNationalId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="National Id"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/avenir_bold"/>
+
+            <TextView
+                android:id="@+id/tvHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Front and back National ID Image is required"
+                android:textSize="@dimen/_8ssp"
+                android:textColor="#B7B7B7"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/avenir_regular"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/dashlinebg">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border">
+                    <ImageView
+                        android:id="@+id/iv_nationalIdFront"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY">
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_71080590"
+                        >
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/dashlinebg">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border">
+                    <ImageView
+                        android:id="@+id/iv_nationalIdback"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY">
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/national_back">
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/tvprofessional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profession Certificate"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/avenir_bold"/>
+
+            <TextView
+                android:id="@+id/tvprofessionalHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Front and back Professional Certificate Image is required"
+                android:textSize="@dimen/_8ssp"
+                android:textColor="#B7B7B7"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/avenir_regular"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/dashlinebg">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border">
+                    <ImageView
+                        android:id="@+id/iv_Certificatefont"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY">
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_70991">
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/dashlinebg">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border">
+
+                    <ImageView
+                        android:id="@+id/iv_Certificateback"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"></ImageView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_70992"
+                        >
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvSyndicate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Syndicate Card"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/avenir_bold"/>
+
+            <TextView
+                android:id="@+id/SyndicateHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Front and back Syndicate Card Image is required"
+                android:textSize="@dimen/_8ssp"
+                android:textColor="#B7B7B7"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/avenir_regular"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/dashlinebg">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border">
+                    <ImageView
+                        android:id="@+id/iv_Syndicate_front"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY">
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_70993"
+                        >
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/dashlinebg"
+                android:layout_marginBottom="@dimen/_80sdp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border">
+                    <ImageView
+                        android:id="@+id/iv_Syndicate_back"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY">
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_70993"
+                        >
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
+
+</layout>

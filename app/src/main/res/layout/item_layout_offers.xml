@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_Subspecialization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_edittext"
+        android:elevation="1dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/first_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          app:layout_constraintTop_toTopOf="parent"
+          >
+          <androidx.appcompat.widget.AppCompatTextView
+              android:id="@+id/name"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="5dp"
+              android:gravity="start"
+              android:padding="2dp"
+              android:text="-"
+              android:textColor="@color/black"
+              android:textSize="12sp"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              />
+          <TextView
+              android:id="@+id/tv_categoryname"
+              android:layout_width="90dp"
+              android:layout_height="30dp"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginEnd="7dp"
+              android:layout_marginTop="5dp"
+              android:gravity="center"
+              android:background="@drawable/bg_help"
+              android:textSize="15sp"
+              android:text="-"
+              android:textColor="@color/black"
+              app:layout_constraintTop_toBottomOf="@+id/name"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent" />
+          <ImageView
+              android:id="@+id/image"
+              android:layout_width="@dimen/_23sdp"
+              android:layout_height="@dimen/_23sdp"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="10dp"
+              android:layout_marginTop="5dp"
+              android:src="@drawable/ic_arrow_purple"
+              app:layout_constraintTop_toBottomOf="@+id/name"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"/>
+
+          <TextView
+              android:id="@+id/tv_approved"
+              android:layout_width="90dp"
+              android:layout_height="25dp"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginEnd="7dp"
+              android:layout_marginTop="5dp"
+              android:gravity="center"
+              android:background="@drawable/bg_green"
+              android:textSize="15sp"
+              android:text="ok"
+              android:textColor="@color/white"
+              app:layout_constraintTop_toBottomOf="@+id/name"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toStartOf="@+id/image"/>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_BookingDateTime"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_image_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_layout">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_sub_specialization"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/calendarblue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_BookingDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            android:padding="2dp"
+            android:text="@string/offerstartdate"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/layout_BookingDateTime"
+            app:layout_constraintTop_toTopOf="@+id/layout_BookingDateTime"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_BookingDateTime"/>
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_Service"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_image_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_BookingDateTime">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_Service"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/calendarblue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:padding="3dp"
+            android:visibility="gone"
+            android:background="@color/nowshowcolor"
+            android:text="@string/offercomented"
+            android:textColor="@color/red"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_Service"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_Service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            android:padding="2dp"
+            android:text="@string/offerenddate"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_Service"
+            app:layout_constraintStart_toEndOf="@+id/layout_Service"
+            app:layout_constraintTop_toTopOf="@+id/layout_Service"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_startdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="start"
+            android:padding="2dp"
+            android:text="21/01/209"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_BookingDateTime"
+            app:layout_constraintTop_toTopOf="@+id/layout_BookingDateTime"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_enddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="start"
+            android:padding="2dp"
+            android:text="21/01/209"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_Service"
+            app:layout_constraintTop_toTopOf="@+id/layout_Service"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layput_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_doctorsDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_doctorProfile"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/ic_docspecialization"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_Dr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:gravity="start"
+                            android:text="@string/dr"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toStartOf="@+id/tv_doctorName"
+                            app:layout_constraintStart_toEndOf="@+id/iv_doctorProfile"
+                            app:layout_constraintTop_toTopOf="@+id/tv_doctorName"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_doctorName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_doctorName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:gravity="start"
+                            android:text="osama"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toEndOf="@+id/tv_Dr"
+                            app:layout_constraintTop_toTopOf="@+id/iv_doctorProfile"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_SeniorityLevel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:gravity="start"
+                            android:padding="1dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/iv_doctorProfile"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_doctorName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_specialist"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
+                        android:padding="1dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_doctorProfile"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_SeniorityLevel" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_edit"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/edit"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

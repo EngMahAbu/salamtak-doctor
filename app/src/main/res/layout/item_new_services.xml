@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/service_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="@color/new_themeBlue_color"
+            android:fontFamily="@font/my_font_semibold"
+            android:padding="16dp"
+            android:textColor="@color/new_themeBlue_color"
+            android:textSize="@dimen/_10ssp"
+            android:theme="@style/RadioButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Home Visit" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/cc"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/avenir_regular"-->
+<!--                android:gravity="center"-->
+<!--                android:lines="2"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:textColor="#2B2979"-->
+<!--                android:textSize="@dimen/_12ssp"-->
+<!--                android:text="dsdds" />-->
+
+
+
+
+        </LinearLayout>
+
+
+</layout>

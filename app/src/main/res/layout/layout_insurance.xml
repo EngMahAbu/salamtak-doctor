@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:padding="@dimen/_16sdp"
+        android:id="@+id/insurance_bottomsheet"
+        app:behavior_hideable="true"
+        android:background="@drawable/bg_edittext"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="450dp">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenir_black"
+            android:text="@string/choose_your_insurance_company"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_edittextinsurance"
+            android:drawableStart="@drawable/icon_search"
+            android:drawablePadding="5dp"
+            android:drawableTint="@color/move"
+            android:hint="@string/insurance_company"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:padding="5dp"
+            android:paddingStart="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_search"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_All"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout_btnDone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+        >
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_insuranceCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="15dp"
+                    android:padding="3dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/item_layout_insurancecompany"/>
+            <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminateTint="@color/color_primary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rv_insuranceCompany"
+                    app:layout_constraintEnd_toEndOf="@+id/rv_insuranceCompany"
+                    app:layout_constraintStart_toStartOf="@+id/rv_insuranceCompany"
+                    app:layout_constraintTop_toTopOf="@+id/rv_insuranceCompany"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_noResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_noResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:src="@drawable/ic_noresult"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                        android:id="@+id/tv_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/avenir_bold"
+                        android:text="@string/no_results_found"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_noResult"/>
+                <TextView
+                        android:id="@+id/tv_addService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/avenir_regular"
+                        android:gravity="center_horizontal"
+                        android:text="@string/you_can_add_and_save_your_services_by_typing_the_service_in_this_field"
+                        android:textColor="@color/gray_60"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_result"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_add"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/background_icon"
+                        android:padding="@dimen/_12sdp"
+                        android:tint="@color/blue"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/et_insurancecompany"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_addService"
+                        app:srcCompat="@drawable/ic_plus"/>
+
+                <EditText
+                        android:id="@+id/et_insurancecompany"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/bg_edittext"
+                        android:drawableTint="@color/move"
+                        android:hint="@string/insurance_company"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:paddingStart="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_add"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_addService"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_All">
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chooselang_button"
+                android:fontFamily="@font/avenir_black"
+                android:text="@string/dones"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".85"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

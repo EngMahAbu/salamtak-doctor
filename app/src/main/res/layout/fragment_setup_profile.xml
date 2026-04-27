@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color_gray">
+
+        <include
+            android:id="@+id/profile_toolbar"
+            layout="@layout/profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_12ssp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <LinearLayout
+            android:id="@+id/top_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_toolbar">
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/personal_info_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/avenir_regular"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/personal_info"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/specialty_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/avenir_regular"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/speciality"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/certificates_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/avenir_regular"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/certificates"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+
+                    <TextView
+                        android:id="@+id/legal_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/avenir_regular"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/legal_doc"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <com.kofigyan.stateprogressbar.StateProgressBar
+                android:id="@+id/your_state_progress_bar_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:visibility="visible"
+                app:spb_animateToCurrentProgressState="true"
+                app:spb_checkStateCompleted="true"
+                app:spb_currentStateDescriptionColor="@color/blue"
+                app:spb_currentStateNumber="one"
+                app:spb_descriptionTopSpaceIncrementer="8dp"
+                app:spb_maxStateNumber="four"
+                app:spb_stateBackgroundColor="#BDBDBD"
+                app:spb_stateDescriptionColor="#AEB3BE"
+                app:spb_stateDescriptionSize="10sp"
+                app:spb_stateForegroundColor="@color/green"
+                app:spb_stateNumberBackgroundColor="@color/blue"
+                app:spb_stateNumberForegroundColor="@color/blue" />
+
+        </LinearLayout>
+
+        <!--        presonal info ui-->
+        <ScrollView
+            android:id="@+id/ll_personal_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/profile_bottom_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_ll">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/profile_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_bold"
+                    android:text="@string/profile_info"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/upload_photo_bg"
+                    android:layout_width="@dimen/_56sdp"
+                    android:layout_height="@dimen/_56sdp"
+                    android:background="@drawable/ic_profile"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundShep" />
+
+                <ImageView
+                    android:id="@+id/upload_photo_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="-8dp"
+                    android:background="@drawable/group_71080583"
+                    app:layout_constraintBottom_toBottomOf="@id/upload_photo_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/upload_photo_bg" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/upload_photo_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/upload_your_image"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upload_photo_bg" />
+
+                <TextView
+                    android:id="@+id/photo_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/photo_required"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upload_photo_txt" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mCard_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_photo_txt">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/filledTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/full_name_in_english_first_middle_last"
+                        android:textColorHint="@color/gray"
+                        android:padding="2dp"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#B7B7B7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/enName_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/white"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ.-_"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="3dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fullNameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mcardArabic_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_name" />
+
+                <ImageView
+                    android:id="@+id/iv_nameError"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/mCard_name"
+                    app:layout_constraintEnd_toEndOf="@+id/mCard_name"
+                    app:layout_constraintTop_toTopOf="@+id/mCard_name" />
+
+                <TextView
+                    android:id="@+id/tv_nameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="Name is Required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/mCard_name"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_name" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardArabic_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="5dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nameError"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/full_name_in_arabic_first_middle_last"
+                        android:padding="2dp"
+                        android:textColorHint="@color/gray"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#B7B7B7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/name_et_arabic"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/white"
+                            android:digits="اغظضذخثتشرقصفعسنملكيطحزوهدباءجةىؤئأ "
+                            android:enabled="true"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="2dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fullNameARError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardArabic_layout"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_nameError2"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/mcardArabic_layout"
+                    app:layout_constraintEnd_toEndOf="@+id/mcardArabic_layout"
+                    app:layout_constraintTop_toTopOf="@+id/mcardArabic_layout" />
+
+                <TextView
+                    android:id="@+id/tv_nameError2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="Name is Required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/mcardArabic_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardArabic_layout">
+
+                </TextView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/NicknamemcardEnglish_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="5dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nameError2"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nickname"
+                        android:padding="2dp"
+                        android:textColorHint="@color/gray"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#B7B7B7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Nickname_et_english"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/white"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ.-_ "
+                            android:enabled="true"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="2dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/NicknamemcardArabic_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="5dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/NicknamemcardEnglish_layout"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nicknamearabic"
+                        android:padding="2dp"
+                        android:textColorHint="@color/gray"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#B7B7B7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Nickname_et_arabic"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/white"
+                            android:digits="اغظضذخثتشرقصفعسنملكيطحزوهدباءجةىؤئأ "
+                            android:enabled="true"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="2dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardphone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/NicknamemcardArabic_layout"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/phone_number"
+                        android:padding="2dp"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#B7B7B7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/phone_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="phone"
+                            android:maxLength="11"
+                            android:paddingBottom="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_pohneError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mcardEmail_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardphone_layout" />
+
+                <ImageView
+                    android:id="@+id/iv_nameError3"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/mcardArabic_layout"
+                    app:layout_constraintEnd_toEndOf="@+id/mcardArabic_layout"
+                    app:layout_constraintTop_toTopOf="@+id/mcardArabic_layout" />
+
+                <TextView
+                    android:id="@+id/tv_phoneError2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="Phone Number is Required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/mcardphone_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardphone_layout">
+
+                </TextView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardEmail_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:visibility="visible"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_phoneError2"
+                    tools:layout_editor_absoluteX="21dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        android:padding="2dp"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="#B7B7B7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="textEmailAddress"
+                            android:paddingBottom="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <ImageView
+                    android:id="@+id/iv_nameError4"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/mcardEmail_layout"
+                    app:layout_constraintEnd_toEndOf="@+id/mcardEmail_layout"
+                    app:layout_constraintTop_toTopOf="@+id/mcardEmail_layout" />
+
+                <TextView
+                    android:id="@+id/tv_EmailError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/email_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/mcardEmail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardEmail_layout">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/gender_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/otp_border"
+                    android:elevation="@dimen/_2sdp"
+                    android:textColorHint="@color/gray"
+                    android:fontFamily="@font/avenir_regular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/gender"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_EmailError" />
+
+
+                <TextView
+                    android:id="@+id/gender_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:elevation="@dimen/_4sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:textColor="#B7B7B7"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintStart_toStartOf="@+id/gender_et"
+                    app:layout_constraintTop_toTopOf="@+id/gender_et" />
+
+                <ImageView
+                    android:id="@+id/iv_gender"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_22sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/gender_et"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_spinner1"
+                    app:layout_constraintTop_toTopOf="@id/gender_et" />
+
+                <ImageView
+                    android:id="@+id/iv_spinner1"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/arrow___down_3"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/gender_et"
+                    app:layout_constraintEnd_toEndOf="@+id/gender_et"
+                    app:layout_constraintTop_toTopOf="@+id/gender_et" />
+
+
+                <TextView
+                    android:id="@+id/tv_GenderError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/gender_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/gender_et"
+                    app:layout_constraintTop_toBottomOf="@+id/gender_et" />
+
+
+                <TextView
+                    android:id="@+id/birth_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/otp_border"
+                    android:elevation="@dimen/_2sdp"
+                    android:fontFamily="@font/avenir_regular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/birth_date"
+                    android:textColorHint="@color/gray"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_GenderError" />
+
+
+                <TextView
+                    android:id="@+id/birth_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:elevation="@dimen/_4sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:textColor="#B7B7B7"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintStart_toStartOf="@+id/birth_et"
+                    app:layout_constraintTop_toTopOf="@+id/birth_et" />
+
+
+                <ImageView
+                    android:id="@+id/iv_date"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_22sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/birth_et"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_spinner2"
+                    app:layout_constraintTop_toTopOf="@+id/birth_et" />
+
+                <ImageView
+                    android:id="@+id/iv_spinner2"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/calendarblue"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/birth_et"
+                    app:layout_constraintEnd_toEndOf="@+id/birth_et"
+                    app:layout_constraintTop_toTopOf="@+id/birth_et" />
+
+                <TextView
+                    android:id="@+id/birth_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/birth_required2"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/birth_et"
+                    app:layout_constraintTop_toBottomOf="@+id/birth_et">
+
+                </TextView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardNationality_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/birth_error_txt"
+                    tools:layout_editor_absoluteX="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp">
+
+                        <TextView
+                            android:id="@+id/Nationality_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:elevation="@dimen/_4sdp"
+                            android:fontFamily="@font/my_font_regular"
+                            android:textColor="#B7B7B7"
+                            android:textSize="@dimen/_8ssp" />
+
+
+                        <TextView
+                            android:id="@+id/nationality_select"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/arrow___down_3"
+                            android:elevation="@dimen/_2sdp"
+                            android:fontFamily="@font/avenir_regular"
+                            android:gravity="center_vertical"
+                            android:hint="@string/country"
+                            android:textColorHint="@color/gray"
+                            android:padding="@dimen/_12sdp"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <ImageView
+                            android:id="@+id/iv_nationality"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_32sdp"
+                            android:elevation="@dimen/_10sdp"
+                            android:src="@drawable/ic_error"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_natoinalidError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="5"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mCard_syndicateIdname"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_NationalIdname" />
+
+                <TextView
+                    android:id="@+id/nationality_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/nationality_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/mcardNationality_layout"
+                    app:layout_constraintTop_toBottomOf="@id/mcardNationality_layout" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mCard_NationalIdname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintStart_toStartOf="@+id/mcardNationality_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/nationality_error_txt">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nationalField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/national_id"
+                        android:padding="2dp"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        android:textColorHint="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/national_id_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="number"
+                            android:maxLength="14"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <ImageView
+                    android:id="@+id/iv_nationalidError"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/mCard_NationalIdname"
+                    app:layout_constraintEnd_toEndOf="@+id/mCard_NationalIdname"
+                    app:layout_constraintTop_toTopOf="@+id/mCard_NationalIdname" />
+
+
+                <TextView
+                    android:id="@+id/national_id_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/avenir_medium"
+                    android:text="@string/nationalid_required"
+                    android:textColorHint="@color/gray"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/mCard_NationalIdname"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_NationalIdname" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mCard_syndicateIdname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_NationalIdname">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/syndicateField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/syndicate_id"
+                        android:padding="2dp"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        android:textColorHint="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/syndicate_id_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_syndicateError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/mCard_Licence"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_syndicateIdname" />
+
+                <ImageView
+                    android:id="@+id/iv_syidEridError"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/ic_error"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/mCard_syndicateIdname"
+                    app:layout_constraintEnd_toEndOf="@+id/mCard_syndicateIdname"
+                    app:layout_constraintTop_toTopOf="@+id/mCard_syndicateIdname" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mCard_Licence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="5dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_syndicateIdname">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/License"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/licensenumber"
+                        android:padding="2dp"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        android:textColorHint="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/license_id_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:paddingBottom="2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_LicenseError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mCard_Licence" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+<!--        // Speciality ui-->
+
+        <ScrollView
+            android:id="@+id/ll_Specialty"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/profile_bottom_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_ll">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_specialization_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <TextView
+                        android:id="@+id/specialization_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/otp_border"
+                        android:drawableEnd="@drawable/arrow___down_3"
+                        android:fontFamily="@font/avenir_regular"
+                        android:gravity="center_vertical"
+                        android:hint="@string/specialitys"
+                        android:textColorHint="@color/gray"
+                        android:paddingTop="10dp"
+                        android:elevation="2dp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <TextView
+                        android:id="@+id/specialization_select_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/my_font_regular"
+                        android:text="@string/specialitys"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintTop_toTopOf="@+id/specialization_select"
+                        app:layout_constraintStart_toStartOf="@+id/layout_specialization_select"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_sub_specialization_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    >
+                    <TextView
+                        android:id="@+id/sub_specialization_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
+                        android:background="@drawable/otp_border"
+                        android:drawableEnd="@drawable/arrow___down_3"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/avenir_regular"
+                        android:gravity="center_vertical"
+                        android:hint="@string/subspeciality"
+                        android:textColorHint="@color/gray"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <TextView
+                        android:id="@+id/sub_specialization_select_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/my_font_regular"
+                        android:text="@string/subspeciality"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintTop_toTopOf="@+id/layout_sub_specialization_select"
+                        app:layout_constraintStart_toStartOf="@+id/layout_sub_specialization_select"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_seniority_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    >
+                    <TextView
+                        android:id="@+id/seniority_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
+                        android:background="@drawable/otp_border"
+                        android:drawableEnd="@drawable/arrow___down_3"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/avenir_regular"
+                        android:gravity="center_vertical"
+                        android:hint="@string/senority"
+                        android:textColorHint="@color/gray"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <TextView
+                        android:id="@+id/seniority_select_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/my_font_regular"
+                        android:text="@string/senority"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintTop_toTopOf="@+id/layout_seniority_select"
+                        app:layout_constraintStart_toStartOf="@+id/layout_seniority_select"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_photo_txt"
+                    app:layout_goneMarginTop="@dimen/_30sdp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:hint="@string/bio_in_english"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="500"
+                        app:errorEnabled="true"
+                        app:helperTextEnabled="true"
+                       >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/biographyEnEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+                            android:background="@color/white"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="text"
+                            android:maxLength="500"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="5dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/bio_in_arabic"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/_10ssp"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="500"
+                        app:errorEnabled="true"
+                        app:helperTextEnabled="true"
+                       >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/biographyArEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+                            android:background="@color/white"
+                            android:digits="غظضذخثتشرقصفعسنملكيطحزوهدباءجةىؤئ "                            android:fontFamily="@font/avenir_regular"
+                            android:inputType="text"
+                            android:maxLength="500"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/profile_bottom_toolbar"
+            layout="@layout/bottom_tb_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/fg_certificate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/profile_bottom_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_ll" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

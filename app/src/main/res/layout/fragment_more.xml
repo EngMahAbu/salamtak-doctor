@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color_gray"
+        tools:context="com.salamtak.salamtakdoctor.salamtak_doctor.more.MoreFragment">
+
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/authentication_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:elevation="@dimen/_5sdp"
+            android:visibility="gone" />
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
+            app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintTop_toBottomOf="@+id/update_profile_title">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/new_themeBlue_color"
+                android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_doctor_image"
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:src="@drawable/app_logo" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/doctor_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:text="@string/doctor_name"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/avenir_regular"
+                        android:text="@string/click_here_to_edit_your_profile"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:rotation="180"
+                    android:src="@drawable/ic_back" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+            android:id="@+id/update_profile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more"
+            android:fontFamily="@font/avenirs_semibold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintTop_toBottomOf="@+id/view2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                    android:id="@+id/ll_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/tv_AccountSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:gravity="start"
+                    android:text="@string/accountsettings"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_NextAvailableBooking" />
+                <LinearLayout
+                    android:id="@+id/ll_AccountSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/more_cards_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mc_offers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/more_background"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/svg_new_offer" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/avenir_regular"
+                                android:text="@string/offers"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:src="@drawable/svg_arrow_right" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_new_line"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mc_videos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/more_background">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/svg_doctor_video"
+                                app:tint="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/avenir_regular"
+                                android:text="@string/adddoctorvideos"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:src="@drawable/svg_arrow_right" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_new_line"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mc_DoctorAccont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                       android:background="@drawable/more_background"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/svg_patient__account"
+                                app:tint="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/avenir_regular"
+                                android:text="@string/patient_account"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:src="@drawable/svg_arrow_right" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_new_line"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mc_PatientQuestions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/more_background"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/ic_question_mark"
+                                app:tint="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/avenir_regular"
+                                android:text="@string/myanswers"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:src="@drawable/svg_arrow_right" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_new_line"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/change_password_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/more_background"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/svg_change__password" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/avenir_regular"
+                                android:text="@string/change_password"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:src="@drawable/svg_arrow_right" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_SupportHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:gravity="start"
+                    android:text="@string/support_help"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_NextAvailableBooking" />
+
+            <LinearLayout
+                android:id="@+id/ll_SupportHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/more_cards_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/call_us_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                   android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:src="@drawable/ic_calling_new"
+                            app:tint="@color/black" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/call_us"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:src="@drawable/svg_arrow_right" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_new_line"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/about_app_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                   android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:src="@drawable/ic_about_app"
+                            app:tint="@color/black" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/about_app"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:src="@drawable/svg_arrow_right" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_SettingsPreferences"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:gravity="start"
+                    android:text="@string/settings_amp_preferences"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_NextAvailableBooking" />
+
+            <LinearLayout
+                android:id="@+id/ll_SettingsPreferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/more_cards_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lang_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:src="@drawable/svg_lang" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/language"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/tv_lang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="@string/lang"
+                            android:textColor="@color/green"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_new_line"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/terms_condition_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:src="@drawable/svg_patient__account"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/terms_amp_conditions"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:src="@drawable/svg_arrow_right" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_new_line"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/about_privacyPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:src="@drawable/svg_privacy_policy"
+                            />
+
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/privacy_policy"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:src="@drawable/svg_arrow_right" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_SecurityLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:gravity="start"
+                    android:text="@string/security_amp_logout"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_NextAvailableBooking" />
+
+            <LinearLayout
+                android:id="@+id/ll_SecurityLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/more_cards_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sign_out_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                   android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/logout" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/sign_out"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            app:tint="@color/red"
+                            android:src="@drawable/svg_arrow_right" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_new_line"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/delete_Account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:background="@drawable/more_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/trash" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/avenir_regular"
+                            android:text="@string/deleteaccount"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            app:tint="@color/red"
+                            android:src="@drawable/svg_arrow_right" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/first_line"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_more">
+
+
+                <!--                <LinearLayout-->
+                <!--                    android:id="@+id/lang_tv"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="6dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:visibility="gone"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:orientation="vertical">-->
+
+                <!--                    <ImageView-->
+                <!--                        android:layout_width="100dp"-->
+                <!--                        android:layout_height="110dp"-->
+                <!--                        android:src="@drawable/langg" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginTop="-10dp"-->
+                <!--                        android:text="@string/language"-->
+                <!--                        android:textColor="@color/head_color"-->
+                <!--                        android:textSize="14sp" />-->
+
+                <!--                </LinearLayout>-->
+
+                <TextView
+                        android:id="@+id/notifiction_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_more_notifi"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:visibility="gone"
+                        android:text="@string/notifications"
+                        android:textColor="@color/head_color"
+                        android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/firsts_line"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                        android:id="@+id/langs_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_more_notifi"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="@string/language"
+                        android:textColor="@color/head_color"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:id="@+id/notifictions_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_more_notifi"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="@string/notifications"
+                        android:textColor="@color/head_color"
+                        android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/sec_line"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/first_line">
+
+                <TextView
+                        android:id="@+id/update_profile_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:drawableTop="@drawable/ic_more_update"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="@string/update_profile"
+                        android:textColor="@color/head_color"
+                        android:textSize="14sp" />
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/terms_condition_tv"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="6dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:drawableTop="@drawable/ic_more_terms"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:text="@string/terms_conditions"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="14sp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/third_line"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sec_line">
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/call_us_tv"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="6dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:drawableTop="@drawable/ic_more_call"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:text="@string/call_us"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="14sp" />-->
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/about_app_tv"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="6dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:drawableTop="@drawable/ic_more_about"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:text="@string/about_app"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="14sp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/forth_line"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/third_line">
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/change_password_tv"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="6dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:drawableTop="@drawable/ic_more_password"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:text="@string/change_password"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="14sp" />-->
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/sign_out_tv"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="6dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:drawableTop="@drawable/ic_more_logout"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="12dp"-->
+                <!--                    android:text="@string/logout"-->
+                <!--                    android:textColor="@color/head_color"-->
+                <!--                    android:textSize="14sp" />-->
+
+            </LinearLayout>
+
+            <RadioGroup
+                    android:id="@+id/status_radio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/forth_line">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/englishs_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/english"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                        app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                        app:layout_constraintTop_toBottomOf="@id/sign_out_tv" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/arabics_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/ar"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                        app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                        app:layout_constraintTop_toBottomOf="@id/sign_out_tv" />
+
+            </RadioGroup>
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/update_profile_tv"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="22dp"-->
+            <!--                android:background="@drawable/bg_solid_border_more"-->
+            <!--                android:drawablePadding="16dp"-->
+            <!--                android:padding="16dp"-->
+            <!--                android:text="@string/update_profile"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:drawableStartCompat="@drawable/ic_person_more"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/terms_condition_tv"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="12dp"-->
+            <!--                android:background="@drawable/bg_solid_border_more"-->
+            <!--                android:drawablePadding="16dp"-->
+            <!--                android:padding="16dp"-->
+            <!--                android:text="@string/terms_and_conditions"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:drawableStartCompat="@drawable/ic_terms_more"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/update_profile_tv" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/about_app_tv"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="12dp"-->
+            <!--                android:background="@drawable/bg_solid_border_more"-->
+            <!--                android:drawablePadding="16dp"-->
+            <!--                android:padding="16dp"-->
+            <!--                android:text="@string/about_app"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:drawableStartCompat="@drawable/ic_error_more"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/terms_condition_tv" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/call_us_tv"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="12dp"-->
+            <!--                android:background="@drawable/bg_solid_border_more"-->
+            <!--                android:drawablePadding="16dp"-->
+            <!--                android:padding="16dp"-->
+            <!--                android:text="@string/call_us"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:drawableStartCompat="@drawable/ic_call_us_more"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/about_app_tv" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/change_password_tv"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="12dp"-->
+            <!--                android:background="@drawable/bg_solid_border_more"-->
+            <!--                android:drawablePadding="16dp"-->
+            <!--                android:padding="16dp"-->
+            <!--                android:text="@string/change_password"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:drawableStartCompat="@drawable/ic_lock_more"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/call_us_tv" />-->
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:id="@+id/card_language"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/change_password_tv">-->
+
+            <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="16dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/language_tv"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:drawablePadding="16dp"-->
+            <!--                        android:text="@string/language"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        app:drawableStartCompat="@drawable/ic_language_more"-->
+            <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <RadioGroup-->
+            <!--                        android:id="@+id/status_radio"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="8dp"-->
+            <!--                        android:orientation="horizontal"-->
+            <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        app:layout_constraintTop_toBottomOf="@id/language_tv">-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                            android:id="@+id/english_tv"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="40dp"-->
+            <!--                            android:layout_margin="4dp"-->
+            <!--                            android:layout_weight="1"-->
+            <!--                            android:background="@drawable/choose_selector_language"-->
+            <!--                            android:button="@null"-->
+            <!--                            android:gravity="center"-->
+            <!--                            android:text="@string/english"-->
+            <!--                            android:textColor="@color/white"-->
+            <!--                            app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                            app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@id/sign_out_tv" />-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                            android:id="@+id/arabic_tv"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="40dp"-->
+            <!--                            android:layout_margin="4dp"-->
+            <!--                            android:layout_weight="1"-->
+            <!--                            android:background="@drawable/choose_selector_language"-->
+            <!--                            android:button="@null"-->
+            <!--                            android:gravity="center"-->
+            <!--                            android:text="@string/ar"-->
+            <!--                            android:textColor="@color/white"-->
+            <!--                            app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                            app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@id/sign_out_tv" />-->
+
+            <!--                    </RadioGroup>-->
+
+
+            <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--            </androidx.cardview.widget.CardView>-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/sign_out_tv"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="12dp"-->
+            <!--                android:background="@drawable/bg_solid_border_more"-->
+            <!--                android:drawablePadding="16dp"-->
+            <!--                android:padding="16dp"-->
+            <!--                android:text="@string/sign_out"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:drawableStartCompat="@drawable/ic_exit_more"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/card_language" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".05" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

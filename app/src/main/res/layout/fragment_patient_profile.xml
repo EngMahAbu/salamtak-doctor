@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".salamtak_doctor.patientProfile.PatientProfileFragment">
+
+    <data>
+
+        <variable
+            name="patientProfile"
+            type="com.salamtak.domain.entities.response.PatientProfileData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/new_theme_color">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/authentication_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="gone"
+            android:elevation="@dimen/_5sdp" />
+
+        <include
+            android:id="@+id/background_gray_toolbar"
+            layout="@layout/appointment_toolbar"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="@+id/start_guid_line"
+            app:layout_constraintTop_toTopOf="@+id/guideline_horizontal"
+            app:tint="@color/black" />
+
+
+        <TextView
+            android:id="@+id/patient_history_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirs_semibold"
+            android:gravity="center"
+            android:text="@string/patient_profile_history"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_back"
+            app:layout_constraintStart_toEndOf="@+id/iv_back"
+            app:layout_constraintTop_toTopOf="@+id/iv_back" />
+
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fillViewport="false"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/patient_history_tv"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+            android:layout_marginTop="22dp">
+
+            <RadioGroup
+                android:id="@+id/status_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/patientProfile_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/choose_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/profile"
+                    android:textColor="@color/white_blue_choose_selector"
+                    android:textSize="@dimen/_9ssp" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/profile_medicalRecord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/choose_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/medical_history"
+                    android:textColor="@color/white_blue_choose_selector"
+                    android:textSize="@dimen/_9ssp" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/emr_syemtoms_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/choose_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/symtoms"
+                    android:textColor="@color/white_blue_choose_selector"
+                    android:textSize="@dimen/_9ssp" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/emr_profile_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/choose_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/diagnosisandprescriptions"
+                    android:textColor="@color/white_blue_choose_selector"
+                    android:textSize="@dimen/_9ssp" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/emr_account_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/choose_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/accounts"
+                    android:textColor="@color/white_blue_choose_selector"
+                    android:textSize="@dimen/_9ssp" />
+
+            </RadioGroup>
+
+        </HorizontalScrollView>
+
+
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/background_gray_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/patient_profile_layout"
+                    layout="@layout/patient_profile_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/status_radio" />
+
+<!--                <include-->
+<!--                    android:id="@+id/emr_send_layout"-->
+<!--                    layout="@layout/send_emr_layout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/background_gray_toolbar" />-->
+
+                <include
+                    android:id="@+id/patient_emr_layout"
+                    layout="@layout/emr_patient_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/confirm_btn"
+                    app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                    app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                    app:layout_constraintTop_toBottomOf="@id/patient_profile_layout" />
+
+                <FrameLayout
+                    android:id="@+id/mainFrameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/status_radio"/>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirm_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_btn_blue"
+                android:padding="16dp"
+                android:text="Confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/scroll"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

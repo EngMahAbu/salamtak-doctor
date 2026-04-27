@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<!--        <item android:drawable="@drawable/bg_btn_border_gray_transparent_selected" android:state_selected="true"/>-->
+<!--        &lt;!&ndash; focused &ndash;&gt;-->
+<!--        &lt;!&ndash; default &ndash;&gt;-->
+<!--        <item android:drawable="@drawable/bg_btn_gray" android:state_pressed="false"/>-->
+
+<!--        <item-->
+<!--            android:state_pressed="true"-->
+<!--            android:state_enabled="true"-->
+<!--            android:drawable="@drawable/bg_btn_border_gray_transparent_selected" />-->
+<!--        <item-->
+<!--            android:state_focused="true"-->
+<!--            android:state_enabled="true"-->
+<!--            android:drawable="@drawable/bg_btn_border_gray_transparent_selected" />-->
+<!--        <item-->
+<!--            android:state_focused="false"-->
+<!--            android:state_enabled="false"-->
+<!--            android:drawable="@drawable/bg_btn_gray" />-->
+<!--        <item android:drawable="@drawable/bg_btn_gray"/>-->
+        <item android:drawable="@drawable/bg_btn_border_gray_transparent_selected" android:state_pressed="true"></item>
+        <item android:drawable="@drawable/bg_btn_border_gray_transparent_selected" android:state_selected="true"></item>
+
+
+        <item android:drawable="@drawable/bg_btn_gray"></item>
+
+
+</selector>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".salamtak_doctor.chat.ChatFragment">
+
+    <LinearLayout
+        android:id="@+id/ll_dr_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_16ssp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            style="@style/circularImageView"
+            android:id="@+id/iv_bot_profileImg"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:src="@drawable/ff"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/my_font_semibold"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_gravity="center_vertical"
+            android:text="Abc def ghi"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll_dr_name"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@color/gray_bg_color"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_msg"
+        android:layout_below="@+id/ll_dr_name"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_chat_sender_view" />
+    
+    
+    <LinearLayout
+        android:id="@+id/ll_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/choose_selector_clinic_border"
+        android:backgroundTint="#3300D2CB"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:background="@null"
+            android:layout_weight="1"
+            android:hint="Message "/>
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:padding="6dp"
+            android:background="@drawable/bg_spinner_sky"
+            android:src="@drawable/ic_arrow_forward"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

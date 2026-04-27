@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:id="@+id/chooseServices"
+        app:behavior_hideable="true"
+        android:background="@color/bg_color_gray"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+       >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_ExaminationtypeId"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/blue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_Examinationtype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Choose Services"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_cards"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintTop_toBottomOf="@+id/layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_choose"
+        >
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_offerServices"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_layout_services"
+                    app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+            <ProgressBar
+                    android:id="@+id/rv_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/rv_offerServices"
+                    app:layout_constraintStart_toStartOf="@+id/rv_offerServices"
+                    app:layout_constraintBottom_toBottomOf="@+id/rv_offerServices"
+                    app:layout_constraintTop_toTopOf="@+id/rv_offerServices"
+            />
+
+            <TextView android:id="@+id/crd_view"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textColor="@color/red"
+                      android:visibility="gone"
+                      app:layout_constraintStart_toStartOf="@+id/rv_offerServices"
+                      app:layout_constraintEnd_toEndOf="@+id/rv_offerServices"
+                      app:layout_constraintTop_toTopOf="@+id/rv_offerServices"
+                      app:layout_constraintBottom_toBottomOf="@+id/rv_offerServices"
+                      android:textSize="20sp"
+            />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_choose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chooselang_button"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/chooseyourservices"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent=".9" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

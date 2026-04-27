@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/addvideos"
+        app:behavior_hideable="true"
+        android:background="@color/bg_color_gray"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+
+        <TextView
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/avenir_bold"
+            android:text="@string/uploadvideolink"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_noResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/bg_color_gray"
+            app:layout_constraintTop_toBottomOf="@+id/item"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_add"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/background_icon"
+                android:padding="@dimen/_12sdp"
+                android:tint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/et_videoLink"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_plus"/>
+
+            <EditText
+                android:id="@+id/et_videoLink"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_help"
+                android:drawableTint="@color/move"
+                android:hint="@string/addvideolink"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textColorHint="@color/black"
+                android:gravity="center"
+                android:paddingStart="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_add"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_addCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chooselang_button"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent=".9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

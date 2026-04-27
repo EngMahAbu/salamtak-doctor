@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="8dp"
+        android:background="@drawable/otp_border"
+        android:elevation="@dimen/_4sdp"
+        android:padding="@dimen/_8sdp">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/clinic_photo"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/image_placeholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundShep" />
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/view2"-->
+        <!--            android:layout_width="60dp"-->
+        <!--            android:layout_height="60dp"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:elevation="12dp"-->
+        <!--            android:innerRadius="0dp"-->
+        <!--            android:layout_margin="16dp"-->
+        <!--            android:thicknessRatio="1.9"-->
+        <!--            app:cardCornerRadius="10dp"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--        </androidx.cardview.widget.CardView>-->
+
+        <TextView
+            android:id="@+id/clinic_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/avenirs_semibold"
+            android:gravity="start"
+            android:lines="1"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/clinic_photo"
+            app:layout_constraintEnd_toStartOf="@id/iv_call"
+            app:layout_constraintStart_toEndOf="@id/clinic_photo"
+            app:layout_constraintTop_toTopOf="@id/clinic_photo"
+            tools:text="ok" />
+
+        <TextView
+            android:id="@+id/clinic_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:gravity="start"
+            android:lines="1"
+            android:textColor="#8088A4"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_Location"
+            app:layout_constraintStart_toEndOf="@+id/iv_Location"
+            app:layout_constraintTop_toBottomOf="@id/clinic_photo"
+            tools:text="233 A,Haram Street, Giza, Egypt" />
+
+        <TextView
+            android:id="@+id/clinic_appointments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/my_font_regular"
+            android:lines="1"
+            android:textColor="@color/gray_bg_color"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/iv_call"
+            app:layout_constraintStart_toEndOf="@id/view2"
+            app:layout_constraintTop_toBottomOf="@id/clinic_area"
+            tools:text="0114 208 4200" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/delete"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_edit" />
+
+        <ImageView
+            android:id="@+id/iv_Location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/iv_position"
+            app:layout_constraintEnd_toEndOf="@+id/clinic_photo"
+            app:layout_constraintStart_toStartOf="@+id/clinic_photo"
+            app:layout_constraintTop_toBottomOf="@+id/clinic_photo" />
+
+        <TextView
+            android:id="@+id/tv_adddoctors"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_help"
+            android:gravity="center"
+            android:text="Add Doctors"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_delete" />
+
+        <TextView
+            android:id="@+id/tv_ListofDoctors"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_choose_account_unselected"
+            android:gravity="center"
+            android:text="@string/doctor_list"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/tv_adddoctors"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/btn_decline"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_button_delete_doctor"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_edit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@+id/iv_Location"
+            app:layout_constraintTop_toBottomOf="@+id/iv_Location">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/svg_trash" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:text="@string/delete"
+                android:textAllCaps="false"
+                android:textColor="@color/red"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_edit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/bg_button_edit_doctorclinic"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_decline"
+            app:layout_constraintTop_toBottomOf="@+id/iv_Location">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/svg_edit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:text="@string/edit"
+                android:textAllCaps="false"
+                android:textColor="@color/green"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_Packge"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/bg_image_circle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_delete" />
+
+        <TextView
+            android:id="@+id/tv_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$P"
+            android:textColor="@color/blue"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_Packge"
+            app:layout_constraintEnd_toEndOf="@+id/iv_Packge"
+            app:layout_constraintStart_toStartOf="@+id/iv_Packge"
+            app:layout_constraintTop_toTopOf="@id/iv_Packge" />
+
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/edit"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/clinic_area"
+            app:layout_constraintEnd_toStartOf="@id/iv_delete"
+            app:layout_constraintTop_toTopOf="@+id/clinic_name" />
+
+        <ImageView
+            android:id="@+id/iv_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:src="@drawable/ic_call"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/view2"
+            app:layout_constraintEnd_toStartOf="@id/iv_edit"
+            app:layout_constraintTop_toTopOf="@id/view2"
+            app:tint="@color/sky_main" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="notification"
+            type="com.salamtak.domain.entities.response.NotificationData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:padding="@dimen/_8sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/view2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:elevation="12dp"
+            android:innerRadius="0dp"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/notification_photo"
+                imageUrl="@{notification.doctorImage}"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/image_placeholder" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/doctor_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/my_font_semibold"
+            android:lines="1"
+            android:text="@{notification.doctorName}"
+            android:textColor="@color/head_color"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/view2"
+            app:layout_constraintTop_toTopOf="@id/view2"
+            tools:text="Mohamed Mansour" />
+
+        <TextView
+            android:id="@+id/clinic_appointments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/my_font_regular"
+            android:lines="1"
+            android:text="@{notification.medicalExaminationTypeName}"
+            android:textColor="@color/gray_bg_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/view2"
+            app:layout_constraintTop_toBottomOf="@id/doctor_name"
+            tools:text="Clinic Appointments" />
+
+        <TextView
+            android:id="@+id/date_notification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/my_font_regular"
+            android:lines="1"
+            android:maxLength="10"
+            android:text="@{notification.appointmentDate}"
+            android:textColor="@color/head_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/view2"
+            app:layout_constraintTop_toBottomOf="@id/clinic_appointments"
+            tools:text="05/11/2022" />
+
+        <TextView
+            android:id="@+id/time_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/my_font_regular"
+            android:lines="1"
+            android:textColor="@color/head_color"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/date_notification"
+            app:layout_constraintTop_toBottomOf="@id/clinic_appointments"
+            tools:text="05:30 AM" />
+
+        <View
+            android:id="@+id/bottom_line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_notification" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

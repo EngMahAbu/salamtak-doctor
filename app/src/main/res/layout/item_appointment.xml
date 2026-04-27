@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="appointment"
+            type="com.salamtak.domain.entities.response.Item" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_patient_lobby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@drawable/bg_solid_border_more"
+        android:minHeight="50dp"
+        android:orientation="vertical">
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/view2"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_margin="@dimen/_12sdp"-->
+<!--            android:elevation="@dimen/_4sdp"-->
+<!--            android:shape="rectangle"-->
+<!--            app:cardCornerRadius="@dimen/_6sdp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+        .
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_doctor_image"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardclinic"
+                android:layout_width="@dimen/_46sdp"
+                android:layout_height="@dimen/_18sdp"
+                app:cardCornerRadius="@dimen/_4sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:backgroundTint="#EBFAF9"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/doctor_name_textview"
+                app:layout_constraintTop_toBottomOf="@+id/doctor_name_textview"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp">
+            <TextView
+                    android:id="@+id/clinic_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLength="14"
+                    android:visibility="visible"
+                    android:fontFamily="@font/avenir_regular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    tools:text="pending"/>
+            <TextView
+                    android:id="@+id/cancled_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:maxLength="14"
+                    android:fontFamily="@font/avenir_medium"
+                    android:text="@string/canceled"
+                    android:visibility="gone"
+                    android:textColor="#CB544B"
+                    android:textSize="8sp"
+            />
+            <TextView
+                    android:id="@+id/tvProgresstxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:maxLength="14"
+                    android:visibility="gone"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="In Progress"
+                    android:textColor=" #00D2CB"
+                    android:textSize="8sp"/>
+
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/doctor_name_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_19sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/avenir_bold"
+            android:text="@{appointment.patientName}"
+            android:textColor="@color/new_title_color"
+            android:textSize="@dimen/_16ssp"
+            android:singleLine="true"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Mohamed Mansour" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_doctor_image">
+            <RelativeLayout
+                android:id="@+id/rl_layoutdoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/serviceimagedoctor"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:visibility="visible"
+                    android:layout_alignParentStart="true"
+                    imageUrl="@{appointment.DoctorImage}"
+                    android:background="@color/white"
+                    android:scaleType="centerInside"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:id="@+id/doctorname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/serviceimagedoctor"
+                    android:text=""
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    tools:text="doctor name"
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/statues_visit_name_textviewdoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="spec name" />
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_layout1"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/serviceimage"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_alignParentStart="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/new_category"
+                app:shapeAppearanceOverlay="@style/roundShep"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/serviceimage"
+                android:text="@string/type_of_service"
+                android:textColor="@color/new_text_gray"
+                android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_6sdp">
+
+            </TextView>
+
+                        <TextView
+                            android:id="@+id/statues_visit_name_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="@{appointment.medicalExaminationTypeName}"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:layout_centerVertical="true"
+                            android:textSize="@dimen/_10ssp"
+                            tools:text="Home Visit" />
+
+        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/Dateservice"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_alignParentStart="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/new_calendar"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/Dateservice"
+                    android:text="@string/date_of_service"
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/date_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    convertDate="@{appointment.appointmentDate}"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="Tue, 08 Nov.22" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/Timeserviceimage"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_alignParentStart="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/time_circle"
+                    app:tint="@color/new_gray"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/Timeserviceimage"
+                    android:text="@string/time_of_service"
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/time_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10ssp"
+                    convertTime="@{appointment.appointmentDate}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    tools:text="08:00" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/clinicserviceimage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/svg_hospital"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/clinicserviceimage"
+                    android:text="@string/clinic_names"
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/clinicname_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="@{appointment.clinicName}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    tools:text="08:00" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/clinicserviceimage_relation"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/public_relation"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/clinicserviceimage_relation"
+                    android:text="@string/relationtype"
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/relationtv_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="@{appointment.relationshipTypeName}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    tools:text="08:00" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/_10sdp">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/clinicserviceimage_relation_patientname"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/public_relation"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/clinicserviceimage_relation_patientname"
+                    android:text="@string/anthorpatientname"
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/relation_patientname_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="@{appointment.anotherPatientFullName}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    tools:text="08:00" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+<!--        <View-->
+<!--            android:id="@+id/v_h"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:background="@color/gray_light_color"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/date_textview"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+        <LinearLayout
+            android:id="@+id/linearAddBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear">
+
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/cancled_button"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@color/transparent"-->
+<!--                android:text="@string/canceled"-->
+<!--                android:visibility="visible"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="@color/red"-->
+<!--                android:textSize="12sp"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/linear_btn"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"/>-->
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/post_report_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:visibility="gone"
+                android:fontFamily="@font/avenir_regular"
+                android:background="@drawable/otp_border"
+                android:backgroundTint="@color/new_themeBlue_color"
+                android:text="@string/medical_history"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/account_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_blue"
+                android:backgroundTint="@color/new_themeBlue_color"
+                android:fontFamily="@font/avenir_regular"
+                android:text="@string/account"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/completed_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_blue"
+                    android:backgroundTint="@color/green"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/completed"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tv_video_voice_call"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_blue"
+                android:backgroundTint="@color/new_sky_color"
+                android:fontFamily="@font/avenir_regular"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone"
+               />
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cancle_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_blue"
+                    android:text="@string/cancel"
+                    android:backgroundTint="#E8E8FD"
+                    android:fontFamily="@font/avenir_regular"
+                    android:visibility="visible"
+                    android:textAllCaps="false"
+                    android:textColor="@color/new_themeBlue_color"
+                    android:textSize="@dimen/_10ssp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/nowShow_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_blue"
+                    android:text="@string/no_show"
+                    android:backgroundTint="@color/nowshowcolor"
+                    android:fontFamily="@font/avenir_regular"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/video_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_blue"
+                android:text="Video Call"
+                android:visibility="gone"
+                android:textAllCaps="false"
+                android:textColor="@color/sky_main"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/chat_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_weight="2"
+                android:backgroundTint="#00D2CB"
+                android:background="@drawable/bg_btn_blue"
+                android:text="Start Chat"
+                android:fontFamily="@font/avenir_bold"
+                android:visibility="gone"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/action_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:backgroundTint="#E8E8FD"
+                android:fontFamily="@font/avenir_regular"
+                android:background="@drawable/bg_btn_blue"
+                android:text="Actions"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:drawableEnd="@drawable/stroke_1"
+                android:textAllCaps="false"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="@dimen/_10ssp" />
+
+
+
+        </LinearLayout>
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:indeterminateTint="@color/blue"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/linearAddBtn"
+                app:layout_constraintEnd_toEndOf="@+id/linearAddBtn"
+                app:layout_constraintTop_toTopOf="@+id/linearAddBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/linearAddBtn"
+                />
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/cancled_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:text="@string/canceled"-->
+<!--            android:visibility="visible"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/linear_btn"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"/>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

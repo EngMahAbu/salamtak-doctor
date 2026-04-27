@@ -1,0 +1,138 @@
+{
+  "project_info": {
+    "project_number": "842967379495",
+    "project_id": "salamtak-7541a",
+    "storage_bucket": "salamtak-7541a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842967379495:android:05caa3976167dbded56802",
+        "android_client_info": {
+          "package_name": "com.korashiGroup.salamtakPatient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842967379495-8uh14coq1o2ob6nv7smscs4s5l1f036l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyqfBGsIx9wvD2HBpdgb4Z0ak-HMQTyz8"
+        },
+        {
+          "current_key": "AIzaSyB77__pnxFdG2uLQWsyROYSAE2TVmLVz8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842967379495-8uh14coq1o2ob6nv7smscs4s5l1f036l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842967379495-859kvr3u32voacsasglv4fe1h4kfa682.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "korashiGroup.com.app.salamtakDr",
+                "app_store_id": "1665678681"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842967379495:android:d3372fddaf16bfedd56802",
+        "android_client_info": {
+          "package_name": "com.salamtak.salamtakdoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842967379495-8uh14coq1o2ob6nv7smscs4s5l1f036l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyqfBGsIx9wvD2HBpdgb4Z0ak-HMQTyz8"
+        },
+        {
+          "current_key": "AIzaSyB77__pnxFdG2uLQWsyROYSAE2TVmLVz8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842967379495-8uh14coq1o2ob6nv7smscs4s5l1f036l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842967379495-859kvr3u32voacsasglv4fe1h4kfa682.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "korashiGroup.com.app.salamtakDr",
+                "app_store_id": "1665678681"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842967379495:android:ab1cb4d22cdd877cd56802",
+        "android_client_info": {
+          "package_name": "com.salamtakpatient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842967379495-usoha68hkk1h2k9362gt6jt4lgoavpl8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salamtakpatient",
+            "certificate_hash": "abf50f484cdc05daf638368a2b62b2562a117e0d"
+          }
+        },
+        {
+          "client_id": "842967379495-8uh14coq1o2ob6nv7smscs4s5l1f036l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyqfBGsIx9wvD2HBpdgb4Z0ak-HMQTyz8"
+        },
+        {
+          "current_key": "AIzaSyB77__pnxFdG2uLQWsyROYSAE2TVmLVz8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842967379495-8uh14coq1o2ob6nv7smscs4s5l1f036l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842967379495-859kvr3u32voacsasglv4fe1h4kfa682.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "korashiGroup.com.app.salamtakDr",
+                "app_store_id": "1665678681"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

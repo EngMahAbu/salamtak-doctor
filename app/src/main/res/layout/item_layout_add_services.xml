@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_AddInvoice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="5dp"
+                android:drawableStart="@drawable/ic_arrow_down"
+                android:drawableTint="@color/white"
+                android:drawablePadding="10dp"
+                android:background="@drawable/bg_chooselang_button"
+                android:text="@string/addservice"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textAllCaps="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_offerPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="3dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_edittext_gray"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/btn_AddInvoice"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mcaddDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_edittext_invoice"
+                    android:elevation="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:id="@+id/tv_startDate"
+                        android:layout_width="90dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="7dp"
+                        android:gravity="center"
+                        android:background="@drawable/bg_btn_border_gray"
+                        android:textSize="12dp"
+                        android:text="55555"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_startDate" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_startDate"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/calendarblue"
+                        android:tint="@color/green"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textinput_startDate"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:hint="@string/date"
+                        app:hintTextColor="@color/black"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxBackgroundMode="none"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_startdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:inputType="text"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/mcaddDate"
+                    app:layout_goneMarginTop="@dimen/_30sdp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/servicecount"
+                        android:background="#E7EAF3"
+                        app:boxBackgroundMode="none"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="3dp"
+                        app:boxStrokeColor="@color/colorPrimary">
+
+                        <!--this is the actual edit text which takes the input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_service"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:background="#E7EAF3"
+                            android:inputType="text"
+                            android:gravity="start"
+                            android:paddingBottom="3dp"
+                            android:text=""
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/totatFee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/service"
+                    app:layout_goneMarginTop="@dimen/_30sdp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/total_fee"
+                        app:boxBackgroundMode="none"
+                        android:background="#E7EAF3"
+                        android:paddingBottom="3dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <!--this is the actual edit text which takes the input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_fee"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="#E7EAF3"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:text=""
+                            android:paddingTop="2dp"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/egpt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:text="@string/egps"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/head_color"
+                        android:textSize="@dimen/_14ssp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mccardpaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    android:paddingBottom="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/totatFee"
+                    app:layout_goneMarginTop="@dimen/_30sdp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/filledTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/paids"
+                        android:paddingBottom="3dp"
+                        app:boxBackgroundMode="none"
+                        android:background="#E7EAF3"
+                        app:boxStrokeColor="@color/black">
+                        <!--this is the actual edit text which takes the input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_paid"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="#E7EAF3"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:paddingTop="2dp"
+                            android:singleLine="true"
+                            android:text="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/egpp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:text="@string/egps"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/head_color"
+                        android:textSize="@dimen/_14ssp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_AddItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_chooselang_button"
+                    android:text="@string/addinvoice"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mccardpaid"
+                    app:layout_constraintEnd_toStartOf="@+id/layout_delete"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_delete"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/bg_con_gray"
+                    android:padding="8dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_AddItem"
+                    app:layout_constraintTop_toBottomOf="@+id/mccardpaid">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_Sharelink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:text="@string/deleteitem"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:drawableStart="@drawable/ic_delete"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/colorRed"
+                        app:drawableTintMode="src_in"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                    />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

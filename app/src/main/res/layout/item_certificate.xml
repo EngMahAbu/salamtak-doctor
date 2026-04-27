@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:background="@drawable/bg_con_white"
+            android:paddingVertical="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/certificate_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text=""
+                android:textColor="@color/title_color_black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_collapse"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:src="@drawable/ic_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/certificate_label" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toStartOf="@id/iv_collapse"
+                app:layout_constraintTop_toTopOf="@id/certificate_label" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".65" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/reverse_guideline_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".35" />
+
+            <TextView
+                android:id="@+id/title_en_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/title_english"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/certificate_label" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/certificate_title_layout"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_6sdp"-->
+            <!--                android:background="@drawable/bg_btn_border_gray_transprent"-->
+            <!--                android:textColorHint="@color/text_gray"-->
+            <!--                android:visibility="visible"-->
+            <!--                app:boxBackgroundMode="none"-->
+            <!--                app:boxStrokeColor="@color/colorPrimary"-->
+            <!--                app:hintEnabled="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/title_en_tv">-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/certificate_title_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890."
+                android:hint="@string/enter_title"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/guideline_vertical"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/title_en_tv" />
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/desc_en_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/description_english"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/certificate_title_et" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/certificate_body_layout"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_6sdp"-->
+            <!--                android:background="@drawable/bg_btn_border_gray_transprent"-->
+            <!--                android:paddingTop="4dp"-->
+            <!--                android:textColorHint="@color/text_gray"-->
+            <!--                android:visibility="visible"-->
+            <!--                app:boxBackgroundMode="none"-->
+            <!--                app:boxStrokeColor="@color/colorPrimary"-->
+            <!--                app:hintEnabled="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/desc_en_tv">-->
+
+            <EditText
+                android:id="@+id/certificate_body_et"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890."
+                android:gravity="start"
+                android:hint="@string/enter_body"
+                android:inputType="text"
+                android:maxLength="120"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/desc_en_tv" />
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/title_ar_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/enter_title_ar"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/certificate_body_et" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/certificate_title_ar_layout"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                android:background="@drawable/bg_btn_border_gray_transprent"-->
+            <!--                android:textColorHint="@color/text_gray"-->
+            <!--                android:visibility="visible"-->
+            <!--                app:boxBackgroundMode="none"-->
+            <!--                app:boxStrokeColor="@color/colorPrimary"-->
+            <!--                app:hintEnabled="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/title_ar_tv">-->
+
+            <EditText
+                android:id="@+id/certificate_title_ar_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."
+                android:hint="@string/enter_title_ar"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/reverse_guideline_vertical"
+                app:layout_constraintTop_toBottomOf="@id/title_ar_tv" />
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/desc_ar_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/enter_body_ar"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/certificate_title_ar_et" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/certificate_body_ar_layout"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                android:background="@drawable/bg_btn_border_gray_transprent"-->
+            <!--                android:paddingTop="4dp"-->
+            <!--                android:textColorHint="@color/text_gray"-->
+            <!--                android:visibility="visible"-->
+            <!--                app:boxBackgroundMode="none"-->
+            <!--                app:boxStrokeColor="@color/colorPrimary"-->
+            <!--                app:hintEnabled="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/desc_ar_tv">-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/certificate_body_ar_et"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."
+                android:gravity="start"
+                android:hint="@string/enter_body_ar"
+                android:inputType="text"
+                android:maxLength="120"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/desc_ar_tv" />
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+            <TextView
+                android:id="@+id/date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/certificate_year"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/certificate_body_ar_et" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/date_layout"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="16dp"-->
+            <!--                android:layout_marginTop="@dimen/_6sdp"-->
+            <!--                android:background="@drawable/bg_btn_border_gray_transprent"-->
+            <!--                android:textColorHint="@color/text_gray"-->
+            <!--                android:visibility="visible"-->
+            <!--                app:boxBackgroundMode="none"-->
+            <!--                app:boxStrokeColor="@color/colorPrimary"-->
+            <!--                app:hintEnabled="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/date_label"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/certificate_body_ar_layout">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/birth_et"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="22dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:background="@drawable/bg_btn_border_gray_transprent"-->
+<!--                android:digits="0123456789"-->
+<!--                android:hint="-&#45;&#45;&#45;&#45;&#45;&#45;"-->
+<!--                android:inputType="number"-->
+<!--                android:maxLength="4"-->
+<!--                android:padding="8dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_12ssp"-->
+<!--                android:visibility="gone"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/date_label"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/certificate_body_ar_et" />-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/new_tv"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@+id/date_label">
+
+                <!-- Inside text input layout add
+                      an auto complete text view
+                        and make its input type to none-->
+                <AutoCompleteTextView
+                    android:id="@+id/birth_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:drawableStart="@drawable/ic_new_calender"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:text=""
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/year_error_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="Year is not valid"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_14ssp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/new_tv" />
+
+            <include
+                android:id="@+id/upload_layout"
+                layout="@layout/upload_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/new_tv" />
+
+            <TextView
+                android:id="@+id/photo_error_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/cert_photo_required"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_14ssp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_layout" />
+
+            <TextView
+                android:id="@+id/submit_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                android:fontFamily="@font/my_font_regular"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/submit"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_15ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/photo_error_txt" />
+
+            <TextView
+                android:id="@+id/edit_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/bg_btn_border_gray_transprent"
+                android:fontFamily="@font/my_font_regular"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/edit"
+                android:textColor="@color/head_color"
+                android:textSize="@dimen/_15ssp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+                app:layout_constraintStart_toStartOf="@id/start_guid_line"
+                app:layout_constraintTop_toBottomOf="@id/photo_error_txt" />
+
+            <!--        <androidx.appcompat.widget.AppCompatButton-->
+            <!--            android:id="@+id/submit_btn"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_margin="22dp"-->
+            <!--            android:background="@drawable/bg_light_gray_solid"-->
+            <!--            android:drawableTint="#A0A0A0"-->
+            <!--            android:text="@string/submit"-->
+            <!--            android:visibility="gone"-->
+            <!--            android:textAllCaps="false"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/photo_error_txt"/>-->
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guid_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guid_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+                                       xmlns:app="http://schemas.android.com/apk/res-auto"
+                                       xmlns:tools="http://schemas.android.com/tools"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="match_parent"
+                                       tools:context=".salamtakdoctor.salamtak_doctor.patientProfile.EmrFragment">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        android:background="@color/bg_color_gray"
+            android:orientation="vertical">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:src="@drawable/ic_arrowleft"
+                    app:tint="@color/black"/>
+
+
+            <TextView
+                    android:id="@+id/patient_history_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:gravity="center"
+                    android:text="@string/add_emr"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:layout_toEndOf="@id/iv_back"
+                    android:textSize="@dimen/_14ssp"
+            />
+            <TextView
+                    android:id="@+id/confirmBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:gravity="center"
+                    android:text="@string/save"
+                   android:visibility="gone"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/new_themeBlue_color"
+                    android:textSize="@dimen/_12ssp"
+            />
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/emr_send_layout"
+            layout="@layout/send_emr_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="@id/end_guid_line"
+            app:layout_constraintStart_toStartOf="@id/start_guid_line"
+            app:layout_constraintTop_toBottomOf="@id/background_gray_toolbar" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

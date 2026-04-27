@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/splashFragment">
+
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.login.newLogIn.NewLogInFragment"
+            android:label="LoginFragment">
+        <action
+                android:id="@+id/action_homeFragment_to_signInFragment"
+                app:destination="@id/homeFragment"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_polyClinicAdminFragment"
+            app:destination="@id/polyClinicAdminFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/screen1Fragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash2.screen.Screen1Fragment"
+            android:label="Screen1Fragment">
+        <action android:id="@+id/action_screen1Fragment_to_splashFragment" app:destination="@id/splashFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/AddnewVacation"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.AddNewVacation.AddNewVacation"
+            android:label="AddnewVacation"
+            tools:layout="@layout/fragment_add_new_vacation"/>
+    <fragment
+            android:id="@+id/screen2Fragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash2.screen.Screen2Fragment"
+            android:label="Screen2Fragment"/>
+    <fragment
+            android:id="@+id/splash2Fragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash2.Splash2Fragment"
+            android:label="Splash2Fragment">
+        <action android:id="@+id/action_splash2Fragment_to_splashFragment" app:destination="@id/splashFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/screen3Fragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash2.screen.Screen3Fragment"
+            android:label="Screen3Fragment"/>
+    <fragment
+            android:id="@+id/splashFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash1.SplashFragment"
+            android:label="SplashFragment"/>
+    <fragment
+            android:id="@+id/chooseFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.choose.ChooseFragment"
+            android:label="ChooseFragment"/>
+    <fragment
+            android:id="@+id/Specaility"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.SpecialityFragment"
+            android:label="Specailty"
+            tools:layout="@layout/fragment_speciality"/>
+    <fragment
+            android:id="@+id/signUpFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.register.SignUpFragment"
+            android:label="SignUpFragment"
+            tools:layout="@layout/fragment_signup"
+
+    >
+        <argument
+            android:name="typId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+            android:id="@+id/forgetPasswordFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.reset_password.ForgetPasswordFragment"
+            android:label="ForgetPasswordFragment"/>
+    <fragment
+            android:id="@+id/newPasswordFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.reset_password.NewPasswordFragment"
+            android:label="NewPasswordFragment"/>
+    <fragment
+            android:id="@+id/otpFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.otp.OtpFragment"
+            android:label="OtpFragment">
+        <action
+            android:id="@+id/action_otpFragment_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/resetOtpFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.reset_password.ResetOtpFragment"
+            android:label="ResetOtpFragment"/>
+    <fragment
+            android:id="@+id/setupProfileFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.profile.profile.SetupProfileFragment"
+            android:label="SetupProfileFragment">
+        <action
+                android:id="@+id/action_logout_3"
+                app:destination="@id/chooseFragment"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+        <argument
+            android:name="clinicid"
+            app:argType="integer" />
+        <argument
+            android:name="editProfile"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/certificatesFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.profile.certificates.CertificatesFragment"
+            android:label="CertificatesFragment">
+        <action
+                android:id="@+id/action_logout_cert"
+                app:destination="@id/chooseFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+            android:id="@+id/documentsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.profile.docs.DocumentsFragment"
+            android:label="DocumentsFragment">
+        <action
+                android:id="@+id/action_logout_docs"
+                app:destination="@id/chooseFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+        <action
+                android:id="@+id/action_documentsFragment_to_homeFragment"
+                app:destination="@id/homeFragment"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+            android:id="@+id/addNewClinicFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.clinic.AddNewClinicFragment"
+            android:label="AddNewClinicFragment">
+        <action
+                android:id="@+id/action_logout_clinic"
+                app:destination="@id/chooseFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+            android:id="@+id/createClinicGalleryFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.clinic.create_gallery.CreateClinicGalleryFragment"
+            android:label="CreateClinicGalleryFragment">
+
+        <action
+                android:id="@+id/action_logout_gallery"
+                app:destination="@id/chooseFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/locationFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.clinics.LocationFragment"
+            android:label="locationFragment"
+            tools:layout="@layout/fragment_location"/>
+    <fragment
+            android:id="@+id/clinicScheduleFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.services.SetupServicesFragment"
+            android:label="ClinicScheduleFragment">
+
+        <action
+                android:id="@+id/action_logout_Schedule"
+                app:destination="@id/chooseFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+
+    </fragment>
+    <fragment
+            android:id="@+id/setupServicesFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.services.SetupServicesFragment"
+            android:label="SetupServicesFragment"/>
+
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.home.HomeFragment"
+            android:label="HomeFragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_salamtakgatesFragment"
+            app:destination="@id/salamtakgatesFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/appointmentsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.AppointmentsFragment"
+            android:label="AppointmentsFragment"
+            tools:layout="@layout/fragment_appointments"
+    >
+        <action android:id="@+id/action_appointmentsFragment_to_dialogCalling" app:destination="@id/dialogCalling"/>
+        <action android:id="@+id/action_appointmentsFragment_to_agoraDialogFragment"
+                app:destination="@id/agoraDialogFragment"/>
+        <action android:id="@+id/action_appointmentsFragment_to_videoCallFragment"
+                app:destination="@id/videoCallFragment"/>
+        <action android:id="@+id/action_appointmentsFragment_to_audioCallFragment"
+                app:destination="@id/audioCallFragment"/>
+
+    </fragment>
+    <fragment
+            android:id="@+id/clinicsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.clinics.ClinicsFragment"
+            android:label="ClinicsFragment">
+        <action android:id="@+id/action_clinicsFragment_to_statisticsFragment"
+                app:destination="@id/statisticsFragment"/>
+        <action
+            android:id="@+id/action_clinicsFragment_to_appointmentsFragment"
+            app:destination="@id/appointmentsFragment" />
+        <action
+            android:id="@+id/action_clinicsFragment_to_appointmentFragment"
+            app:destination="@id/appointmentFragment" />
+        <action
+            android:id="@+id/action_clinicsFragment_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+        <action
+            android:id="@+id/action_clinicsFragment_to_polyClinicsDoctorsFragment"
+            app:destination="@id/polyClinicsDoctorsFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/moreSettingsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.more.MoreSettingsFragment"
+            android:label="MoreSettingsFragment">
+        <action
+                android:id="@+id/action_logout_settings"
+                app:destination="@id/chooseFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+            android:id="@+id/doctorProfileFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileFragment"
+            android:label="DoctorProfileFragment"
+            tools:layout="@layout/fragment_doctor_profile"
+    />
+    <fragment
+            android:id="@+id/moreFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.more.MoreFragment"
+            android:label="fragment_more"
+            tools:layout="@layout/fragment_more">
+        <action
+                android:id="@+id/action_moreFragment_to_chooseFragment"
+                app:destination="@id/chooseFragment"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_moreFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/patientProfileFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.patientProfile.PatientProfileFragment"
+            android:label="fragment_patient_profile"
+            tools:layout="@layout/fragment_patient_profile"/>
+    <fragment
+            android:id="@+id/filterFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.filter.FilterFragment"
+            android:label="FilterFragment"/>
+    <fragment
+            android:id="@+id/showImageFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.showImage.ShowImageFragment"
+            android:label="fragment_show_image"
+            tools:layout="@layout/fragment_show_image"/>
+    <fragment
+            android:id="@+id/aboutUsFragment"
+            android:name="com.salamtak.salamtakdoctor.aboutUs.AboutUsFragment"
+            android:label="AboutUsFragment"
+            tools:layout="@layout/fragment_about_us"/>
+    <fragment
+            android:id="@+id/webViewFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.webView.WebViewFragment"
+            android:label="fragment_web_view"
+            tools:layout="@layout/fragment_web_view"/>
+    <fragment
+            android:id="@+id/languageFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.services.language.LanguageFragment"
+            android:label="fragment_language"
+            tools:layout="@layout/fragment_language">
+        <action
+                android:id="@+id/action_languageFragment_to_splash2Fragment"
+                app:destination="@id/splash2Fragment"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/patientAccountFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.patientAccount.PatientAccountFragment"
+            android:label="fragment_patient_account"
+            tools:layout="@layout/fragment_patient_account"/>
+    <fragment
+            android:id="@+id/notificationFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.notification.NotificationFragment"
+            android:label="NotificationFragment"/>
+    <fragment
+            android:id="@+id/termsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.more.terms.TermsFragment"
+            android:label="fragment_terms"
+            tools:layout="@layout/fragment_terms"/>
+    <fragment
+            android:id="@+id/whatsUpFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.whatsup.WhatsUpFragment"
+            android:label="WhatsUpFragment">
+        <action android:id="@+id/action_whatsUpFragment_to_salamtakgatesFragment"
+                app:destination="@id/salamtakgatesFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/vacationClinicFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.clinic.vacation.VacationClinicFragment"
+            android:label="fragment_vacation_clinic"
+            tools:layout="@layout/fragment_vacation_clinic"/>
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/videoCallSdk"-->
+    <!--        android:name="com.salamtak.salamtakdoctor.salamtak_doctor.VideoCall.VideoCallFragment"-->
+    <!--        android:label="fragment_video_call"-->
+    <!--        tools:layout="@layout/fragment_video_call" />-->
+
+    <fragment
+            android:id="@+id/chatFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.chat.ChatFragment"
+            android:label="fragment_chat"
+            tools:layout="@layout/fragment_chat"/>
+
+    <fragment
+            android:id="@+id/passwordResetSuccess"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.auth.reset_password.SuccessfullyPasswordFragment"
+            android:label="fragment_passwordResetSuccess"
+            tools:layout="@layout/fragment_successfully_password"/>
+
+    <fragment
+            android:id="@+id/editDoctorProfileFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.EditDoctorProfileFragment"
+            android:label="fragment_editDoctorProfileFragment"
+            tools:layout="@layout/fragment_edit_doctor_profile"/>
+
+    <fragment
+            android:id="@+id/thankYouFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.Clinicprofile_lastScreen"
+            android:label="Thanks Fragment">
+        <action
+                android:id="@+id/action_thankYouFragment_to_addNewClinic"
+                app:destination="@id/addNewClinicFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+            android:id="@+id/emrFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.patientProfile.EmrFragment"
+            android:label="Emr Fragment"/>
+    <dialog android:id="@+id/dialogCalling" android:name="com.salamtak.salamtakdoctor.dialog.DialogCalling"
+            android:label="dialog_calling" tools:layout="@layout/dialog_calling"/>
+    <dialog android:id="@+id/dailogDatePickerFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.newbottomsheet.DailogDatePickerFragment"
+            android:label="dailog_date_pickerfragment" tools:layout="@layout/dailog_date_pickerfragment">
+        <argument
+            android:name="status"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
+    <dialog android:id="@+id/agoraDialogFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.newbottomsheet.AgoraDialogFragment"
+            android:label="agora_dialogfragment" tools:layout="@layout/agora_dialogfragment">
+        <argument android:name="token" app:argType="string" app:nullable="true"/>
+        <argument android:name="chanelname" app:argType="string" app:nullable="true"/>
+        <action android:id="@+id/action_agoraDialogFragment_to_videoCallFragment"
+                app:destination="@id/videoCallFragment"/>
+    </dialog>
+    <fragment android:id="@+id/videoCallFragment"
+              android:name="com.salamtak.salamtakdoctor.salamtak_doctor.Agora.VideoCallFragment"
+              android:label="VideoCallFragment"
+              tools:layout="@layout/video_callfragment"
+    >
+        <argument android:name="token" app:argType="string" app:nullable="true"/>
+        <argument android:name="chennelname" app:argType="string" app:nullable="true"/>
+        <argument android:name="appointementId" app:argType="integer"/>
+        <argument android:name="link" app:argType="string" app:nullable="true"/>
+    </fragment>
+    <fragment android:id="@+id/salamtakgatesFragment"
+              android:name="com.salamtak.salamtakdoctor.salamtakgates.SalamtakgatesFragment"
+              android:label="salamtakgatesfragment" tools:layout="@layout/salamtakgatesfragment">
+        <argument android:name="gateid" app:argType="integer"/>
+        <action android:id="@+id/action_salamtakgatesFragment_to_gatesDetailsFragment"
+                app:destination="@id/gatesDetailsFragment"/>
+        <action android:id="@+id/action_salamtakgatesFragment_to_dialogBottomSheetFragment"
+                app:destination="@id/dialogBottomSheetFragment"/>
+    </fragment>
+    <fragment android:id="@+id/gatesDetailsFragment"
+              android:name="com.salamtak.salamtakdoctor.salamtakgates.GatesDetailsFragment"
+              android:label="GatesDetailsFragment">
+        <argument android:name="gatesdetails" app:argType="com.salamtak.salamtakdoctor.salamtakgates.GatesDetails"
+                  app:nullable="true"/>
+        <action android:id="@+id/action_gatesDetailsFragment_to_referenceFragment"
+                app:destination="@id/referenceFragment"/>
+        <action android:id="@+id/action_gatesDetailsFragment_to_salamtakgatesFragment"
+                app:destination="@id/salamtakgatesFragment"/>
+    </fragment>
+    <fragment android:id="@+id/referenceFragment"
+              android:name="com.salamtak.salamtakdoctor.salamtakgates.ReferenceFragment"
+              android:label="ReferenceFragment">
+        <argument android:name="link" app:argType="string" app:nullable="true"/>
+    </fragment>
+    <fragment android:id="@+id/statisticsFragment"
+              android:name="com.salamtak.salamtakdoctor.statistics.StatisticsFragment"
+              android:label="StatisticsFragment">
+        <argument android:name="clincId" app:argType="integer"/>
+        <action android:id="@+id/action_statisticsFragment_to_statisticsDialogFragment"
+                app:destination="@id/statisticsDialogFragment"/>
+        <action android:id="@+id/action_statisticsFragment_to_otherPackagesFragment"
+                app:destination="@id/otherPackagesFragment"/>
+        <action
+            android:id="@+id/action_statisticsFragment_to_appointmentFragment"
+            app:destination="@id/appointmentFragment" />
+        <action
+            android:id="@+id/action_statisticsFragment_self"
+            app:destination="@id/statisticsFragment" />
+    </fragment>
+    <dialog android:id="@+id/otherPackagesFragment"
+            android:name="com.salamtak.salamtakdoctor.statistics.OtherPackagesFragment"
+            android:label="OtherPackagesFragment">
+        <argument android:name="clincId" app:argType="integer"/>
+        <action android:id="@+id/action_otherPackagesFragment_to_statisticsFragment"
+                app:destination="@id/statisticsFragment"/>
+    </dialog>
+    <dialog android:id="@+id/statisticsDialogFragment"
+            android:name="com.salamtak.salamtakdoctor.statistics.StatisticsDialogFragment"
+            android:label="StatisticsDialogFragment">
+        <argument android:name="status" app:argType="boolean"/>
+        <argument android:name="clinksAppointement"
+                  app:argType="com.salamtak.salamtakdoctor.statistics.model.ClinksAppointements" app:nullable="true"/>
+        <argument android:name="type" app:argType="string" app:nullable="true"/>
+    </dialog>
+    <fragment android:id="@+id/notificationListFragment"
+              android:name="com.salamtak.salamtakdoctor.notification.NotificationListFragment"
+              android:label="NotificationListFragment"/>
+    <fragment android:id="@+id/audioCallFragment"
+              android:name="com.salamtak.salamtakdoctor.salamtak_doctor.Agora.AudioCallFragment"
+              android:label="AudioCallFragment">
+        <argument android:name="token" app:argType="string" app:nullable="true"/>
+        <argument android:name="channelname" app:argType="string" app:nullable="true"/>
+        <argument android:name="image" app:argType="string" app:nullable="true"/>
+        <argument android:name="name" app:argType="string" app:nullable="true"/>
+        <argument android:name="appointmentId" app:argType="integer"/>
+    </fragment>
+    <dialog android:id="@+id/dialogBottomSheetFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.newbottomsheet.DialogBottomSheetFragment"
+            android:label="dialog_bottom_sheetfragment" tools:layout="@layout/dialog_bottom_sheetfragment">
+        <argument android:name="status" app:argType="string" app:nullable="true"/>
+    </dialog>
+    <fragment android:id="@+id/aboutAppFragment"
+              android:name="com.salamtak.salamtakdoctor.webview.AboutAppFragment"
+              android:label="AboutAppFragment"/>
+    <fragment android:id="@+id/privacyPolicyFragment"
+              android:name="com.salamtak.salamtakdoctor.webview.PrivacyPolicyFragment"
+              android:label="PrivacyPolicyFragment"/>
+    <dialog android:id="@+id/dialogDeleteBottomSheet"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.newbottomsheet.DialogDeleteBottomSheet"
+            android:label="DialogDeleteBottomSheet"/>
+    <fragment
+        android:id="@+id/appointmentFragment"
+        android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.AppointmentFragment"
+        android:label="AppointmentFragment" >
+        <argument
+            android:name="clinicId"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_appointmentFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_appointmentFragment_self"
+            app:destination="@id/appointmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offersFragment"
+        android:name="com.salamtak.salamtakdoctor.offers.OffersFragment"
+        android:label="offersfragment"
+        tools:layout="@layout/offersfragment" >
+        <action
+            android:id="@+id/action_offersFragment_to_addOffersFragment"
+            app:destination="@id/addOffersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOffersFragment"
+        android:name="com.salamtak.salamtakdoctor.offers.AddOffersFragment"
+        android:label="add_offersfragment"
+        tools:layout="@layout/add_offersfragment" >
+        <action
+            android:id="@+id/action_addOffersFragment_to_dialogBottomSheetFragment"
+            app:destination="@id/dialogBottomSheetFragment" />
+        <action
+            android:id="@+id/action_addOffersFragment_to_dailogDatePickerFragment"
+            app:destination="@id/dailogDatePickerFragment" />
+        <argument
+            android:name="offerId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterpriseInfoFragment"
+        android:name="com.salamtak.salamtakdoctor.polyclinics.EnterpriseInfoFragment"
+        android:label="EnterpriseInfoFragment" >
+        <action
+            android:id="@+id/action_enterpriseInfoFragment_to_polyClinicAdminFragment"
+            app:destination="@id/polyClinicAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/polyClinicAdminFragment"
+        android:name="com.salamtak.salamtakdoctor.polyclinics.PolyClinicAdminFragment"
+        android:label="PolyClinicAdminFragment" >
+        <argument
+            android:name="ownerId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_polyClinicAdminFragment_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/polyClinicsDoctorsFragment"
+        android:name="com.salamtak.salamtakdoctor.polyclinics.PolyClinicsDoctorsFragment"
+        android:label="poly_clinics_doctorsfragment"
+        tools:layout="@layout/poly_clinics_doctorsfragment" >
+        <argument
+            android:name="clinicId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_polyClinicsDoctorsFragment_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+        <action
+            android:id="@+id/action_polyClinicsDoctorsFragment_to_polyClinicsScheduleFragment"
+            app:destination="@id/polyClinicsScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/polyClinicsScheduleFragment"
+        android:name="com.salamtak.salamtakdoctor.polyclinics.PolyClinicsScheduleFragment"
+        android:label="PolyClinicsScheduleFragment" >
+        <argument
+            android:name="clinicId"
+            app:argType="integer" />
+        <argument
+            android:name="doctorId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editEnterpriseInfoFragment"
+        android:name="com.salamtak.salamtakdoctor.polyclinics.EditEnterpriseInfoFragment"
+        android:label="EditEnterpriseInfoFragment" />
+    <fragment
+        android:id="@+id/editPolyClinicAdminFragment"
+        android:name="com.salamtak.salamtakdoctor.polyclinics.EditPolyClinicAdminFragment"
+        android:label="EditPolyClinicAdminFragment" />
+    <fragment
+        android:id="@+id/chooseClinicsFragment"
+        android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.home.ChooseClinicsFragment"
+        android:label="choose_clinicsfragment"
+        tools:layout="@layout/choose_clinicsfragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/doctorsVideosFragment"
+        android:name="com.salamtak.salamtakdoctor.doctorvideos.DoctorsVideosFragment"
+        android:label="doctors_videosfragment"
+        tools:layout="@layout/doctors_videosfragment" />
+    <fragment
+        android:id="@+id/myQuestionsFragment"
+        android:name="com.salamtak.salamtakdoctor.askAndanswer.MyQuestionsFragment"
+        android:label="MyQuestionsFragment" />
+    <fragment
+        android:id="@+id/answersFragment"
+        android:name="com.salamtak.salamtakdoctor.askAndanswer.AnswersFragment"
+        android:label="AnswersFragment" />
+    <fragment
+        android:id="@+id/doctorAccountFragment"
+        android:name="com.salamtak.salamtakdoctor.patient.DoctorAccountFragment"
+        android:label="doctor_accountfragment"
+        tools:layout="@layout/doctor_accountfragment" />
+    <fragment
+        android:id="@+id/patientSyemtomsFragment"
+        android:name="com.salamtak.salamtakdoctor.askAndanswer.PatientSyemtomsFragment"
+        android:label="patient_syemtomsfragment"
+        tools:layout="@layout/patient_syemtomsfragment" />
+
+
+</navigation>

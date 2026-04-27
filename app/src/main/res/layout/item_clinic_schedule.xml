@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_12sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:elevation="@dimen/_4sdp"
+                app:cardBackgroundColor="@color/bg_color_gray"
+                app:cardCornerRadius="@dimen/_2sdp"
+                app:strokeColor="#E9EAEF"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/otp_border"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/services_Image"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_12sdp"
+                            android:background="#E8E8FD"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/image_placeholder"
+                            app:shapeAppearanceOverlay="@style/roundShep">
+
+                        </com.google.android.material.imageview.ShapeableImageView>
+
+                        <TextView
+                            android:id="@+id/clinic_servicesId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_toRightOf="@id/services_Image"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/clinics_appoitment"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/clinic_servicesid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_toLeftOf="@id/services_Image"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/clinics_appoitment"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/editappointment"
+                            android:layout_width="@dimen/_19sdp"
+                            android:layout_height="@dimen/_19sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_32sdp"
+                            android:layout_marginBottom="@dimen/_12sdp"
+                            android:layout_alignParentEnd="true"
+                            android:padding="@dimen/_2sdp"
+                            android:src="@drawable/edit_square"
+                            android:visibility="visible">
+                        </ImageView>
+                        <ImageView
+                            android:id="@+id/iv_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:src="@drawable/delete"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/operating_Date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/avenir_medium"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        tools:text="0000000000000">
+
+                    </TextView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_12sdp">
+
+                        <TextView
+                            android:id="@+id/operation_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/operatinghours"
+                            android:textColor="#B7B7B7"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+
+                        <TextView
+                            android:id="@+id/operating_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/operation_text"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="02:30 PM - 06:00 PM"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/booking_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/max_no_of_bookings"
+                            android:textColor="#B7B7B7"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/maxBooking"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/booking_text"
+                            android:layout_alignStart="@+id/booking_text"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <TextView
+                            android:id="@+id/check_up"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/operating_time"
+                            android:layout_alignParentStart="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/clinic_check_up_fee"
+                            android:textColor="#B7B7B7"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/clinic_fees_et"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/check_up"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="110"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/EGIfee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/check_up"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_toEndOf="@id/clinic_fees_et"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/egps"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/clinic_follow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/maxBooking"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_18sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/follow_up_fee"
+                            android:textColor="#B7B7B7"
+                            android:textSize="@dimen/_10ssp">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/clinic_follow_up_fees_et"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/clinic_follow"
+                            android:layout_alignStart="@+id/booking_text"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="200"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <TextView
+                            android:id="@+id/EGIfee2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/clinic_follow"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_toEndOf="@id/clinic_follow_up_fees_et"
+                            android:fontFamily="@font/avenir_medium"
+                            android:text="@string/egps"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/operation_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/operating_hours"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/operating_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:hint="@string/operating_hours"
+                    android:inputType="none"
+                    android:padding="12dp"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toBottomOf="@+id/operation_txt" />
+
+                <TextView
+                    android:id="@+id/duration_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/time_patient_slot_time"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/operating_et" />
+
+                <TextView
+                    android:id="@+id/duration_select"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_spinner_sky_drop"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center_vertical"
+                    android:hint="@string/time_patient_slot_time"
+                    android:padding="12dp"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/duration_txt" />
+
+                <TextView
+                    android:id="@+id/clinic_fees_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/clinic_check_up_fee"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/duration_select" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/clinic_fees_et1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:hint="@string/clinic_fees"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clinic_fees_txt" />
+
+                <TextView
+                    android:id="@+id/error_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="4dp"
+                    android:elevation="@dimen/_5sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Please Complete All Data"
+                    android:textColor="@color/red"
+                    android:textSize="11sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clinic_fees_et1" />
+
+                <TextView
+                    android:id="@+id/clinic_follow_up_fees_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/clinic_follow_up_fee"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/error_msg" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/clinic_follow_up_fees_et1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:hint="@string/clinic_follow_up_fee"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clinic_follow_up_fees_txt" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/period_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="28dp"
+                    android:checked="true"
+
+                    android:elevation="@dimen/_3sdp"
+                    android:thumb="@drawable/switch_thumb_selector"
+                    app:layout_constraintEnd_toEndOf="@+id/submit_btn"
+                    app:layout_constraintHorizontal_bias="0.395"
+                    app:layout_constraintStart_toStartOf="@+id/submit_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/clinic_follow_up_fees_et1"
+                    app:track="@drawable/switch_selector" />
+
+                <TextView
+                    android:id="@+id/submit_btn"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/otp_border"
+                    android:fontFamily="@font/my_font_regular"
+                    android:gravity="center"
+                    android:text="@string/submit"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/clinic_follow_up_fees_et1"
+                    app:layout_constraintStart_toStartOf="@+id/clinic_follow_up_fees_et1"
+                    app:layout_constraintTop_toBottomOf="@+id/period_switch" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

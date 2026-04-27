@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@color/bg_color_gray"
+  >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/alllayout_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/profile_bottom_toolbar"
+    >
+    <LinearLayout
+        android:id="@+id/layout_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/new_theme_color">
+
+            <include
+                android:id="@+id/head_toolbar"
+                layout="@layout/profile_toolbar"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="12dp"
+                android:layout_height="40dp" />
+
+           <ScrollView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:fitsSystemWindows="true"
+               android:fillViewport="true">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical">
+
+                   <include
+                       android:id="@+id/add_certificate"
+                       layout="@layout/item_view_certificate"
+                       android:layout_width="match_parent"
+                       android:visibility="visible"
+                       android:layout_marginStart="5dp"
+                       android:layout_marginEnd="5dp"
+                       android:layout_height="wrap_content" />
+
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/certificatesRv"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_above="@id/add_certificate_btn"
+                       android:layout_marginStart="5dp"
+                       android:layout_marginTop="5dp"
+                       android:layout_marginEnd="5dp"
+                       android:orientation="vertical"
+                       android:nestedScrollingEnabled="false"
+                       android:layout_marginBottom="5dp"
+                       tools:itemCount="1"
+                       tools:listitem="@layout/new_item_certificate_table"/>
+
+               </LinearLayout>
+
+
+           </ScrollView>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/add_certificate_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_above="@id/profile_bottom_toolbar"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_btn_border_blue"
+                android:fontFamily="@font/avenirs_semibold"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="+ Add Another Certificate"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="14dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <include
+              android:id="@+id/profile_bottom_toolbar"
+              layout="@layout/bottom_tb_layout"
+              android:visibility="visible"
+              android:layout_width="match_parent"
+              android:layout_height="50dp"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/alllayout_view"
+      />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

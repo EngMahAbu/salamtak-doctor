@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".salamtak_doctor.presentation.ui.setup.clinic.vacation.VacationClinicFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/newlinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp">
+
+                <include
+                    android:id="@+id/clinic_toolbar"
+                    layout="@layout/clinic_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <RelativeLayout
+                    android:id="@+id/clinics_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_editClinicstxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:drawablePadding="@dimen/_6sdp"
+                        android:drawableStart="@drawable/group_70328"
+                        android:fontFamily="@font/avenir_bold"
+                        android:text="@string/edit_clinic"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16ssp">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tv_saveedit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/avenir_bold"
+                        android:text="@string/save_edit"
+                        android:visibility="gone"
+                        android:textColor="@color/new_themeBlue_color"
+                        android:textSize="@dimen/_10ssp">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <RadioGroup
+                    android:id="@+id/steps_radio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:weightSum="5"
+                    android:layout_marginHorizontal="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clinics_tv">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/info_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/info_clinic"
+                        android:textColor="@color/choose_selector"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="@font/avenir_medium"  />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/location_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/location"
+                        android:textColor="@color/choose_selector"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="@font/avenir_medium"  />
+
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/schedule_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/schedule"
+                        android:textColor="@color/choose_selector"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="@font/avenir_medium"  />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/vaction_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:checked="true"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/vacations"
+                        android:textColor="@color/choose_selector"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="@font/avenir_medium"  />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/gallery_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/choose_selector_language"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/gallery"
+                        android:textColor="@color/choose_selector"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="@font/avenir_medium" />
+
+                </RadioGroup>
+
+
+
+                <TextView
+                    android:id="@+id/patient_account_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/my_font_bold"
+                    android:gravity="center"
+                    android:text="@string/patient_account"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_20ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/vactoion_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:text="@string/vaction_name"
+                    android:visibility="gone"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/steps_radio" />
+
+                <EditText
+                    android:id="@+id/vactoion_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:hint="@string/enter_vaction_name"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@id/vactoion_tv" />
+
+                <TextView
+                    android:id="@+id/vactoion_from_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:text="@string/vaction_data_from"
+                    android:visibility="gone"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vactoion_et" />
+
+                <TextView
+                    android:id="@+id/vactoion_from_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@id/vactoion_from_tv" />
+
+                <TextView
+                    android:id="@+id/vactoion_to_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:text="@string/vaction_data_to"
+                    android:visibility="gone"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vactoion_from_et" />
+
+                <TextView
+                    android:id="@+id/vactoion_to_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@id/vactoion_to_tv" />
+
+                <TextView
+                    android:id="@+id/clinic_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:text="@string/clinic"
+                    android:visibility="gone"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vactoion_to_et" />
+
+                <TextView
+                    android:id="@+id/clinic_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:hint="@string/all_clinics"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_spinner_sky_drop2"
+                    app:layout_constraintTop_toBottomOf="@id/clinic_tv" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/Nationals"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/steps_radio">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:buttonTint="@color/new_themeBlue_color"
+                            >
+
+                        </CheckBox>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/national_vacancy"
+                            android:layout_marginStart="-10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:fontFamily="@font/avenir_bold"
+                            >
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vaction_data_rv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    tools:listitem="@layout/item_vaction"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/add_new_vactions"
+                    app:layout_constraintTop_toBottomOf="@+id/Nationals"/>
+
+                <RelativeLayout
+                        android:id="@+id/add_new_vactions"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_42sdp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:backgroundTint="#E8E8FD"
+                        android:background="@drawable/otp_border"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.483">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableStart="@drawable/plus"
+                            android:drawablePadding="@dimen/_4sdp"
+                            android:text="@string/add_new_vacation"
+                            android:textColor="@color/new_themeBlue_color"
+                            android:textSize="@dimen/_12ssp">
+
+                    </TextView>
+
+                </RelativeLayout>
+                <HorizontalScrollView
+                    android:id="@+id/table"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:measureAllChildren="false"
+                    android:layout_marginTop="20dp"
+                    android:scrollbars="none"
+                    android:visibility="gone"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linear">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:background="@drawable/table_border"
+                            android:stretchColumns="1,2,3,4,5">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_column="1"
+                                    android:background="@drawable/cell_border"
+                                    android:gravity="center"
+                                    android:text="@string/vaction"
+                                    android:textColor="@color/head_color"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_column="2"
+                                    android:background="@drawable/cell_border"
+                                    android:gravity="center"
+                                    android:text="@string/From"
+                                    android:textColor="@color/head_color"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_column="3"
+                                    android:background="@drawable/cell_border"
+                                    android:gravity="center"
+                                    android:text="@string/to"
+                                    android:textColor="@color/head_color"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_column="4"
+                                    android:background="@drawable/cell_border"
+                                    android:gravity="center"
+                                    android:text="@string/clinic"
+                                    android:textColor="@color/head_color"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_column="5"
+                                    android:background="@drawable/cell_border"
+                                    android:gravity="center"
+                                    android:textColor="@color/head_color"
+                                    android:textSize="11sp" />
+
+                            </TableRow>
+
+                            <View
+                                android:layout_height="3dip"
+                                android:background="@color/head_color"
+                                android:visibility="gone" />
+
+
+
+                            <View
+                                android:layout_height="3dip"
+                                android:background="@color/head_color"
+                                android:visibility="gone" />
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </TableLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <include
+                    android:id="@+id/profile_bottom_toolbar"
+                    layout="@layout/bottom_tb_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/table"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="32dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clinic_et">
+
+                    <TextView
+                        android:id="@+id/save_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/otp_border"
+                        android:fontFamily="@font/my_font_bold"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:visibility="gone"
+                        android:text="@string/save"
+                        android:textColor="@color/head_color"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/cancel_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/otp_border"
+                        android:fontFamily="@font/my_font_bold"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="@string/cancel"
+                        android:textColor="@color/head_color"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

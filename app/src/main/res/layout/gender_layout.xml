@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_sheet_round_bg">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="@dimen/_12ssp"
+          android:text="@string/gender"
+          android:textColor="@color/black"
+          android:layout_marginTop="@dimen/_22sdp"
+          android:layout_gravity="center_horizontal">
+
+      </TextView>
+
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/male_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:fontFamily="@font/my_font_semibold"
+            android:gravity="center"
+            android:layout_margin="@dimen/_12sdp"
+            android:padding="6dp"
+            android:text="@string/male"
+            android:buttonTint="@color/new_themeBlue_color"
+            android:textColor="@color/new_themeBlue_color"
+            android:textSize="@dimen/_12ssp"
+            />
+
+        <RadioButton
+            android:id="@+id/female_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/female"
+            android:buttonTint="@color/new_themeBlue_color"
+            android:layout_margin="@dimen/_12sdp"
+            android:textColor="@color/new_themeBlue_color"
+            android:textSize="@dimen/_15ssp" />
+
+
+    </RadioGroup>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Done_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            app:cornerRadius="@dimen/_6sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:backgroundTint="@color/new_themeBlue_color"
+            android:fontFamily="@font/avenir_regular"
+            android:text="@string/dones"
+            android:textAllCaps="false"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:background="@drawable/bottom_sheet_round_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_choos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_bold"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/change_language"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lang_en"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_18sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:cardElevation="@dimen/_2sdp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/_2sdp">
+
+            <RadioButton
+                android:id="@+id/radio_en_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_gravity="center_vertical"/>
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/flag_england" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/avenir_bold"
+                android:textSize="@dimen/_12ssp"
+                android:text="@string/english"/>
+
+        </LinearLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lang_ar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:cardElevation="@dimen/_2sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/_2sdp">
+
+            <RadioButton
+                android:id="@+id/radio_ar_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_gravity="center_vertical"/>
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/flag_arbic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/avenir_bold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/arabic"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_46sdp"
+        android:text="@string/saves"
+        android:textAllCaps="false"
+        android:fontFamily="@font/avenirs_semibold"
+        custom:cornerRadius="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:backgroundTint="@color/new_themeBlue_color"/>
+</LinearLayout>

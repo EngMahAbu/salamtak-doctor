@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".salamtakdoctor.salamtak_doctor.AddNewVacation.AddNewVacation">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+      <RelativeLayout
+          android:id="@+id/clinics_tv"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/_40sdp"
+          android:layout_marginHorizontal="@dimen/_12sdp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+         <TextView
+             android:id="@+id/tv_editClinicstxt"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:drawablePadding="@dimen/_6sdp"
+             android:drawableStart="@drawable/group_70328"
+             android:fontFamily="@font/avenir_bold"
+             android:text="Add New Vacation"
+             android:textColor="@color/black"
+             android:textSize="@dimen/_16ssp">
+
+         </TextView>
+
+      </RelativeLayout>
+
+   </LinearLayout>
+
+
+</layout>

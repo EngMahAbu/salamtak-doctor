@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color_gray"
+    tools:context=".salamtakdoctor.salamtak_doctor.presentation.ui.home.clinics.LocationFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/clinics_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_editClinicstxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:drawablePadding="@dimen/_6sdp"
+                android:drawableStart="@drawable/group_70328"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/edit_clinic"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"/>
+            <ImageView
+                android:id="@+id/help2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/help"
+                android:padding="@dimen/_2sdp"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"/>
+            <TextView
+                android:id="@+id/tv_Clinicprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:drawablePadding="@dimen/_6sdp"
+                android:fontFamily="@font/avenir_bold"
+                android:layout_alignParentStart="true"
+                android:text="@string/clinic_profile"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/saveedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/avenir_bold"
+                android:padding="@dimen/_2sdp"
+                android:text="@string/save_edit"
+                android:visibility="gone"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="@dimen/_10ssp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clinics_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:textSize="@dimen/_4ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/new_themeBlue_color"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#AEB3BE"
+            app:spb_stateForegroundColor="@color/new_themeBlue_color"
+            app:spb_stateNumberBackgroundColor="#AEB3BE"
+            app:spb_stateNumberForegroundColor="#eeeeee" />
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/poly_your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clinics_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:textSize="@dimen/_4ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/new_themeBlue_color"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="three"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#AEB3BE"
+            app:spb_stateForegroundColor="@color/new_themeBlue_color"
+            app:spb_stateNumberBackgroundColor="#AEB3BE"
+            app:spb_stateNumberForegroundColor="#eeeeee" />
+
+        <LinearLayout
+            android:id="@+id/ll_radio_group"
+            android:layout_width="match_parent"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clinics_tv"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/steps_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:weightSum="5"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clinics_tv">
+
+
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/info_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_selector_language"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/info_clinic"
+                    android:textColor="@color/choose_selector"
+                    android:textSize="@dimen/_8ssp"
+                    android:fontFamily="@font/avenir_medium"  />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/location_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_selector_language"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/location"
+                    android:textColor="@color/choose_selector"
+                    android:textSize="@dimen/_8ssp"
+                    android:fontFamily="@font/avenir_medium"  />
+
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/schedule_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_selector_language"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/schedule"
+                    android:textColor="@color/choose_selector"
+                    android:textSize="@dimen/_8ssp"
+                    android:fontFamily="@font/avenir_medium"  />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/vaction_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_selector_language"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/vacations"
+                    android:textColor="@color/choose_selector"
+                    android:textSize="@dimen/_8ssp"
+                    android:fontFamily="@font/avenir_medium"  />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/gallery_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_selector_language"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/gallery"
+                    android:textColor="@color/choose_selector"
+                    android:textSize="@dimen/_8ssp"
+                    android:fontFamily="@font/avenir_medium" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_radio_group"
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+<!--            <fragment-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_300sdp"-->
+<!--                android:layout_marginHorizontal="@dimen/_12sdp"-->
+<!--                android:background="@drawable/otp_border"-->
+<!--                android:scrollbars="vertical"-->
+<!--                class="com.google.android.gms.maps.SupportMapFragment"/>-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_60sdp">
+
+            <fragment
+                android:id="@+id/map_container"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                map:uiZoomControls="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/otp_border"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pick_location"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:hint="@string/select_clinic_location"
+                android:textColorHint="@color/white"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/avenirs_semibold"
+                android:background="@drawable/bottomrounded_bg"
+                app:layout_constraintStart_toStartOf="@id/map_container"
+               app:layout_constraintTop_toBottomOf="@id/map_container"
+                app:layout_constraintEnd_toEndOf="@id/map_container">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcardNationality_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/pick_location"
+                    tools:layout_editor_absoluteX="10dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp">
+
+                    <TextView
+                            android:id="@+id/Nationality_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:elevation="@dimen/_2sdp"
+                             android:text="@string/country"
+                            android:fontFamily="@font/my_font_regular"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_8ssp"/>
+
+
+                    <TextView
+                            android:id="@+id/nationality_select"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:elevation="2dp"
+                            android:fontFamily="@font/avenir_regular"
+                            android:gravity="center_vertical"
+                            android:hint="@string/country"
+                            android:textColorHint="@color/gray"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="10dp"
+                            android:layout_marginTop="8dp"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/_10ssp"/>
+
+                    <ImageView
+                            android:id="@+id/iv_nationality"
+                            android:layout_width="@dimen/_22sdp"
+                            android:layout_height="@dimen/_22sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="8dp"
+                            android:elevation="@dimen/_10sdp"
+                            android:src="@drawable/arrow___down_3"
+                    />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_countryNameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/country_required"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mcardNationality_layout"
+                    app:layout_constraintBottom_toTopOf="@+id/city_select"
+            />
+
+            <TextView
+                    android:id="@+id/city_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_48sdp"
+                    android:background="@drawable/otp_border"
+                    android:elevation="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:gravity="center_vertical"
+                    android:hint="@string/city"
+                   android:textColorHint="@color/gray"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mcardNationality_layout"
+                    app:layout_constraintHorizontal_bias="0.0"/>
+            <TextView
+                android:id="@+id/city_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:elevation="@dimen/_4sdp"
+                android:fontFamily="@font/my_font_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="@string/city"
+                app:layout_constraintStart_toStartOf="@+id/city_select"
+                app:layout_constraintTop_toTopOf="@+id/city_select" />
+
+            <ImageView
+                android:id="@+id/iv_spinner1"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:elevation="@dimen/_10sdp"
+                android:src="@drawable/arrow___down_3"
+                app:layout_constraintBottom_toBottomOf="@+id/city_select"
+                app:layout_constraintEnd_toEndOf="@+id/city_select"
+                app:layout_constraintTop_toTopOf="@+id/city_select" />
+
+                    <TextView
+                        android:id="@+id/city_error_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/my_font_medium"
+                        android:text="@string/city_required"
+                        android:textColor="@color/red"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="@id/city_select"
+                        app:layout_constraintTop_toBottomOf="@id/city_select" />
+
+
+            <TextView
+                android:id="@+id/area_select"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/otp_border"
+                android:elevation="@dimen/_2sdp"
+                android:fontFamily="@font/my_font_regular"
+                android:gravity="center_vertical"
+                android:hint="@string/area"
+                android:textColorHint="@color/gray"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_50sdp"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintTop_toBottomOf="@+id/city_error_txt"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:elevation="@dimen/_4sdp"
+                android:fontFamily="@font/my_font_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="@string/area"
+                app:layout_constraintStart_toStartOf="@+id/area_select"
+                app:layout_constraintTop_toTopOf="@+id/area_select" />
+
+            <ImageView
+                android:id="@+id/iv_spinner2"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:elevation="@dimen/_10sdp"
+                android:src="@drawable/arrow___down_3"
+                app:layout_constraintBottom_toBottomOf="@+id/area_select"
+                app:layout_constraintEnd_toEndOf="@+id/area_select"
+                app:layout_constraintTop_toTopOf="@+id/area_select" />
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_areaNameError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/arearequired"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/area_select"
+                    app:layout_constraintBottom_toTopOf="@+id/mCard_Street_name"
+            />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mCard_Street_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintTop_toBottomOf="@+id/area_select"
+                app:layout_goneMarginTop="@dimen/_30sdp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/street_Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/street_and_landmark"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    app:boxBackgroundMode="none"
+                    android:paddingBottom="3dp"
+                    app:boxStrokeColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/street_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/avenir_regular"
+                        android:maxLines="1"
+                        android:paddingTop="2dp"
+                        android:text=""
+                        android:inputType="textPersonName"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_10ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/street_error_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:fontFamily="@font/my_font_medium"
+                android:text="@string/street_required"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_8ssp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/mCard_Street_name"
+                app:layout_constraintTop_toBottomOf="@id/mCard_Street_name" />
+
+            <ImageView
+                android:id="@+id/iv_Error2"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:elevation="@dimen/_10sdp"
+                android:src="@drawable/ic_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/mCard_Street_name"
+                app:layout_constraintEnd_toEndOf="@id/mCard_Street_name"
+                app:layout_constraintTop_toTopOf="@id/mCard_Street_name"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mCard_building_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintTop_toBottomOf="@+id/street_error_txt">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/building_Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/building_no"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    app:boxBackgroundMode="none"
+                    android:paddingBottom="3dp"
+                    app:boxStrokeColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/building_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/avenir_regular"
+                        android:inputType="text"
+                        android:text=""
+                        android:paddingTop="2dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_10ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/building_num_error_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/my_font_medium"
+                        android:text="@string/building_number_required"
+                        android:textColor="@color/red"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="@id/mCard_building_name"
+                        app:layout_constraintTop_toBottomOf="@id/mCard_building_name" />
+
+            <ImageView
+                android:id="@+id/iv_Error3"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:elevation="@dimen/_10sdp"
+                android:src="@drawable/ic_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/mCard_building_name"
+                app:layout_constraintEnd_toEndOf="@id/mCard_building_name"
+                app:layout_constraintTop_toTopOf="@id/mCard_building_name"/>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mCard_floor_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintTop_toBottomOf="@+id/building_num_error_txt">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/floor_Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/floor_no"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    app:boxBackgroundMode="none"
+                    android:paddingBottom="3dp"
+                    app:boxStrokeColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/floor_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:fontFamily="@font/avenir_regular"
+                        android:inputType="number"
+                        android:paddingTop="2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_10ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/floor_error_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/my_font_medium"
+                        android:text="@string/floor_number_required"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_8ssp"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:layout_constraintStart_toStartOf="@id/mCard_floor_name"
+                        app:layout_constraintTop_toBottomOf="@id/mCard_floor_name" />
+
+            <ImageView
+                android:id="@+id/iv_Error4"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:elevation="@dimen/_10sdp"
+                android:src="@drawable/ic_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/mCard_floor_name"
+                app:layout_constraintEnd_toEndOf="@id/mCard_floor_name"
+                app:layout_constraintTop_toTopOf="@id/mCard_floor_name"/>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mCard_Appartment_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/floor_error_txt">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/appartment_Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/appartment_number"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:paddingBottom="3dp"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/apartment_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:fontFamily="@font/avenir_regular"
+                        android:inputType="number"
+                        android:text=""
+                        android:singleLine="true"
+                        android:paddingTop="2dp"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_10ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                        android:id="@+id/apartment_error_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/my_font_medium"
+                        android:text="@string/appartment_number_required"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_8ssp"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:layout_constraintStart_toStartOf="@id/mCard_Appartment_name"
+                        app:layout_constraintTop_toBottomOf="@id/mCard_Appartment_name" />
+
+            <ImageView
+                android:id="@+id/iv_Error5"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:elevation="@dimen/_10sdp"
+                android:src="@drawable/ic_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/mCard_Appartment_name"
+                app:layout_constraintEnd_toEndOf="@id/mCard_Appartment_name"
+                app:layout_constraintTop_toTopOf="@id/mCard_Appartment_name"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/address_et"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:background="@drawable/bg_btn_border_gray_transprent"-->
+<!--            android:hint="@string/enter_address"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="12dp"-->
+<!--            android:paddingEnd="@dimen/_30sdp"-->
+<!--            android:singleLine="true"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/location_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/error_location"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/_10sdp"-->
+<!--            android:text="@string/select_your_location_first"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/address_et" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/pick_location"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/_16sdp"-->
+<!--            android:src="@drawable/ic_location"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/address_et"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/address_et"-->
+<!--            app:layout_constraintTop_toTopOf="@id/address_et"-->
+<!--            app:tint="@color/head_color" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/city_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/city"-->
+<!--            android:textColor="@color/head_color"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/error_location" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/city_select"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="@dimen/_40sdp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_marginEnd="@dimen/_10sdp"-->
+<!--            android:background="@drawable/bg_spinner_sky_drop2"-->
+<!--            android:elevation="@dimen/_5sdp"-->
+<!--            android:entries="@array/city_arr"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="@string/city"-->
+<!--            android:paddingHorizontal="@dimen/_5sdp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/_15ssp"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/city_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/city_error_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/city_required"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="@dimen/_10ssp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/city_select" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/area_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/area"-->
+<!--            android:textColor="@color/head_color"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/error_location" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/area_select"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="@dimen/_40sdp"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:background="@drawable/bg_spinner_sky_drop2"-->
+<!--            android:elevation="@dimen/_5sdp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="@string/area"-->
+<!--            android:paddingHorizontal="@dimen/_5sdp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/_15ssp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/area_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/street_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/street"-->
+<!--            android:textColor="@color/head_color"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/city_error_txt" />-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/street_et"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_marginEnd="@dimen/_10sdp"-->
+<!--            android:background="@drawable/bg_btn_border_gray_transprent"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="@string/street"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="12dp"-->
+<!--            android:singleLine="true"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/street_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/street_error_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/street_required"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="@dimen/_10ssp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/street_et" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/building_num_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/building_no"-->
+<!--            android:textColor="@color/head_color"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/city_error_txt" />-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/building_et"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:background="@drawable/bg_btn_border_gray_transprent"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="Block"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLength="5"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="12dp"-->
+<!--            android:singleLine="true"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/building_num_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/building_num_error_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/building_number_required"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="@dimen/_10ssp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/building_et" />-->
+
+<!--        &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+<!--        &lt;!&ndash;                    android:id="@+id/linear_address"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    android:layout_marginTop="4dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    app:layout_constraintEnd_toEndOf="@id/end_guideline"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    app:layout_constraintStart_toStartOf="@id/start_guideline"&ndash;&gt;-->
+<!--        &lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/street_et">&ndash;&gt;-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/floor_num_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/floor_no"-->
+<!--            android:textColor="@color/head_color"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/street_error_txt" />-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/floor_et"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_marginEnd="@dimen/_10sdp"-->
+<!--            android:background="@drawable/bg_btn_border_gray_transprent"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="@string/floor_no"-->
+<!--            android:inputType="number"-->
+<!--            android:maxLength="2"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="12dp"-->
+<!--            android:singleLine="true"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/guideline_v"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/floor_num_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/floor_error_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/floor_number_required"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="@dimen/_10ssp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/floor_et" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/appartment_num_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/apartment_no"-->
+<!--            android:textColor="@color/head_color"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/building_num_error_txt" />-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/apartment_et"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:background="@drawable/bg_btn_border_gray_transprent"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="@string/apartment_no"-->
+<!--            android:inputType="number"-->
+<!--            android:maxLength="5"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="12dp"-->
+<!--            android:singleLine="true"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/appartment_num_txt" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/apartment_error_txt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/my_font_medium"-->
+<!--            android:text="@string/appartment_number_required"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="@dimen/_10ssp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline_v"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/apartment_et" />-->
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitlocation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_margin="@dimen/_12sdp"
+            android:fontFamily="@font/avenir_bold"
+            android:gravity="center"
+            app:cornerRadius="@dimen/_6sdp"
+            android:text="@string/next_"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:backgroundTint="@color/new_themeBlue_color"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_alignParentBottom="true"
+           />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,104 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Salamtech" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#0639BA</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:timePickerStyle">@style/SpinnerTimePicker</item>
+
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+
+
+    </style>
+
+    <style name="roundShep" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">#0639BA</item>
+        <item name="android:calendarTextColor">@color/white</item>
+        <item name="android:dayOfWeekBackground">@color/purple_500</item>
+        <item name="android:yearListSelectorColor">@color/purple_500</item>
+        <item name="android:backgroundTintMode">@color/purple_500</item>
+        <item name="android:datePickerMode">calendar</item>
+    </style>
+    <style name="DatePickerTheme_Dark" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#0639BA</item>
+        <item name="android:datePickerStyle">@style/MyDatePickerStyleDark</item>
+        <item name="android:windowBackground">@color/black</item>
+    </style>
+
+    <style name="MyDatePickerStyleDark" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:headerBackground">#0639BA</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_dialog</item>
+    </style>
+
+    <style name="RadioButton" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/gray_bg_color</item>
+        <item name="colorControlActivated">@color/head_color</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="circularImageView" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50dp</item>
+    </style>
+
+    <style name="SpinnerTimePicker" parent="android:Widget.Material.Light.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
+    </style>
+
+    <style name="ClockTimePicker" parent="android:Widget.Material.Light.TimePicker">
+        <item name="android:timePickerMode">clock</item>
+    </style>
+
+    <style name="Theme.Salamtech.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Salamtech.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Salamtech.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="customRoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+    </style>
+    <style name="textviewStyle" parent="">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:fontFamily">@font/avenir_bold</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+    <style name="headTextviewStyle" parent="">
+        <item name="android:textColor">@color/hint_color</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+        <item name="android:fontFamily">@font/avenir_bold</item>
+    </style>
+
+
+
+</resources>

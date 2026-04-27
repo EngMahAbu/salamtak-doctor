@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/new_theme_color"
+        tools:context=".salamtak_doctor.whatsup.WhatsUpFragment">
+
+        <TextView
+            android:id="@+id/what_s_up_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/avenir_bold"
+            android:text="@string/salamtak_gate"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/whats_up_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/what_s_up_tv"
+            app:layout_constraintVertical_bias="1.0"
+            tools:listitem="@layout/item_layout_gates" />
+
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/color_primary"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/whats_up_rv"
+                app:layout_constraintEnd_toEndOf="@+id/whats_up_rv"
+                app:layout_constraintStart_toStartOf="@+id/whats_up_rv"
+                app:layout_constraintTop_toTopOf="@+id/whats_up_rv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

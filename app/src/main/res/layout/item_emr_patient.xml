@@ -1,0 +1,557 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="emrDetails"
+            type="com.salamtak.domain.entities.response.NewPatientEmrdetail" />
+
+        <variable
+            name="parentPosition"
+            type="java.lang.Integer" />
+
+        <variable
+            name="emrTitle"
+            type="com.salamtak.domain.entities.response.EmrTitleData" />
+
+        <variable
+            name="positions"
+            type="java.lang.Integer" />
+
+        <!--        <variable-->
+        <!--            name="emrDetails"-->
+        <!--            type="com.salamtak.domain.entities.response.EmrDetailsData" />-->
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_patient_lobby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:minHeight="50dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/top_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/iv_collapse"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_btn_border_gray_transprent">
+
+                <LinearLayout
+                    android:id="@+id/ll_photo_bg"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_8ssp"
+                    android:background="@drawable/progress_bg_filled"
+                    android:backgroundTint="#E8E8FD"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/upload_photo_bg"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/group" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/clinic_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:text="@{emrTitle.clinicName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ll_photo_bg"
+                    app:layout_constraintStart_toEndOf="@+id/ll_photo_bg"
+                    app:layout_constraintTop_toTopOf="@+id/ll_photo_bg"
+                    tools:text="Clinic Name" />
+
+                <LinearLayout
+                    android:id="@+id/ll_call_iv"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/progress_bg_filled"
+                    android:backgroundTint="#E8E8FD"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="@+id/ll_photo_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_photo_bg">
+
+                    <ImageView
+                        android:id="@+id/call_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:src="@drawable/new_category"
+                        app:tint="@color/new_themeBlue_color" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/emr_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:text="@{emrTitle.medicalExaminationTypeName}"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ll_call_iv"
+                    app:layout_constraintStart_toEndOf="@id/ll_call_iv"
+                    app:layout_constraintTop_toTopOf="@+id/ll_call_iv"
+                    tools:text="Call" />
+
+                <LinearLayout
+                    android:id="@+id/ll_date_tv"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/progress_bg_filled"
+                    android:backgroundTint="#E8E8FD"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/date_tv"
+                    app:layout_constraintTop_toTopOf="@+id/date_tv">
+
+                    <ImageView
+                        android:id="@+id/iv_date_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_small_calender"
+                        app:tint="@color/new_themeBlue_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_iv_time"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/progress_bg_filled"
+                    android:backgroundTint="#E8E8FD"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="@+id/ll_call_iv"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_call_iv">
+
+                    <ImageView
+                        android:id="@+id/iv_time"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:padding="4dp"
+                        android:src="@drawable/time_circle"
+                        app:tint="@color/blue" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/emr_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    convertAnthorTime="@{emrTitle.appountmentDate}"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ll_iv_time"
+                    app:layout_constraintStart_toEndOf="@id/ll_call_iv"
+                    app:layout_constraintTop_toTopOf="@+id/ll_iv_time" />
+
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:padding="4dp"
+                    convertDateAnthor="@{emrTitle.appountmentDate}"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_collapse1"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_collapse1"
+                    app:layout_constraintTop_toTopOf="@+id/iv_collapse1"
+                    tools:text="20/2/2022" />
+
+                <ImageView
+                    android:id="@+id/iv_collapse1"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:src="@drawable/ic_down"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <!--        <include-->
+        <!--            android:id="@+id/emr_detail_layout"-->
+        <!--            layout="@layout/emr_details_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:visibility="visible"-->
+        <!--            android:layout_marginTop="16dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/emr_type_tv" />-->
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/specialities"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/_10sdp"-->
+        <!--            android:fontFamily="@font/avenirs_semibold"-->
+        <!--            android:text="@string/medications"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="@dimen/_16sdp"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/instructions_emr_et"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/instructions_emr_et" />-->
+
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/emr_recycler_view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginHorizontal="16dp"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/specialities"-->
+        <!--            tools:itemCount="1" />-->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:id="@+id/madication_add_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/emr_recycler_view">-->
+
+        <!--            &lt;!&ndash;        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:id="@+id/rx_title_name_txt"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:layout_marginTop="16dp"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:background="@drawable/bg_solid_border_more"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:padding="4dp"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:textColorHint="@color/text_gray"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:boxBackgroundMode="none"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:boxStrokeColor="@color/colorPrimary"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:hintEnabled="true"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:visibility="gone"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:hintTextColor="@color/black"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:layout_constraintTop_toTopOf="parent">&ndash;&gt;-->
+
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/rx_title_et"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_margin="16dp"-->
+        <!--                android:background="@drawable/otp_border"-->
+        <!--                android:elevation="1dp"-->
+        <!--                android:fontFamily="@font/avenir_regular"-->
+        <!--                android:gravity="start"-->
+        <!--                android:hint="Write name of medication"-->
+        <!--                android:inputType="text"-->
+        <!--                android:padding="12dp"-->
+        <!--                android:text="@{emrDetails.title}"-->
+        <!--                android:textSize="@dimen/_12ssp"-->
+        <!--                android:visibility="visible"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintEnd_toStartOf="@+id/linearAddBtn"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            &lt;!&ndash;        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+        <!--            &lt;!&ndash;        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:id="@+id/rx_description_txt"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:layout_marginTop="16dp"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:background="@drawable/bg_solid_border_more"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:padding="8dp"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            android:textColorHint="@color/text_gray"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:boxBackgroundMode="none"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:boxStrokeColor="@color/colorPrimary"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:hintEnabled="true"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:hintTextColor="@color/black"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+        <!--            &lt;!&ndash;            app:layout_constraintTop_toBottomOf="@id/rx_title_name_txt">&ndash;&gt;-->
+
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/rx_description_et"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="120dp"-->
+        <!--                android:layout_margin="16dp"-->
+        <!--                android:background="@drawable/otp_border"-->
+        <!--                android:elevation="1dp"-->
+        <!--                android:fontFamily="@font/avenir_regular"-->
+        <!--                android:gravity="start"-->
+        <!--                android:hint="Medication Instrucations (120 charactres left)"-->
+        <!--                android:inputType="text"-->
+        <!--                android:maxLines="3"-->
+        <!--                android:padding="12dp"-->
+        <!--                android:singleLine="true"-->
+        <!--                android:text="@{emrDetails.description}"-->
+        <!--                android:textSize="14sp"-->
+        <!--                android:visibility="visible"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/rx_title_et" />-->
+
+
+        <!--            &lt;!&ndash;        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+        <!--            <LinearLayout-->
+        <!--                android:id="@+id/linearAddBtn"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_margin="12dp"-->
+        <!--                android:orientation="horizontal"-->
+        <!--                android:visibility="visible"-->
+        <!--                app:layout_constraintBottom_toBottomOf="@+id/rx_title_et"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="@+id/rx_title_et">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/add_new_btn"-->
+        <!--                    android:layout_width="@dimen/_30sdp"-->
+        <!--                    android:layout_height="@dimen/_30sdp"-->
+        <!--                    android:layout_margin="2dp"-->
+        <!--                    android:layout_weight="2"-->
+        <!--                    android:background="@drawable/bg_btn_blue"-->
+        <!--                    android:padding="2dp"-->
+        <!--                    android:src="@drawable/ic_add_white"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    app:tint="@color/white" />-->
+
+        <!--                <androidx.appcompat.widget.AppCompatButton-->
+        <!--                    android:id="@+id/post_report_button"-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_margin="8dp"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:background="@drawable/bg_light_gray_solid"-->
+        <!--                    android:text="@string/reset"-->
+        <!--                    android:textAllCaps="false"-->
+        <!--                    android:visibility="gone" />-->
+
+        <!--            </LinearLayout>-->
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/instructions_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:fontFamily="@font/avenirs_semibold"-->
+        <!--            android:text="@string/diagnosis"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="@dimen/_16sdp"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/instructions_emr_et"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/top_iv" />-->
+
+
+        <!--        &lt;!&ndash;        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:id="@+id/instructions_emr_txt"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:layout_height="100dp"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:layout_marginTop="16dp"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:layout_marginBottom="8dp"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:background="@drawable/bg_solid_border_more"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:padding="4dp"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:textColorHint="@color/text_gray"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            android:visibility="visible"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:boxBackgroundMode="none"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:boxStrokeColor="@color/colorPrimary"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:hintEnabled="true"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:hintTextColor="@color/black"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:layout_constraintEnd_toEndOf="@id/end_guid_line"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:layout_constraintStart_toStartOf="@id/start_guid_line"&ndash;&gt;-->
+        <!--        &lt;!&ndash;            app:layout_constraintTop_toBottomOf="@id/instructions_tv">&ndash;&gt;-->
+
+        <!--        <com.google.android.material.textfield.TextInputEditText-->
+        <!--            android:id="@+id/instructions_emr_et"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="100dp"-->
+        <!--            android:layout_margin="16dp"-->
+        <!--            android:background="@drawable/otp_border"-->
+        <!--            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "-->
+        <!--            android:elevation="@dimen/_1sdp"-->
+        <!--            android:focusable="false"-->
+        <!--            android:fontFamily="@font/avenir_regular"-->
+        <!--            android:gravity="start"-->
+        <!--            android:hint="@string/details_diagnosis_120_charactres_left"-->
+        <!--            android:inputType="text"-->
+        <!--            android:maxLines="1"-->
+        <!--            android:padding="12dp"-->
+        <!--            android:singleLine="true"-->
+        <!--            android:text="@{emrTitle.instructions}"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/instructions_tv" />-->
+
+
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/doc_ll"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/madication_add_layout">-->
+
+        <!--            <androidx.recyclerview.widget.RecyclerView-->
+        <!--                android:id="@+id/attachment_rv"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginHorizontal="@dimen/_10sdp"-->
+        <!--                android:layout_marginTop="@dimen/_10sdp"-->
+        <!--                android:visibility="visible"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/attachment_iv"-->
+        <!--                tools:listitem="@layout/item_attachment_emr" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/add_document_iv"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_margin="16dp"-->
+        <!--                android:background="@drawable/bg_btn_blue"-->
+        <!--                android:backgroundTint="#E8E8FD"-->
+        <!--                android:drawablePadding="4dp"-->
+        <!--                android:drawableTint="@color/new_themeBlue_color"-->
+        <!--                android:padding="12dp"-->
+        <!--                android:text="@string/upload_document_or_report"-->
+        <!--                android:textColor="@color/new_themeBlue_color"-->
+        <!--                android:textSize="14sp"-->
+        <!--                android:visibility="visible"-->
+        <!--                app:drawableStartCompat="@drawable/ic_upload_gray" />-->
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/attachment_iv"-->
+        <!--                android:layout_width="60dp"-->
+        <!--                android:layout_height="60dp"-->
+        <!--                android:layout_margin="8dp"-->
+        <!--                android:src="@drawable/image_placeholder"-->
+        <!--                android:visibility="gone"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@+id/add_document_iv" />-->
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/iv_delete"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_margin="10dp"-->
+        <!--                android:src="@drawable/ic_delete"-->
+        <!--                android:visibility="gone"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@+id/add_document_iv" />-->
+
+
+        <!--        </LinearLayout>-->
+
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+        <!--        <View-->
+        <!--            android:id="@+id/separated_linee_left"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/new_dark_gray"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/attachments_tv"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/attachments_tv"-->
+        <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/attachments_tv" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/attachments_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="20dp"-->
+        <!--            android:text="@string/attachments"-->
+        <!--            android:textColor="@color/head_color"-->
+        <!--            android:textSize="12sp"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/separated_linee_right"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/separated_linee_left"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/emr_recycler_view" />-->
+
+        <!--        <View-->
+        <!--            android:id="@+id/separated_linee_right"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/new_dark_gray"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/attachments_tv"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/attachments_tv"-->
+        <!--            app:layout_constraintTop_toBottomOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/attachments_tv" />-->
+
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/attatchment_recycler_view"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/end_guid_line"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/start_guid_line"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/attachments_tv"-->
+        <!--            app:layout_constraintVertical_bias="0.393"-->
+        <!--            tools:itemCount="2"-->
+        <!--            tools:listitem="@layout/item_attachment_patient" />-->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guid_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="391dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

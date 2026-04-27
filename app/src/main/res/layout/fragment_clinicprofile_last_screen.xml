@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".salamtakdoctor.salamtak_doctor.Clinicprofile_lastScreen">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_124sdp"
+        android:background="@drawable/health_professional_team_pana_1">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/thankyou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_medium"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:text="@string/thanks_you"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/docotoname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_medium"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:text="@string/thanks_you"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/_16ssp"/>
+    <TextView
+        android:id="@+id/complete_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_medium"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:text="لاستكمال بيانات العيادة الخاصة بك"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:fontFamily="@font/avenir_regular"
+        android:visibility="visible"
+        android:text="@string/next_step_create_your_clinic_profile"
+        android:textSize="@dimen/_12ssp">
+
+    </TextView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_clinic"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:backgroundTint="@color/new_themeBlue_color"
+        android:text="@string/clinic_profile"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/_6sdp">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+</LinearLayout>

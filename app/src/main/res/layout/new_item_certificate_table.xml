@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="26dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2,3">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/certificate_label"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:background="@drawable/cell_border"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:textColor="@color/head_color"
+                        android:textSize="11sp"
+                        tools:text="6 October" />
+
+                    <TextView
+                        android:id="@+id/certificate_year_tv"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:background="@drawable/cell_border"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:textColor="@color/head_color"
+                        android:textSize="11sp"
+                        tools:text="2022-10-06" />
+
+                    <ImageView
+                        android:id="@+id/icon_edit"
+                        android:layout_width="30dp"
+                        android:layout_height="fill_parent"
+                        android:layout_column="3"
+                        android:background="@drawable/cell_border"
+                        android:gravity="center"
+                        android:src="@drawable/ic_new_edit" />
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/icon_delete"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="fill_parent"-->
+<!--                        android:layout_column="3"-->
+<!--                        android:background="@drawable/cell_border"-->
+<!--                        android:gravity="center"-->
+<!--                        android:src="@drawable/ic_new_delete" />-->
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:background="@drawable/otp_border"
+            android:elevation="@dimen/_2sdp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/_6sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:layout_editor_absoluteX="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/otp_border"
+                android:backgroundTint="@color/new_themeBlue_color"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_6sdp"
+                android:paddingVertical="@dimen/_8sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/frame" />
+
+                <TextView
+                    android:id="@+id/headerTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="Certificate"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+                <ImageView
+                    android:id="@+id/icon_delete"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/cell_border"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_new_delete" />
+
+                <ImageView
+                    android:id="@+id/iv_certification"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:rotation="180"
+                    android:src="@drawable/ic_arrowup"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/sc_certificate_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/ll_certification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:gravity="start"
+                        android:text="@string/enter_english_data_for_your_certificate"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mCard_DHL_Certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        app:cardCornerRadius="@dimen/_6sdp"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <EditText
+                            android:id="@+id/tv_tittleEn"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/otp_border"
+                            android:backgroundTint="#FAFAFA"
+                            android:fontFamily="@font/avenirs_semibold"
+                            android:hint="@string/title_in_english"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:paddingHorizontal="@dimen/_8sdp"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        app:cardCornerRadius="@dimen/_6sdp"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <EditText
+                            android:id="@+id/tv_descriptionEn"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60sdp"
+                            android:background="@drawable/otp_border"
+                            android:backgroundTint="#FAFAFA"
+                            android:gravity="start"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:fontFamily="@font/avenirs_semibold"
+                            android:hint="@string/description_in_english"
+                            android:paddingHorizontal="@dimen/_4sdp"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:gravity="start"
+                        android:text="@string/enter_arabic_data_for_your_certificate"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        app:cardCornerRadius="@dimen/_6sdp"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <EditText
+                            android:id="@+id/tv_tittleAr"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/otp_border"
+                            android:backgroundTint="#fafafa"
+                            android:fontFamily="@font/avenirs_semibold"
+                            android:gravity="start"
+                            android:paddingHorizontal="@dimen/_6sdp"
+                            android:digits=" غظضذخثتشرقصجفعسنملةىكيطئءؤحزوهدبا"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        app:cardCornerRadius="@dimen/_6sdp"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <EditText
+                            android:id="@+id/tv_descriptionAr"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+                            android:background="@drawable/otp_border"
+                            android:backgroundTint="#fafafa"
+                            android:digits=" غظضذخثتشرقصجفعسنملةىكيطئءؤحزوهدبا"
+                            android:gravity="start"
+                            android:fontFamily="@font/avenirs_semibold"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:paddingHorizontal="@dimen/_4sdp"
+                            android:hint="@string/decsription_in_arabic"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:gravity="start"
+                        android:text="@string/enter_the_year_of_obtaining_the_certificate"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_calender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:backgroundTint="#fafafa"
+                        app:cardCornerRadius="@dimen/_6sdp"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:background="@color/white"
+                            android:backgroundTint="#fafafa"
+                            android:fontFamily="@font/avenirs_semibold"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:hint="@string/choose_year"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_18sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginEnd="@dimen/_6sdp"
+                            android:src="@drawable/calendar"
+                            app:tint="@color/sky_main" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/tv_yearError"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:layout_marginStart="10dp"
+                        android:visibility="gone"
+                        tools:text="error"
+                        />
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_150sdp"
+                        android:layout_margin="@dimen/_12sdp"
+                        app:cardCornerRadius="@dimen/_6sdp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:id="@+id/iv_certificate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/certificate_image" />
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/certificates_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save"
+                        android:visibility="gone"
+                        android:textAllCaps="false"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:textColor="@color/blue"/>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

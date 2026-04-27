@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Salamtech Doctor</string>
+    <string name="agora_app_id">571628199b5a4fe681496f14f9951a67</string>
+
+    <string name="welcome">مرحبا</string>
+    <string name="create_new_account">إنشاء حساب جديد</string>
+    <string name="signup">إنشاء حساب جديد</string>
+
+    <string name="login">تسجيل دخول</string>
+    <string name="if_you_donot_have_whats_app">إذا لم يكن لديك واتساب</string>
+    <string name="resend_verification_code">إعادة إرسال رمز التحقق عبر الرسائل النصية القصيرة</string>
+    <string name="resend_verification_codebywhatsp">إعادة إرسال رمز التحقق بواسطة واتساب </string>
+    <string name="skip">تخطي</string>
+    <string name="start">بدء</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="login_lang">English</string>
+    <string name="phone">رقم التليفون</string>
+    <string name="password">كلمة المرور</string>
+    <string name="passwords">كلمة المرور</string>
+    <string name="enter_password"> كلمة المرور</string>
+    <string name="enter_passwords"> كلمة المرور</string>
+    <string name="enter_full_name">أدخل الاسم بالكامل</string>
+    <string name="enter_full_name_ar">أدخل الاسم بالكامل بالعربية</string>
+    <string name="enter_clinic_phone">أدخل تليفون العيادة</string>
+    <string name="don_t_have_an_account">ليس لديك حساب ؟</string>
+    <string name="already_have_an_account">هل لديك حساب ؟</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="please_enter_the_verification_code_we_sent_to_your_mobile">تم إرسال رمز التحقق إلى واتساب </string>
+    <string name="please_enter_the_verification_code_we_sent_to_your_mobiles">تم إرسال رمز التحقق الى </string>
+    <string name="please_enter_the_verification_code_we_sent_to_your_email">من فضلك أدخل كود التفعيل المرسل إلى بريدك الالكتروني </string>
+    <string name="forget_password_txt">يجب التحقق من شخصيتك بارسال كود الى بريدك الالكتروني</string>
+    <string name="incorrect_code_please_try_again">الكود غير صحيح برجاء المحاولة مرة أخرى</string>
+    <string name="send_code">أرسال الرقم</string>
+    <string name="send_again">اعادة ارسال الكود</string>
+    <string name="verify_mobile">كود التحقق</string>
+    <string name="successful_signup">مرحباً يمكنك الان تسجيل بياناتك فى تطبيق سلامتك</string>
+    <string name="successful_setup_profile"> اهلاً بك لقد أكملت بيانات حسابك بنجاح وسنقوم بمراجعتها فى خلال 3 أيام عمل </string>
+    <string name="screen_booking_text">تتيح هذه الخدمة لأطباء سلامتك سهولة حجز المرضى للكشف بالعيادة الكترونياً من واقع المواعيد المتاحة علي التطبيق .وارسال رسالة تذكيرية للمريض قبل ميعاد الحجز بيوم.
+</string>
+    <string name="screen_home_visit_text">
+        تمكن الطبيب من تنسيق مواعيد وحجوزات العيادة بالمرونة التي تتيح له أيضاً تخصيص الوقت اللازم لحجوزات الزيارات المنزلية. </string>
+
+    <string name="live_chat_text">خدمة سلامتك كونكت تسمح بالتواصل بين الطبيب والمريض لتبادل المعلومات مما يساعد على الغاء كل من الزيارة الأولى والثالثة. تمكنك هذه الخدمة من إجراء كشف مبدأى أو تشخيص الحالات البسيطة دون الحاجة إلي حضور المريض للعيادة.كما تمكنك أيضاً من اختصار الوقت و المجهود عن طريق توفير الزيارة الأولي و الثالثة (الزيارة الأولي : تحديد الأشعات و التحاليل-الزيارة الثانية : إجراء الكشف الإكلينيكي والعلاج -الزيارة الثالثة :الإستشارة)
+</string>
+    <string name="clinic_info">بيانات العيادة</string>
+    <string name="profile_info">بيانات المريض</string>
+    <string name="doctor_info">بيانات الطبيب</string>
+
+    <string name="upload_your_pic">حمل الصورة الشخصية*</string>
+    <string name="upload_clinic_pic">حمل شعار العيادة</string>
+    <string name="doctor_name">الإسم بالكامل*</string>
+    <string name="doctor_name_ar">إسم الدكتور بالعربية (الأول-الأب-العائلة)</string>
+    <string name="doctor_full_name">الإسم بالكامل *</string>
+    <string name="doctor_full_name_ar">الإسم بالكامل (بالعربية) *</string>
+
+    <string name="clinic_name">جميع العيادات</string>
+    <string name="clinic_phone">تليفون العيادة</string>
+    <string name="clinic_phone2">تليفون العيادة 2 (اختيارى)</string>
+    <string name="clinic_phone3">تليفون العيادة 3 (اختيارى)</string>
+    <string name="city">اختر المدينة</string>
+    <string name="area">اختر المنطقة</string>
+    <string name="address">العنوان</string>
+    <string name="enter_address">الموقع (خرائط جوجل)</string>
+    <string name="set_working_days">حدد أيام العمل</string>
+    <string name="complete_profile">أكمل بيانات الحساب</string>
+    <string name="new_clinic"> إضافة عيادة جديدة</string>
+    <string name="upload_docs">تحميل المستندات</string>
+    <string name="upload_docs_msg">يجب أن ترفع صورة بطاقة الرقم القومي وكارنيه النقابة ورخصه تشغيل العيادة</string>
+    <string name="docs">الوثائق الرسمية</string>
+    <string name="click_here_to_upload">اضغط هنا لارفاق ملف </string>
+    <string name="save_complete_later"> سابق</string>
+    <string name="submit">تأكيد</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الأحد</string>
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الأربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="From">من</string>
+    <string name="to">إلى</string>
+    <string name="enter_services">Enter your Services</string>
+    <string name="services">اختر خدمات العيادة</string>
+    <string name="add">Add Service</string>
+    <string name="bookings">عدد الحجوزات في الساعة</string>
+    <string name="choose_bookings">حدد عدد الحجوزات المتاحة في الساعة</string>
+    <string name="enter_clinic_fees">تكلفة الزياة</string>
+    <string name="clinic_fees">تكلفة الكشف</string>
+    <string name="home_visit">إمكانية عمل الزيارة المنزلية</string>
+    <string name="home_visit_fees">تكلفة الكشف للزيارة المنزلية</string>
+    <string name="enter_home_visit_fees">تكلفه للزيارة المنزلية بالجنيه المصري</string>
+    <string name="click_here_to_upload_clinic"> حمل صور العيادة </string>
+    <string name="continue_">أكمل</string>
+    <string name="birth_date">تاريخ الميلاد</string>
+    <string name="choose_date">أختيار التاريخ</string>
+    <string name="gender">اختر الجنس</string>
+    <string name="seniority">الدرجة العلمية</string>
+    <string name="specialization">التخصص</string>
+    <string name="sub_specialization">التخصص الفرعى</string>
+    <string name="official_link">الموقع الرسمي</string>
+    <string name="website_fb_page">الموقع</string>
+    <string name="Biography_en">السيرة الشخصية (بالانجليزية)</string>
+    <string name="Biography_ar">السيرة الشخصية (بالعربية)</string>
+    <string name="Biography_en_max">250 حرف كحد اقصى*</string>
+    <string name="certificates">الشهادات</string>
+    <string name="enter_title">أدخل عنوان الشهادة بالإنجليزية</string>
+    <string name="enter_body">أدخل وصف الشهادة بالإنجليزية(حد أقصى 120 حرف)</string>
+
+    <string name="enter_title_ar">أدخل عنوان الشهادة بالعربية</string>
+    <string name="enter_body_ar">أدخل وصف الشهادة بالعربية(حد أقصى 120 حرف)</string>
+
+    <string name="add_certificate">اضافة شهادة + </string>
+    <string name="add_period">أضف فترة</string>
+
+    <string name="awesome">أحسنت !</string>
+    <string name="well_done">أحسنت !</string>
+    <string name="done">تم</string>
+    <string name="dones">اختار</string>
+    <string name="otp_error">برجاء ادخال الكود</string>
+    <string name="password_identical">كلمات المرور يجب أن تكون متطابقة</string>
+    <string name="phone_required">رقم التليفون مطلوب</string>
+    <string name="phone_valid">رقم التليفون غير صحيح</string>
+    <string name="phone_existed">رقم الهاتف موجود بالفعل</string>
+    <string name="email_existed">البريد الالكتروني موجود بالفعل</string>
+    <string name="code_sent">تم إرسال الكود إلى</string>
+
+    <string name="email_valid">البريد الالكتروني غير صحيح</string>
+    <string name="password_required">كلمة المرور مطلوبة</string>
+    <string name="confirm_password_required">تأكيد كلمة المرور مطلوبة</string>
+    <string name="logged_in">تم تسجيل الدخول بنجاح!</string>
+    <string name="enter_email">أدخل البريد الالكتروني</string>
+    <string name="image_per">يجب عليك السماح للتطبيق للوصول للصور</string>
+    <string name="email">عنوان البريد الالكتروني</string>
+    <string name="emails">عنوان البريد الالكتروني</string>
+    <string name="clinic_emails">البريد الالكترونى الخاص بالعيادة</string>
+    <string name="email_required">البريد الالكتروني مطلوب</string>
+    <string name="loading_please">جاري التحميل ... من فضلك انتظر قليلا</string>
+    <string name="forget_password">هل نسيت كلمة المرور؟</string>
+    <string name="forget_passwords">هل نسيت كلمة السر؟</string>
+    <string name="reset_password">إعاده تسجيل كلمة المرور</string>
+    <string name="new_password">كلمة المرور</string>
+    <string name="location_per">ينبغي عليك السماح للتطبيق الوصول الي موقعك</string>
+    <string name="ok">حسنا</string>
+    <string name="open_gps">ينبغي عليك فتح ال GPS اولا حتي نستطيع الوصول لموقعك</string>
+    <string name="attentions">تنبيــــه</string>
+    <string name="select_your_location_first">اختر موقعك أولا </string>
+    <string name="add_location">أضف موقعك</string>
+
+    <string name="error_network">لا يوجد اتصال بالانترنت</string>
+    <string name="error_timeout">انتهى الوقت من فضلك حاول مرة أخرى</string>
+    <string name="error_unauthorized">رقم تليفون او كلمة مرور غير صحيحة</string>
+    <string name="error_service_unavailable">عذراً عطل تقنى \n برجاء المحاوله مره اخرى</string>
+    <string name="error_server_down">هناك تحديث في السيرفر من فضلك حاول مرة أخرى</string>
+    <string name="error_unknown">خطأ غير معروف</string>
+    <string name="error_server_error">خطأ فى قاعدة البيانات</string>
+
+    <string name="must_start_hour">برجاء استكمال جدوال مواعيد العياده</string>
+    <string name="must_end_hour">يجب ان تحدد ساعات الانهاء</string>
+    <string name="name_required">اسم الدكتور مطلوب</string>
+    <string name="first_name_required">الإسم الأول مطلوب</string>
+    <string name="middle_name_required">إسم الأب مطلوب</string>
+    <string name="last_name_required">إسم العائلة مطلوب</string>
+    <string name="birth_required">يجب ان تدخل تاريخ الميلاد </string>
+    <string name="birth_required2">يجب ان لا يقل عمرك اكبر من 21 سنة</string>
+    <string name="service_required">يجب ان تدخل على الاقل خدمة واحدة </string>
+    <string name="working_required">يجب ان تحدد على الاقل يوم عمل واحد</string>
+    <string name="gender_required">يجب ان تختار النوع</string>
+    <string name="nationality_required">يجب ان تختار الجنسية</string>
+    <string name="speciality_required">يجب ان تختار تخصصك</string>
+    <string name="sub_speciality_required">يجب ان تختار تخصصك الفرعي</string>
+    <string name="seniority_required">يجب ان تختار الدرجه العلميه</string>
+    <string name="clinic_name_required">يجب أن تدخل إسم العيادة</string>
+    <string name="clinic_phone_required">يجب أن تدخل رقم تليفون العيادة</string>
+    <string name="clinic_address_required">يجب أن تدخل عنوان العيادة</string>
+    <string name="clinic_fees_required">يجب أن تدخل تكلفة الكشف</string>
+    <string name="clinic_fees_error">تكلفة الكشف يجب أن تكون على الاقل 2 رقم</string>
+
+    <string name="home_visit_fees_required">يجب ان تدخل تكاليف الزيارة المنزلية !</string>
+    <string name="booking_required">يجب ان تحدد عدد الحجوزات في الساعة</string>
+    <string name="files_access_storage">السماح للوصول لذكرة</string>
+    <string name="view_profile">عرض بيانات الحساب</string>
+    <string name="view_clinic">عرض بيانات العيادة</string>
+    <string name="photo_required">يجب أن تختار صورة للحساب</string>
+    <string name="cert_photo_required">يجب أن تختار صورة الشهادة</string>
+    <string name="clinic_photo_required">يجب ان تختار صورة للعيادة</string>
+    <string name="docs_required">يجب ان تختار مستنداتك</string>
+    <string name="settings">الاعدادات</string>
+    <string name="home">الرئيسية</string>
+    <string name="homes">الرئيسية</string>
+    <string name="Try_again">برجاءالمحاوله مرة أخرى</string>
+    <string name="Error">خطأ !</string>
+    <string name="sorry">عذراً!</string>
+    <string name="invalid_input">البريد الالكتروني او رقم الهاتف مسجل لدى حساب اخر</string>
+    <string name="invalid_input2">مدخلات خاطئة</string>
+    <string name="invalid_inputs">رقم الهاتف او كلمة المرور غير صحيحة</string>
+    <string name="something_wrong">حدث خطا حاول مرة اخرى</string>
+    <string name="logout"><u>تسجيل خروج</u></string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثى</string>
+    <string name="time_error_txt">تم تسجيل الوقت بطريقه خاطئة</string>
+    <string name="select">اختر</string>
+    <string name="signup_msg">أهلا وسهلا بك يا دكتور .. لإكمال إنضمامك لتطبيق سلامتك يرجى إكمال الملف الشخصي لمساعدتك في الوصول لأكبر عدد من المرضى</string>
+    <string name="choose_msg">عزيزى الطبيب \n مرحبا بك ... فى الانضمام الى صفوة اطباء تطبيق سلامتك</string>
+    <string name="login_msg">عزيزى الطبيب مرحبا بك ... فى الانضمام الى صفوة اطباء تطبيق سلامتك </string>
+    <string name="building_no">رقم المبنى</string>
+    <string name="enter_building">المبنى</string>
+    <string name="floor_no">رقم الطابق</string>
+    <string name="enter_floor">الطابق</string>
+    <string name="enter_apartment">الشقة</string>
+    <string name="apartment_no">الشقة</string>
+    <string name="refresh">تحديث</string>
+    <string name="no_connection">لا يوجد اتصال</string>
+
+    <string name="Files">رفع الملفات</string>
+    <string name="upload_images">رفع الصور</string>
+    <string name="city_required">المدينة مطلوبة</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="nationality">الدوله</string>
+    <string name="great">عظيم !</string>
+    <string name="you_just_reset_your_password">لقد قمت بتغيير كلمة المرور</string>
+    <string name="please_enter_the_new_password_and_remember">من فضلك أدخل كلمة المرور الجديدة ويجب أن تكون مختلفة عن القديمة</string>
+    <string name="next_certificate">التالي: الشهادات</string>
+    <string name="next_document">التالي: الوثائق الرسمية</string>
+    <string name="next_clinic">التالي: أضف عيادة</string>
+    <string name="next_clinic_schedule">التالي: جدول مواعيد العيادة</string>
+
+    <string name="next_">التالي</string>
+    <string name="confirm">تأكيد</string>
+    <string name="otp_confirm">تأكيد</string>
+    <string name="certificate_year">سنة اصدار الشهادة</string>
+    <string name="enter_year">أدخل السنة</string>
+    <string name="national_id"> بطاقة الرقم القومي</string>
+    <string name="enter_national_id">ادخل بطاقة الرقم القومي</string>
+    <string name="front_image_required_back_image">الصورة الأمامية(مطلوبة) والصورة</string>
+    <string name="syndicate_card">كارنيه النقابة*</string>
+    <string name="profession_certificate">شهادة مزاولة المهنة*</string>
+    <string name="edit">تعديل</string>
+    <string name="editinvoice">تعديل الفاتورة</string>
+
+    <string name="fields_required">يجب ادخال الحقول المطلوبة</string>
+    <string name="certificate_title_required">عنوان الشهادة مطلوب</string>
+    <string name="certificate_body_required">وصف الشهادة مطلوب</string>
+    <string name="certificate_year_required">سنة الشهادة مطلوبة</string>
+    <string name="large_size_error"> حجم الصورة يجب أن يكون أقل من 5 ميجا</string>
+    <string name="certificates_required_error">يجب أن تدخل شهادة واحدة على الأقل</string>
+    <string name="legal_docs_required_error">يجب أن تدخل الوثائق الرسمية</string>
+    <string name="street">إسم الشارع</string>
+    <string name="upload_clinic_gallery">رفع صور العيادة</string>
+    <string name="view_clinic_gallery">عرض صور العيادة</string>
+    <string name="clinic_gallery">صور العيادة</string>
+    <string name="next_home">التالي: الصفحة الرئيسية</string>
+    <string name="upload_clinic_pictures">اضف صور العيادة </string>
+    <string name="working_times">أوقات العمل</string>
+    <string name="next_gallery">التالي: صور العيادة</string>
+    <string name="operating_hours">الفترة الزمنية من :</string>
+    <string name="time_patient_slot_time">وقت الزيارة</string>
+    <string name="password_length_error">كلمة المرور يجب أن تكون على الأقل 6 أحرف أو أرقام</string>
+    <string name="period">فترة</string>
+    <string name="periods">عدد الفترات :</string>
+    <string name="updated_successfully">تم التحديث بنجاح</string>
+    <string name="schedule_time_required">يجب عليك أن تختار جدول مواعيد العمل الخاص بك ليوم واحد على الأقل</string>
+    <string name="operating_time_required">يجب أن تحدد ساعات العمل</string>
+    <string name="duration_time_required">يجب أن تحدد مدة الزيارة</string>
+    <string name="schedule">المواعيد</string>
+    <string name="clinics">العيادات</string>
+    <string name="clinicss">العيادات</string>
+    <string name="more">الاعدادات</string>
+    <string name="language">اللغة</string>
+    <string name="call_us">اتصل بنا</string>
+    <string name="about_app">عن التطبيق</string>
+    <string name="terms_and_conditions"> الشروط والأحكام وسياسة الخصوصية لتطبيق سلامتك</string>
+    <string name="update_profile">تحديث الملف الشخصي</string>
+    <string name="sign_out">خروج</string>
+    <string name="filter"> بحث</string>
+    <string name="patient_profile">ملف المستخدم</string>
+    <string name="edit_clinic">تحديث بيانات العيادة</string>
+    <string name="update">تحديث</string>
+    <string name="update_cert">+ تحديث </string>
+    <string name="ignore">تخطي</string>
+    <string name="update_certificates">تحديث الشهادات</string>
+    <string name="update_documents">تحديث الملفات</string>
+    <string name="pescription">الروشتة</string>
+    <string name="rx_title">اسم الدواء</string>
+    <string name="rx_description">التفاصيل</string>
+    <string name="instructions">التعليمات</string>
+    <string name="reset">اعادة</string>
+    <string name="add_new_period">اضف فترة </string>
+    <string name="today">اليوم</string>
+    <string name="gallary_required_error">لابد من اختيار صورة على الاقل</string>
+    <string name="add_new_emr">اضافة تقرير جديد</string>
+    <string name="upload_document_or_report">إضافة ملف أو تقرير</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">هل تريد بالفعل مسح الملف؟</string>
+    <string name="warning">تحذير!</string>
+    <string name="delete">حذف</string>
+    <string name="cancel">الغاء</string>
+    <string name="you_update_data_now">قم بتحديث البيانات</string>
+    <string name="current">الحالي</string>
+    <string name="history">السجلات السابقة</string>
+    <string name="post_report">ارسال التقرير</string>
+    <string name="english">اللغة الانجليزية</string>
+    <string name="salamtech_booking">حجوزات العيادة</string>
+    <string name="home_visitt">الزيارة المنزلية</string>
+    <string name="live_chat">التواصل المباشر</string>
+    <string name="manage_your_all_clinics_by_add_them_throw_one_press">إدارة جميع العيادات الخاصة بك عن طريق إضافتها بضغطة واحدة</string>
+    <string name="add_new_clinic"> اضافة عيادة</string>
+    <string name="patient_photo">صورة المستخدم</string>
+    <string name="patient_name">اسم المريض</string>
+    <string name="patient_age">سن المريض</string>
+    <string name="patient_number">رقم المريض</string>
+    <string name="location_google_map">الموقع (خرائط جوجل)</string>
+    <string name="patient_complain">شكوى المستخدم</string>
+    <string name="year_not_valid_required">سنة الشهادة غير صحيحة</string>
+    <string name="canceled">تم الالغاء</string>
+    <string name="there_are_no_added_clinic_yet">لم يتم اضافة عيادة حتى الان</string>
+    <string name="ar">العربية</string>
+    <string name="enter_clinic_name">اسم العيادة باللغة الانجليزية </string>
+    <string name="enter_clinic_name_ar">إسم العيادة باللغة العربية</string>
+    <string name="we_are_done_with_your_profile_now_to_the_clinic_s">لقد انتهينا من ملفك الشخصي ، الآن إلى العيادة</string>
+    <string name="let_s_go">ابدأ الان</string>
+    <string name="appointments_filter">اختر نوع الحجز</string>
+    <string name="consultation_type">نوع الاستشارة</string>
+    <string name="clinic">العيادة</string>
+    <string name="dates">Dates</string>
+    <string name="filter_result">Filter Result</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="choose_city">اختر المدينة</string>
+    <string name="choose_area">اختر المنطقة</string>
+    <string name="about_us">من نحن</string>
+    <string name="about_us_desc">صمم تطبيق سلامتك لرفع مستوى خدمات الرعاية الصحية وإنشاء حلقة وصل بين طالبي الرعاية الصحية ومقدميها بالإسلوب الذي يضمن الكفاءة العالية مع توفير الوقت والجهد والتكلفة\nلماذا سلامتك؟\n طور عيادتك باستخدام برنامج رقمي يرفع من كفاءة ودقة وأداء العمل. إحمل عيادتك معك في كل وقت ممكن. حسّن مستوى رضا عملائك بالإستخدام الأمثل للبرنامج. احتفظ بالبيانات والمعلومات والكشوفات الخاصة بالعملاء بشكل رقمي دقيق وسهل. نظّم مواعيدك بدقة وسهولة.</string>
+
+    <string-array name="city_arr">
+<item>
+اختر المدينة
+</item>
+    </string-array>
+    <string-array name="area_arr">
+
+<item>
+اختر المنطقة
+</item>
+
+    </string-array>
+
+    <string-array name="booking_arr">
+
+<item>
+اختر عدد الحجوزات في الساعة
+</item>
+        <item>
+1
+</item>
+        <item>
+2
+</item>
+        <item>
+3
+</item>
+        <item>
+4
+</item>
+        <item>
+5
+</item>
+        <item>
+6
+</item>
+        <item>
+7
+</item>
+        <item>
+8
+</item>
+        <item>
+9
+</item>
+        <item>
+10
+</item>
+        <item>
+11
+</item>
+        <item>
+12
+</item>
+    </string-array>
+
+    <string-array name="gender_arr">
+
+<item>
+اختر الجنس
+</item>
+        <item>
+ذكر
+</item>
+
+        <item>
+أنثى
+</item>
+
+    </string-array>
+
+    <string-array name="specialization_arr">
+
+<item>
+اختر
+</item>
+        <item>
+item 1
+</item>
+
+    </string-array>
+
+    <string name="title_activity_show_image">ShowImageActivity</string>
+    <!-- Strings used for fragments for navigation -->
+<!--    <string name="first_fragment_label">First Fragment</string>-->
+    <string name="first_fragment_label">الجزء الأول</string>
+<!--    <string name="second_fragment_label">Second Fragment</string>-->
+    <string name="second_fragment_label">الجزء الثاني</string>
+    <string name="next">التالى</string>
+    <string name="previous">السابق</string>
+
+    <string name="hello_first_fragment">مرحبا الجزء الأول</string>
+    <string name="hello_second_fragment">مرحبا الجزء الثاني. أرغ: %1$s</string>
+    <string name="upcaoming_ncases">حالات اليوم</string>
+    <string name="cases_done_ntoday">حالات تمت اليوم</string>
+    <string name="total_ncases"> الحالات المعالجة</string>
+    <string name="today_ncases">حالات لم تتم
+        معالجتها</string>
+    <string name="statistics">إحصائيات</string>
+    <string name="info">الملف الشخصى</string>
+    <string name="documents">الوثائق</string>
+    <string name="gallery">الصور</string>
+    <string name="info_clinic">بيانات العيادة</string>
+    <string name="select_period_of_date">حدد التاريخ او الفترة ( من - الى)</string>
+    <string name="hello_dr">دكتور</string>
+    <string name="terms_conditions">الشروط و الاحكام</string>
+    <string name="by_creating_your_account_you_agree_to_our">من خلال إنشاء حسابك ، فإنك توافق على</string>
+    <string name="i_agree_to">بقيامك بالتسجيل فانت توافق على </string>
+    <string name="minutes">دقائق</string>
+    <string name="facebook_app_id">1047196382539404</string>
+    <!-- <string name="facebook_client_token">249547093885483</string>-->
+    <string name="otp_sent_again">تم إرسال الرمز مرة أخرى</string>
+    <string name="enter_phone_number">ادخل رقم الهاتف</string>
+    <string name="syndicate_id">رقم القيد بالنقابة</string>
+    <string name="enter_syndicate_id">ادخل رقم النقابة</string>
+    <string name="license_of_work_number">رقم رخصة العمل*</string>
+    <string name="enter_license_of_work_number">ادخل رقم رخصة العمل</string>
+    <string name="facebook_account">رابط الفيسبوك</string>
+    <string name="nationalid_required">يجب ان تدخل الرقم القومي</string>
+    <string name="syndicate_required"> رقم قيد كارنية النقابة مطلوب </string>
+    <string name="licences_required"> رقم ترخيص مزاولة المهنة مطلوب</string>
+    <string name="licence_required">يجب ان تدخل رقم ترخبص العمل</string>
+    <string name="title_english">اسم الشهادة (بالانجليزية)</string>
+    <string name="description_english">وصف الشهادة (بالانجليزية)</string>
+    <string name="title_arabic">اسم الشهادة (بالعربية)</string>
+    <string name="for_support_call">الاتصال بالدعم</string>
+    <string name="incorrect_phone_number">رقم هاتف غير صحيح</string>
+    <string name="now_you_will_receive_a_verification_code">ادخل بياناتك المسجله رقم الموبايل وسنرسل لك رمزا لإعادة تعيين كلمة المرور </string>
+    <string name="phone_verification">كود التفعيل</string>
+    <string name="verify_mobile_number">تأكيد الهاتف المحمول</string>
+    <string name="_17143">17143</string>
+    <string name="first">الاول</string>
+    <string name="middle">الاب</string>
+    <string name="last">الاخير</string>
+    <string name="must_approve_terms_conditions">يجب الموافقة علي الشروط والاحكام </string>
+    <string name="code_sent_to">تم ارسال الكود ل</string>
+    <string name="full_name">الاسم بالكامل*</string>
+    <string name="finish">انهاء</string>
+    <string name="date">تاريخ</string>
+    <string name="medical_history">السجل الطبى</string>
+    <string name="account">عرض ملف المريض</string>
+    <string name="clinic_appointments">مواعيد العيادة</string>
+    <string name="patient_address">عنوان المريض</string>
+    <string name="add_medication">اضافة دواء</string>
+    <string name="diagnosis">التشخيص</string>
+    <string name="details_diagnosis_120_charactres_left">تفاصيل التشخيص (متبقي 120 حرف)</string>
+    <string name="medications">الادوية</string>
+    <string name="attachments">المرفقات</string>
+    <string name="patient_history">تاريخ المريض</string>
+    <string name="hint_number">01xx xxx xxxx</string>
+    <string name="phone_number">رقم الموبايل</string>
+    <string name="phone_numbers">رقم الموبايل</string>
+    <string name="notifications">الاشعارات</string>
+    <string name="patient_account"> حسابات المرضى</string>
+    <string name="service">الخدمات</string>
+    <string name="terms_desc">Terms and Conditions These terms and conditions are considered a valid contract between the Qureshi Digital Services Technology Company (hereinafter referred to as “the company” or “your safety” or the pronoun “we”) and the doctor who uses the company\'s services either on his behalf his own behalf or on behalf of a company or institution He is her legal representative and hereinafter referred to as "the user" or by the second-pronoun "you" Please note that the reference to the company\'s terms and services is also an indication of the terms, guidelines and laws approved by the company. Your use of your safety services is your agreement and commitment to accept the terms and conditions detailed below, and it is a confirmation of your commitment and compliance with these terms and conditions. "These terms and conditions apply when you use your safety services (the site, the program, or the services) or any other electronic sites around the world owned, managed, or licensed by the company, or subject to its supervision (hereinafter referred to as the website or program) as well as any products or services. Or applications that have been introduced or developed by the company (hereinafter referred to as "services"). The company reserves the absolute right to add, amend - or update the terms and conditions at any time without giving any reasons and without any liability to the company, noting that the amended terms and conditions will become effective immediately after their publication on the company’s website, and accordingly, your continued use of your safety services after modifying The terms and conditions is your approval and pledge to comply with the terms and conditions as amended. These terms and conditions govern, as amended from time to time, any services provided by the company over the Internet or any other service that requires an Internet connection or requires the company's source account to provide, install, operate or access the products or services via the Internet (“services”) provided. Safety The company's privacy policy, listed in the link below, forms a binding contract between you and your safety, and accordingly, you acknowledge - by virtue of your use of your safety services - your full legal capacity to contract and enter into contracts and your compliance with the terms, conditions and obligations stipulated in these terms and conditions, and accordingly, if you do not agree And not ready to comply with the terms, conditions, policies, laws and regulations of the company, so please refrain from using its application or the company's services altogether. The company may include other new services, which will be subject to different terms and conditions, which will be added and referred to at that time. Your safety services are not intended for use by you if you are not legally authorized to practice your profession or the entity you are affiliated with is not authorized to practice its activities, and therefore your use of the company's services is an acknowledgment of your legal capacity or the eligibility of the entity you represent to practice its activities. The doctor acknowledges his full and absolute responsibility, whether criminal or civil, for any error in diagnosing or treating any patient that you dealt with through your safety services, so that your safety will not be under any circumstance and in any case responsible for any medical error, professional malpractice, or negligence committed by the doctor concerning the patient, and that your safety company is limited to its role as a mediator between the doctor and the patient only. The user acknowledges that the data shown inside the application has been provided only for the sake of knowledge and ease of affairs for the user and cannot be considered in any way as a substitute for specialized medical advice, and that the data, information and services provided are provided only for their use in the field of medical professionals, and that your safety or the affiliated companies cannot be considered It, its licensors or its suppliers are responsible for any violation or disclosure of any information on the company's website. The company - under these terms and conditions - granted the user a limited, non-absolute, non-exclusive and revocable license to use the data, content, materials and information available on the Salamatak application, noting that the user is not entitled to use or exploit any intellectual property rights owned by others without the prior written consent of others the owner of the intellectual property right, except to the extent expressly permitted by the law. Salamtak maintains the intellectual property rights owned by it, and under no circumstances arises for the user any of the rights owned by the company except upon its written consent, and you are not entitled to use, copy, display, implement, or create works derived from the data and information available on the application, or its distribution or Sending or sub-licensing it, other than within the limits of what is reasonably necessary for the services for their desired objectives and within the limits of what was stipulated in these terms and conditions, and the user is not entitled to make any attempts related to reverse-engineering the services provided by Salamtak . In the event that if the user becomes aware of any action or attempts to violate or violate these terms and conditions, he must contact the company and notify it immediately. Your safety makes the application services available in the equipment and devices of all kinds, for example but not limited to the mobile and computer devices that the user provides, meaning that your safety is not committed to providing those devices or means of wired and wireless communication, for example, but not limited to the Internet or mobile services. Register account and password The user does not consider the need to register to visit the application, but he must register directly on the site and create a new account so that the user can benefit from the services and features provided by your safety, as modified from time to time according to its absolute discretion. When creating a new account on the application, the user should enter the required personal data accurately and adequately to properly complete the registration process, and he should notify your safety if any of these data change as soon as possible, noting that your safety has the right to terminate the contract with the user if he has not entered or modified the required data. When creating a new account, you must enter a password for your account on the application and consider it a confidential matter and not respond to any message to obtain the password in any way, especially when the request is from any person claiming to work for the company, and you must notify the company immediately in case This happens, bearing in mind that you will be responsible for any use of the password on your account, for example, but not limited to entering the account by a third party that is not authorized to do so, and in the event that this occurs, you should notify the company immediately if you believe that your account has been compromised by others It is not licensed, and you should notify the company immediately if you believe that the application itself has been hacked or attempted to be hacked. The user is responsible for any activities that occurred on his account, even if they were issued by a third party that is not authorized to do so, and he also acknowledges his commitment to using the encrypted communication service if he wishes to protect his data and files available on the application. The company will suspend and suspend your account in the event that the wrong password is entered three times in succession, and in this case, you will have to contact the company through e-mail or technical support service to activate the account again. Agreeing to receive messages from the company According to his use of your safety services, the user acknowledges his agreement to send the company some messages related to your safety services through his e-mail instead of the mail service, for example, but not limited to reminders of the visit dates, notifications that the user must be notified of according to the law, the development of some new features in the application or Special offers and discounts, and in the event that the user does not want to do so, he can request to cancel the subscription from this feature. License According to these terms and conditions, the company grants the user a limited, non-exclusive, unpaid, non-sublicensable and non-assignable license to download the application on a mobile phone or any other device, as well as to use the application's services and products through your own account (user account), as this applies. Licensing IT departments working on behalf of the user's physician. The user shall refrain from performing any act that would breach, scan, or test any system or network or circumvent in any other way the security measures or procedures for validating or tampering with data validity or accessing or tampering with the services or the application system or the spaces of the programmers of the Salamtak application or systems the computers of its suppliers alike. The user is also not entitled to interfere with or disable the account of another user, host or other networks, for example, but not limited to, by sending a virus, overloading, spam, or electronic bombing of any part of the services; Or planting malware or using services in another way to spread malware, or access or search services by any means other than our supported interfaces, or send unwanted communications, advertisements, e-mails, deceptive messages, or publish identifying information, or anything fraudulent. Or misleading or violating the rights of others, promoting or advertising products or services that are not owned by the user without a license to do so, impersonating any person or entity, or publishing or sharing illegal or pornographic materials, or materials calling for intolerance or religious, racial or ethnic hatred or violate the law in any way, violate the privacy of others, or discredit them. The user has no right to perform any act that would involve sublicensing, selling, assigning, renting, distributing, entering, transferring, or granting any right to others related to your safety application or site, or to undertake or perform any action that would allow, authorize, create, change or Creation, translation, reverse engineering, abolition, decoding, emulation, piracy, discovery or attempted discovery of application protocols or any part thereof or their characteristics other than the limits stipulated by law. You are not entitled in any way to remove, hide or change any information related to copyright or other proprietary rights stipulated within the application, and you are not entitled to use the application or cause the use of the application (or any part of it) to advertise some products or services Provided by others, and you are not entitled to use the application except through your user account. The company will immediately close your account and terminate your license to use the application and services for your safety if you violate any of these terms and conditions in a violation or breach of any of the intellectual property rights owned by the company. The application may refer to any other sites, advertisements, or services owned by others, so that they are not owned or managed by the company, and the company does not have any right or authority to plan and is not responsible for any content or content or for the privacy policy or practices that it follows. The sites or advertisements referred to, and third-party websites follow a privacy policy different from the company's privacy policy, and accordingly, if you access third-party sites through the company's website, you do so at your responsibility and bear all the consequences resulting from that, given that the company will not bear any responsibility related to your use of third-party websites or services. In addition, your use or response to offers and discounts on third-party websites, immediate payment service, delivery of orders, goods, or otherwise creates a special contractual relationship between you and others in which the company is not a party, and therefore the company is not responsible for any loss or loss of anything you have at his request from these sites. User Generated Content 1- If you want to use your safety services, you must enter some data and files into your account on the application (hereinafter referred to as the user file) as well as 2- In the event that you publish, transfer or save your file or personal information on the application or website, you acknowledge whether on behalf of yourself or on behalf of the owner of the original content to grant your safety a permanent, exclusive, transferable, sublicensable license, free of franchise rights, non-revocation and right In the use, reproduction, publishing, translation, sublicensing, copying, modification, deletion or distribution of this content for inclusion on the Salamtak platform, for example, but not limited to the website for your safety. This listing includes any action that would review, process or amend the content, for example, but not be limited to introducing some new and different features to it, placing thumbnails, design options, or preserving data by making a backup copy of them, all for the purpose of marketing and marketing of your safety products and services, as it extends This license is granted to others who are not contracting with the company. 3- The user acknowledges that by the company’s use of his data, it will not be created in any way, nor will it be considered a violation or breach of intellectual property rights, copyright rights or trademarks owned by the user. 4- You acknowledge your safety by obtaining your prior written consent to disclose or publish your data on platforms other than your safety, so that if you refuse to approve this publication, your safety will refrain from taking it. 5- The user remains the sole owner of the data and files owned by him, as well as the form or form that the company has included. 6- The user acknowledges and agrees that the contractual relationship established between him and Salamtak is a management relationship in which the company collects and acquires user data for the purpose of transferring, processing and merging them. 7- Other than the exceptions stipulated in the company's privacy policy, the company will not in any way publish your data or transfer it to the relevant law enforcement authorities unless you acknowledge it. 8- The user declares that he alone is responsible for the correctness, accuracy, comprehensiveness, appropriateness and legality of the information that he provides to the company. 9 - Safety services allow you to share your data and personal files with your workers who are subject to your control, and therefore you are responsible for your workers saving, modifying or publishing data. Content created by your safety 1- The company creates content that includes all the information and files that the user enters into the application, which the company will process, for example, but not limited to signs, designs, texts and graphics, noting that choosing and organizing them is subject to the ownership of the company as well. 2- Product names, marks, designs, titles, words and phrases used on any of your safety applications and its licensors or other entities, as well as all headers, custom graphics, button icons and scripts are trademarks and patents owned and registered in the name of the company, and accordingly, in the event that you use these trademarks Or logos, you must include appropriate attribution for your safety, all other trademarks, patents, etc. shown on the application are belonging to their original owners, you are not entitled to use any of these marks, patents, trade secrets, design rights, commercial appearance, logos, or any other content that mimics the origins of the mark Or similar to it confusing it without your prior written approval. 3- Your safety may invite you to choose the ability to send comments, testimonials, opinions, suggestions, ideas, etc. related to the services provided by your safety, including but not limited to developing services or products. And in the event that you make any suggestions or ideas, you acknowledge that you will By providing it on your own and with your sole desire and free of charge and that you will not ask the company to pay any material compensation for these suggestions or ideas and that your safety has the right to publish them on the largest scale, use and implement them without any financial commitment to you, and that you have given the company permission to use this proposal or this idea on the largest scale permanently It is irrevocable and free of charge, and that in the event that Salamtak registered any patents, copyrights, or copyrights on this idea or this proposal, all of its property rights will devolve to the company alone and not others, and you waive the claim of any current or future rights that you demand In it, compensation is based on unfair competition, moral rights, or any other legal basis. Accordingly, you do not have to provide us with these ideas or proposals if you do not wish to assign in favor of the company for all the rights associated with it without any charge, and you acknowledge that you are fully responsible for the content of these ideas and suggestions. User responsibility 1- The content provided by your safety is protected under intellectual property rights and must not be published to the public, and accordingly, you acknowledge that you refrain from publishing, downloading or sharing this content with others, and that you alone bear the full responsibility and consequences resulting from your breach of this obligation. 2- You will be solely responsible for the maintenance, protection and preservation of all your data, as the company will not be held responsible for data loss or damage, costs or expenses incurred by you for making backup copies or data retrieval or any amounts to compensate for the loss you have incurred due to the failure to protect your personal data. 3- The company must be promptly notified of any changes or modifications to your personal data related to your personal account. 4- The user acknowledges that he will not use the services of your safety for the purpose of compelling it to enter into any contracts with the aim of coordinating or setting the prices of services and products, changing the agreed currency, limiting production, sharing markets, or tampering with bids or otherwise. 5- You will not use your safety services for the purpose of engaging in any practices that are contrary to free and fair competition, deceptive or in violation of antitrust or consumer protection laws and their implementing regulations. Security policy Your safety has taken all necessary technical and organizational measures for the purpose of securing the user's personal data from any loss, unauthorized entry, exploitation, incitement, alteration, or disclosure, but despite this, the company does not guarantee that it will not be possible for unauthorized third parties to overcome the security policy Of the company and access to your personal data or use it for illegal purposes, and therefore you acknowledge that the company is not responsible in the event that this happens and that you enter the data at your personal responsibility. The company respects the intellectual property rights of others, and therefore the company may delete or remove any content that may represent a violation of the intellectual property rights owned by others and according to its discretion, and the company also has the right to terminate and suspend the account of the user who does any action that violates the intellectual property rights of others. The user acknowledges and undertakes to the company that: \n• Has full authority to enter into your obligations under these terms and conditions \n• His agreement to fulfill his obligations under these terms and conditions \n• That compliance with these terms and conditions does not constitute a breach of or inconsistent with any other legal obligations of any kind, agreements, arrangements, laws or regulations in force; Or any judicial rulings issued against or subject to it \n• These terms and conditions constitute legal, valid and binding obligations \n• You will not violate, when you use the company's services, copyrights, publishing, trademarks, trade secrets, rights of publicity, intellectual property rights owned by others, or the rights of confidentiality guaranteed to your customers. \n• You will comply with all applicable laws, rules and regulations when using the company's services \n• You are a qualified doctor in accordance with the laws and regulations in force in your field of work \nThe user acknowledges using the application at his own responsibility and that the company, its employees, directors, representatives and partners are not responsible for any explicit or implicit guarantees related to the services and your use of them, and that your safety does not provide any guarantees or assurances regarding the accuracy or completeness of the content of this application or the content of any of the sister sites of this application, And that the company does not bear any responsibility related to any of the following: \n• Error or inaccuracy of the content \n• Any personal injury or property damage of any kind resulting from your use of the company's services Any unauthorized access or use of our secure servers and / or all personal information and / or information about your financial situation that you have entered Any interruption or interruption of transmission to or from our services \n• Any errors, viruses, or the like that may be transferred to or from our services by others \n• Any errors or omissions in any content or any loss or damage of any kind incurred by the user as a result of using any content that was published, sent via e-mail, transmitted or made available in another way through the services. \nYour safety does not guarantee, endorse or assume responsibility for any product or service advertised or provided by others through the services provided by your safety or any electronically connected services that appear in any banner or other advertisement, and your safety will not be a party in your relationship with the service provided by Third parties shall not be responsible for monitoring any transaction between you and others. \nConditions for limiting your safety liability The company, its officials, directors, employees or representatives shall not be liable for any direct, indirect, incidental, special, punitive or consequential damages resulting from: A- Any error or inaccuracy of the content, B- Injury or loss of personal property of any kind resulting About your access to the website and the application and your use of your safety services, c- Any unauthorized entry from others for the purpose of using our computer servers to obtain your personal data entered on the application, d- any interruption or discontinuation from and to the company's services, Q- any errors Or viruses or the like that may be transferred to or through our services by third parties, r- Any errors or omissions in any content or for any loss or damage of any kind incurred by the user as a result of using any content posted or sent via e-mail. Or transferring it or making it available in another way through the services, regardless of whether this damage is based on contractual liability, tort liability, or any other guarantee provided by the company to the user or any other legal document, all of which changes a breach of the laws, provisions and regulations in force within the competent court department. \nIn particular, the user acknowledges that he is fully responsible for any defamatory, abusive or unlawful behavior of others, or for any danger, harm or damage resulting from the foregoing. The service is controlled and provided by the Qureshi Group from its facilities and Salamtak does not make any representations that the service is appropriate or available for use in other locations. Those who access or use the service from other jurisdictions do so of their own free will and are responsible for compliance with local law. \nAlso, your safety does not provide any guarantees or responsibilities that the services provided by your safety are located in your place of residence and that you are doing it of your own free will and without any responsibility on the company, and that users residing in other places must comply with the laws, rules, regulations and local decisions in force within the department of their residence. \nThe user acknowledges, within the limits of the provisions of the law, to defend, protect and absolve your safety, representatives, directors, officials, or agents from any damages, losses, costs, or expenses, for example, but not limited to the attorneys' fees incurred by your safety as a result of any claims or lawsuits filed or filed against any of the parties Due compensation resulting from: 1- Your use and access to the company's services, 2- Your violation of these terms and conditions, 3- Any claims you make in violation of these terms and conditions, including any violation of laws and regulations or any allegation that you violate your privacy or your intellectual property rights And related to your files and personal data that you entered on the application or files created by the company, 4- Disputes arising out of or related to or related to your violation of intellectual property rights owned or privacy of others through your entry and use of the company's website or services, the entry of others and their use of your personal account and entering the password And in the event that you are obligated to compensate in accordance with the previous paragraph, the company shall have the right, according to its absolute discretion, to dispose of the lawsuits or claims at your own expense, Without prejudice to the foregoing, you may not settle any disputes without your prior written safety consent. the majeure forces \nYour safety will not be responsible for its fulfillment of its contractual obligations towards you in the event of a force majeure that prevents it from complying, for example, but not limited to strikes, suspension of service, interruption of communications, cessation of the contracted service provider with your safety from providing its services, fire, terrorist accident, natural disaster or war. Your safety, according to its absolute discretion, has the right to terminate the contract with you and prevent you from using its services or accessing the application without giving any reasons, and this may be for several reasons, for example, but not limited to, \n1- Your violation of one of your obligations in these terms and conditions, \n2- Your violation of the rights of others, \n3- Invalid credit card data for your \n4- You exceeded the limit allowed for your credit card or 're-upload' fees or other payments, \n5- Inactivity of your account for an extended period of time. \nIn the event that your account is suspended, your safety will delete any websites, files, graphics, or any content or other materials related to your use of the website or services on the servers owned or managed by Qureshi Company or which it possesses without any liability on the company, and the company is also entitled to take all measures that It is deemed appropriate to prevent others from entering the site or using the services, for example, but not limited to creating technological barriers, mapping IP and direct contact with your Internet service provider, and the user is obligated to pay any amount owed for your safety immediately. \nAny notifications made in accordance with these terms and conditions will be in writing and delivered by one of the following methods: \n1- Hand-delivered, \n2- A registered letter with acknowledgment of arrival through the Egyptian Post Authority, \n3- Express Mail Service \n4- Email \nIn the event that you send a notification for your safety, you must send to the address shown on the site, and in the event that your safety sends a notification to you, it will be sent to the address indicated in your personal data, and both parties acknowledge that the notification sent electronically by any party fulfills any legal requirement that you send this correspondence in writing \nThese terms and conditions shall be the entire agreement between your safety and the user and supersede all previous and current agreements and understandings between the two parties with respect to their subject matter, and these terms and conditions will be binding on each party or its successors. \nThese terms and conditions, as well as all your rights and obligations under them, will not be referred without prior written approval from the company. Any failure or delay on the part of any party to exercise any right, authority or privilege under these terms and conditions shall not be considered a waiver of it, and any individual or partial exercise of any right, authority or privilege will not prevent the other party from exercising this right or exercising any right or authority or another franchise under these terms and conditions. \nThe relationship between the user and the company is a contractual relationship as independent contractors and cannot be considered in any way a contract of agency, partnership, joint venture, or work relationship between a worker and the employer. \nThese terms and conditions are separable, and the nullity or non-enforcement of any of them does not affect the validity of any of the other terms and conditions, which will remain valid, enforceable and legal. \nThese terms and conditions have been drafted in both Arabic and English, and in the event of a conflict between the terms and conditions between the Arabic and English languages, the terms and conditions and the Arabic language shall be applied \nThank you</string>
+<!--    <string name="terms_desc">الشروط والأحكام تعتبر هذه الشروط والأحكام عقدًا صالحًا بين شركة Qureshi Digital Services Technology Company (المشار إليها فيما يلي باسم "الشركة" أو "سلامتك" أو الضمير "نحن") والطبيب الذي يستخدم الشركة الخدمات إما نيابة عنه أو نيابة عن شركة أو مؤسسة</string>-->
+    <string name="appointments">الحجوزات</string>
+    <string name="what_s_up">اخر الاخبار</string>
+    <string name="profile">الملف الشخصى</string>
+    <string name="vacations">الاجازات</string>
+    <string name="patient_profile_history">ملف المريض</string>
+    <string name="clinic_follow_up_fee">رسوم الاستشارة</string>
+    <string name="clinic_vacations">الاجازات</string>
+    <string name="please_enter_valid_name">الرجاء ادخال رقم صحيح</string>
+    <string name="nationalid_lenght">يجب ادخال 14 رقم</string>
+    <string name="normal">طبيعي</string>
+    <string name="height">الطول</string>
+    <string name="weight">الوزن</string>
+    <string name="blood_group">فصيلة الدم</string>
+    <string name="blood_pressure_mmhg">ضغط الدم (ملم زئبق)</string>
+    <string name="pressure_mm_hg">ضغط الدم (ملم زئبق)</string>
+    <string name="sugar_level_mg_dl">مستوى السكر(ملغم/دل)</string>
+    <string name="sugar_mg_dl">مستوى السكر(ملغم/دل)</string>
+    <string name="medicine_allergies">حساسية للادوية</string>
+    <string name="food_allergies">حساسية للأطعوة</string>
+    <string name="other_allergies">حساسية أخري</string>
+    <string name="prescriptions">وصفات طبية</string>
+    <string name="current_medication">الأدوية الحالية</string>
+    <string name="past_medication">أدوية سابقة </string>
+    <string name="injuries">أصابات</string>
+    <string name="chronic_diseases">أمراض مستعصية</string>
+    <string name="surgeries">العمليات الجراحية</string>
+    <string name="patient_mobile">رقم الموبايل</string>
+    <string name="syndicate_lenght">يجب الا يقل عن 2 رقم</string>
+    <string name="old_password">كلمة المرور الحالية</string>
+    <string name="resend_code_after">إعادة إرسال الرمز بعد</string>
+    <string name="company_name">اسم العيادة</string>
+    <string name="dear_dr_be_updated">عزيزي الدكتور : تابع التحديثات</string>
+    <string name="clinic_description">وصف العيادة</string>
+
+    <string name="english_name">اكتب باللغة الانجليزية</string>
+    <string name="english_name_Description">Certificate Description In Arabic Is Required</string>
+    <string name="arabic_name">اكتب باللغة العربية</string>
+    <string name="arabic_name_Description">Certificate Description In Arabic Is Required</string>
+    <string name="vaction_name">اسم الاجازة</string>
+    <string name="vaction_data_from">مواعيد الاجازه من</string>
+    <string name="vaction_data_to">مواعيد الاجازه الى</string>
+    <string name="save">حفظ</string>
+    <string name="savess">حفظ</string>
+    <string name="saves">اختر</string>
+    <string name="vaction">الاجازة</string>
+    <string name="enter_vaction_name">ادخل اسم الاجازة</string>
+    <string name="clinic_check_up_fee"> رسوم الكشف الطبى</string>
+    <string name="doctor_namee">اسم الدكتور</string>
+    <string name="fees">الرسوم</string>
+    <string name="paid">المدفوع</string>
+    <string name="balance">اجمالى رصيد الحساب</string>
+    <string name="dd_mm_yyyy">ي/ش/س</string>
+    <string name="total_fees">اجمالى المبلغ</string>
+    <string name="search_by_patient_name">بحث باسم المريض</string>
+    <string name="front_and_back_image">الصورة الامامية و الخلفية مطلوبة</string>
+    <string name="street_required">الشارع مطلوب</string>
+    <string name="building_number_required">رقم المبنى مطلوب</string>
+    <string name="floor_number_required">رقم الطابق مطلوب</string>
+    <string name="appartment_number_required">رقم الشقة مطلوب</string>
+    <string name="update_will_be_reviewed_within_24_48_hours">ستتم مراجعة التحديث في غضون 24 - 48 ساعة</string>
+    <string name="choose_photo">اختر الصورة</string>
+    <string name="take_a_photo">التقط صورة</string>
+    <string name="choose_from_gallery">اختر من المعرض</string>
+    <string name="cancel_reason">سبب الالغاء</string>
+    <string name="now_you_can_create_your_salamtak_profile">يمكنك الان تسجيل بياناتك فى تطبيق سلامتك</string>
+    <string name="create_profile">انشاء حساب جديد</string>
+    <string name="you_add_vew_vacation">انت ضيفت اجازة </string>
+    <string name="close">اغلاق</string>
+    <string name="are_you_sure_you_want_to_cancel_this_appointment">هل انت متاكد من الغاء الحجز؟</string>
+    <string name="cancel_appointment">الغاء الحجز؟</string>
+    <string name="you_just_edit_your_times">انت قمت بتعديل مواعيدك</string>
+    <string name="are_you_sure_you_want_to_delete_your_account">هل انت متأكد أنك تريد حذف حسابك؟</string>
+    <string name="front_image_required">الصورة الامامية مطلوبة</string>
+    <string name="country">اختر الدولة</string>
+    <string name="clinic_phone_1_required">تليفون العيادة 1 (مطلوب)</string>
+    <string name="allclinks">جميع العيادات</string>
+    <string name="terms_amp_conditions">شروط واحكام</string>
+    <string name="click_here_to_edit_your_profile">اضغط هنا لتعديل ملفك الشخصي</string>
+    <string name="checkfee">رسوم الفحص الطبي</string>
+    <string name="edit_clinic_1"> تحديث بيانات العيادة </string>
+    <string name="save_edit">حفظ التحرير</string>
+    <string name="clinic_name_in_arabic">اسم العيادة باللغة بالعربية</string>
+    <string name="name_size">الرجاء تعبئة الاسم بشكل صحيح (أول-وسط-أخير)</string>
+    <string name="are_your_sure">هل أنت متأكد أنك تريد تأكيد هذا الجدول؟</string>
+
+    <string name="appartment_number">رقم الشقة</string>
+    <string name="thanks_dr_mohamed_for_completing_your_profile">شكرًا <font color="#00D2CB">الدكتور محمد</font> لاستكمال ملف التعريف الخاص بك</string>
+    <string name="add_another_certificate">أضف شهادة أخرى</string>
+    <string name="description_in_english">وصف الشهادة باللغة الإنجليزية </string>
+    <string name="decsription_in_arabic">وصف الشهادةباللغة العربية </string>
+    <string name="choose_year">تاريخ الشهادة</string>
+    <string name="editVacation">تحرير العطلة</string>
+    <string name="from">من</string>
+    <string name="clinic_profile">عيادة جديدة</string>
+    <string name="location">الموقع</string>
+    <string name="upload_your_image"> تحميل الصورة الشخصية </string>
+    <string name="upload_clinic_logo">تحميل شعار او صورة العيادة</string>
+    <string name="upload_atleast_10_photos">ارفع الصورة الخاصة بالعيادة</string>
+    <string name="upload_clinic_image">اضافة صور العيادة</string>
+    <string name="national_vacancy">الاجازات الوطنية</string>
+    <string name="add_new_vacation">أضف إجازة </string>
+    <string name="clinics_appoitment">تعيين عيادات</string>
+    <string name="enter_arabic_only">الرجاء إدخال الحرف العربي فقط</string>
+    <string name="full_name_in_english">الاسم الكامل باللغة الانجليزية (الأول - الأوسط - الأخير)</string>
+    <string name="poly_full_name_in_english">اسم المسؤل باللغة الانجليزية (الأول - الأوسط - الأخير)</string>
+    <string name="poly_full_name_in_arabic">اسم المسؤل باللغة العربية (الأول - الأوسط - الأخير)</string>
+    <string name="full_name_in_arabic_first_middle_last">الاسم الكامل باللغة العربية (الأول - الأوسط - الأخير)</string>
+    <string name="help">للدعم</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="new_confirm_password">يجب أن تتطابق كلمة المرور الجديدة وتأكيدها</string>
+    <string name="confirm_password_field_required"> تأكيد كلمة المرور الجديدة مطلوبة</string>
+    <string name="old_password_field_required"> كلمة المرور الحالية مطلوبة</string>
+    <string name="new_password_field_required">كلمة المرور الجديدة مطلوبة</string>
+    <string name="no_image_found">لم يتم العثور على صورة</string>
+    <string name="please_upload_profile_pic">Please upload profile pic</string>
+    <string name="upcoming">القادمة</string>
+    <string name="in_progressss">قيد الانتظار</string>
+    <string name="pending">قيد الانتظار</string>
+    <string name="missed">مٌفتَقد</string>
+    <string name="completed">تم الكشف</string>
+    <string name="egp">جنية</string>
+    <string name="egps">جنية</string>
+    <string name="type_of_services">نوع الحجز</string>
+    <string name="add_max_number_of_patients_to_be_able_to_book">مدة الكشف (دقائق)</string>
+    <string name="follow_up_fee">رسوم المتابعة(استشارة)</string>
+    <string name="max_no_of_bookings">اقصى عدد للحجوزات</string>
+    <string name="thank_you_for_registering_in_salamtak">شكرا لانضمامك الى فريق سلامتك</string>
+    <string name="your_account_will_be_activated_as_soon_as_possible">سيتم تفعيل حسابك في خلال 3 أيام عمل</string>
+    <string name="all_booking">جميع الحجوزات</string>
+    <string name="choose_clinic">جميع العيادات</string>
+    <string name="good_morning">صباح الخير</string>
+    <string name="good_afternoon">مساء الخير</string>
+    <string name="good_evening">مساء الخير</string>
+    <string name="good_night">طاب مساؤك</string>
+    <string name="personal_info">معلومات شخصية.</string>
+    <string name="speciality">التخصص</string>
+    <string name="legal_doc">المستندات القانونية</string>
+    <string name="full_name_in_english_first_middle_last">الاسم الكامل باللغة الانجليزية (الأول - الأوسط - الأخير)</string>
+    <string name="licensenumber">رقم ترخيص مزاولة المهنة</string>
+    <string name="doctor_profile">الملف الشخصي للطبيب</string>
+    <string name="phone_number_1">رقم الهاتف 1</string>
+    <string name="phone_number_2">رقم الهاتف 2</string>
+    <string name="vacation_name">اسم العطلة</string>
+    <string name="vacation_date_from">اجازة من</string>
+    <string name="vacation_date_to">اجازة إلى</string>
+    <string name="are_you_sure_you_wnat_sign_out">هل أنت متأكد أنك تريد الخروج من التطبيق؟</string>
+    <string name="no_show">لم يحضر</string>
+    <string name="complete">Complete</string>
+
+    <string name="no_country_found">No Country Found</string>
+    <string name="street_and_landmark">شارع و( علامة مميزةاذا كانت متوفرة)</string>
+    <string name="please_fill_correct_data">جميع البيانات مطلوبة</string>
+    <string name="add_new_certificate">اضف شهادة جديدة</string>
+    <string name="start_video_call">Start Video Call</string>
+    <string name="start_voice_call">Start Voice Call</string>
+    <string name="end">End Meeting</string>
+    <string name="appointment">الحجوزات</string>
+    <string name="select_peroid_of_date">اختر التاريخ (من-الى) </string>
+    <string name="filter_clinic_services">نوع الخدمة</string>
+    <string name="actions">أفعال</string>
+    <string name="all_clinics">جميع العيادات</string>
+    <string name="edit_new_period">تعديل الفترة</string>
+    <string name="passwordshouldhavecapitalletters">password should have one Capital letters</string>
+    <string name="required">مطلوب*</string>
+    <string name="requiredEnglish">الاسم الكامل باللغة الانجليزية مطلوب</string>
+    <string name="requiredarabic">الاسم الكامل باللغة العربية مطلوب</string>
+    <string name="requiredmobile">رقم الموبايل مطلوب </string>
+    <string name="requiredemail"> البريد الإلكتروني مطلوب </string>
+    <string name="requiredpassword">كلمة المرور مطلوبة </string>
+    <string name="requiredconfirmpassword">تأكيد كلمة المرور مطلوبة </string>
+    <string name="Enter_fullName_english">الاسم الكامل ( الأول - الأوسط - الأخير ) باللغة الانجليزية مطلوب</string>
+    <string name="Enter_fullName_Arabic">الاسم الكامل ( الأول - الأوسط - الأخير ) باللغة العربية مطلوب</string>
+    <string name="phonedigits">يجب الا يقل رقم الهاتف عن 11 رقم</string>
+    <string name="match_email">البريد الالكترونى غير صحيح يرجى التحقق منه </string>
+    <string name="lesstthan6number">كلمة المرور تتكون من 6 حروف وارقام على الاقل </string>
+    <string name="doesnotmatch">.كلمة المرور وتأكيد كلمة المررور غير متطابقين</string>
+    <string name="createnewaccount">إنشاء حساب جديد</string>
+    <string name="birthdateandnationaldoesnotmatch">تاريخ الميلاد وبطاقة الرقم القومى غير متطابقين</string>
+    <string name="invalid_Date">>يجب أن يكون تاريخ الميلاد أكبر من 21</string>
+    <string name="helper_text">خطأ</string>
+    <string name="enter14number">الرقم القومى مطلوب و يتكون من 14 رقم</string>
+    <string name="must_upload_front_and_back_image">يجب تحميل الصورة الأمامية والخلفية</string>
+    <string name="nationalid">الهوية الوطنية</string>
+    <string name="forsupportcallus">للمساعدة اتصل بـ 17143 </string>
+    <string name="choose_your_insurance_company">إختر اسم شركات التأمين الطبى المتعاقدة مع العيادة </string>
+    <string name="insurance_company">ابحث</string>
+    <string name="extra_tele_comunication">الاتصالات الإضافية:</string>
+    <string name="extra_in_clinc_insurance">التأمين الإضافي في العيادة:</string>
+    <string name="cash_back">الاسترداد النقدي :</string>
+    <string name="tele_comunication">الاتصالات </string>
+    <string name="insurance">التأمين</string>
+    <string name="in_clinic_patients">مرضى العيادة</string>
+    <string name="other_pakage">حزم أخرى</string>
+    <string name="lets_start">ابدأ التطبيق</string>
+    <string name="areaname">اسم المنطقة</string>
+    <string name="cityname">اسم المدينة</string>
+    <string name="specname">اسم التخصص</string>
+    <string name="packagename">اسم الحزمة</string>
+    <string name="inclinic_patients">مرضى العيادة :</string>
+    <string name="extra_inclinic_patientprice">سعر المريض الإضافي</string>
+    <string name="tele_consultations">الاستشارات عن بعد :</string>
+    <string name="extra_teleconsultationprice">سعر الاستشارة الإضافية عن بعد</string>
+    <string name="inclinic_insurance_petients">عيادة التأمين المرضى :</string>
+    <string name="extra_inclinic_insurance_price">سعر التأمين الإضافي:</string>
+    <string name="access_to_sponsored_ads">الوصول إلى الإعلانات الممولة:</string>
+    <string name="one_month_free_sponsored_ads">شهر مجاني للإعلانات الممولة:</string>
+    <string name="packageid">رقم الحزمة:</string>
+    <string name="appointmentdate">تاريخ الموعد</string>
+    <string name="special_date">تاريخ خاص</string>
+    <string name="select_day">التاريخ</string>
+    <string name="vacation_issue_date">تاريخ إصدار الإجازة</string>
+    <string name="waiting_for_the_patient_to_join">في انتظار انضمام المريض</string>
+    <string name="salamtak_gate">بوابة سلامتك</string>
+    <string name="referencelinks">Reference Links</string>
+    <string name="salamtaktrueorfalse">Salamtak True Or False</string>
+    <string name="salamtak_care">Salamtak Care</string>
+    <string name="salamatak_scoope">Salamatak Scope</string>
+    <string name="salamatk_cap">Salamtak Capsule</string>
+    <string name="salamtak_promotions">Salamtak Promotions</string>
+    <string name="salamtak_angle">Salamtak Angel</string>
+    <string name="emergencies">الطوارئ</string>
+    <string name="qanda">بنك الاسئلة</string>
+    <string name="promotion_not_available_at_the_moment">Promotion not available at the moment.</string>
+    <string name="we_are_working_on_delivering_the_best_offers_to_you_please_come_back_and_check_later">نحن نعمل على تقديم أفضل العروض لك.يرجى العودة والتحقق لاحقا.
+    </string>
+    <string name="powered_by" >برعاية</string>
+    <string name="bloodtype">فصيلة الدم</string>
+    <string name="pressure">ضغط</string>
+    <string name="sugarlevel">مستوى السكر</string>
+    <string name="otherallergies">الحساسية الأخرى</string>
+    <string name="chronicDiseases">الأمراض المزمنة</string>
+    <string name="foodallergiesname">اسم الحساسية الغذائية</string>
+    <string name="medicineallergiesname">اسم الدواءالحساسية</string>
+    <string name="servicecount">الخدمة</string>
+    <string name="addanthorbill">+اضف فاتورة أخرى</string>
+    <string name="createdat">أنشئت في</string>
+    <string name="Call">إتصال</string>
+    <string name="genecology_and_infertility">علم الوراثة والعقم</string>
+    <string name="salamtak_gates">بوابة سلامتك</string>
+    <string name="to_get_start_pick_your_language">للبدء, اختر اللغة</string>
+    <string name="choosepackage">"الحزم الخاصة بك "</string>
+    <string name="January">يناير</string>
+    <string name="February"> فبراير</string>
+    <string name="March">مارس</string>
+    <string name="April">أبريل</string>
+    <string name="May">مايو</string>
+    <string name="June">يونيو</string>
+    <string name="July">يوليو</string>
+    <string name="August">أغسطس</string>
+    <string name="September">سبتمبر</string>
+    <string name="October">اكتوبر</string>
+    <string name="November">نوفمبر</string>
+    <string name="December">ديسمبر</string>
+    <string name="name">اسم</string>
+    <string name="packagetype">"نوع "</string>
+    <string name="price">سعر</string>
+    <string name="total">المجموع</string>
+    <string name="residual">المتبقية</string>
+    <string name="numberofpatient">عدد المرضى:</string>
+    <string name="packagenumber">المريض في الحزمة:</string>
+    <string name="doctormobile">دكتور موبايل</string>
+    <string name="Inclinkextra">"في كلينك اكسترا "</string>
+    <string name="Package">حزمة :</string>
+    <string name="pay">ادفع</string>
+    <string name="selectmonth">اختر الشهر</string>
+    <string name="taxe">ضريبة(14%):</string>
+    <string name="deleteaccount">حذف الحساب</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="lang">Arabic</string>
+    <string name="arabic">اللغة العربية</string>
+    <string name="choose_language">اختر اللغة</string>
+    <string name="specialitys">اختر التخصص</string>
+    <string name="subspeciality">اختر التخصص الفرعى</string>
+    <string name="senority">اختر الدرجة العلمية</string>
+    <string name="bio_in_english">السيرة الذاتية باللغة الانجليزية</string>
+    <string name="bio_in_arabic">السيرة الذاتية باللغة العربية</string>
+    <string name="title_in_english">إسم الشهاده باللغة الانجليزية</string>
+    <string name="titleinarabic">إسم الشهاده باللغة العربية</string>
+    <string name="titleinarabics">إسم الشهاده باللغة العربية</string>
+    <string name="enter_arabic_data_for_your_certificate">ادخل بيانات الشهادة باللغة العربية</string>
+    <string name="enter_the_year_of_obtaining_the_certificate">ادخل سنة الحصول على الشهادة</string>
+    <string name="enter_english_data_for_your_certificate">ادخل بيانات الشهادة باللغة الانجليزية</string>
+    <string name="nationid">صورة الرقم القومى</string>
+    <string name="addphone"> رقم الهاتف 1</string>
+    <string name="addphone2"> رقم الهاتف 2</string>
+    <string name="requiredclinicname"> اسم العيادة باللغة الانجليزية مطلوب</string>
+    <string name="requiredclinicnamearabic"> اسم العيادة باللغة العربية مطلوب </string>
+    <string name="activated_code_will_be_sent_within">الرجاء ادخال رمز التحقق الذى تم إرساله لهاتفك المحمول</string>
+    <string name="select_clinic_location">تحميل موقع العيادة (اثناء وجودك فى العيادة)</string>
+    <string name="country_required">الدولة مطلوبة</string>
+    <string name="arearequired">المنطقة مطلوبة</string>
+    <string name="timeto">الفترة الزمنية الى :</string>
+    <string name="pound"> جنية مصرى</string>
+    <string name="operatinghours">ساعات العمل</string>
+    <string name="check_phone">التحقق من الهاتف</string>
+    <string name="addreport">+ اضافة ملف او تقرير</string>
+    <string name="edit_profile"> تعديل الملف الشخصى</string>
+    <string name="change_language">اختر اللغة</string>
+    <string name="add_atleast_1_certificate_before_continuing">يجب اضافة شهادة واحدة على الاقل</string>
+    <string name="your_schedule_deleted_successfully">تم حذف الجدول الخاص بك بنجاح</string>
+    <string name="choose_date_from_first">اختر التاريخ من الأول </string>
+    <string name="phone_number_or_email"> رقم الهاتف</string>
+    <string name="certificatetitleinarabic">إسم الشهادة باللغة العربية</string>
+    <string name="operation_hours_from">ساعات التشغيل (من) </string>
+    <string name="operation_hours_to">ساعات التشغيل (الى)</string>
+    <string name="type_of_service">نوع الحجز</string>
+    <string name="date_of_service">تاريخ الحجز</string>
+    <string name="time_of_service">وقت الحجز</string>
+    <string name="accounts">كشف حساب </string>
+    <string name="datess">التاريخ</string>
+    <string name="servicess">الخدمة</string>
+    <string name="fee">التكلفة</string>
+    <string name="paids">المدفوع</string>
+    <string name="edits">اضف فاتورة اخرى</string>
+    <string name="doctor_names">اسم الطبيب</string>
+    <string name="total_fee">التكلفة</string>
+    <string name="add_another">اضف فاتورة اخرى</string>
+    <string name="thanks">شكرا</string>
+    <string name="dr">د.</string>
+    <string name="completeing"> لاستكمال ملفك الشخصى  </string>
+    <string name="next_step_create_your_clinic_profile">الخطوة التالية إنشاء ملف تعريف العيادة الخاصة بك</string>
+    <string name="clinic_profiles">بيانات العيادة</string>
+    <string name="add_emr"> السجل المرضى الالكترونى </string>
+    <string name="set_your_ongoing_clinic_schedule">حدد جدول فترات ومواعيد العيادة الدائم </string>
+    <string name="are_you_sure_you_want_to_cancel_this_appointments">هل انت متأكد أنك تريد إلغاء هذا الموعد؟ </string>
+    <string name="offers">إضافة عرض جديد</string>
+    <string name="offer">عروض</string>
+    <string name="addyouroffersnow">اضف عروضك الان</string>
+    <string name="addoffer">إضافة عرض</string>
+    <string name="descripeoffer">1.قم بوصف عرضك عن طريق اختيار الفئة الرئيسية والفئة الفرعية</string>
+    <string name="chooseunit">2.اختر الوحدة الأقرب الى عرضك ثم قم بوصف عرضك.</string>
+    <string name="press_the_button_to_join_a_channel">اضغط على الزر للانضمام إلى القناة</string>
+    <string name="allclinics">جميع العيادات </string>
+    <string name="chooseyourservices">اختر خدمات العيادة</string>
+    <string name="choosesubsevices">اختر الخدمة الفرعية (اختيارى)</string>
+    <string name="unit">وحدة</string>
+    <string name="offertitle">Offer Title</string>
+    <string name="offerdescription">Offer Description</string>
+    <string name="offertilear">عنوان العرض</string>
+    <string name="offerdescriptionar">وصف العرض</string>
+    <string name="descripingoffer">اذا وصفت العرض فقد يزيد الحجز بنسبة 25%.</string>
+    <string name="setprice">3.قم بتحديد السعر وتاريخ انتهاء العرض</string>
+    <string name="pricebeforeoffer">السعر قبل العرض</string>
+    <string name="priceafteroffer">السعر بعد العرض</string>
+    <string name="pickphoto">4.اختر صور العرض</string>
+    <string name="uploadofferphoto">رفع صور العرض</string>
+    <string name="chooseyoursubservices">Choose your Sub Services</string>
+    <string name="offerstartdate">تاريخ بدء العرض </string>
+    <string name="offerenddate">تاريخ انتهاء العرض</string>
+    <string name="redisternewoffer">تسجيل عرض جديد</string>
+    <string name="session">جلسة</string>
+    <string name="datasentsuccessfully">تم ازرسال بياناتك بنجاح</string>
+    <string name="thanks_you">شكرا</string>
+    <string name="yourprofilecompleted">Your profile is completed successufly</string>
+    <string name="session_acount">عدد الجلسات :</string>
+    <string name="offercomented">We have commented on your offer,please check our comments</string>
+    <string name="editoffer">Edit Offer</string>
+    <string name="submityourreply">Submit your reply</string>
+    <string name="yourreplay">Your Reply Here.....</string>
+    <string name="image_deleted_successfully">Image Deleted successfully</string>
+    <string name="syndicatefromto">رقم قيد النقابة يتكون من  2 الى 8 ارقام </string>
+    <string name="photorequired">جميع المستندات مطلوبة</string>
+    <string name="clinic_names">إسم العيادة</string>
+    <string name="savegallery">حفظ التعيرات</string>
+    <string name="check_up_fees_is">رسوم الكشف الطبى مطلوبة</string>
+    <string name="booking_type_is">نوع الحجز مطلوب</string>
+    <string name="period_time_from_to_is">الفترة الزمنية من و الى مطلوبة</string>
+    <string name="max_number_of_booking_period_is">الحد الاقصى لعدد الحجوزات / الفترة مطلوب</string>
+    <string name="add_emrs"> أضف تشخيص طبى + روشتة</string>
+    <string name="sec">دقيقة</string>
+    <string name="force_update_title">حدث التطبيق!</string>
+    <string name="force_update_description">ننصحك بتحديث التطبيق إلى الإصدار الأحدث. بعد التحديث، يمكنك الاستمرار في استخدام التطبيق بشكل طبيعي.</string>
+    <string name="btn_update">تحديث</string>
+    <string name="year_of_obtaining_the_certificate">سنة الحصول على الشهادة</string>
+    <string name="upload_certificate_photo">تحميل صورة الشهادة</string>
+    <string name="upload_naitona_id_photo">صورة بطاقة الرقم القومى</string>
+    <string name="upload_syndicateid_photo">صورة كارنية النقابة</string>
+    <string name="upload_clinic_linces_photo">صورة رخصة ممارسة المهنة او صورة رخصة العيادة</string>
+    <string name="date_of_birth">تاريخ الميلاد</string>
+    <string name="add_atleastcertificate_before_continuing">يجب ادخال شهادة واحده على الاقل</string>
+    <string name="overlapp">يوجد تداخل بالمواعيد</string>
+    <string name="nickname">اسم الشهرة باللغة الانجليزية</string>
+    <string name="nicknamearabic">اسم الشهرة باللغة العربية</string>
+    <string name="create_doctor_account">انشاء حساب دكتور</string>
+    <string name="create_poly_clinic_account"> انشاء حساب مركز طبى</string>
+    <string name="doctoraccount">حساب دكتور</string>
+    <string name="polyclinicaccount"> حساب مركز طبى</string>
+    <string name="admin"> بيانات المسئول</string>
+    <string name="polyclnicinfo">بيانات المركز الطبى</string>
+    <string name="natoinalid">صورة البطاقة</string>
+    <string name="doctors">قائمة الاطباء</string>
+    <string name="chooseservices">اختر خدمات العيادة</string>
+    <string name="cancelappointements">الغاء</string>
+    <string name="alldoctors">جميع الاطباء</string>
+    <string name="polyclinicname">اسم لمنشأة باللغة الانجليزية</string>
+    <string name="polyclinicnamear">اسم المنشأة باللغة العربية</string>
+    <string name="polycomericial">رقم السجل التجارى</string>
+    <string name="taxcardnumber">رقم البطاقة الضريبية</string>
+    <string name="taxnumberimage">صورة البطاقة الضريبية</string>
+    <string name="fronttaxnumberimage">صورة البطاقة الضريبية الامامية</string>
+    <string name="backtaxnumberimage">صورة البطاقة الضريبية الخلفية</string>
+    <string name="add_doctors">+اضافة طبيب</string>
+    <string name="polyclinicnamerequired">اسم لمنشأة باللغة الانجليزية مطلوب</string>
+    <string name="polyclinicnamearrequired">اسم المنشأة باللغة العربية مطلوب</string>
+    <string name="comericalnumberrequired">رقم السجل التجارى مطلوب </string>
+    <string name="taxnumberrequired">رقم البطاقة الضريبية مطلوب </string>
+    <string name="doctor_list">قائمة الأطباء</string>
+    <string name="clinic_schedule">الحجوزات</string>
+    <string name="clinicsfeatures">مميزات العيادة</string>
+    <string name="addvideolink">اضف فيدو لينك</string>
+    <string name="uploadvideolink">ادخل لينك للفيدو </string>
+    <string name="showDoctorclinics">Choose Clinics</string>
+    <string name="doctorsvideos">فيديوهات الاطباء</string>
+    <string name="adddoctorvideos">اضافة فيديوهات طبية</string>
+    <string name="choose_account_first">اختار حسابك اولا</string>
+    <string name="polyclinicinfo">نبذة عن المركز الطبى</string>
+    <string name="polyclinicinfoar">نبذة عن المركز الطبى باللغ العربية</string>
+    <string name="upload_clinic_video">اضافة فديو</string>
+    <string name="savevideo">حفظ الفديو</string>
+    <string name="pateintquestions">أسئلة المرضى</string>
+    <string name="myquestions">أسئلة المرضى</string>
+    <string name="your_question">سؤال المريض</string>
+    <string name="answer">أجب عن السؤال</string>
+    <string name="addanswer">إرسال الاجابة</string>
+    <string name="durationofconsultation">مدة الاستشارة</string>
+    <string name="patientName">اسم المريض </string>
+    <string name="chronicdisease">الامراض المزمنة</string>
+    <string name="prevSurgery">عمليات جراحية سابقة</string>
+    <string name="patientage">العمر</string>
+    <string name="ignoreanswer">تجاهل السؤال</string>
+    <string name="questiondate">تاريخ السؤال</string>
+    <string name="myanswers">إجابة السؤال</string>
+    <string name="questionanswered">اجابة سؤالك</string>
+    <string name="doctorname">اسم الطبيب</string>
+    <string name="please_enter_your_answer">من فضلك ادخل الاجابة</string>
+    <string name="add_your_answers">أضف اجاباتك ...</string>
+    <string name="billing">Billing</string>
+    <string name="addinvoice">إضافة خدمة</string>
+    <string name="addservice">إضافة خدمة</string>
+    <string name="additem">أضف عنصر</string>
+    <string name="deleteitem">حذف فاتورة خدمة</string>
+    <string name="permission_camera_rationale">Permission camera needed</string>
+    <string name="permission_storage_rationale">permission storage needed</string>
+    <string name="permission_camera_denied">permission_camera_denied</string>
+    <string name="permission_camera_never_askagain">permission_camera_never_askagain</string>
+    <string name="permission_storage_denied">permission_storage_denied</string>
+    <string name="permission_storage_never_askagain">permission_storage_never_askagain</string>
+    <string name="symtoms">أعراض المريض</string>
+    <string name="comment">تعليق</string>
+    <string name="sendfeedback">Send Feedback</string>
+    <string name="doctorreplay">رد الدكتور</string>
+    <string name="write_name_of_medication">اكتب اسم الدواء</string>
+    <string name="medication_instrucations_120_charactres_left">تعليمات تناول الدواء </string>
+    <string name="sendtosalamtakpharmacy">إرسال الى صيدليات سلامتك</string>
+    <string name="clinicaddress">عنوان العيادة</string>
+    <string name="feedback">تعليق/ الاشعة والتحاليل المطلوبة ( تطلبا للحالة)</string>
+    <string name="balanceitem">الرصيد</string>
+    <string name="total_service_fee">إجمالي رسوم الخدمة</string>
+    <string name="total_paid">إجمالي المبلغ المدفوع</string>
+    <string name="clinicname">اسم العيادة</string>
+    <string name="chooseaccountfirst">اختر الحساب أولاً</string>
+    <string name="accountsettings">إعدادات الحساب</string>
+    <string name="support_help">الدعم والمساعدة</string>
+    <string name="settings_amp_preferences">الإعدادات والتفضيلات</string>
+    <string name="security_amp_logout">الأمان وتسجيل الخروج</string>
+    <string name="login_with">تسجيل الدخول مع؟</string>
+    <string name="questions">أسئلة</string>
+    <string name="discount">خصم</string>
+    <string name="anthorpatientname">الاسم</string>
+    <string name="relationtype">نوع العلاقة</string>
+    <string name="diagnosisandprescriptions">  تشخيص طبى&amp;  روشتة</string>
+    <string name="blocknumber">رقم العقار</string>
+    <string name="FloorNo">رقم الدور</string>
+    <string name="no_data_registed">لا توجد بيانات مسجلة</string>
+    <string name="verification_code_will_be_sent_within">Verification code will be sent within</string>
+    <string-array name="year_list">
+        <item>1950</item>
+        <item>1951</item>
+        <item>1952</item>
+        <item>1953</item>
+        <item>1954</item>
+        <item>1955</item>
+        <item>1956</item>
+        <item>1957</item>
+        <item>1958</item>
+        <item>1959</item>
+
+        <item>1960</item>
+        <item>1961</item>
+        <item>1962</item>
+        <item>1963</item>
+        <item>1964</item>
+        <item>1965</item>
+        <item>1966</item>
+        <item>1967</item>
+        <item>1968</item>
+        <item>1969</item>
+
+        <item>1970</item>
+        <item>1971</item>
+        <item>1972</item>
+        <item>1973</item>
+        <item>1974</item>
+        <item>1975</item>
+        <item>1976</item>
+        <item>1977</item>
+        <item>1978</item>
+        <item>1979</item>
+
+        <item>1980</item>
+        <item>1981</item>
+        <item>1982</item>
+        <item>1983</item>
+        <item>1984</item>
+        <item>1985</item>
+        <item>1986</item>
+        <item>1987</item>
+        <item>1988</item>
+        <item>1989</item>
+
+        <item>1990</item>
+        <item>1991</item>
+        <item>1992</item>
+        <item>1993</item>
+        <item>1994</item>
+        <item>1995</item>
+        <item>1996</item>
+        <item>1997</item>
+        <item>1998</item>
+        <item>1999</item>
+
+        <item>2000</item>
+        <item>2001</item>
+        <item>2002</item>
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+
+    </string-array>
+
+</resources>

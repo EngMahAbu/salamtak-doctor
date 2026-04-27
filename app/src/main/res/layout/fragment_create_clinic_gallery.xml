@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/authentication_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:elevation="5dp"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/clinics_tv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_editClinicstxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:drawableStart="@drawable/ic_arrowleft"
+                android:drawablePadding="6dp"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/edit_clinic_1"
+                android:textColor="@color/black"
+                android:textSize="16sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_saveedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/save_edit"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="10sp"
+                android:visibility="gone">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_Clinicprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:drawableStart="@drawable/ic_arrowleft"
+                android:drawablePadding="6dp"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/clinic_profile"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/help2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/help"
+                android:padding="2dp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="4dp"
+            android:elevation="2dp"
+            android:fontFamily="@font/my_font_semibold"
+            android:letterSpacing=".02"
+            android:lineSpacingExtra="1dp"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+        <include
+            android:id="@+id/clinic_toolbar"
+            layout="@layout/clinic_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <include
+            android:id="@+id/edit_clinic_toolbar"
+            layout="@layout/appointment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/first_guideline_horizontal" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sec_guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".20" />
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="25dp"
+            android:textSize="4sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinics_tv"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/new_themeBlue_color"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#AEB3BE"
+            app:spb_stateForegroundColor="@color/new_themeBlue_color"
+            app:spb_stateNumberBackgroundColor="#AEB3BE"
+            app:spb_stateNumberForegroundColor="#eeeeee" />
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/poly_your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="25dp"
+            android:textSize="4sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinics_tv"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/new_themeBlue_color"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="three"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#AEB3BE"
+            app:spb_stateForegroundColor="@color/new_themeBlue_color"
+            app:spb_stateNumberBackgroundColor="#AEB3BE"
+            app:spb_stateNumberForegroundColor="#eeeeee" />
+
+        <RadioGroup
+            android:id="@+id/steps_radio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:weightSum="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clinics_tv">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/info_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/info_clinic"
+                android:textColor="@color/choose_selector"
+                android:textSize="8sp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/location_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/location"
+                android:textColor="@color/choose_selector"
+                android:textSize="8sp" />
+
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/schedule_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/schedule"
+                android:textColor="@color/choose_selector"
+                android:textSize="8sp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/vaction_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/vacations"
+                android:textColor="@color/choose_selector"
+                android:textSize="8sp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/gallery_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_selector_language"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/avenir_medium"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/gallery"
+                android:textColor="@color/choose_selector"
+                android:textSize="8sp" />
+
+        </RadioGroup>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <TextView
+            android:id="@+id/upload_btn"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_btn_border_gray_transprent"
+            android:fontFamily="@font/my_font_semibold"
+            android:gravity="center"
+            android:text="@string/upload_clinic_gallery"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/steps_radio" />
+
+        <TextView
+            android:id="@+id/view_btn"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_btn_border_gray_transprent"
+            android:fontFamily="@font/my_font_semibold"
+            android:gravity="center"
+            android:text="@string/view_clinic_gallery"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/steps_radio" />
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/layout_all"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/profile_bottom_toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/sec_guideline_horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/item_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/upload_clinic_pictures"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_label2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/avenir_medium"
+                    android:text="@string/upload_atleast_10_photos"
+                    android:textColor="@color/hint_color"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/item_label"
+                    app:layout_constraintTop_toBottomOf="@+id/item_label" />
+
+                <include
+                    android:id="@+id/upload_layout"
+                    layout="@layout/gallery_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:elevation="3dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/item_label" />
+
+                <TextView
+                    android:id="@+id/nodataTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/no_image_found"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/upload_btn_create"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/upload_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/item_label2" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rv_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/item_label2"
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvAddImages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:listitem="@layout/item_images"
+                        />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/gallery_rv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rvAddImages"
+                        tools:listitem="@layout/gallery_layout" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/upload_btn_create"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="12dp"
+                    android:backgroundTint="#E8E8FD"
+                    android:fontFamily="@font/avenir_bold"
+                    android:gravity="center"
+                    android:text="@string/upload_clinic_image"
+                    android:textAllCaps="false"
+                    android:textColor="@color/new_themeBlue_color"
+                    android:textSize="12sp"
+                    app:cornerRadius="@dimen/_6sdp"
+                    app:icon="@drawable/gallery_add"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/new_themeBlue_color"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_noResult"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_images" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_noResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/bg_color_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_btn_create">
+
+                    <TextView
+                        android:id="@+id/item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/avenir_medium"
+                        android:visibility="gone"
+                        android:text="@string/uploadvideolink"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/item"
+                        tools:listitem="@layout/item_layout_videos" />
+
+                    <VideoView
+                        android:id="@+id/showVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_pager" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/iv_add"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="@color/new_themeBlue_color"
+                        android:text="@string/savevideo"
+                        android:visibility="gone"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/upload_btn_Video"
+                        app:layout_constraintWidth_percent=".8" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/upload_btn_Video"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#E8E8FD"
+                        android:fontFamily="@font/avenir_bold"
+                        android:gravity="center"
+                        android:text="@string/upload_clinic_video"
+                        android:textAllCaps="false"
+                        android:visibility="gone"
+                        android:textColor="@color/new_themeBlue_color"
+                        android:textSize="12sp"
+                        app:cornerRadius="@dimen/_6sdp"
+                        app:icon="@drawable/gallery_add"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/new_themeBlue_color"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/showVideo"
+                        app:layout_constraintWidth_percent=".8" />
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_pager"
+                        app:layout_constraintEnd_toEndOf="@+id/view_pager"
+                        app:layout_constraintStart_toStartOf="@+id/view_pager"
+                        app:layout_constraintTop_toTopOf="@+id/view_pager" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <include
+            android:id="@+id/profile_bottom_toolbar"
+            layout="@layout/bottom_tb_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_all" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

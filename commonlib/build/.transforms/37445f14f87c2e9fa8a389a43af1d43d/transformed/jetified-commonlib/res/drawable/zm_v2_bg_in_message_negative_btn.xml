@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_focused="true">
+        <shape android:shape="rectangle">
+            <stroke android:color="@color/zm_mm_in_message_negative_btn" android:width="1dp" />
+            <corners android:radius="@dimen/zm_corner_in_message" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/zm_mm_in_message_negative_btn" />
+            <corners android:radius="@dimen/zm_corner_in_message" />
+        </shape>
+    </item>
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <stroke android:color="@color/zm_mm_in_message_negative_btn" android:width="1dp" />
+            <corners android:radius="@dimen/zm_corner_in_message" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:color="@color/zm_mm_in_message_negative_btn" android:width="1dp" />
+            <corners android:radius="@dimen/zm_corner_in_message" />
+        </shape>
+    </item>
+</selector>
+

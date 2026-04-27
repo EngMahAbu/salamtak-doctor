@@ -1,0 +1,5 @@
+.aar filter=lfs diff=lfs merge=lfs -text
+.jar filter=lfs diff=lfs merge=lfs -text
+mobilertc/build/.transforms/659e655fa726a7286f45c8c2f2b5eda0/transformed/jetified-mobilertc.aar filter=lfs diff=lfs merge=lfs -text
+mobilertc/mobilertc.aar filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text

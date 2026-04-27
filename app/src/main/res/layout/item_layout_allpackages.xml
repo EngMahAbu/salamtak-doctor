@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewFooter"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:cardElevation="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_packageName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_table"
+        >
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/all_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_begin="183dp"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/all_view"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="@dimen/_2sdp"
+            />
+
+
+            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_PackageName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="3dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_PackageName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/packagename"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/PackageName"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" tools:ignore="HardcodedText"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/PackageName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="800"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_PackageName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_PackageName"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_PackageName"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_PackageName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_Total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@+id/layout_PackageName"
+                tools:layout_editor_absoluteX="3dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Total"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/Package"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/Total"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="800"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_Total"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_Total"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_Total"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_Total"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+            />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_Inclinic_Patients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_Total"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Inclinic_Patients"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/inclinic_patients"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/Inclinic_Patients"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Inclinic_Patients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="1 * 208"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_Inclinic_Patients"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_Inclinic_Patients" app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_Inclinic_Patients"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_Inclinic_Patients"
+
+            />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_Extra_inclinic_patientPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_Inclinic_Patients"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Extra_inclinic_patientPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/extra_inclinic_patientprice"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/Extra_inclinic_patientPrice"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Extra_inclinic_patientPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="1 * 208"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_Extra_inclinic_patientPrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_Extra_inclinic_patientPrice" app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_Extra_inclinic_patientPrice"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_Extra_inclinic_patientPrice"
+
+            />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_tele_consultations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_Extra_inclinic_patientPrice"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_tele_consultations"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/tele_consultations"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tele_consultations"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tele_consultations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="3 * 30"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_tele_consultations"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tele_consultations"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_tele_consultations"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_tele_consultations"
+            />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_Extra_teleconsultationPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_tele_consultations"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Extra_teleconsultationPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/extra_teleconsultationprice"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/Extra_teleconsultationPrice"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Extra_teleconsultationPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="3 * 30"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_Extra_teleconsultationPrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_Extra_teleconsultationPrice"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_Extra_teleconsultationPrice"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_Extra_teleconsultationPrice"
+            />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_Extra_teleconsultationPrice"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_insurance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/inclinic_insurance_petients"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/insurance"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/insurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="7 * 60"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_insurance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_insurance" app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_insurance"
+            />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_Extra_inclinic_insurance_Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_insurance"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Extra_inclinic_insurance_Price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/extra_inclinic_insurance_price"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/Extra_inclinic_insurance_Price"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Extra_inclinic_insurance_Price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="7 * 60"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_Extra_inclinic_insurance_Price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_Extra_inclinic_insurance_Price"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_Extra_inclinic_insurance_Price"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_Extra_inclinic_insurance_Price"
+            />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_Cash_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_Extra_inclinic_insurance_Price"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Cash_back"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/cash_back"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/Cash_back"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Cash_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="- (2 * 15)"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_Cash_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_Cash_back" app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_Cash_back"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_Cash_back"
+            />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_One_month_free_sponsored_Ads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_Cash_back"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_One_month_free_sponsored_Ads"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/one_month_free_sponsored_ads"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/One_month_free_sponsored_Ads"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/One_month_free_sponsored_Ads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="- (2 * 15)"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_One_month_free_sponsored_Ads"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_One_month_free_sponsored_Ads"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/vlayout_One_month_free_sponsored_Ads"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/layout_One_month_free_sponsored_Ads"
+            />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_access_to_sponsored_ads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_One_month_free_sponsored_Ads"
+            >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_access_to_sponsored_ads"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="@string/access_to_sponsored_ads"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/access_to_sponsored_ads"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/access_to_sponsored_ads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="1488"
+                    android:textColor="@color/zm_green"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_access_to_sponsored_ads"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_access_to_sponsored_ads"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/tv_packageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="insurance"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

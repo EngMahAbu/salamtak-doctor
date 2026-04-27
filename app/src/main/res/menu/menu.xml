@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_item"
+        android:icon="@drawable/new_home"
+        android:title="@string/homes" />
+
+    <item
+        android:id="@+id/schedule_item"
+        android:icon="@drawable/new_calendar"
+        android:title="@string/appointments" />
+
+    <item
+        android:id="@+id/clinics_item"
+        android:icon="@drawable/svg_hospital"
+        android:title="@string/clinicss" />
+
+    <item
+        android:id="@+id/services_item"
+        android:icon="@drawable/svg_icon_questions"
+        android:title="@string/questions" />
+    <item
+        android:id="@+id/more_item"
+        android:icon="@drawable/new_category"
+        android:title="@string/more" />
+
+
+</menu>

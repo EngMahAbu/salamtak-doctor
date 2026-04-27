@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/otp_border"
+        android:layout_marginBottom="5dp"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_marginTop="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/otp_border"
+            android:backgroundTint="@color/new_themeBlue_color"
+            android:orientation="horizontal"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/frame" />
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/add_new_certificate"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/icon_delete"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/cell_border"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/ic_new_delete" />
+
+            <ImageView
+                android:id="@+id/iv_certification"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:rotation="180"
+                android:src="@drawable/ic_arrow_down"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_certification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:gravity="start"
+                    android:text="@string/enter_english_data_for_your_certificate"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mCard_DHL_Certificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp">
+
+                    <EditText
+                        android:id="@+id/tv_tittleEn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/otp_border"
+                        android:backgroundTint="#FAFAFA"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:hint="@string/title_in_english"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="@dimen/_2sdp">
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top|start"
+                            android:textSize="10sp"
+                            app:boxBackgroundMode="none"
+                            app:helperTextEnabled="true"
+                            app:counterEnabled="true"
+                            app:errorEnabled="true"
+                            app:counterMaxLength="500"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:hintTextColor="#B7B7B7">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_descriptionEn"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#FAFAFA"
+                        android:gravity="start"
+                        android:maxLength="500"
+                        android:scrollbars="vertical"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:hint="@string/description_in_english"
+                        android:paddingHorizontal="4dp"
+                        android:paddingVertical="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:gravity="start"
+                    android:text="@string/enter_arabic_data_for_your_certificate"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="2dp">
+
+                    <EditText
+                        android:id="@+id/tv_tittleAr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/otp_border"
+                        android:backgroundTint="#fafafa"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:gravity="start"
+                        android:paddingHorizontal="6dp"
+                        android:hint="@string/certificatetitleinarabic"
+                        android:digits=" غظضذخثتشرقصجفعسنملةىكيطئءؤحزوهدبا"
+                        android:paddingVertical="8dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="2dp">
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top|start"
+                            android:textSize="10sp"
+                            app:boxBackgroundMode="none"
+                            app:helperTextEnabled="true"
+                            app:counterEnabled="true"
+                            android:background="@drawable/otp_border"
+                            app:errorEnabled="true"
+                            app:counterMaxLength="500"
+                            app:hintTextColor="#B7B7B7">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_descriptionAr"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#fafafa"
+                        android:digits=" غظضذخثتشرقصجفعسنملةىكيطئءؤحزوهدبا"
+                        android:gravity="start"
+                        android:maxLength="500"
+                        android:scrollbars="vertical"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="4dp"
+                        android:hint="@string/decsription_in_arabic"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/avenirs_semibold"
+                    android:gravity="start"
+                    android:text="@string/enter_the_year_of_obtaining_the_certificate"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_calender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:backgroundTint="#fafafa"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_2sdp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@color/white"
+                        android:backgroundTint="#fafafa"
+                        android:fontFamily="@font/avenirs_semibold"
+                        android:paddingVertical="8dp"
+                        android:singleLine="true"
+                        android:hint="@string/choose_year"
+                        android:textColor="@color/black"
+                        android:textSize="8sp" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/calendar"
+                        app:tint="@color/sky_main" />
+                </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/tv_yearError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:layout_marginStart="10dp"
+                    android:visibility="gone"
+                    tools:text="error"
+                    />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_certificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="0dp">
+                   <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:padding="3dp"
+                       >
+                       <ImageView
+                           android:id="@+id/iv_certificate"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="10dp"
+                           android:layout_marginBottom="40dp"
+                           android:layout_marginStart="20dp"
+                           android:layout_marginEnd="20dp"
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintTop_toTopOf="parent"
+                           android:src="@drawable/iv_addimage" />
+                       <ImageView
+                           android:id="@+id/iv_certificates"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="10dp"
+                           android:layout_marginBottom="40dp"
+                           android:layout_marginStart="20dp"
+                           android:layout_marginEnd="20dp"
+                           android:visibility="gone"
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintTop_toTopOf="parent"
+                           android:src="@drawable/iv_addimage" />
+
+                       <TextView
+                           android:id="@+id/tv_photos"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/black"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="25dp"
+                           android:text="@string/upload_certificate_photo"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintTop_toBottomOf="@+id/iv_certificate"
+                           android:visibility="visible"
+                           />
+                   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/add_certificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_certificate"
+                    android:visibility="visible"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:background="@drawable/bg_certificatebutton"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:textColor="@color/blue"/>
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

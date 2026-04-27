@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M4,0L20,0A4,4 0,0 1,24 4L24,20A4,4 0,0 1,20 24L4,24A4,4 0,0 1,0 20L0,4A4,4 0,0 1,4 0z"
+      android:fillColor="@color/zm_white"/>
+  <path
+      android:pathData="M5.5,8H13C14.1046,8 15,8.8954 15,10V11V13V15.5C15,15.7761 14.7761,16 14.5,16H7C5.8954,16 5,15.1046 5,14V8.5C5,8.2239 5.2239,8 5.5,8ZM16,14V15.5C16,16.3284 15.3284,17 14.5,17H7C5.3432,17 4,15.6569 4,14V8.5C4,7.6716 4.6716,7 5.5,7H13C14.6569,7 16,8.3432 16,10L18.8,7.9C19.2944,7.5292 20,7.882 20,8.5V15.5C20,16.118 19.2944,16.4708 18.8,16.1L16,14ZM16,12.75L19,15V9L16,11.25V12.75Z"
+      android:fillColor="@color/zm_v2_svg_ic_video_meeting"
+      android:fillType="evenOdd"/>
+</vector>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layput_services"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_doctorsDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_doctorProfile"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:src="@drawable/ic_docspecialization"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_doctorName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="start"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_doctorProfile"
+                        app:layout_constraintTop_toTopOf="@+id/iv_doctorProfile" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_Address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="start"
+                        android:padding="2dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_doctorProfile"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_doctorName" />
+
+                    <RadioButton
+                        android:id="@+id/radio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/white"
+                        android:enabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        &lt;!&ndash;        <androidx.appcompat.widget.AppCompatButton&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:id="@+id/clinic_name_tv"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_margin="16dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:background="@drawable/bg_btn_border_blue_transprent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:padding="16dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textAllCaps="false"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textColor="@color/sky_main"&ndash;&gt;-->
+<!--        &lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            tools:text="Clinic 1" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <androidx.appcompat.widget.LinearLayoutCompat&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/ll_clinics"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginBottom="@dimen/_6sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@drawable/choose_selector_clinic_border"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintHorizontal_bias="0.0"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintVertical_bias="1.0">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <RadioButton&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/clinic_name_tv"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginStart="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:buttonTint="@color/new_themeBlue_color"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:fontFamily="@font/avenir_regular"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:padding="@dimen/_8sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="@dimen/_10ssp" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/clinic_tv"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginStart="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:fontFamily="@font/avenir_regular"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="os"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="@dimen/_15ssp" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <com.google.android.material.imageview.ShapeableImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/clinic_photo"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="@dimen/_30sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="@dimen/_30sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginStart="@dimen/_6sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginEnd="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:scaleType="centerCrop"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:src="@drawable/app_logo"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:shapeAppearanceOverlay="@style/roundShep"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:strokeColor="#E8E8FD"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:strokeWidth="1dp" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        </androidx.appcompat.widget.LinearLayoutCompat>&ndash;&gt;-->
+
+<!--        &lt;!&ndash;            <RadioButton&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:id="@+id/clinic_name_tv"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginBottom="@dimen/_6sdp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:background="@drawable/choose_selector_clinic_border"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:button="@null"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:fontFamily="@font/avenirs_semibold"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:gravity="center_vertical"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:padding="@dimen/_12sdp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textColor="@color/black"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textSize="@dimen/_10ssp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            tools:text="Clinic 1" />&ndash;&gt;-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+</layout>

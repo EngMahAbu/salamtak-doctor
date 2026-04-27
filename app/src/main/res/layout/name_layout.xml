@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/last_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toRightOf="@id/middle_name_layout"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:hint="@string/last_name"
+                    android:inputType="text"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/middle_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toRightOf="@id/first_name_layout"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:hint="@string/middle_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/first_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="6dp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:layout_gravity="center_vertical"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:hint="@string/first_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/first_name_ar_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ."
+                    android:hint="@string/first_name_ar"
+                    android:inputType="text"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_toRightOf="@id/middle_name_ar_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:singleLine="true" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/middle_name_ar_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ ."
+                    android:hint="@string/middle_name_ar"
+                    android:inputType="text"
+                    android:textSize="12sp"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_toRightOf="@id/last_name_ar_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:singleLine="true" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/last_name_ar_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ."
+                    android:hint="@string/last_name_ar"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="patientAccount"
+            type="com.salamtak.domain.entities.response.PatientAccountData" />
+    </data>
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/first_line_view"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="3dp"-->
+    <!--            android:layout_margin="8dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            android:visibility="gone"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/certificate_label"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_5sdp"-->
+    <!--            android:textColor="@color/title_color_black"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/ff_line_view"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/first_line_view"-->
+    <!--            tools:text="11/09/2022" />-->
+
+
+    <!--        <View-->
+    <!--            android:id="@+id/ff_line_view"-->
+    <!--            android:layout_width="2dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            app:layout_constraintBottom_toTopOf="@id/bottom_line_view"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/certificate_year_tv"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/certificate_label"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/certificate_year_tv"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_5sdp"-->
+    <!--            android:textColor="@color/title_color_black"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/mid_line_view"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/ff_line_view"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/first_line_view"-->
+    <!--            tools:text="Mohamed Mansour" />-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/mid_line_view"-->
+    <!--            android:layout_width="2dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            app:layout_constraintBottom_toTopOf="@id/bottom_line_view"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/icon_delete"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/certificate_year_tv"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/service_tv"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_5sdp"-->
+    <!--            android:textColor="@color/title_color_black"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/third_line_view"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/mid_line_view"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:text="Service" />-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/third_line_view"-->
+    <!--            android:layout_width="2dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            app:layout_constraintBottom_toTopOf="@id/bottom_line_view"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/fee_tv"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/service_tv"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/fee_tv"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_5sdp"-->
+    <!--            android:textColor="@color/title_color_black"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/third_line_view"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:text="300" />-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/forth_line_view"-->
+    <!--            android:layout_width="2dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            app:layout_constraintBottom_toTopOf="@id/bottom_line_view"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/paid_tv"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/fee_tv"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/paid_tv"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_5sdp"-->
+    <!--            android:textColor="@color/title_color_black"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/forth_line_view"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:text="100" />-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/fifth_line_view"-->
+    <!--            android:layout_width="2dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            app:layout_constraintBottom_toTopOf="@id/bottom_line_view"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/balance_tv"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/paid_tv"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/balance_tv"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_5sdp"-->
+    <!--            android:textColor="@color/title_color_black"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/fifth_line_view"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:text="100" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/icon_edit"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="6dp"-->
+    <!--            android:src="@drawable/ic_new_edit"-->
+    <!--            android:visibility="gone"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/icon_delete"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/mid_line_view"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/icon_delete"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="6dp"-->
+    <!--            android:visibility="gone"-->
+    <!--            android:src="@drawable/ic_new_delete"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/mid_line_view"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/bottom_line_view"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="2dp"-->
+    <!--            android:layout_marginHorizontal="8dp"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:background="@color/head_color"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/certificate_year_tv" />-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_6sdp"
+        app:cardElevation="@dimen/_1sdp"
+        app:cardCornerRadius="@dimen/_6sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/avenirs_semibold"
+                android:gravity="center"
+                android:maxLength="10"
+                android:padding="@dimen/_6sdp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/doctor_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/avenirs_semibold"
+                android:gravity="center"
+                android:maxLength="10"
+                android:padding="@dimen/_3sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/doctor"
+                app:layout_constraintStart_toEndOf="@+id/doctor"
+                app:layout_constraintTop_toTopOf="@+id/doctor"
+                tools:text="Mohamed" />
+
+            <ImageView
+                android:id="@+id/edit_patient_account_tv"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_column="7"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:src="@drawable/edit"
+                app:layout_constraintBottom_toBottomOf="@+id/delete_patient_account_tv"
+                app:layout_constraintEnd_toStartOf="@+id/delete_patient_account_tv"
+                app:layout_constraintTop_toTopOf="@+id/delete_patient_account_tv" />
+
+            <ImageView
+                android:id="@+id/delete_patient_account_tv"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_column="8"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:src="@drawable/delete"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/doctor_name_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/doctor_name_tv" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_6sdp"
+                app:layout_constraintStart_toStartOf="@+id/doctor"
+                app:layout_constraintTop_toBottomOf="@+id/doctor_name_tv">
+
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1,2,3,4">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:gravity="start"
+                            android:text="@string/datess"
+                            android:textColor="@color/hint_color"
+                            android:textSize="@dimen/_12ssp" />
+
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="2"
+                            android:gravity="center"
+                            android:text="@string/servicess"
+                            android:textColor="@color/hint_color"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="3"
+                            android:gravity="center"
+                            android:text="@string/fee"
+                            android:textColor="@color/hint_color"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="4"
+                            android:gravity="center"
+                            android:text="@string/paids"
+                            android:textColor="@color/hint_color"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_6sdp"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1,2,3,4">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/date_tv"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:gravity="start"
+                            android:lines="1"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            tools:text="22/07/2020" />
+
+
+                        <TextView
+                            android:id="@+id/service_tv"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="2"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            tools:text="limpe tets" />
+
+                        <TextView
+                            android:id="@+id/fee_tv"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="3"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            tools:text="300" />
+
+                        <TextView
+                            android:id="@+id/paid_tv"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="4"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            tools:text="100" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/balance_bg"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_6sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="@dimen/_6sdp"
+                    android:text="@string/balance"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/balance_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="100" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</layout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/new_theme_color">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sec_guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="4dp"
+            android:elevation="2dp"
+            android:fontFamily="@font/my_font_semibold"
+            android:letterSpacing=".02"
+            android:enabled="false"
+            android:lineSpacingExtra="1dp"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:text="@string/photorequired"
+            android:textColor="@color/red"
+            android:textSize="11sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/layout_documents"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/layout_documents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:layout_marginTop="4dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toTopOf="@id/profile_bottom_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_logout">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/docs_itemsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    tools:itemCount="2"
+                    android:paddingBottom="20dp"
+                    android:layout_marginHorizontal="5dp"
+                    tools:listitem="@layout/documents_layout" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/show_docs_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/docs_itemsRv"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_show_document" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/profile_bottom_toolbar"
+            layout="@layout/bottom_tb_layout"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_documents"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".salamtak_doctor.presentation.ui.language.LanguageFragment">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/layout_all"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:visibility="gone"
+           >
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/guideline"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               app:layout_constraintGuide_percent="0.1"/>
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/guideline_half"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               app:layout_constraintGuide_percent="0.6"/>
+
+           <ImageView
+               android:id="@+id/first_iv"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/_12sdp"
+               android:src="@drawable/ic_doctors_welcome"
+               android:layout_marginHorizontal="@dimen/_16sdp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+
+           <ImageView
+               android:id="@+id/imageView2"
+               android:layout_width="200dp"
+               android:layout_height="80dp"
+               android:src="@drawable/ic_new_logo"
+               app:layout_constraintBottom_toBottomOf="@id/guideline"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/guideline"/>
+
+           <TextView
+               android:id="@+id/tv_choos"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/avenir_bold"
+               android:text="@string/to_get_start_pick_your_language"
+               android:textColor="@color/black"
+               android:layout_marginTop="50dp"
+               android:textSize="@dimen/_16ssp"
+               app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+               app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+               app:layout_constraintTop_toBottomOf="@+id/first_iv"
+               app:layout_constraintVertical_bias="0.8"/>
+
+           <LinearLayout
+               android:id="@+id/linearLayout3"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginHorizontal="16dp"
+               android:orientation="vertical"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/guideline_half">
+
+               <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/lang_en"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="@dimen/_8sdp"
+                   android:visibility="gone"
+                   android:layout_marginBottom="@dimen/_6sdp"
+                   android:layout_marginHorizontal="@dimen/_1sdp"
+                   app:cardElevation="@dimen/_2sdp">
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/white">
+
+                       <RadioButton
+                           android:id="@+id/radio_en"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="@dimen/_6sdp"
+                           android:buttonTint="@color/new_sky_color"
+                           android:layout_gravity="center_vertical"/>
+
+                       <ImageView
+                           android:layout_width="@dimen/_20sdp"
+                           android:layout_height="@dimen/_20sdp"
+                           android:layout_gravity="center_vertical"
+                           android:src="@drawable/flag_england"/>
+
+                       <TextView
+                           android:id="@+id/tv_radio_en"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="@dimen/_8sdp"
+                           android:textColor="@color/black"
+                           android:text="@string/english"
+                           android:layout_gravity="center_vertical"
+                           android:fontFamily="@font/avenir_bold"
+                           android:textSize="@dimen/_12ssp"
+                           />
+
+                   </LinearLayout>
+
+
+               </com.google.android.material.card.MaterialCardView>
+
+               <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/lang_ar"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="@dimen/_8sdp"
+                   android:visibility="gone"
+                   android:layout_marginTop="@dimen/_4sdp"
+                   android:layout_marginBottom="@dimen/_6sdp"
+                   android:layout_marginHorizontal="@dimen/_1sdp"
+                   app:cardElevation="@dimen/_2sdp">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/white">
+
+                       <RadioButton
+                           android:id="@+id/radio_ar"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="@dimen/_6sdp"
+                           android:buttonTint="@color/new_sky_color"
+                           android:layout_gravity="center_vertical"/>
+                       <ImageView
+
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                           android:src="@drawable/flag_arbic"/>
+
+                       <TextView
+                           android:id="@+id/tv_radio_ar"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="@dimen/_10sdp"
+                           android:textColor="@color/black"
+                           android:fontFamily="@font/avenir_bold"
+                           android:textSize="@dimen/_12ssp"
+                           android:layout_gravity="center_vertical"
+                           android:text="Arabic"
+                           />
+
+                   </LinearLayout>
+
+               </com.google.android.material.card.MaterialCardView>
+
+
+               <RadioGroup
+                   android:id="@+id/radio"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="15dp"
+                   android:layout_marginEnd="15dp"
+                   android:layout_marginTop="15dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tv_startPick"
+                   android:orientation="vertical">
+
+                   <RadioButton
+                       android:id="@+id/radio_english"
+                       android:layout_width="match_parent"
+                       android:layout_height="60dp"
+                       android:drawableStart="@drawable/flag_england"
+                       android:drawablePadding="10dp"
+                       android:elevation="1dp"
+                       android:padding="3dp"
+                       android:background="@drawable/bg_chooselang_radiobtn"
+                       android:layout_marginBottom="20dp"
+                       android:text="@string/english"
+                       android:layout_margin="5dp"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:layout_constraintEnd_toEndOf="parent"/>
+
+                   <RadioButton
+                       android:id="@+id/radio_arabic"
+                       android:layout_width="match_parent"
+                       android:layout_height="60dp"
+                       android:drawableStart="@drawable/flag_arbic"
+                       android:text="@string/arabic"
+                       android:textSize="14sp"
+                       android:elevation="1dp"
+                       android:padding="3dp"
+                       android:layout_margin="5dp"
+                       android:background="@drawable/bg_chooselang_radiobtn"
+                       android:textColor="@color/black"
+                       android:drawablePadding="10dp"
+                       />
+               </RadioGroup>
+
+
+
+
+
+
+
+
+
+               <!--            <RadioGroup-->
+               <!--                    android:id="@+id/radio"-->
+               <!--                    android:layout_width="match_parent"-->
+               <!--                    android:layout_height="wrap_content"-->
+               <!--                    android:layout_marginStart="15dp"-->
+               <!--                    android:layout_marginEnd="15dp"-->
+               <!--                    android:layout_marginTop="15dp"-->
+               <!--                    app:layout_constraintStart_toStartOf="parent"-->
+               <!--                    app:layout_constraintTop_toBottomOf="@+id/tv_startPick"-->
+               <!--                    android:orientation="vertical">-->
+
+               <!--                <RadioButton-->
+               <!--                        android:id="@+id/radio_english"-->
+               <!--                        android:layout_width="match_parent"-->
+               <!--                        android:layout_height="match_parent"-->
+               <!--                        android:drawableStart="@drawable/flag_england"-->
+               <!--                        android:drawablePadding="10dp"-->
+               <!--                        android:elevation="1dp"-->
+               <!--                        android:background="@drawable/bg_chooselang_radiobtn"-->
+               <!--                        android:layout_marginBottom="20dp"-->
+               <!--                        android:fontFamily="@font/avenirltstd_black"-->
+               <!--                        android:text="@string/english"-->
+               <!--                        android:layout_margin="5dp"-->
+               <!--                        android:textColor="@color/black"-->
+               <!--                        android:textSize="14sp"-->
+               <!--                        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+               <!--                <RadioButton-->
+               <!--                        android:id="@+id/radio_arabic"-->
+               <!--                        android:layout_width="match_parent"-->
+               <!--                        android:layout_height="wrap_content"-->
+               <!--                        android:drawableStart="@drawable/flag_arbic"-->
+               <!--                        android:text="@string/arabic"-->
+               <!--                        android:textSize="14sp"-->
+               <!--                        android:elevation="1dp"-->
+               <!--                        android:layout_margin="5dp"-->
+               <!--                        android:background="@drawable/bg_chooselang_radiobtn"-->
+               <!--                        android:fontFamily="@font/avenirltstd_black"-->
+               <!--                        android:textColor="@color/black"-->
+               <!--                        android:drawablePadding="10dp"-->
+               <!--                />-->
+               <!--            </RadioGroup>-->
+
+
+               <!--            <ImageView-->
+               <!--                android:id="@+id/lang_en"-->
+               <!--                android:layout_width="120dp"-->
+               <!--                android:layout_height="120dp"-->
+               <!--                android:layout_weight="1"-->
+               <!--                android:src="@drawable/en_logo_icon" />-->
+
+               <!--            <ImageView-->
+               <!--                android:id="@+id/lang_ar"-->
+               <!--                android:layout_width="140dp"-->
+               <!--                android:layout_height="140dp"-->
+               <!--                android:layout_weight="1"-->
+               <!--                android:src="@drawable/ar_icon" />-->
+
+           </LinearLayout>
+
+           <com.google.android.material.button.MaterialButton
+               android:id="@+id/choose_lang_btn"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/_45sdp"
+               android:text="@string/confirm"
+               android:textAllCaps="false"
+               android:layout_marginBottom="8dp"
+               app:cornerRadius="@dimen/_6sdp"
+               android:backgroundTint="@color/new_themeBlue_color"
+               android:layout_marginHorizontal="16dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+               app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+               />
+
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+       <com.google.android.material.imageview.ShapeableImageView
+           android:id="@+id/iv_camp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:visibility="visible"
+           android:adjustViewBounds="true"
+           android:scaleType="fitXY"
+           app:srcCompat="@drawable/ic_camp"
+           />
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

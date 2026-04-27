@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/profile_header_tv"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:paddingHorizontal="@dimen/_2sdp"
+                android:visibility="gone"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/profile_header_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/back_btn"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/doctor_profile"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp" />
+
+            <ImageView
+                android:id="@+id/help2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                android:background="@drawable/help"
+                android:padding="@dimen/_2sdp" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_saveedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/avenir_bold"
+                android:text="@string/save_edit"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="@dimen/_10ssp"/>
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@drawable/bg_btn_blue"
+            android:backgroundTint="#E8E8FD"
+            android:drawableLeft="@drawable/frame__2_"
+            android:drawablePadding="@dimen/_6sdp"
+            android:elevation="@dimen/_2sdp"
+            android:fontFamily="@font/avenir_regular"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingVertical="@dimen/_6sdp"
+            android:text="@string/help"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/new_themeBlue_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

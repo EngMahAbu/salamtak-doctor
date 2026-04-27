@@ -1,0 +1,56 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="emrDocument"
+            type="com.salamtak.domain.entities.response.NewPatientEmrdocument" />
+
+        <variable
+            name="parentPosition"
+            type="java.lang.Integer" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+        <variable
+            name="listener"
+            type="com.salamtak.salamtakdoctor.salamtak_doctor.utils.RecyclerViewOnClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/otp_border">
+
+        <ImageView
+            android:id="@+id/attachment_iv"
+            imageUrl="@{emrDocument.documentUrl}"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/image_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/view_eye_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_view"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/sky_main" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

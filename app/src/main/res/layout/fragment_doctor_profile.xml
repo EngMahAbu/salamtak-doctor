@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="doctorProfile"
+            type="com.salamtak.domain.entities.response.EditDoctorProfileResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".salamtak_doctor.doctorProfile.DoctorProfileFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <ImageView
+            android:id="@+id/background_iv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_horizontal" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_100sdp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_v"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".33" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".66" />
+
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/authentication_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:elevation="@dimen/_5sdp" />
+
+                <include
+                    android:id="@+id/profile_toolbar"
+                    layout="@layout/profile_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_110sdp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+                <TextView
+                    android:id="@+id/profile_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_bold"
+                    android:text="@string/profile_info"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_toolbar" />
+
+                <ImageView
+                    android:id="@+id/upload_photo_bg"
+                    imageUrl="@{doctorProfile.data.image}"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/photo_bg_squared"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_header" />
+
+                <ImageView
+                    android:id="@+id/upload_photo_iv"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/ic_add_photo_blue"
+                    app:layout_constraintBottom_toBottomOf="@id/upload_photo_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/upload_photo_bg" />
+
+                <TextView
+                    android:id="@+id/upload_photo_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/my_font_regular"
+                    android:text="@string/upload_your_pic"
+                    android:textColor="@color/toolbar_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upload_photo_bg" />
+
+                <TextView
+                    android:id="@+id/photo_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/photo_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upload_photo_txt" />
+
+                <TextView
+                    android:id="@+id/doctor_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/doctor_name"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/photo_error_txt" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/first_name_layout"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:textColorHint="@color/text_gray"
+                    android:visibility="gone"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guideline_v1"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="@string/first_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/middle_name_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:textColorHint="@color/text_gray"
+                    android:visibility="gone"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_v1"
+                    app:layout_constraintRight_toLeftOf="@id/guideline_v2"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/middle_name_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="@string/middle_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_12ssp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/last_name_layout"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:textColorHint="@color/text_gray"
+                    android:visibility="gone"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_v2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="@string/last_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/doctor_name_ar_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/doctor_full_name_ar"
+                    android:textColor="@color/title_color_black"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/first_name_layout" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/first_name_ar_layout"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:textColorHint="@color/text_gray"
+                    android:visibility="gone"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_v2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_ar_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name_ar_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."
+                        android:hint="@string/first_name_ar"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/middle_name_ar_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:textColorHint="@color/text_gray"
+                    android:visibility="gone"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_v1"
+                    app:layout_constraintRight_toLeftOf="@id/guideline_v2"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_ar_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/middle_name_ar_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."
+                        android:hint="@string/middle_name_ar"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/last_name_ar_layout"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_btn_border_gray_transprent"
+                    android:textColorHint="@color/text_gray"
+                    android:visibility="gone"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guideline_v1"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_ar_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name_ar_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."
+                        android:hint="@string/last_name_ar"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <include
+                    android:id="@+id/name_layout"
+                    layout="@layout/name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/doctor_name_label" />
+
+                <TextView
+                    android:id="@+id/nationality_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/nationality"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_layout" />
+
+                <TextView
+                    android:id="@+id/nationality_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_spinner_sky_drop"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="@{doctorProfile.data.nationalityName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintTop_toBottomOf="@id/nationality_txt" />
+
+                <TextView
+                    android:id="@+id/nationality_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/nationality_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nationality_select" />
+
+                <TextView
+                    android:id="@+id/birth_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/birth_date"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nationality_error_txt" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birth_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColorHint="@color/text_gray"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/birth_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/birth_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/bg_btn_border_gray_transprent"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:focusable="false"
+                        android:hint="@string/choose_date"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/birth_error_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/birth_required2"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/birth_layout" />
+
+                <TextView
+                    android:id="@+id/gender_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/gender"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/birth_error_txt" />
+
+                <include
+                    android:id="@+id/gender_layout"
+                    layout="@layout/gender_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/gender_txt" />
+
+                <TextView
+                    android:id="@+id/gender_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/gender_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gender_layout" />
+
+                <TextView
+                    android:id="@+id/specialization_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/specialization"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gender_error_txt" />
+
+                <TextView
+                    android:id="@+id/specialization_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_spinner_sky_drop"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="@{doctorProfile.data.specialistName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/specialization_txt" />
+
+                <TextView
+                    android:id="@+id/sub_specialization_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/sub_specialization"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/speciality_error_txt" />
+
+                <TextView
+                    android:id="@+id/sub_specialization_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_spinner_sky_drop"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toStartOf="@id/add_sub_specialization"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sub_specialization_txt" />
+
+                <include
+                    android:id="@+id/add_sub_specialization"
+                    layout="@layout/layout_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/sub_specialization_select"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sub_specialization_select" />
+
+
+                <TextView
+                    android:id="@+id/speciality_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/speciality_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/specialization_select" />
+
+                <TextView
+                    android:id="@+id/sub_speciality_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/sub_speciality_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sub_specialization_select" />
+
+                <TextView
+                    android:id="@+id/seniority_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/seniority"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sub_speciality_error_txt" />
+
+                <TextView
+                    android:id="@+id/seniority_select"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_spinner_sky_drop"
+                    android:fontFamily="@font/my_font_medium"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="@{doctorProfile.data.seniorityLevelName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toStartOf="@id/add_seniority"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seniority_txt" />
+
+                <TextView
+                    android:id="@+id/seniority_error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/seniority_required"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seniority_select" />
+
+                <TextView
+                    android:id="@+id/link_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/official_link"
+                    android:visibility="gone"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seniority_error_txt" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/link_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColorHint="@color/text_gray"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    android:visibility="gone"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/link_label">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/link_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/bg_solid_border_more"
+                        android:visibility="gone"
+                        android:hint="@string/website_fb_page"
+                        android:inputType="text"
+                        android:text="@{doctorProfile.Data.website.toString()}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <include
+                    android:id="@+id/add_seniority"
+                    layout="@layout/layout_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/seniority_select"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/seniority_select" />
+
+                <TextView
+                    android:id="@+id/biography_en_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/Biography_en"
+                    android:textColor="@color/head_color"
+                    android:visibility="gone"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/link_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/biography_en_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColorHint="@color/text_gray"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/biography_en_txt">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/biography_en_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/bg_btn_border_gray_transprent"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890."
+                        android:gravity="start"
+                        android:hint="@string/Biography_en"
+                        android:inputType="text"
+                        android:maxLength="250"
+                        android:text="@{doctorProfile.Data.doctorInfo}" />
+
+                    <TextView
+                        android:id="@+id/biography_en_max_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/my_font_medium"
+                        android:text="@string/Biography_en_max"
+                        android:visibility="gone"
+                        android:textColor="@color/title_color_black"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/seniority_error_txt" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/biography_ar_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/my_font_medium"
+                    android:text="@string/Biography_ar"
+                    android:visibility="gone"
+                    android:textColor="@color/head_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/biography_en_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/biography_ar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColorHint="@color/text_gray"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/biography_ar_txt">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/biography_ar_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/bg_btn_border_gray_transprent"
+                        android:digits="ئءؤرلاىةوزظطكمنتالبيسشضصثقفغعهخحجدذ 1234567890."
+                        android:gravity="start"
+                        android:hint="@string/Biography_ar"
+                        android:inputType="text"
+                        android:maxLength="250"
+                        android:text="@{doctorProfile.Data.doctorInfoAr}" />
+
+                    <TextView
+                        android:id="@+id/biography_ar_max_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/my_font_medium"
+                        android:text="@string/Biography_en_max"
+                        android:visibility="gone"
+                        android:textColor="@color/title_color_black"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/seniority_error_txt" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/profile_bottom_toolbar"
+            layout="@layout/bottom_tb_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
