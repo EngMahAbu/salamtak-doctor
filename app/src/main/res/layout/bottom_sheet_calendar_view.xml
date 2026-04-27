@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/download"
+    android:orientation="vertical"
+    android:background="?android:attr/selectableItemBackground"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+    <com.archit.calendardaterangepicker.customviews.DateRangeCalendarView
+        android:id="@+id/calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:disable_date_color="#ABABAB"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="10dp"
+        android:scrollbarSize="@dimen/_10sdp"
+        custom:range_color="@color/date_range_color"
+        custom:selected_date_circle_color="@color/new_themeBlue_color"
+        custom:title_color="@color/black"
+        >
+    </com.archit.calendardaterangepicker.customviews.DateRangeCalendarView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:text="@string/done"
+        android:textAllCaps="false"
+        android:fontFamily="@font/avenirs_semibold"
+        custom:cornerRadius="@dimen/_6sdp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        custom:layout_constraintTop_toBottomOf="@+id/calendar"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:backgroundTint="@color/new_themeBlue_color"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
