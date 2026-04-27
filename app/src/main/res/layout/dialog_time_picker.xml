@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="info.androidhive.bottomsheet.HomeActivity"
+        app:behavior_peekHeight="@dimen/_100sdp"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            android:layout_width="match_parent"
+            android:background="@drawable/box_corner_top_white"
+            android:id="@+id/bottom_sheet_spinner"
+            android:elevation="@dimen/_5sdp"
+            android:layout_height="@dimen/_300sdp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5"
+                android:id="@+id/guideline_v"
+                />
+
+            <View
+                android:id="@+id/slide_view"
+                android:layout_width="@dimen/_99sdp"
+                android:layout_height="@dimen/_3sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@color/gray_60"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:elevation="@dimen/_5sdp"/>
+
+            <TextView
+                android:id="@+id/header_title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/slide_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/my_font_medium"
+                android:textColor="@color/title_color_black"
+                android:text="@string/working_times"
+                android:visibility="gone"
+                />
+
+            <TimePicker
+                android:id="@+id/from_timePicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/SpinnerTimePicker"
+                app:layout_constraintTop_toBottomOf="@id/slide_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline_v"
+                android:timePickerMode="spinner"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                />
+
+            <TextView
+                android:id="@+id/to_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintBottom_toBottomOf="@id/from_timePicker"
+                app:layout_constraintTop_toTopOf="@id/from_timePicker"
+                app:layout_constraintStart_toStartOf="@id/guideline_v"
+                app:layout_constraintEnd_toEndOf="@id/guideline_v"
+                android:textColor="@color/black"
+                android:fontFamily="@font/my_font_semibold"
+                android:textSize="@dimen/_13ssp"
+                android:text="@string/to"
+                android:gravity="center"
+                />
+
+            <TimePicker
+                android:id="@+id/to_timePicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/SpinnerTimePicker"
+                app:layout_constraintTop_toBottomOf="@id/slide_view"
+                app:layout_constraintStart_toStartOf="@id/guideline_v"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:timePickerMode="spinner"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                />
+
+            <TextView
+                android:id="@+id/submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/bg_btn_blue"
+                android:textColor="@color/white"
+                android:fontFamily="@font/my_font_semibold"
+                android:textSize="@dimen/_15ssp"
+                android:text="@string/confirm"
+                android:gravity="center"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

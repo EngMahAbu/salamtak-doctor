@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        android:elevation="4dp"
+        android:background="@drawable/dashlinebg"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/otp_border">
+            <ImageView
+                android:id="@+id/iv_add_doc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+              >
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/iv_add_photo"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/iv_addimage">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_add_photo"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:visibility="visible" />
+
+
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/edit_front_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/edit_new"
+        android:elevation="4dp"
+        android:visibility="gone"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/rootView"
+        app:layout_constraintTop_toTopOf="@+id/rootView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

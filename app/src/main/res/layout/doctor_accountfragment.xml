@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".salamtakdoctor.patient.DoctorAccountFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:adjustViewBounds="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_arrowleft"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_Filter" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/avenir_regular"
+        android:text="@string/patient_account"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/iv_arrow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_btn_border_gray_transprent"
+        android:drawableStart="@drawable/ic_search2"
+        android:drawablePadding="@dimen/_8sdp"
+        android:drawableTint="#CDCDCD"
+        android:fontFamily="@font/avenir_regular"
+        android:hint="@string/search_by_patient_name"
+        android:imeOptions="actionDone"
+        android:textSize="@dimen/_12ssp"
+        android:lines="1"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Filter" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="@+id/search"
+        app:layout_constraintStart_toStartOf="@+id/search"
+        app:layout_constraintTop_toBottomOf="@+id/search">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/date_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:backgroundTint="#EBFAF9"
+            android:padding="@dimen/_2sdp"
+            android:visibility="visible"
+            app:cardCornerRadius="@dimen/_4sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_2sdp">
+
+                <TextView
+                    android:id="@+id/textdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/avenir_regular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="visible"
+                    android:text="@string/select_peroid_of_date" />
+
+                <ImageView
+                    android:id="@+id/ivFlaticon_calender"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="@+id/iv_Del"
+                    android:layout_marginStart="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_3ssp"
+                    android:background="@drawable/calendar"/>
+                <ImageView
+                    android:id="@+id/iv_Del"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="@+id/ivFlaticon_calender"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_3ssp"
+                    android:src="@drawable/ic_delete"
+                    />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/patient_data_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/layout_balance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_patient_parent_item"
+        tools:itemCount="2"/>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_balance"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_1sdp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/patient_data_rv">
+
+    <LinearLayout
+        android:id="@+id/totalBalance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:background="@drawable/balance_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:padding="@dimen/_6sdp"
+            android:background="@drawable/border"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_12ssp"
+            android:text="@string/total_service_fee" />
+        <TextView
+            android:id="@+id/balance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_12ssp"
+            tools:text="100" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/totalpaid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:background="@drawable/balance_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalBalance">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:padding="@dimen/_6sdp"
+            android:background="@drawable/border"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_12ssp"
+            android:text="@string/total_paid" />
+        <TextView
+            android:id="@+id/paid_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_12ssp"
+            tools:text="100" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/totalfinal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:background="@drawable/balance_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalpaid">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:padding="@dimen/_6sdp"
+            android:background="@drawable/border"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_12ssp"
+            android:text="@string/balance" />
+        <TextView
+            android:id="@+id/final_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:textColor="@color/head_color"
+            android:textSize="@dimen/_12ssp"
+            tools:text="100" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:indeterminateTint="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/patient_data_rv"
+        app:layout_constraintStart_toStartOf="@+id/patient_data_rv"
+        app:layout_constraintBottom_toBottomOf="@+id/patient_data_rv"
+        app:layout_constraintTop_toTopOf="@+id/patient_data_rv"
+        android:visibility="gone"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
