@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+    <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrowleft"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_questions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_questions" />
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/myanswers"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_arrow"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/myanswers"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+             android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_questions" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Answers"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="15dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintHorizontal_bias="0.41"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/questions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_layout_qanda" />
+    <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/rv_Answers"
+            app:layout_constraintStart_toStartOf="@+id/rv_Answers"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_Answers"
+            app:layout_constraintTop_toTopOf="@+id/rv_Answers"
+            android:visibility="gone"
+            />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
