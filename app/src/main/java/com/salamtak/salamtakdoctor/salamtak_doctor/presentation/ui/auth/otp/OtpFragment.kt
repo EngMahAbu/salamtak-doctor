@@ -107,7 +107,7 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
 
         binding.toolbar.toolbarHeader.text = getString(R.string.verify_mobile)
 
-        object : CountDownTimer(45000, 1000) {
+        object : CountDownTimer(30000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.otpTimer.visibility = VISIBLE
 //                binding.otpTimer.text = "seconds remaining: " + millisUntilFinished / 1000
