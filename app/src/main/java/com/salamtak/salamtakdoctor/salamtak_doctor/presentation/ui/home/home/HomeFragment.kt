@@ -210,7 +210,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
             }
         })
         viewModel.doctorProfileModel.observe(viewLifecycleOwner, Observer {
-
+            Log.e(TAG, "initObserve: ${it.Data.Birthday.substring(0,4)}", )
             DateUtils.setYear(it.Data.Birthday.substring(0,4))
             DateUtils.setDoctorId(it.Data.Id.toString())
             DateUtils.setSpecDoctor(it.Data.SpecialistName)

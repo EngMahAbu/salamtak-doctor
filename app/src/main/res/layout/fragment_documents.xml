@@ -69,10 +69,10 @@
                     android:id="@+id/docs_itemsRv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:paddingBottom="20dp"
                     android:visibility="visible"
                     tools:itemCount="2"
-                    android:paddingBottom="20dp"
-                    android:layout_marginHorizontal="5dp"
                     tools:listitem="@layout/documents_layout" />
 
                 <androidx.recyclerview.widget.RecyclerView

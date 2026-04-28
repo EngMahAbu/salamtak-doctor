@@ -284,16 +284,18 @@ class CertificatesFragment :
             }
         } else {
             if (!binding.addCertificate.tvYear.text.toString().isNullOrEmpty()) {
-                if (binding.addCertificate.tvYear.text.toString().toInt() > 2024) {
-                    binding.addCertificate.tvYearError.text =
-                        getString(R.string.year_not_valid_required)
-                    binding.addCertificate.tvYearError.visibility = View.VISIBLE
+                val selectedYearInt = selectedYear.toIntOrNull()
+                val currentYearInt = DateUtils.getYear()?.toIntOrNull()
 
-                } else if (DateUtils.getYear()?.toInt()!! > selectedYear.toInt()) {
+                if (selectedYearInt == null || currentYearInt == null) {
                     binding.addCertificate.tvYearError.visibility = View.VISIBLE
                     binding.addCertificate.tvYearError.text =
                         getString(R.string.year_not_valid_required)
-                } else {
+                } else if ((selectedYearInt - currentYearInt) < 23) {
+                    binding.addCertificate.tvYearError.visibility = View.VISIBLE
+                    binding.addCertificate.tvYearError.text =
+                        getString(R.string.year_not_valid_required)
+                }else {
                     binding.addCertificate.tvYearError.visibility = View.GONE
                     toast(mContext, getString(R.string.fields_required))
                 }

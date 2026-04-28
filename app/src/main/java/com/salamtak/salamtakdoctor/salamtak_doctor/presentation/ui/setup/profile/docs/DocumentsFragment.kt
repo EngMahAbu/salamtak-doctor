@@ -872,6 +872,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
     }
 
     override fun onItemClick(documentOrder: Int,legalDocumentTypeId:Int) {
+        Log.e(TAG, "onItemClick:$legalDocumentTypeId ", )
         itemId=legalDocumentTypeId
         this.documentOrder=documentOrder
         selectPic()

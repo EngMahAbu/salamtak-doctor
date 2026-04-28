@@ -11,6 +11,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -19,10 +20,12 @@ import com.salamtak.core.localDataBase.Localization
 import com.salamtak.core.localDataBase.UserData
 import com.salamtak.core.utils.SessionManagement
 import com.salamtak.databinding.FragmentOtpBinding
+import com.salamtak.domain.entities.resquest.auth.ForgetPasswordModel
 import com.salamtak.domain.entities.resquest.auth.RegisterModel
 import com.salamtak.salamtakdoctor.noConnectivityDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.BaseFragment
 import com.salamtak.salamtakdoctor.salamtak_doctor.di.ViewModelsModule
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SignUpViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.*
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.LoadingDialog
@@ -32,11 +35,13 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.core.qualifier.StringQualifier
 import retrofit2.HttpException
 import java.util.concurrent.TimeUnit
+import kotlin.concurrent.timer
 
 class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
 
     lateinit var binding: FragmentOtpBinding
     lateinit var navController: NavController
+    private lateinit var polyclinicsviewModel: PolyClinicsViewModel
     lateinit var mContext: Context
     var code: String = ""
     var textOtp: String = ""
@@ -65,7 +70,7 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentOtpBinding.inflate(layoutInflater,container,false)
-
+        polyclinicsviewModel = ViewModelProvider(this).get(PolyClinicsViewModel::class.java)
         code = sessionManagement.getCode().toString()
 //        val mArguments = requireArguments()
 //        code = mArguments.getString(NEW_OTP_CODE, "")
@@ -80,11 +85,11 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
         navController = Navigation.findNavController(binding.root)
         noInternetDialog = NoInternetDialog(mContext, this)
         loadingDialog = LoadingDialog(mContext)
-
+        code = sessionManagement.getCode().toString()
         Log.d(TAG, "onViewCreateddddddd: " + code)
         setUi()
         zx()
-
+        sentotp()
         binding.arrow.setOnClickListener {
             findNavController().navigate(R.id.loginFragment)
         }
@@ -102,19 +107,20 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
 
         binding.toolbar.toolbarHeader.text = getString(R.string.verify_mobile)
 
-        object : CountDownTimer(119000, 1000) {
+        object : CountDownTimer(45000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.otpTimer.visibility = VISIBLE
 //                binding.otpTimer.text = "seconds remaining: " + millisUntilFinished / 1000
-                binding.otpTimer.text = "" + millisUntilFinished / 1000 + getString(R.string.sec)
+                binding.otpTimer.text = "" + millisUntilFinished / 1000
                 //here you can have your logic to set text to edittext
             }
 
             override fun onFinish() {
                 // to block code after limit time
                 sessionManagement.setCode("0", "0")
-                binding.otpSendAgain.isEnabled = true
-                binding.otpSendAgain.setTextColor( ContextCompat.getColor(binding.otpSendAgain.context, R.color.green))
+             //   binding.otpSendAgain.isEnabled = true
+                binding.otpSendAgain.visibility = VISIBLE
+              //  binding.otpSendAgain.setTextColor( ContextCompat.getColor(binding.otpSendAgain.context, R.color.green))
 
             }
         }.start()
@@ -135,7 +141,7 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
             override fun onOTPComplete(otp: String) {
 
 //                val code = sessionManagement.getCode()
-                code = sessionManagement.getCode().toString()
+
                 if (Localization.getLanguageName()=="ar"){
                     code.reversed()
                 }
@@ -146,8 +152,10 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
                 Log.d(TAG, "onOTPComplete: $otp")
 //                        || otp.toString() != againCode
                 if (otp.toString() != code) {
+                    Log.d(TAG, "new onOTPComplete: $code")
                     binding.otpError.visibility = VISIBLE
                 } else {
+                    Log.d(TAG, "subscribeToObserver: $code")
                     loadingDialog.show()
                     subscribeToObserver()
                 }
@@ -183,7 +191,7 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
         binding.otpSendAgain.setOnClickListener {
 
             sendOtpAgain()
-            setUi()
+           // setUi()
         }
 
 
@@ -284,13 +292,14 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
                 val token = sessionManagement.getFireBaseToken()
 
                 val registerModel = RegisterModel(
-                    phone, email,
+                    "+2${phone}", email,
                     password, name,
                     typeId
                 )
                 //TODO 29/11/22
                 if (isOnline(mContext)) {
-                    screenViewModel.signUp(registerModel)
+                 //   screenViewModel.signUp(registerModel)
+                    polyclinicsviewModel.sendOTP(registerModel)
                 } else {
                     noConnectivityDialog.noInternetDialogFragment(requireContext())
 
@@ -328,6 +337,31 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
                 childFragmentManager, ""
             )
         }
+
+    }
+
+    private fun sentotp() {
+
+        polyclinicsviewModel.otpResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            when (it) {
+
+                is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.Loading -> {
+                }
+
+                is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.sucess -> {
+                    loadingDialog.dismiss()
+                    code = it.data?.Data?.Code.toString()
+                    setUi()
+                    toast(requireContext(), getString(R.string.otp_sent_again))
+                }
+
+                is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.Error -> {
+                    loadingDialog.dismiss()
+                }
+
+            }
+        })
+
 
     }
 

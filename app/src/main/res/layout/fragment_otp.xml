@@ -217,7 +217,7 @@
             app:layout_constraintStart_toStartOf="@+id/otp_timer" />
 
         <TextView
-            android:id="@+id/otp_send_again"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -227,6 +227,7 @@
             android:text="@string/send_again"
             android:textColor="@color/gray"
             android:textSize="14sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/otp_error" />
@@ -288,7 +289,7 @@
             tools:layout_editor_absoluteX="21dp" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_resendCode"
+            android:id="@+id/otp_send_again"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"

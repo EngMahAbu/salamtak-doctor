@@ -327,7 +327,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                                                 sessionManagement.setFireBaseToken(it.result!!)
                                                 token = it.result!!
                                                 val registerModel = RegisterModel(
-                                                    binding.phoneEt.text.toString(),
+                                                    "${binding.phoneEt.text.toString()}",
                                                     null,
                                                     binding.passwordEt.text.toString(),
                                                     binding.nameEt.text.toString(),
@@ -337,7 +337,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                                             } else {
                                                 token = ""
                                                 val registerModel = RegisterModel(
-                                                    binding.phoneEt.text.toString(),
+                                                    "${binding.phoneEt.text.toString()}",
                                                     null,
                                                     binding.passwordEt.text.toString(),
                                                     binding.nameEt.text.toString(),

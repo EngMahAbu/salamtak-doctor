@@ -25,7 +25,7 @@ object ImageUtil {
     @JvmStatic
     @BindingAdapter("imageUrl")
     fun loadPicture(imageView: ImageView, url: String?) {
-        Glide.with(imageView.context).load("${url}").placeholder(R.drawable.image_placeholder).fitCenter().into(imageView)
+        Glide.with(imageView.context).load(url).placeholder(R.drawable.image_placeholder).fitCenter().into(imageView)
     }
 
     fun convertImageToBase64(bitmap: Bitmap): String {
