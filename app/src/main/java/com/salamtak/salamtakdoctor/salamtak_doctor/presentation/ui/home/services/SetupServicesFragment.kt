@@ -83,6 +83,7 @@ class SetupServicesFragment : BaseFragment<SetupServicesViewModel>(R.layout.frag
     var dayId: Int? = null
     var durationId: Int? = null
     var workingFrom: String? = null
+    var appointmentsData: ArrayList<ServiceScheduleData>? = null
     var workingTo: String? = null
     var fees: Double? = null
     var workDate:String?=null
@@ -210,9 +211,21 @@ class SetupServicesFragment : BaseFragment<SetupServicesViewModel>(R.layout.frag
             editClinic()
         }
         binding.submitSchedule.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putInt("add_new_clinic", 0)
-            navController.navigate(R.id.createClinicGalleryFragment, bundle)
+            if (!appointmentsData.isNullOrEmpty()) {
+                val totalPeriods =appointmentsData?.sumOf { it.DayPeriodCount } ?: 0
+                if (totalPeriods > 0) {
+                    val bundle = Bundle()
+                    bundle.putInt("add_new_clinic", 0)
+                    navController.navigate(R.id.createClinicGalleryFragment, bundle)
+                }
+                else{
+                    toast(mContext, getString(R.string.appointment_required))
+
+                }
+            }
+            else{
+                toast(mContext, getString(R.string.appointment_required))
+            }
         }
         binding.tvSaveedit.setOnClickListener {
             val bundle = Bundle()
@@ -734,6 +747,7 @@ class SetupServicesFragment : BaseFragment<SetupServicesViewModel>(R.layout.frag
             if (it.Success) {
                 loadingDialog.dismiss()
                 Log.d("kjashdkjshdkjshkjashd",it.Data.toString())
+                appointmentsData = it.Data as ArrayList<ServiceScheduleData>
                 serviceScheduleAdapter.submitData(it.Data as ArrayList<ServiceScheduleData>)
             }
 

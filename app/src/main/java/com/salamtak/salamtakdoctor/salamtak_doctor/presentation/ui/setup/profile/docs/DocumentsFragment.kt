@@ -94,6 +94,10 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
     var counter: Int = 0
     var secCounter: Int = 0
     var thirdCounter: Int = 0
+    val nationalIdSet = mutableSetOf<Int>()
+    var syndicateIdIsEntered = false
+    var medicalLicenseIsEntered = false
+
     private lateinit var documentsAdapter: LegalDocumentsAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -289,16 +293,28 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
             isFinal = true
             if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
                // getDocuments()
-                if (polyType>=4){
+                if (nationalIdSet.size == 2 && syndicateIdIsEntered && medicalLicenseIsEntered){
                     findNavController().navigate(R.id.thankYouFragment)
-                }else{
-                    toast(requireContext(), "Please fill data properly")
+                }else if (nationalIdSet.size != 2){
+                    toast(requireContext(), getString(R.string.national_Id_required_photo))
+                }
+                else if (!syndicateIdIsEntered){
+                    toast(requireContext(), getString(R.string.syndicate_Id_required_photo))
+                }
+                else {
+                    toast(requireContext(), getString(R.string.license_required_photo))
                 }
             }else{
-                if (polyType>=4){
+                if (nationalIdSet.size == 2 && syndicateIdIsEntered && medicalLicenseIsEntered){
                     findNavController().navigate(R.id.clinicsFragment)
-                }else{
-                    toast(requireContext(), "Please fill data properly")
+                }else if (nationalIdSet.size != 2){
+                    toast(requireContext(), getString(R.string.national_Id_required_photo))
+                }
+                else if (!syndicateIdIsEntered){
+                    toast(requireContext(), getString(R.string.syndicate_Id_required_photo))
+                }
+                else {
+                    toast(requireContext(), getString(R.string.license_required_photo))
                 }
             }
 
@@ -764,6 +780,15 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
                         getDocuments()
                         if(it.data.Data != null){
                             documentId = it.data.Data?.LegalDocumentTypeId!!
+                            if (it.data.Data?.LegalDocumentTypeId == 1){
+                                nationalIdSet.add(it.data.Data?.Id!!)
+                            }
+                            else if(it.data.Data?.LegalDocumentTypeId == 2){
+                                syndicateIdIsEntered = true
+                            }
+                            else if(it.data.Data?.LegalDocumentTypeId == 3){
+                                medicalLicenseIsEntered = true
+                            }
                         }
                     }else if(it.data?.MessageCode == 201){
                         val sucess = UpdateDialog(findNavController(), "more")

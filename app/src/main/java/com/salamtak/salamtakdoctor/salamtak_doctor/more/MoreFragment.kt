@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,8 +52,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
         binding = FragmentMoreBinding.inflate(inflater, container, false)
 
-        ImageUtil.loadPicture(binding.profileDoctorImage, UserData.getImage())
+        val image = UserData.getImage()
 
+        ImageUtil.loadPicture(binding.profileDoctorImage, image)
 
         initListener()
 

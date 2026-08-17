@@ -15,8 +15,8 @@ android {
         applicationId = "com.salamtak.salamtakdoctor"
         minSdk = 24
         targetSdk = 35
-        versionCode = 36
-        versionName = "2.2.7"
+        versionCode = 38
+        versionName = "2.2.9"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

@@ -51,7 +51,7 @@ class Splash2Fragment : Fragment() {
         setUi()
 
         binding.skipOrStartBtn.setOnClickListener {
-            navController.navigate(R.id.loginFragment)
+            navController.navigate(R.id.welcomeFragment)
         }
         requireActivity().onBackPressedDispatcher.addCallback {  findNavController().navigate(R.id.splashFragment) }
     }
@@ -72,7 +72,8 @@ class Splash2Fragment : Fragment() {
             if (binding.splashSlider.currentItem != 2)
                 binding.splashSlider.currentItem = binding.splashSlider.currentItem + 1
             else
-                navController.navigate(R.id.loginFragment)
+               // navController.navigate(R.id.loginFragment)
+                navController.navigate(R.id.welcomeFragment)
         }
 
 

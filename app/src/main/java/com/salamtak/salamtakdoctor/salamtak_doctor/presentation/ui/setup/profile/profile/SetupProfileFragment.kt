@@ -165,9 +165,9 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().onBackPressedDispatcher.addCallback {
+       /* requireActivity().onBackPressedDispatcher.addCallback {
             this@SetupProfileFragment
-        }
+        }*/
         bindViews()
         if (!getInfo.equals("edit")) {
             binding.profileToolbar.backBtn.visibility = GONE

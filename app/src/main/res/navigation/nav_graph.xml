@@ -49,7 +49,20 @@
     <fragment
             android:id="@+id/screen3Fragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash2.screen.Screen3Fragment"
-            android:label="Screen3Fragment"/>
+            android:label="Screen3Fragment">
+<!--        <action-->
+<!--            android:id="@+id/action_chooseLanguageFragment_to_welcomeFragment"-->
+<!--            app:destination="@id/welcomeFragment" />-->
+        <action
+            android:id="@+id/action_screen3Fragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"/>
+
+    </fragment>
+    <dialog
+        android:id="@+id/wrongDialogFragment"
+        android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.dialog.WrongAppDialogFragment"
+        android:label="dialog_wrong_app"
+        tools:layout="@layout/dialog_wrong_app" />
     <fragment
             android:id="@+id/splashFragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.splash1.SplashFragment"
@@ -265,6 +278,18 @@
             android:id="@+id/action_moreFragment_to_setupProfileFragment"
             app:destination="@id/setupProfileFragment" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.splash.welcome.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+    <action
+        android:id="@+id/action_welcome_to_register"
+        app:destination="@id/signUpFragment" />
+    </fragment>
+
     <fragment
             android:id="@+id/patientProfileFragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.patientProfile.PatientProfileFragment"

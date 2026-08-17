@@ -123,7 +123,10 @@
     <string name="enter_title_ar">عنوان الشهادة بالعربية</string>
     <string name="enter_body_ar">وصف الشهادة بالعربية</string>
 
-    <string name="add_certificate">Add New Certificate</string>
+    <string name="add_certificate">Save</string>
+    <string name="national_Id_required_photo">Please Enter All National Id Photo</string>
+    <string name="syndicate_Id_required_photo">Please Enter Syndicate Id Photo</string>
+    <string name="license_required_photo">Please Enter at Least One Medical License OR Clinic License Photo</string>
     <string name="add_period">Add New Period</string>
     <string name="awesome">Awesome!</string>
     <string name="well_done">Well Done!</string>
@@ -266,6 +269,7 @@
     <string name="edit">Edit</string>
     <string name="editinvoice">Edit Invoice</string>
     <string name="fields_required">You must fill the required fields</string>
+    <string name="appointment_required">You must add one period at least</string>
     <string name="certificate_title_required">Certificate title is required</string>
     <string name="certificate_body_required">Certificate description is required</string>
     <string name="certificate_year_required">Year of certificate is required</string>
@@ -801,6 +805,7 @@
     <string name="appointments">Appointments</string>
     <string name="what_s_up">What\'s Up?</string>
     <string name="profile">Profile</string>
+    <string name="not_available">Not Available (N/A)</string>
     <string name="vacations">Vacations</string>
     <string name="patient_profile_history">Patient Account</string>
     <string name="clinic_follow_up_fee">Clinic follow up fee</string>
@@ -990,7 +995,7 @@
     <string name="upload_atleast_10_photos">You can upload your clinic photos </string>
     <string name="upload_clinic_image">Upload clinic Photos</string>
     <string name="national_vacancy">National Vacations</string>
-    <string name="add_new_vacation">Add Vacation</string>
+    <string name="add_new_vacation">Not Available</string>
     <string name="clinics_appoitment">Clinics Appoitment</string>
     <string name="enter_arabic_only">Please enter arabic letter only</string>
     <string name="full_name_in_english">Full Name In English (First - Middle - Last)</string>
@@ -1075,6 +1080,26 @@
     <string name="must_upload_front_and_back_image">Must upload Front and back image</string>
     <string name="nationalid">National Id Image</string>
 
+    <string name="welcome_title">Welcome to our app</string>
+    <string name="welcome_subtitle">Book your appointment with the best doctors بسهولة and conveniently</string>
+    <string name="who_are_you">Who are you?</string>
+    <string name="btn_i_am_patient">Patients Only</string>
+    <string name="btn_i_am_doctor">Doctors Only</string>
+
+    <string name="wrong_app_icon_patient">🚑</string>
+    <string name="wrong_app_icon_doctor">👨‍⚕️</string>
+
+    <string name="wrong_app_title_patient">This app is for patients only</string>
+    <string name="wrong_app_title_doctor">This app is for doctors only</string>
+
+    <string name="wrong_app_desc_doctor">It looks like you downloaded the doctor app by mistake. Please download the patient app to continue.</string>
+    <string name="wrong_app_btn_download_doctor">Download Doctor App</string>
+    <string name="wrong_app_btn_download_patient">Download Patient App</string>
+    <string name="wrong_app_btn_close">Close App</string>
+    <string name="wrong_app_tag_doctor">Doctor App</string>
+    <string name="wrong_app_tag_patient">Patient App</string>
+    <string name="wrong_app_desc_patient">It looks like you downloaded the patient app by mistake. Please download the doctor app to continue.</string>
+
     <string name="forsupportcallus">For support call us</string>
     <string name="choose_your_insurance_company">Choose Supported Insurance Company(ies)</string>
     <string name="insurance_company">Search.........</string>
@@ -1082,6 +1107,9 @@
         services by typing the service in this field
     </string>
     <string name="no_results_found">No results found</string>
+
+
+
 
 
     <string name="extra_tele_comunication">Extra Tele Comunication :</string>

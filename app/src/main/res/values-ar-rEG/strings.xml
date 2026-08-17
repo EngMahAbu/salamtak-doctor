@@ -111,7 +111,10 @@
     <string name="enter_title_ar">أدخل عنوان الشهادة بالعربية</string>
     <string name="enter_body_ar">أدخل وصف الشهادة بالعربية(حد أقصى 120 حرف)</string>
 
-    <string name="add_certificate">اضافة شهادة + </string>
+    <string name="add_certificate">حفظ </string>
+    <string name="national_Id_required_photo">برجاء ادخال كل صور الرقم القومي</string>
+    <string name="syndicate_Id_required_photo">برجاء ادخال صورة كارنيه النقابة</string>
+    <string name="license_required_photo">يرجى إدخال صورة واحدة على الأقل لرخصة طبية أو لرخصة عيادة</string>
     <string name="add_period">أضف فترة</string>
 
     <string name="awesome">أحسنت !</string>
@@ -125,6 +128,16 @@
     <string name="phone_existed">رقم الهاتف موجود بالفعل</string>
     <string name="email_existed">البريد الالكتروني موجود بالفعل</string>
     <string name="code_sent">تم إرسال الكود إلى</string>
+
+
+    <string name="welcome_title">مرحباً بك في تطبيقنا</string>
+    <string name="welcome_subtitle">احجز موعدك مع أفضل الأطباء بكل سهولة ويسر</string>
+    <string name="who_are_you">من أنت؟</string>
+    <string name="btn_i_am_patient">المرضي فقط</string>
+    <string name="btn_i_am_doctor">الأطباء فقط</string>
+
+    <string name="wrong_app_icon_patient">🚑</string>
+    <string name="wrong_app_icon_doctor">👨‍⚕️</string>
 
     <string name="email_valid">البريد الالكتروني غير صحيح</string>
     <string name="password_required">كلمة المرور مطلوبة</string>
@@ -241,6 +254,7 @@
     <string name="editinvoice">تعديل الفاتورة</string>
 
     <string name="fields_required">يجب ادخال الحقول المطلوبة</string>
+    <string name="appointment_required">يجب ادخال موعد واحد على الاقل</string>
     <string name="certificate_title_required">عنوان الشهادة مطلوب</string>
     <string name="certificate_body_required">وصف الشهادة مطلوب</string>
     <string name="certificate_year_required">سنة الشهادة مطلوبة</string>
@@ -492,6 +506,7 @@ item 1
     <string name="what_s_up">اخر الاخبار</string>
     <string name="profile">الملف الشخصى</string>
     <string name="vacations">الاجازات</string>
+    <string name="not_available">غير متوفر</string>
     <string name="patient_profile_history">ملف المريض</string>
     <string name="clinic_follow_up_fee">رسوم الاستشارة</string>
     <string name="clinic_vacations">الاجازات</string>
@@ -588,7 +603,7 @@ item 1
     <string name="upload_atleast_10_photos">ارفع الصورة الخاصة بالعيادة</string>
     <string name="upload_clinic_image">اضافة صور العيادة</string>
     <string name="national_vacancy">الاجازات الوطنية</string>
-    <string name="add_new_vacation">أضف إجازة </string>
+    <string name="add_new_vacation">غير متاح</string>
     <string name="clinics_appoitment">تعيين عيادات</string>
     <string name="enter_arabic_only">الرجاء إدخال الحرف العربي فقط</string>
     <string name="full_name_in_english">الاسم الكامل باللغة الانجليزية (الأول - الأوسط - الأخير)</string>

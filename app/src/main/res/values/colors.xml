@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#888780</color>
+    <color name="doctor_primary">#185FA5</color>
+    <color name="patient_primary">#0F6E56</color>
+
+    <color name="tag_blue_bg">#B5D4F4</color>
+    <color name="tag_blue_text">#0C447C</color>
+    <color name="border_light">#D3D1C7</color>
+    <color name="dialog_overlay">#73000000</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#AEB3BE</color>
     <color name="purple_700">#FF3700B3</color>

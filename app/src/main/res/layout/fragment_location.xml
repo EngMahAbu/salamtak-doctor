@@ -195,7 +195,7 @@
                     android:button="@null"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="@string/vacations"
+                    android:text="@string/not_available"
                     android:textColor="@color/choose_selector"
                     android:textSize="@dimen/_8ssp"
                     android:fontFamily="@font/avenir_medium"  />

@@ -34,12 +34,15 @@
                 android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_doctor_image"
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="@dimen/_38sdp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:src="@drawable/app_logo" />
+                android:id="@+id/profile_doctor_image"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_12sdp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@android:color/white"
+                android:background="@color/white"
+                />
 
             <LinearLayout
                     android:layout_width="match_parent"

@@ -1,4 +1,50 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="normalmargintop">16dp</dimen>
+
+    <dimen name="dialog_icon_size">32sp</dimen>
+    <dimen name="dialog_tag_corner">20dp</dimen>
+    <dimen name="dialog_tag_margin_top">10dp</dimen>
+    <dimen name="dialog_tag_text_size">11sp</dimen>
+    <dimen name="dialog_tag_padding_horizontal">12dp</dimen>
+    <dimen name="dialog_tag_padding_vertical">4dp</dimen>
+    <dimen name="dialog_title_size">15sp</dimen>
+    <dimen name="dialog_title_size_alt">16sp</dimen>
+    <dimen name="dialog_title_margin_top">12dp</dimen>
+    <dimen name="dialog_desc_size">12sp</dimen>
+    <dimen name="dialog_desc_size_alt">13sp</dimen>
+    <dimen name="dialog_desc_margin_top">8dp</dimen>
+
+    <dimen name="dialog_btn_primary_height">52dp</dimen>
+    <dimen name="dialog_btn_secondary_height">48dp</dimen>
+    <dimen name="dialog_btn_corner">12dp</dimen>
+    <dimen name="dialog_btn_corner_radius">10dp</dimen>
+    <dimen name="dialog_btn_margin_top">24dp</dimen>
+    <dimen name="dialog_btn_secondary_margin_top">8dp</dimen>
+    <dimen name="dialog_btn_primary_text_size">13sp</dimen>
+    <dimen name="dialog_btn_primary_text_size_alt">14sp</dimen>
+    <dimen name="dialog_btn_secondary_text_size">12sp</dimen>
+    <dimen name="dialog_btn_secondary_text_size_alt">13sp</dimen>
+    <dimen name="dialog_btn_stroke_width">1dp</dimen>
+    <dimen name="dialog_corner_radius">20dp</dimen>
+
+    <dimen name="welcome_screen_padding">24dp</dimen>
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="welcome_illustration_size">200dp</dimen>
+    <dimen name="welcome_title_size">24sp</dimen>
+    <dimen name="welcome_subtitle_size">14sp</dimen>
+    <dimen name="welcome_who_are_you_size">16sp</dimen>
+    <dimen name="welcome_title_margin_horizontal">32dp</dimen>
+    <dimen name="welcome_subtitle_margin_horizontal">40dp</dimen>
+    <dimen name="welcome_title_margin_top">24dp</dimen>
+    <dimen name="welcome_subtitle_margin_top">12dp</dimen>
+    <dimen name="welcome_who_are_you_margin_top">40dp</dimen>
+    <dimen name="welcome_btn_height">56dp</dimen>
+    <dimen name="welcome_btn_corner">14dp</dimen>
+    <dimen name="welcome_btn_margin_horizontal">32dp</dimen>
+    <dimen name="welcome_btn_margin_top">20dp</dimen>
+    <dimen name="welcome_btn_secondary_margin_top">12dp</dimen>
+    <dimen name="welcome_btn_text_size">15sp</dimen>
+    <dimen name="welcome_btn_icon_size">22dp</dimen>
+    <dimen name="welcome_btn_stroke_width">1.5dp</dimen>
 </resources>

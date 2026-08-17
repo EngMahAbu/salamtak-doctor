@@ -289,8 +289,10 @@ class LocationFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragment_lo
                     val bundle = Bundle()
                     bundle.putInt("add_new_clinic", 0)
                     if (!DateUtils.getAdminOwnerId().isNullOrEmpty()){
+                        if (doctorLocation != null)
                         navController.navigate(R.id.createClinicGalleryFragment, bundle)
                     }else{
+                        if (doctorLocation != null)
                         navController.navigate(R.id.clinicScheduleFragment, bundle)
                     }
                 }

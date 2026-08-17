@@ -34,10 +34,11 @@
             <include
                 android:id="@+id/head_toolbar"
                 layout="@layout/profile_toolbar"
-                android:visibility="gone"
                 android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_marginHorizontal="12dp"
-                android:layout_height="40dp" />
+                android:visibility="gone"
+                tools:visibility="visible" />
 
            <ScrollView
                android:layout_width="match_parent"
@@ -54,10 +55,11 @@
                        android:id="@+id/add_certificate"
                        layout="@layout/item_view_certificate"
                        android:layout_width="match_parent"
-                       android:visibility="visible"
+                       android:layout_height="wrap_content"
                        android:layout_marginStart="5dp"
                        android:layout_marginEnd="5dp"
-                       android:layout_height="wrap_content" />
+                       android:visibility="visible"
+                       tools:visibility="visible" />
 
                    <androidx.recyclerview.widget.RecyclerView
                        android:id="@+id/certificatesRv"
@@ -83,7 +85,6 @@
                 android:id="@+id/add_certificate_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_above="@id/profile_bottom_toolbar"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="6dp"
@@ -94,7 +95,9 @@
                 android:padding="8dp"
                 android:text="+ Add Another Certificate"
                 android:textColor="@color/new_themeBlue_color"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
 
         </LinearLayout>

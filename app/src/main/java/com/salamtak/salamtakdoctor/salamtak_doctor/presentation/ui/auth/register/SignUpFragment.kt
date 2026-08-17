@@ -284,15 +284,15 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                     binding.passwordLayout.setBackgroundResource(R.drawable.bg_edittext)
                     binding.passwordEt.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
 
-                    var str = binding.nameEt.text.toString()
-                    var delimiter = " "
+                    val str = binding.nameEt.text.toString()
+                    val delimiter = " "
 
                     val name = str.split(delimiter)
 
-                    var strArabic = binding.nameEtArabic.text.toString()
+                    val strArabic = binding.nameEtArabic.text.toString()
 
 
-                    var delimiterArabic = " "
+                    val delimiterArabic = " "
 
                     val nameAr = strArabic.split(delimiterArabic)
                     if (isOnline(mContext)) {

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    android:background="@drawable/bg_dialog_rounded"
+    android:padding="@dimen/dialog_padding">
+
+    <TextView
+        android:id="@+id/tvDialogIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/wrong_app_icon_doctor"
+        android:textSize="@dimen/dialog_icon_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDialogTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_tag_margin_top"
+        android:background="@drawable/bg_tag_blue"
+        android:paddingStart="@dimen/dialog_tag_padding_horizontal"
+        android:paddingTop="@dimen/dialog_tag_padding_vertical"
+        android:paddingEnd="@dimen/dialog_tag_padding_horizontal"
+        android:paddingBottom="@dimen/dialog_tag_padding_vertical"
+        android:text="@string/wrong_app_tag_doctor"
+        android:textColor="@color/tag_blue_text"
+        android:textSize="@dimen/dialog_tag_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogIcon" />
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_title_margin_top"
+        android:gravity="center"
+        android:text="@string/wrong_app_title_doctor"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/dialog_title_size_alt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogTag" />
+
+    <TextView
+        android:id="@+id/tvDialogDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_desc_margin_top"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.6"
+        android:text="@string/wrong_app_desc_doctor"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/dialog_desc_size_alt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDownloadCorrectApp"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dialog_btn_primary_height"
+        android:layout_marginTop="@dimen/dialog_btn_margin_top"
+        android:text="@string/wrong_app_btn_download_patient"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dialog_btn_primary_text_size_alt"
+        app:backgroundTint="@color/patient_primary"
+        app:cornerRadius="@dimen/dialog_btn_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogDesc" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCloseApp"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dialog_btn_secondary_height"
+        android:layout_marginTop="@dimen/dialog_btn_secondary_margin_top"
+        android:text="@string/wrong_app_btn_close"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/dialog_btn_secondary_text_size_alt"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="@dimen/dialog_btn_corner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDownloadCorrectApp"
+        app:strokeColor="@color/border_light"
+        app:strokeWidth="@dimen/dialog_btn_stroke_width" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

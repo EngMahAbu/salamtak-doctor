@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:background="@color/white"
+    android:padding="@dimen/welcome_screen_padding">
+
+    <ImageView
+        android:id="@+id/ivWelcomeIllustration"
+        android:layout_width="@dimen/welcome_illustration_size"
+        android:layout_height="@dimen/welcome_illustration_size"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_patientwelcome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <TextView
+        android:id="@+id/tvWelcomeTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/welcome_title_margin_horizontal"
+        android:layout_marginTop="@dimen/welcome_title_margin_top"
+        android:layout_marginEnd="@dimen/welcome_title_margin_horizontal"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.3"
+        android:text="@string/welcome_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/welcome_title_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivWelcomeIllustration" />
+
+    <TextView
+        android:id="@+id/tvWelcomeSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/welcome_subtitle_margin_horizontal"
+        android:layout_marginTop="@dimen/welcome_subtitle_margin_top"
+        android:layout_marginEnd="@dimen/welcome_subtitle_margin_horizontal"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.6"
+        android:text="@string/welcome_subtitle"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/welcome_subtitle_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle" />
+
+    <TextView
+        android:id="@+id/tvWhoAreYou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/welcome_who_are_you_margin_top"
+        android:gravity="center"
+        android:text="@string/who_are_you"
+        android:visibility="gone"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/welcome_who_are_you_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeSubtitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPatient"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/welcome_btn_height"
+        android:layout_marginStart="@dimen/welcome_btn_margin_horizontal"
+        android:layout_marginTop="@dimen/welcome_btn_margin_top"
+        android:layout_marginEnd="@dimen/welcome_btn_margin_horizontal"
+        android:text="@string/btn_i_am_patient"
+        android:textColor="@color/white"
+        android:textSize="@dimen/welcome_btn_text_size"
+        app:backgroundTint="@color/doctor_primary"
+        app:cornerRadius="@dimen/welcome_btn_corner"
+        app:icon="@drawable/ic_patientwelcome"
+        app:iconGravity="textStart"
+        app:iconSize="@dimen/welcome_btn_icon_size"
+        app:iconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWhoAreYou" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDoctor"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/welcome_btn_height"
+        android:layout_marginStart="@dimen/welcome_btn_margin_horizontal"
+        android:layout_marginEnd="@dimen/welcome_btn_margin_horizontal"
+        android:text="@string/btn_i_am_doctor"
+        android:textColor="@color/doctor_primary"
+        android:textSize="@dimen/welcome_btn_text_size"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="@dimen/welcome_btn_corner"
+        app:icon="@drawable/ic_doctors"
+        app:iconGravity="textStart"
+        app:iconSize="@dimen/welcome_btn_icon_size"
+        app:iconTint="@color/doctor_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnPatient"
+        app:strokeColor="@color/doctor_primary"
+        app:strokeWidth="@dimen/welcome_btn_stroke_width" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

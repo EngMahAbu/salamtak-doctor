@@ -24,9 +24,9 @@ class WebViewFragment : Fragment() {
     }
     private fun initview() {
         if (Localization.getLanguageName() == "ar") {
-            createLink("https://salamtakgroup.com/TermsAr.html")
+            createLink("https://salamtakgroup.com/ar/شروط-الاستخدام")
         } else {
-            createLink("https://salamtakgroup.com/Terms.html")
+            createLink("https://salamtakgroup.com/en/termsOf")
         }
     }
 

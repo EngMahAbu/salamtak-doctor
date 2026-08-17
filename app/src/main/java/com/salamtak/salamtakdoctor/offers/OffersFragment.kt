@@ -57,7 +57,7 @@ class OffersFragment : Fragment(),OffersAdapter.SelectOfferId{
             findNavController().navigate(action)
         }
         binding.ivArrow.setOnClickListener {
-            findNavController().navigate(R.id.moreFragment)
+            findNavController().popBackStack()
         }
     }
 

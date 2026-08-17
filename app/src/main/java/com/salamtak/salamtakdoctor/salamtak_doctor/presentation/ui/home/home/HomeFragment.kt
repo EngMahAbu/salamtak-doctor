@@ -751,8 +751,13 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
     }
 
     override fun onItemGatesClick(gateId: Int) {
-        val action = HomeFragmentDirections.actionHomeFragmentToSalamtakgatesFragment(gateId)
-        findNavController().navigate(action)
+        if (gateId == 5){
+            findNavController().navigate(R.id.offersFragment)
+        }
+        else {
+            val action = HomeFragmentDirections.actionHomeFragmentToSalamtakgatesFragment(gateId)
+            findNavController().navigate(action)
+        }
     }
 
 }

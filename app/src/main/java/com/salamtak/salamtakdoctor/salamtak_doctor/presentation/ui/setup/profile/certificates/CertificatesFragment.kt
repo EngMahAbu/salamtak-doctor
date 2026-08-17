@@ -300,6 +300,10 @@ class CertificatesFragment :
                     toast(mContext, getString(R.string.fields_required))
                 }
             }
+            else{
+                toast(mContext, getString(R.string.fields_required))
+            }
+
 
         }
     }

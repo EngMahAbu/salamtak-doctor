@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.View.GONE
@@ -130,9 +131,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         destination: NavDestination,
         arguments: Bundle?
     ) {
+        Log.e("NAV", destination.label.toString())
         when (destination.id) {
             R.id.thankYouFragment,
-            R.id.splashFragment, R.id.splash2Fragment, R.id.chooseFragment, R.id.loginFragment, R.id.signUpFragment, R.id.chatFragment,R.id.passwordResetSuccess,
+            R.id.splashFragment, R.id.splash2Fragment, R.id.chooseFragment,R.id.screen1Fragment,
+            R.id.screen2Fragment,
+            R.id.screen3Fragment,R.id.welcomeFragment, R.id.loginFragment, R.id.signUpFragment, R.id.chatFragment,R.id.passwordResetSuccess,
             R.id.otpFragment, R.id.forgetPasswordFragment, R.id.resetOtpFragment, R.id.newPasswordFragment,R.id.privacyPolicyFragment,R.id.aboutAppFragment,R.id.appointmentFragment,R.id.statisticsFragment,
             R.id.setupProfileFragment, R.id.certificatesFragment, R.id.documentsFragment, R.id.clinicScheduleFragment,R.id.videoCallFragment,R.id.gatesDetailsFragment,R.id.referenceFragment,R.id.salamtakgatesFragment,R.id.offersFragment,R.id.addOffersFragment,
             R.id.polyClinicAdminFragment,R.id.enterpriseInfoFragment,R.id.editPolyClinicAdminFragment,R.id.editEnterpriseInfoFragment,R.id.chooseClinicsFragment,R.id.doctorsVideosFragment,R.id.doctorAccountFragment,R.id.patientProfileFragment,
