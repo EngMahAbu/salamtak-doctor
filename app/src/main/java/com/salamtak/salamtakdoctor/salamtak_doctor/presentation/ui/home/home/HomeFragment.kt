@@ -36,6 +36,7 @@ import com.salamtak.salamtakdoctor.adapter.GatesAdapter
 import com.salamtak.salamtakdoctor.adapter.PollyClinicsDoctorsAdapter
 import com.salamtak.salamtakdoctor.localization.DefaultLocaleHelper
 import com.salamtak.salamtakdoctor.noConnectivityDialog
+import com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.InsuranceViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.*
@@ -73,6 +74,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
     private var clinicData = ArrayList<ClinicData>()
     private var formattedDate = ""
     private lateinit var noInternetDialog: NoInternetDialog
+    private lateinit var profileViewModel: DoctorProfileViewModel
     private lateinit var gatesAdapter: GatesAdapter
 
     override fun onCreateView(
@@ -82,16 +84,16 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         loading = Dialog(requireContext())
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         polyclinicsviewModel = ViewModelProvider(this).get(PolyClinicsViewModel::class.java)
-       insuranceViewModel = ViewModelProvider(this).get(InsuranceViewModel::class.java)
+        insuranceViewModel = ViewModelProvider(this).get(InsuranceViewModel::class.java)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         ImageUtil.loadPicture(binding.profileDoctorImage, UserData.getImage())
         if (Localization.getLanguageName() == "ar") {
             UserData.getUserNameAR()?.let {
-                binding.userNameTv.text = it
+                binding.userNameTv.text = it.trim().split(" ").firstOrNull() ?: it
             }
         } else {
             UserData.getUserName()?.let {
-                binding.userNameTv.text = it
+                binding.userNameTv.text = it.trim().split(" ").firstOrNull() ?: it
             }
         }
         return binding.root
@@ -99,6 +101,25 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        profileViewModel = ViewModelProvider(this)[com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileViewModel::class.java]
+        profileViewModel.doctorProfileModel.observe(viewLifecycleOwner) { response ->
+            response?.Data?.let { doctorData ->
+                doctorData.Image?.let { imgUrl ->
+                    UserData.setImage(imgUrl)
+                    ImageUtil.loadPicture(binding.profileDoctorImage, imgUrl)
+                }
+                val doctorFirstName = if (Localization.getLanguageName() == "ar") {
+                    doctorData.FirstNameAr?.trim()?.split(" ")?.firstOrNull()?.takeIf { it.isNotBlank() }
+                        ?: UserData.getUserNameAR()?.trim()?.split(" ")?.firstOrNull() ?: ""
+                } else {
+                    doctorData.FirstName?.trim()?.split(" ")?.firstOrNull()?.takeIf { it.isNotBlank() }
+                        ?: UserData.getUserName()?.trim()?.split(" ")?.firstOrNull() ?: ""
+                }
+                if (doctorFirstName.isNotBlank()) {
+                    binding.userNameTv.text = doctorFirstName
+                }
+            }
+        }
         val formatter = SimpleDateFormat("yyyy-M-dd", Locale.ENGLISH).apply {
             this.timeZone = TimeZone.getTimeZone("CST")
         }
@@ -120,6 +141,15 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         initBottomSheetServices()
         callBack()
         callGetQuestions()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val image = UserData.getImage()
+        ImageUtil.loadPicture(binding.profileDoctorImage, image)
+        if (::profileViewModel.isInitialized) {
+            profileViewModel.getDoctorProfile()
+        }
     }
 
     private fun initButton(){
@@ -740,7 +770,9 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
             else
                 hideprogressbar()
         })
-        insuranceViewModel.getSalamtakGate()
+        if (insuranceViewModel.gateResponse.value == null) {
+            insuranceViewModel.getSalamtakGate()
+        }
     }
     private fun showprogtessbar() {
         binding.progressBar.visibility = View.GONE

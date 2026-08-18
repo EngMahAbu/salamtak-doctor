@@ -32,6 +32,8 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsV
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SharedDataViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.Constant
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.errorMessage
+import androidx.activity.addCallback
+import androidx.recyclerview.widget.RecyclerView
 
 
 class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealthAdapter.Action,QuestionsAdapter.IAddAnswer {
@@ -61,22 +63,30 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.homeFragment)
+            }
+        }
+        bindViews()
+        bindDataToUi()
         blogsGateRecylerview()
         capsVideoRecylerview()
         questionsRecylerview()
-       if(args.gateid!==6){
-           getSalamtakGatesCompanyCallback()
-       }
-        getSalamtakHealthEntityCallback()
-        bindDataToUi()
-        bindViews()
         medicalServicesRecylerview()
+        if (args.gateid != 6) {
+            getSalamtakGatesCompanyCallback()
+        } else {
+            getSalamtakHealthEntityCallback()
+        }
         initButton()
     }
 
     private fun initButton(){
         binding.ivArrow.setOnClickListener {
-            findNavController().navigate(R.id.homeFragment)
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.homeFragment)
+            }
         }
         binding.btnEmergencies.setOnClickListener {
             binding.btnEmergencies.setBackgroundResource(R.drawable.bg_button_sellector)
@@ -150,36 +160,59 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
         })
     }
     private fun blogsGateRecylerview() {
-        blogsGatesAdapter = BlogsGatesAdapter(this)
-        binding.rvGates.apply {
-            adapter = blogsGatesAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
+        if (!::blogsGatesAdapter.isInitialized) {
+            blogsGatesAdapter = BlogsGatesAdapter(this).apply {
+                stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            }
+        }
+        if (binding.rvGates.adapter != blogsGatesAdapter) {
+            binding.rvGates.apply {
+                adapter = blogsGatesAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+                setHasFixedSize(true)
+            }
         }
     }
     private fun questionsRecylerview() {
-        questionsAdapter = QuestionsAdapter(this,true)
-        binding.rvQuestions.apply {
-            adapter = questionsAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+        if (!::questionsAdapter.isInitialized) {
+            questionsAdapter = QuestionsAdapter(this, true).apply {
+                stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            }
+        }
+        if (binding.rvQuestions.adapter != questionsAdapter) {
+            binding.rvQuestions.apply {
+                adapter = questionsAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
         }
     }
 
     private fun capsVideoRecylerview() {
-        capsVideoAdapter = CapVideoAdapter()
-        binding.viewPager.apply {
-            adapter = capsVideoAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
+        if (!::capsVideoAdapter.isInitialized) {
+            capsVideoAdapter = CapVideoAdapter().apply {
+                stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            }
+        }
+        if (binding.viewPager.adapter != capsVideoAdapter) {
+            binding.viewPager.apply {
+                adapter = capsVideoAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+                setHasFixedSize(true)
+            }
         }
     }
 
     private fun medicalServicesRecylerview() {
-        medicalHealthAdapter = MedicalHealthAdapter(this)
-        binding.rvAngles.apply {
-            adapter = medicalHealthAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-            //  addOnScrollListener(this@HealthEntityFragment.scrollListener)
+        if (!::medicalHealthAdapter.isInitialized) {
+            medicalHealthAdapter = MedicalHealthAdapter(this).apply {
+                stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            }
+        }
+        if (binding.rvAngles.adapter != medicalHealthAdapter) {
+            binding.rvAngles.apply {
+                adapter = medicalHealthAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
         }
     }
 
@@ -187,10 +220,8 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
         viewModelinsurance.getBlogsResponse.observe(viewLifecycleOwner, Observer {
             if (it.data != null) {
                 blogsGatesAdapter.submitList(it.data)
-                blogsGatesAdapter.notifyDataSetChanged()
                 updateUi(it.data)
                 capsVideoAdapter.submitList(it.data)
-                capsVideoAdapter.notifyDataSetChanged()
 
             }
         })
@@ -211,14 +242,15 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
             // loading.hideLoadingDialog()
                 hideprogressbar()
         })
-        viewModelinsurance.getBlogs(args.gateid)
+        if (viewModelinsurance.loadedGateId != args.gateid || viewModelinsurance.getBlogsResponse.value == null) {
+            viewModelinsurance.getBlogs(args.gateid)
+        }
     }
 
     private fun getSalamtakHealthEntityCallback() {
         viewModelinsurance.healthEntityResponse.observe(viewLifecycleOwner, Observer {
             if (it.data != null) {
                 medicalHealthAdapter.submitList(it.data!!.items)
-                medicalHealthAdapter.notifyDataSetChanged()
             }
         })
 
@@ -234,7 +266,9 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
             // loading.hideLoadingDialog()
                 hideprogressbar()
         })
-        viewModelinsurance.getHealthEntityPagedList(1, 1, 7, 40, 0)
+        if (viewModelinsurance.healthEntityResponse.value == null) {
+            viewModelinsurance.getHealthEntityPagedList(1, 1, 7, 40, 0)
+        }
     }
 
     private fun showprogtessbar() {
@@ -259,31 +293,56 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
         when (args.gateid) {
             Constant.SalamtakGateTrueOrF -> {
                 binding.tvHealth.text = getString(R.string.salamtaktrueorfalse)
+                binding.rvGates.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.GONE
+                binding.rvAngles.visibility = View.GONE
+                binding.layoutSalamtakAngel.visibility = View.GONE
+                binding.layoutFilter.visibility = View.GONE
             }
 
             Constant.SalamtakGateCare -> {
                 binding.tvHealth.text = getString(R.string.salamtak_care)
+                binding.rvGates.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.GONE
+                binding.rvAngles.visibility = View.GONE
+                binding.layoutSalamtakAngel.visibility = View.GONE
+                binding.layoutFilter.visibility = View.GONE
             }
 
             Constant.SalamtakGateScoope -> {
                 binding.tvHealth.text = getString(R.string.salamatak_scoope)
+                binding.rvGates.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.GONE
+                binding.rvAngles.visibility = View.GONE
+                binding.layoutSalamtakAngel.visibility = View.GONE
+                binding.layoutFilter.visibility = View.GONE
             }
 
             Constant.SalamtakGateCap -> {
                 binding.tvHealth.text = getString(R.string.salamatk_cap)
+                binding.rvGates.visibility = View.GONE
                 binding.viewPager.visibility = View.VISIBLE
+                binding.rvAngles.visibility = View.GONE
+                binding.layoutSalamtakAngel.visibility = View.GONE
+                binding.layoutFilter.visibility = View.GONE
             }
 
             Constant.SalamtakGatePromotions -> {
                 binding.tvHealth.text = getString(R.string.salamtak_promotions)
+                binding.rvGates.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.GONE
+                binding.rvAngles.visibility = View.GONE
+                binding.layoutSalamtakAngel.visibility = View.GONE
+                binding.layoutFilter.visibility = View.GONE
             }
 
             Constant.SalamtakGateAngleICO -> {
                 binding.tvHealth.text = getString(R.string.salamtak_angle)
                 binding.rvGates.visibility = View.GONE
+                binding.viewPager.visibility = View.GONE
                 binding.rvAngles.visibility = View.VISIBLE
                 binding.layoutSalamtakAngel.visibility = View.VISIBLE
-               binding.layoutFilter.visibility = View.VISIBLE
+                binding.layoutFilter.visibility = View.VISIBLE
             }
         }
     }
@@ -320,7 +379,6 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
                 is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.sucess -> {
                     binding.progressBar.visibility=View.GONE
                     questionsAdapter.submitList(it.data?.data)
-                    questionsAdapter.notifyDataSetChanged()
                 }
 
                 is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.Error -> {
@@ -330,7 +388,9 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
             }
         })
 
-        polyViewModel.getAllQandAByDoctorId(2)
+        if (polyViewModel.questionsUserResponse.value == null) {
+            polyViewModel.getAllQandAByDoctorId(2)
+        }
 
     }
 

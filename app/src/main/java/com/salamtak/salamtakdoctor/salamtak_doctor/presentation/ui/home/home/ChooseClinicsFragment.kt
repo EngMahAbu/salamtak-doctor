@@ -30,10 +30,13 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.utils.showLoadingDialog
 import org.koin.android.ext.android.inject
 import java.util.Calendar
 
+import com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileViewModel
+
 class ChooseClinicsFragment : Fragment(),ChooseClinicsAdapter.ISelectClinics {
     private lateinit var binding:ChooseClinicsfragmentBinding
     private lateinit var viewModel: HomeViewModel
     private lateinit var polyViewModel: PolyClinicsViewModel
+    private lateinit var profileViewModel: DoctorProfileViewModel
     private lateinit var chooseClinicsAdapter:ChooseClinicsAdapter
     private val sessionManagement: SessionManagement by inject()
 
@@ -44,6 +47,7 @@ class ChooseClinicsFragment : Fragment(),ChooseClinicsAdapter.ISelectClinics {
         binding=ChooseClinicsfragmentBinding.inflate(layoutInflater,container,false)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         polyViewModel = ViewModelProvider(this).get(PolyClinicsViewModel::class.java)
+        profileViewModel = ViewModelProvider(this)[DoctorProfileViewModel::class.java]
         return binding.root
     }
 
@@ -54,16 +58,45 @@ class ChooseClinicsFragment : Fragment(),ChooseClinicsAdapter.ISelectClinics {
         ImageUtil.loadPicture(binding.profileDoctorImage, UserData.getImage())
         if (Localization.getLanguageName() == "ar") {
             UserData.getUserNameAR()?.let {
-                binding.descNameTv.text = it
+                binding.descNameTv.text = it.trim().split(" ").firstOrNull() ?: it
             }
         } else {
             UserData.getUserName()?.let {
-                binding.descNameTv.text = it
+                binding.descNameTv.text = it.trim().split(" ").firstOrNull() ?: it
             }
         }
+
+        profileViewModel.doctorProfileModel.observe(viewLifecycleOwner) { response ->
+            response?.Data?.let { doctorData ->
+                doctorData.Image?.let { imgUrl ->
+                    UserData.setImage(imgUrl)
+                    ImageUtil.loadPicture(binding.profileDoctorImage, imgUrl)
+                }
+                val doctorFirstName = if (Localization.getLanguageName() == "ar") {
+                    doctorData.FirstNameAr?.trim()?.split(" ")?.firstOrNull()?.takeIf { it.isNotBlank() }
+                        ?: UserData.getUserNameAR()?.trim()?.split(" ")?.firstOrNull() ?: ""
+                } else {
+                    doctorData.FirstName?.trim()?.split(" ")?.firstOrNull()?.takeIf { it.isNotBlank() }
+                        ?: UserData.getUserName()?.trim()?.split(" ")?.firstOrNull() ?: ""
+                }
+                if (doctorFirstName.isNotBlank()) {
+                    binding.descNameTv.text = doctorFirstName
+                }
+            }
+        }
+
         callCheckUser()
         doctorsRecylerview()
         initObserve()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val image = UserData.getImage()
+        ImageUtil.loadPicture(binding.profileDoctorImage, image)
+        if (::profileViewModel.isInitialized) {
+            profileViewModel.getDoctorProfile()
+        }
     }
 
     private fun doctorsRecylerview() {

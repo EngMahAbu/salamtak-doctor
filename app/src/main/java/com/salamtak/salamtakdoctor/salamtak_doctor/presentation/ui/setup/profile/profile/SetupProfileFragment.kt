@@ -475,6 +475,7 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
                     binding.biographyEnEt.isFocusable = true
                 }
 
+                it.Data.Image?.let { img -> UserData.setImage(img) }
                 ImageUtil.loadPicture(binding.uploadPhotoBg, it.Data.Image)
 
                 binding.enNameEt.setText("${it.Data.FirstName} ${it.Data.MiddelName} ${it.Data.LastName}")

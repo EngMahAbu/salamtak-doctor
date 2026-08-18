@@ -305,8 +305,14 @@ class AddNewClinicFragment :
 //            Toast.makeText(requireContext(), "vahhhation", Toast.LENGTH_SHORT).show()
 //            findNavController().navigate(R.id.createClinicGalleryFragment, bundle)
 //        }
-        requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().navigate(R.id.homeFragment)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (getClinicInfo.equals("edit")) {
+                findNavController().navigate(R.id.clinicsFragment)
+            } else {
+                if (!findNavController().popBackStack()) {
+                    findNavController().navigate(R.id.clinicsFragment)
+                }
+            }
         }
 
     }

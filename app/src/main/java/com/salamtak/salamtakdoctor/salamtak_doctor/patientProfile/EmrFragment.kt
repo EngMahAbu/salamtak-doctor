@@ -48,6 +48,8 @@ import java.io.FileOutputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
+import androidx.activity.addCallback
+
 class EmrFragment : Fragment(), RecyclerViewOnClickListener {
     private lateinit var binding: FragmentEmrBinding
     private lateinit var viewModel: PatientProfileViewModel
@@ -94,6 +96,10 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().navigate(R.id.appointmentsFragment)
+        }
 
         if (!emrTitleData?.PatientEmrdetails.isNullOrEmpty()) {
             if (!emrTitleData?.PatientEmrdetails?.get(0)?.Description.isNullOrEmpty()) {
@@ -183,7 +189,7 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
 //            showDialog(cameraRequestCode, galleryRequestCode)
         }
         binding.ivBack.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.appointmentsFragment)
         }
 
 

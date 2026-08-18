@@ -231,7 +231,15 @@ class CreateClinicGalleryFragment :
         binding.tvEditClinicstxt.setOnClickListener {
             findNavController().navigate(R.id.clinicsFragment)
         }
-        requireActivity().onBackPressedDispatcher.addCallback {  findNavController().navigate(R.id.homeFragment) }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (editClinicgallary.equals("edit")) {
+                findNavController().navigate(R.id.clinicsFragment)
+            } else {
+                if (!findNavController().popBackStack()) {
+                    findNavController().navigate(R.id.clinicsFragment)
+                }
+            }
+        }
         initButton()
         //callGetClinicsVideos()
         calldeleteVideos()

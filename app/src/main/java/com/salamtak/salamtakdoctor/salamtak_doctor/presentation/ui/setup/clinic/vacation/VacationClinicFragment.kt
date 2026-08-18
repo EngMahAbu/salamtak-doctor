@@ -217,7 +217,15 @@ class VacationClinicFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragm
                 loading.hideLoadingDialog()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback {  findNavController().navigate(R.id.homeFragment) }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (editClinicScedule.equals("edit")) {
+                findNavController().navigate(R.id.clinicsFragment)
+            } else {
+                if (!findNavController().popBackStack()) {
+                    findNavController().navigate(R.id.clinicsFragment)
+                }
+            }
+        }
 
     }
 

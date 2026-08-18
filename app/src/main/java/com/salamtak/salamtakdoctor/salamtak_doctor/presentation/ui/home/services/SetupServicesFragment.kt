@@ -233,7 +233,15 @@ class SetupServicesFragment : BaseFragment<SetupServicesViewModel>(R.layout.frag
             navController.navigate(R.id.createClinicGalleryFragment, bundle)
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback { findNavController().navigate(R.id.homeFragment) }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (editClinicScedule.equals("edit")) {
+                findNavController().navigate(R.id.clinicsFragment)
+            } else {
+                if (!findNavController().popBackStack()) {
+                    findNavController().navigate(R.id.clinicsFragment)
+                }
+            }
+        }
         initButton()
 
     }

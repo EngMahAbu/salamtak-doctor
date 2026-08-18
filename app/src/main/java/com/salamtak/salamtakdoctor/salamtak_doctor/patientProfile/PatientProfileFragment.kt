@@ -126,7 +126,11 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
             replaceFragment(requireActivity(), accountFragment, patientId)
         }
 
-            //requireActivity().onBackPressedDispatcher.addCallback {  findNavController().navigate(R.id.homeFragment) }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.appointmentsFragment)
+            }
+        }
         initButton()
 
     }
@@ -393,7 +397,9 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
         }
 */
         binding.ivBack.setOnClickListener {
-            findNavController().popBackStack()
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.appointmentsFragment)
+            }
         }
 
         binding.statusRadio.setOnCheckedChangeListener { _, checkedId ->

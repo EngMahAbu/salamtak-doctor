@@ -17,6 +17,8 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.DoctorAccoun
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.APPOINTMENT_ID
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource
 
+import androidx.activity.addCallback
+
 class PatientSyemtomsFragment : Fragment() {
 
  private lateinit var binding:PatientSyemtomsfragmentBinding
@@ -43,12 +45,19 @@ class PatientSyemtomsFragment : Fragment() {
             BottomSheetBehavior.from(binding.layoutBottomsheetpersistant.addAnswerBottomsheet)
         bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
         callBackGetAllPatientInvoice()
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.patientProfileFragment)
+            }
+        }
         initButton()
     }
 
     private fun initButton(){
         binding.ivArrow.setOnClickListener {
-            findNavController().navigateUp()
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.patientProfileFragment)
+            }
         }
         binding.btnAddAnswer.setOnClickListener {
             bottomsheetbeahavoir.state =

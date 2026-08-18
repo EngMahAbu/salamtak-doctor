@@ -208,7 +208,15 @@ class LocationFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragment_lo
         binding.tvEditClinicstxt.setOnClickListener(this)
         initObserve()
         initData()
-        requireActivity().onBackPressedDispatcher.addCallback {  findNavController().navigate(R.id.homeFragment) }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (editLabel == "edit") {
+                findNavController().navigate(R.id.clinicsFragment)
+            } else {
+                if (!findNavController().popBackStack()) {
+                    findNavController().navigate(R.id.clinicsFragment)
+                }
+            }
+        }
         validity()
 
     }

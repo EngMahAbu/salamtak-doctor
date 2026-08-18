@@ -33,6 +33,9 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.utils.ImageUtil
 import org.koin.android.ext.android.inject
 
 
+import androidx.lifecycle.ViewModelProvider
+import com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileViewModel
+
 class MoreFragment : Fragment(), View.OnClickListener {
 
     companion object {
@@ -42,6 +45,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
     lateinit var binding: FragmentMoreBinding
     private val sessionManagement: SessionManagement by inject()
+    private lateinit var profileViewModel: DoctorProfileViewModel
     var REQUEST_PHONE_CALL = 1
 
 
@@ -67,9 +71,42 @@ class MoreFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().onBackPressedDispatcher.addCallback { findNavController().navigate(R.id.moreFragment) }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) { findNavController().navigate(R.id.homeFragment) }
+
+        profileViewModel = ViewModelProvider(this)[DoctorProfileViewModel::class.java]
+        profileViewModel.doctorProfileModel.observe(viewLifecycleOwner) { response ->
+            response?.Data?.let { doctorData ->
+                doctorData.Image?.let { imgUrl ->
+                    UserData.setImage(imgUrl)
+                    ImageUtil.loadPicture(binding.profileDoctorImage, imgUrl)
+                }
+                val doctorFullName = if (Localization.getLanguageName() == "ar") {
+                    val fName = doctorData.FirstNameAr ?: ""
+                    val mName = doctorData.MiddelNameAr ?: ""
+                    val lName = doctorData.LastNameAr ?: ""
+                    "$fName $mName $lName".trim().replace(Regex("\\s+"), " ")
+                } else {
+                    val fName = doctorData.FirstName ?: ""
+                    val mName = doctorData.MiddelName ?: ""
+                    val lName = doctorData.LastName ?: ""
+                    "$fName $mName $lName".trim().replace(Regex("\\s+"), " ")
+                }
+                if (doctorFullName.isNotBlank()) {
+                    binding.doctorName.text = doctorFullName
+                }
+            }
+        }
 
         initButton()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val image = UserData.getImage()
+        ImageUtil.loadPicture(binding.profileDoctorImage, image)
+        if (::profileViewModel.isInitialized) {
+            profileViewModel.getDoctorProfile()
+        }
     }
 
     private fun initButton() {
@@ -135,11 +172,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
         if (Localization.getLanguageName() == "ar") {
             UserData.getUserNameAR()?.let {
-                binding.doctorName.text = it
+                binding.doctorName.text = it.trim().split("\\s+".toRegex()).take(3).joinToString(" ")
             }
         } else {
             UserData.getUserName()?.let {
-                binding.doctorName.text = it
+                binding.doctorName.text = it.trim().split("\\s+".toRegex()).take(3).joinToString(" ")
             }
         }
     }

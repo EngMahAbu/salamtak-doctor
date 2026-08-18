@@ -103,7 +103,10 @@ class InsuranceViewModel : ViewModel() {
         }
     }
 
+    var loadedGateId: Int? = null
+
     fun getBlogs(gateId: Int){
+        loadedGateId = gateId
         showLoading.value = true
         viewModelScope.launch {
             val gates = Repo.getBlogs(gateId)

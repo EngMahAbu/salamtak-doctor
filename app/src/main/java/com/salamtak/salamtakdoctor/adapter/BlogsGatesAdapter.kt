@@ -25,7 +25,7 @@ class BlogsGatesAdapter(val details:Action ):ListAdapter<Blogs,BlogsGatesAdapter
             .load(services.image)
             .into(holder.binding.ivDoctorProfile)
 
-        holder.binding.ivDoctorProfile.setOnClickListener {
+        holder.binding.root.setOnClickListener {
             val gatesDetails= GatesDetails(services.typeID,services.title,services.description,services.image,services.createdDate,services.links)
             details.onItemGatesClick(gatesDetails)
         }
@@ -37,11 +37,11 @@ class BlogsGatesAdapter(val details:Action ):ListAdapter<Blogs,BlogsGatesAdapter
 
     private class DiffCallback : DiffUtil.ItemCallback<Blogs>() {
         override fun areItemsTheSame(oldItem: Blogs, newItem: Blogs): Boolean {
-            return oldItem==newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Blogs, newItem: Blogs): Boolean {
-            return true
+            return oldItem == newItem
         }
     }
     interface Action{
