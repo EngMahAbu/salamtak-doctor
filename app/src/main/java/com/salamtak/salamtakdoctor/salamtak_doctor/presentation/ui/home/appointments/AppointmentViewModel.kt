@@ -8,6 +8,7 @@ import com.salamtak.core.newNetwork.ErrorModel
 import com.salamtak.core.newNetwork.NetworkResponse
 import com.salamtak.domain.entities.response.AgoraMeetingResponse
 import com.salamtak.domain.entities.response.AppointmentResponse
+import com.salamtak.domain.entities.response.Item
 import kotlinx.coroutines.launch
 
 class AppointmentViewModel : ViewModel() {
@@ -67,6 +68,23 @@ class AppointmentViewModel : ViewModel() {
 
     }
 
+    // Paging for current appointments: each page is appended to loadedAppointments and
+    // AppointmentModel always carries the whole list so far, so positions stay valid
+    val loadedAppointments = ArrayList<Item>()
+    var loadingMore = MutableLiveData(false)
+    private var totalAppointments = 0
+    private var lastQuery: AppointmentQuery? = null
+
+    private data class AppointmentQuery(
+        val fromDate: String?,
+        val toDate: String?,
+        val clinicID: Int?,
+        val medicalTypeId: Int?,
+        val pageSize: Int,
+        val polyInfoID: Int?,
+        val doctorID: Int?,
+    )
+
     fun getAppointment(
         fromDate: String? = null,
         toDate: String? = null,
@@ -77,32 +95,61 @@ class AppointmentViewModel : ViewModel() {
         polyInfoID: Int? = null,
         doctorID: Int? = null,
     ) {
+        // A new search/filter starts paging over from the first page
+        val query = AppointmentQuery(
+            fromDate, toDate, clinicID, medicalTypeId,
+            maxResultCount ?: 10, polyInfoID, doctorID
+        )
+        lastQuery = query
+        loadingMore.value = false
         showLoading.value = true
+        fetchAppointments(query, skipCount ?: 0, append = false)
+    }
+
+    fun hasMoreAppointments(): Boolean =
+        lastQuery != null && loadingMore.value != true && showLoading.value != true &&
+                loadedAppointments.size < totalAppointments
+
+    fun loadMoreAppointments() {
+        val query = lastQuery ?: return
+        if (!hasMoreAppointments()) return
+        loadingMore.value = true
+        fetchAppointments(query, loadedAppointments.size, append = true)
+    }
+
+    private fun fetchAppointments(query: AppointmentQuery, skipCount: Int, append: Boolean) {
         viewModelScope.launch {
 
-            val currentAppointment = if (polyInfoID==null){
+            val currentAppointment = if (query.polyInfoID==null){
                 repo.getCurrentAppointment(
-                    fromDate,
-                    toDate,
-                    clinicID,
-                    medicalTypeId,
+                    query.fromDate,
+                    query.toDate,
+                    query.clinicID,
+                    query.medicalTypeId,
                     skipCount,
-                    maxResultCount
+                    query.pageSize
                 )
             }else{
                 repo.getCurrentDoctorAppointmentPolyclinic(
-                    fromDate,
-                    toDate,
-                    clinicID,
-                    medicalTypeId,
+                    query.fromDate,
+                    query.toDate,
+                    query.clinicID,
+                    query.medicalTypeId,
                     skipCount,
-                    maxResultCount,polyInfoID,doctorID
+                    query.pageSize,query.polyInfoID,query.doctorID
                 )
             }
+            // Ignore a late response for a search the user has already replaced
+            if (query !== lastQuery) return@launch
             when (currentAppointment) {
                 is NetworkResponse.Success -> {
-                    AppointmentModel.value = currentAppointment.body
-                    Log.d("getAppointment", "getAppointment: ${currentAppointment.body}")
+                    val body = currentAppointment.body
+                    if (!append) loadedAppointments.clear()
+                    loadedAppointments.addAll(body.Data.Items.orEmpty())
+                    totalAppointments = body.Data.TotalCount
+                    AppointmentModel.value =
+                        body.copy(Data = body.Data.copy(Items = loadedAppointments))
+                    Log.d("getAppointment", "getAppointment: loaded ${loadedAppointments.size} of $totalAppointments")
                 }
                 is NetworkResponse.ApiError -> {
                     error.value = currentAppointment.body
@@ -112,11 +159,14 @@ class AppointmentViewModel : ViewModel() {
                 is NetworkResponse.UnknownError -> {
                 }
             }
-            showLoading.value = false
+            if (append) loadingMore.value = false else showLoading.value = false
         }
     }
 
     fun getHistoryAppointment() {
+        // History isn't paged; stop paging the current list
+        lastQuery = null
+        loadingMore.value = false
         showLoading.value = true
         viewModelScope.launch {
             val historyAppointment = repo.getHistoryAppointment()

@@ -11,12 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.NestedScrollView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -152,6 +154,11 @@ class AppointmentsFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(binding.root)
         mContext = binding.root.context
+        // Clinic areas in the app's language for the appointment cards; redraw once loaded
+        ClinicAreas.load(viewLifecycleOwner.lifecycleScope)
+        ClinicAreas.areas.observe(viewLifecycleOwner) {
+            binding.appointmentRv.adapter?.notifyDataSetChanged()
+        }
         noInternetDialog = NoInternetDialog(mContext, this)
         binding.bottomnav.visibility=View.GONE
         doctorsRecylerview()
@@ -299,15 +306,22 @@ class AppointmentsFragment : Fragment(),
 //                binding.emptyPageLayout.emptyGoToBtn.visibility = View.GONE
 //            } else
 //                binding.emptyPageLayout.emptyPage.visibility = View.GONE
-            binding.appointmentRv.adapter =
-                AppointmentAdapter(
-                    it.Data.Items, this,
-                    this, this,
-                    this, this,
-                     mContext
-                )
+            showAppointments(it.Data.Items)
 
         })
+
+        viewModel.loadingMore.observe(viewLifecycleOwner, Observer {
+            binding.appointmentsLoadMore.visibility = if (it) View.VISIBLE else View.GONE
+        })
+
+        // The list sits inside a NestedScrollView, so load the next page when that nears its bottom
+        binding.appointmentsScroll.setOnScrollChangeListener(
+            NestedScrollView.OnScrollChangeListener { v, _, scrollY, _, oldScrollY ->
+                val content = v.getChildAt(0) ?: return@OnScrollChangeListener
+                val nearBottom = scrollY + v.height >= content.height - v.height / 2
+                if (scrollY > oldScrollY && nearBottom) loadMoreAppointments()
+            }
+        )
 
         viewModel.cancel.observe(viewLifecycleOwner, Observer {
 
@@ -383,6 +397,25 @@ class AppointmentsFragment : Fragment(),
                     AppointmentAdapter(it.Data.Items, this, this, this, this, this, mContext)
             }
         })
+    }
+
+    // A grown page list reuses the adapter (keeps the scroll position); anything else gets a new one
+    private fun showAppointments(items: List<Item>) {
+        val current = binding.appointmentRv.adapter as? AppointmentAdapter
+        if (current != null && current.appointList === items) {
+            current.notifyDataSetChanged()
+        } else {
+            binding.appointmentRv.adapter =
+                AppointmentAdapter(items, this, this, this, this, this, mContext)
+        }
+    }
+
+    // Only page while the paged current-appointments list is what's shown (not search or history)
+    private fun loadMoreAppointments() {
+        val shown = (binding.appointmentRv.adapter as? AppointmentAdapter)?.appointList
+        if (shown !== viewModel.loadedAppointments) return
+        if (!viewModel.hasMoreAppointments() || !isOnline(mContext)) return
+        viewModel.loadMoreAppointments()
     }
 
     private fun setUi() {
@@ -513,16 +546,7 @@ class AppointmentsFragment : Fragment(),
         when (v?.id) {
             R.id.current_rb -> {
                 viewModel.AppointmentModel.observe(viewLifecycleOwner, Observer {
-                    binding.appointmentRv.adapter =
-                        AppointmentAdapter(
-                            it.Data.Items,
-                            this,
-                            this,
-                            this,
-                            this,
-                            this,
-                            mContext
-                        )
+                    showAppointments(it.Data.Items)
                 })
                 ////TODO
                 if (isOnline(mContext)) {

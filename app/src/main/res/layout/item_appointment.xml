@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.ClinicAreas" />
         <variable
             name="appointment"
             type="com.salamtak.domain.entities.response.Item" />
@@ -328,6 +331,49 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/sf_pro_display_semibold"
                     tools:text="08:00" />
+
+            </RelativeLayout>
+            <!-- Clinic area: localized AreaName from the doctor's clinics, else the typed ClinicAddress -->
+            <RelativeLayout
+                android:id="@+id/rl_clinic_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="@{TextUtils.isEmpty(ClinicAreas.areaFor(appointment.clinicName, appointment.clinicAddress)) ? View.GONE : View.VISIBLE}">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/clinic_area_image"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_location"
+                    app:shapeAppearanceOverlay="@style/roundShep"/>
+
+                <TextView
+                    android:id="@+id/clinic_area_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/clinic_area_image"
+                    android:text="@string/clinic_area"
+                    android:textColor="@color/new_text_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_6sdp" />
+
+                <TextView
+                    android:id="@+id/clinic_area_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/clinic_area_label"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textAlignment="viewEnd"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="@{ClinicAreas.areaFor(appointment.clinicName, appointment.clinicAddress)}"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    tools:text="Maadi" />
 
             </RelativeLayout>
             <RelativeLayout

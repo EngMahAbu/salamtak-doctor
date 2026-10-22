@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -150,6 +151,11 @@ class AppointmentFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(binding.root)
         mContext = binding.root.context
+        // Clinic areas in the app's language for the appointment cards; redraw once loaded
+        ClinicAreas.load(viewLifecycleOwner.lifecycleScope)
+        ClinicAreas.areas.observe(viewLifecycleOwner) {
+            binding.appointmentRv.adapter?.notifyDataSetChanged()
+        }
         noInternetDialog = NoInternetDialog(mContext, this)
 
         try {

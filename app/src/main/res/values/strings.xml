@@ -509,7 +509,7 @@
     <string name="finish">Finish</string>
     <string name="date">Date</string>
     <string name="medical_history">E. Medical Record</string>
-    <string name="account">View Patient Account</string>
+    <string name="account">Patient Profile / Account</string>
     <string name="clinic_appointments">Clinic \nAppointments</string>
     <string name="patient_address">Address</string>
     <string name="add_medication">Add Medication</string>
@@ -1289,6 +1289,7 @@
     <string name="syndicatefromto">Syndicate Id Number (From 2 to 8 Numbers)</string>
     <string name="photorequired">All Documents Are Required</string>
     <string name="clinic_names">Clinic Name</string>
+    <string name="clinic_area">Clinic Area</string>
     <string name="savegallery">Save</string>
     <string name="check_up_fees_is">Check Up Fees Is </string>
     <string name="booking_type_is">Booking Type Is </string>

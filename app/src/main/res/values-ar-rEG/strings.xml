@@ -485,7 +485,7 @@ item 1
     <string name="finish">انهاء</string>
     <string name="date">تاريخ</string>
     <string name="medical_history">السجل الطبى</string>
-    <string name="account">عرض ملف المريض</string>
+    <string name="account">ملف المريض / الحساب</string>
     <string name="clinic_appointments">مواعيد العيادة</string>
     <string name="patient_address">عنوان المريض</string>
     <string name="add_medication">اضافة دواء</string>
@@ -866,6 +866,7 @@ item 1
     <string name="syndicatefromto">رقم قيد النقابة يتكون من  2 الى 8 ارقام </string>
     <string name="photorequired">جميع المستندات مطلوبة</string>
     <string name="clinic_names">إسم العيادة</string>
+    <string name="clinic_area">منطقة العيادة</string>
     <string name="savegallery">حفظ التعيرات</string>
     <string name="check_up_fees_is">رسوم الكشف الطبى مطلوبة</string>
     <string name="booking_type_is">نوع الحجز مطلوب</string>
