@@ -34,6 +34,7 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.clinic.
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.clinic.adapters.AreasAdapter
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.clinic.adapters.CitiesAdapter
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.setup.profile.adapters.CountriesAdapter
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.OffersViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SetupClinicViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SetupProfileViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SharedDataViewModel
@@ -96,6 +97,7 @@ class LocationFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragment_lo
     val screenViewModels: SetupProfileViewModel
             by sharedViewModel(StringQualifier(ViewModelsModule.SETUP_VIEW_MODEL))
     private lateinit var viewModel: NewClinicViewModel
+    private lateinit var clinicInfoViewModel: OffersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -243,10 +245,34 @@ class LocationFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragment_lo
             binding.saveedit.setOnClickListener {
                 checkValidation()
             }
+            prefillSavedLocation()
         }else{
             binding.submitlocation.visibility = View.VISIBLE
             binding.submitlocation.text = mContext.getString(R.string.next)
 
+        }
+    }
+
+    // Loads the clinic's saved map pin so re-picking it on edit is optional.
+    // Clinics saved without a pin (missing, empty, "null" or 0,0) are left unset.
+    private fun prefillSavedLocation() {
+        val id = clinicID ?: return
+        clinicInfoViewModel = ViewModelProvider(this).get(OffersViewModel::class.java)
+        clinicInfoViewModel.data.observe(viewLifecycleOwner) {
+            if (it is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.sucess) {
+                val latText: String? = it.data?.data?.latitude
+                val lngText: String? = it.data?.data?.longitude
+                val lat = latText?.trim()?.toDoubleOrNull()?.takeIf { v -> v.isFinite() }
+                val lng = lngText?.trim()?.toDoubleOrNull()?.takeIf { v -> v.isFinite() }
+                Log.d(TAG, "prefillSavedLocation: saved lat=$latText, lng=$lngText")
+                // Don't overwrite a pin the user picked while this was loading
+                if (doctorLocation == null && lat != null && lng != null && !(lat == 0.0 && lng == 0.0)) {
+                    doctorLocation = DoctorLocation.Location(cityName, "", address, areaName, lat, lng)
+                }
+            }
+        }
+        if (isOnline(mContext)) {
+            clinicInfoViewModel.getdata(id)
         }
     }
 
@@ -297,10 +323,8 @@ class LocationFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragment_lo
                     val bundle = Bundle()
                     bundle.putInt("add_new_clinic", 0)
                     if (!DateUtils.getAdminOwnerId().isNullOrEmpty()){
-                        if (doctorLocation != null)
                         navController.navigate(R.id.createClinicGalleryFragment, bundle)
                     }else{
-                        if (doctorLocation != null)
                         navController.navigate(R.id.clinicScheduleFragment, bundle)
                     }
                 }
@@ -509,17 +533,16 @@ class LocationFragment : BaseFragment<SetupClinicViewModel>(R.layout.fragment_lo
         } else if (binding.apartmentEt.text!!.isEmpty()) {
           //  binding.appartmentField.error = "Appartment Required"
 
-        } else if (doctorLocation?.latitude == null && doctorLocation?.longitude == null) {
-            Toast.makeText(requireContext(), "please select your location in map...", Toast.LENGTH_SHORT).show()
         } else {
+            // Map location is optional: send empty coordinates when none was picked or saved
             loadingDialog.show()
             screenViewModel.setLocation(
                 street = "",
                 clinicId = clinicID.toString(),
                 cityId = cityId.toString(),
                 areaId = areaId.toString(),
-                latitude = doctorLocation!!.latitude.toString(),
-                longitude = doctorLocation!!.longitude.toString(),
+                latitude = doctorLocation?.latitude?.toString() ?: "",
+                longitude = doctorLocation?.longitude?.toString() ?: "",
                 floorNumber = binding.floorEt.text.toString(),
                 blockNumber = binding.buildingEt.text.toString(),
                 countryId = sessionManagement.getCountry().toString(),
