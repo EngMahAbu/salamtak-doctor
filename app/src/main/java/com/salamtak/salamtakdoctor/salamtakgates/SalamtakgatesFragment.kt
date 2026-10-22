@@ -222,6 +222,9 @@ class SalamtakgatesFragment : Fragment(), BlogsGatesAdapter.Action, MedicalHealt
                 blogsGatesAdapter.submitList(it.data)
                 updateUi(it.data)
                 capsVideoAdapter.submitList(it.data)
+                // Keep every capsule's player alive off-screen so scrolling back
+                // doesn't rebind it and reload the video
+                binding.viewPager.setItemViewCacheSize(it.data?.size ?: 0)
 
             }
         })
