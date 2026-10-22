@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
+    android:layoutDirection="locale"
     android:background="@color/white"
     android:padding="@dimen/welcome_screen_padding">
 
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <TextView
         android:id="@+id/tvWelcomeTitle"
@@ -69,47 +69,81 @@
         app:layout_constraintTop_toBottomOf="@id/tvWelcomeSubtitle" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnPatient"
-        style="@style/Widget.Material3.Button"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/welcome_btn_height"
-        android:layout_marginStart="@dimen/welcome_btn_margin_horizontal"
-        android:layout_marginTop="@dimen/welcome_btn_margin_top"
-        android:layout_marginEnd="@dimen/welcome_btn_margin_horizontal"
-        android:text="@string/btn_i_am_patient"
-        android:textColor="@color/white"
-        android:textSize="@dimen/welcome_btn_text_size"
-        app:backgroundTint="@color/doctor_primary"
-        app:cornerRadius="@dimen/welcome_btn_corner"
-        app:icon="@drawable/ic_patientwelcome"
-        app:iconGravity="textStart"
-        app:iconSize="@dimen/welcome_btn_icon_size"
-        app:iconTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvWhoAreYou" />
-
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDoctor"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/welcome_btn_height"
         android:layout_marginStart="@dimen/welcome_btn_margin_horizontal"
+        android:layout_marginTop="@dimen/welcome_btn_margin_top"
         android:layout_marginEnd="@dimen/welcome_btn_margin_horizontal"
         android:text="@string/btn_i_am_doctor"
         android:textColor="@color/doctor_primary"
         android:textSize="@dimen/welcome_btn_text_size"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="@dimen/welcome_btn_corner"
-        app:icon="@drawable/ic_doctors"
-        app:iconGravity="textStart"
-        app:iconSize="@dimen/welcome_btn_icon_size"
-        app:iconTint="@color/doctor_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnPatient"
+        app:layout_constraintTop_toBottomOf="@id/tvWhoAreYou"
         app:strokeColor="@color/doctor_primary"
         app:strokeWidth="@dimen/welcome_btn_stroke_width" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clWelcomeAlert"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/welcome_btn_margin_horizontal"
+        android:layout_marginTop="@dimen/welcome_alert_margin_top"
+        android:layout_marginEnd="@dimen/welcome_btn_margin_horizontal"
+        android:background="@drawable/bg_welcome_alert_box"
+        android:paddingStart="@dimen/welcome_alert_padding_horizontal"
+        android:paddingTop="@dimen/welcome_alert_padding_vertical"
+        android:paddingEnd="@dimen/welcome_alert_padding_horizontal"
+        android:paddingBottom="@dimen/welcome_alert_padding_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDoctor">
+
+        <ImageView
+            android:id="@+id/ivAlertInfoIcon"
+            android:layout_width="@dimen/welcome_alert_icon_size"
+            android:layout_height="@dimen/welcome_alert_icon_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_info_circle"
+            app:tint="@color/alert_box_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAlertInfoText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:lineSpacingMultiplier="1.25"
+            android:text="@string/welcome_alert_message"
+            android:textColor="@color/alert_box_text"
+            android:textSize="@dimen/welcome_alert_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAlertInfoIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPatient"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/welcome_btn_height"
+        android:layout_marginStart="@dimen/welcome_btn_margin_horizontal"
+        android:layout_marginTop="@dimen/welcome_alert_margin_bottom"
+        android:layout_marginEnd="@dimen/welcome_btn_margin_horizontal"
+        android:text="@string/btn_i_am_patient"
+        android:textColor="@color/white"
+        android:textSize="@dimen/welcome_btn_text_size"
+        app:backgroundTint="@color/doctor_primary"
+        app:cornerRadius="@dimen/welcome_btn_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clWelcomeAlert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

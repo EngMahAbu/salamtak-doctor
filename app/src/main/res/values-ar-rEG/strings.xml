@@ -978,6 +978,8 @@ item 1
     <string name="FloorNo">رقم الدور</string>
     <string name="no_data_registed">لا توجد بيانات مسجلة</string>
     <string name="verification_code_will_be_sent_within">Verification code will be sent within</string>
+
+    <string name="welcome_alert_message">تهانينا! لقد قمت بتحميل تطبيق سلامتك للأطباء. إذا كنت مريضاً، يرجى تحميل تطبيق سلامتك للمرضى بدلاً من ذلك</string>
     <string-array name="year_list">
         <item>1950</item>
         <item>1951</item>

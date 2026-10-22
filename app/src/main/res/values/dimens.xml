@@ -47,4 +47,11 @@
     <dimen name="welcome_btn_text_size">15sp</dimen>
     <dimen name="welcome_btn_icon_size">22dp</dimen>
     <dimen name="welcome_btn_stroke_width">1.5dp</dimen>
+    <dimen name="welcome_alert_corner">14dp</dimen>
+    <dimen name="welcome_alert_margin_top">14dp</dimen>
+    <dimen name="welcome_alert_margin_bottom">14dp</dimen>
+    <dimen name="welcome_alert_padding_horizontal">14dp</dimen>
+    <dimen name="welcome_alert_padding_vertical">12dp</dimen>
+    <dimen name="welcome_alert_icon_size">20dp</dimen>
+    <dimen name="welcome_alert_text_size">12.5sp</dimen>
 </resources>

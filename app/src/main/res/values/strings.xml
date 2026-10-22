@@ -1081,7 +1081,7 @@
     <string name="nationalid">National Id Image</string>
 
     <string name="welcome_title">Welcome to our app</string>
-    <string name="welcome_subtitle">Book your appointment with the best doctors بسهولة and conveniently</string>
+<!--    <string name="welcome_subtitle">Book your appointment with the best doctors بسهولة and conveniently</string>-->
     <string name="who_are_you">Who are you?</string>
     <string name="btn_i_am_patient">Patients Only</string>
     <string name="btn_i_am_doctor">Doctors Only</string>
@@ -1402,4 +1402,6 @@
     <string name="FloorNo">FloorNo</string>
     <string name="no_data_registed">No Data Registed</string>
     <string name="verification_code_will_be_sent_within">Verification code will be sent within</string>
+    <string name="welcome_subtitle">Book your appointment with the best doctors easily and conveniently</string>
+    <string name="welcome_alert_message">Congratulations! You downloaded Salamtak Doctors Application. If you are a Patient, Please Download Salamtak Patients Application instead</string>
 </resources>
