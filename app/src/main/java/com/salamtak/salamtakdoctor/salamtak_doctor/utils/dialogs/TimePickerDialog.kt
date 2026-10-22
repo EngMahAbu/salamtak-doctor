@@ -68,8 +68,8 @@ class TimePickerDialog(val listener: DialogsListener, val timeEt: TextView) :
 
             binding.fromTimePicker.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
 
-                workingFrom = "${String.format("%02d", selectedHour)}:${
-                    String.format(
+                workingFrom = "${String.format(Locale.US,"%02d", selectedHour)}:${
+                    String.format(Locale.US,
                         "%02d",
                         selectedMinute
                     )
@@ -89,8 +89,8 @@ class TimePickerDialog(val listener: DialogsListener, val timeEt: TextView) :
 
             binding.toTimePicker.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
 
-                workingTo = "${String.format("%02d", selectedHour)}:${
-                    String.format(
+                workingTo = "${String.format(Locale.US,"%02d", selectedHour)}:${
+                    String.format(Locale.US,
                         "%02d",
                         selectedMinute
                     )
@@ -126,15 +126,15 @@ class TimePickerDialog(val listener: DialogsListener, val timeEt: TextView) :
 
                 Log.e(TAG, "setUi: Else ")
 
-                val timeFrom = "${String.format("%02d", binding.fromTimePicker.currentHour)}:${
-                    String.format(
+                val timeFrom = "${String.format(Locale.US,"%02d", binding.fromTimePicker.currentHour)}:${
+                    String.format(Locale.US,
                         "%02d",
                         binding.fromTimePicker.currentMinute
                     )
                 }"
 
-                val timeTo = "${String.format("%02d", binding.toTimePicker.currentHour)}:${
-                    String.format(
+                val timeTo = "${String.format(Locale.US,"%02d", binding.toTimePicker.currentHour)}:${
+                    String.format(Locale.US,
                         "%02d",
                         binding.toTimePicker.currentMinute
                     )

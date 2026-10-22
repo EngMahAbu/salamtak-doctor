@@ -40,7 +40,7 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.LoadingDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.NoInternetDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.TimePickerDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.ClinicDurationBottomSheetDialog
-import com.squareup.picasso.Picasso
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.services.MedicalTypeImages
 import retrofit2.HttpException
 import java.text.SimpleDateFormat
 import java.time.Duration
@@ -77,6 +77,14 @@ class ServicesPeriodsAdapter(
     private val TAG = ServicesPeriodsAdapter::class.java.simpleName
     private lateinit var noInternetDialog: NoInternetDialog
     private val calendar = Calendar.getInstance()
+
+    init {
+        // Redraw the type images once the Home tab's images arrive
+        MedicalTypeImages.images.observe(viewLifeCycleOwner) {
+            if (scheduleList.isNotEmpty()) notifyDataSetChanged()
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
@@ -136,9 +144,10 @@ class ServicesPeriodsAdapter(
             }
 
 //            binding.servicesImage.setImageURI(item.MedicalExaminationTypeImage.toString())
-            Picasso.get()
-                .load("https://salamtechapi.azurewebsites.net" + item.MedicalExaminationTypeImage.toString())
-                .into(binding.servicesImage)
+            // Same type images as the Home tab; fall back to the old path until they've loaded
+            val typeImage = MedicalTypeImages.imageFor(item.MedicalExaminationTypeName)
+                ?: "https://salamtechapi.azurewebsites.net" + item.MedicalExaminationTypeImage.toString()
+            ImageUtil.loadPicture(binding.servicesImage, typeImage)
 //            binding.clinicServicesId.text = item.subData.get(position).Name.toString()
             binding.submitBtn.text = mContext.getString(R.string.update)
             binding.clinicFeesEt.setText(item.Fees.toString())
@@ -237,8 +246,8 @@ class ServicesPeriodsAdapter(
 
                     timepicker?.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
 
-                        workingFrom = "${String.format("%02d", selectedHour)}:${
-                            String.format(
+                        workingFrom = "${String.format(Locale.US,"%02d", selectedHour)}:${
+                            String.format(Locale.US,
                                 "%02d",
                                 selectedMinute
                             )
@@ -267,8 +276,8 @@ class ServicesPeriodsAdapter(
 
                     timepicker?.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
 
-                        workingTo = "${String.format("%02d", selectedHour)}:${
-                            String.format(
+                        workingTo = "${String.format(Locale.US,"%02d", selectedHour)}:${
+                            String.format(Locale.US,
                                 "%02d",
                                 selectedMinute
                             )

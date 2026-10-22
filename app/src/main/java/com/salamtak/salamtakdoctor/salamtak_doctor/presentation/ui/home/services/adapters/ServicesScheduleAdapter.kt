@@ -181,8 +181,8 @@ class ServicesScheduleAdapter(
 
                     timepicker?.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
 
-                        workingTo = "${String.format("%02d", selectedHour)}:${
-                            String.format(
+                        workingTo = "${String.format(Locale.US,"%02d", selectedHour)}:${
+                            String.format(Locale.US,
                                 "%02d",
                                 selectedMinute
                             )
@@ -211,8 +211,8 @@ class ServicesScheduleAdapter(
 
                     timepicker?.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
 
-                        workingFrom = "${String.format("%02d", selectedHour)}:${
-                            String.format(
+                        workingFrom = "${String.format(Locale.US,"%02d", selectedHour)}:${
+                            String.format(Locale.US,
                                 "%02d",
                                 selectedMinute
                             )

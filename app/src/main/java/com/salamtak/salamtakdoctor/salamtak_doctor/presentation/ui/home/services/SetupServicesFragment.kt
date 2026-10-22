@@ -162,6 +162,8 @@ class SetupServicesFragment : BaseFragment<SetupServicesViewModel>(R.layout.frag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Booking type images for the period cards, from the same endpoint as the Home tab
+        MedicalTypeImages.load(viewLifecycleOwner.lifecycleScope)
         adapter = ServicesAdapter(false, this, requireContext())
         navController = Navigation.findNavController(binding.root)
         mContext = binding.root.context

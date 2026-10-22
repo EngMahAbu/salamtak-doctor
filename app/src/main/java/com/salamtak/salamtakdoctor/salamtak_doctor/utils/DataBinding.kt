@@ -71,11 +71,25 @@ object DataBinding {
         val dateForm = SimpleDateFormat("hh:mm a", Locale.getDefault())
         view.text=dateForm.format(date)
     }
+    // Parses with Western digits and outputs Western digits, keeping the localized AM/PM marker
     fun convertTime( T: String?,format:String,formatParsing:String):String {
-        val sdf = SimpleDateFormat(format, Locale.getDefault())
-        val date = sdf.parse(T)
+        val sdf = SimpleDateFormat(format, Locale.US)
+        val date = sdf.parse(toWesternDigits(T.orEmpty()))
         val dateForm = SimpleDateFormat(formatParsing, Locale.getDefault())
-       return dateForm.format(date)
+       return toWesternDigits(dateForm.format(date))
+    }
+
+    // Replaces Arabic-Indic (٠-٩) and Extended Arabic-Indic (۰-۹) digits with 0-9
+    fun toWesternDigits(text: String): String = buildString(text.length) {
+        for (c in text) {
+            append(
+                when (c) {
+                    in '٠'..'٩' -> '0' + (c - '٠')
+                    in '۰'..'۹' -> '0' + (c - '۰')
+                    else -> c
+                }
+            )
+        }
     }
 
     @JvmStatic
