@@ -452,11 +452,14 @@ class ServicesScheduleAdapter(
 //
 //            }
 
-            binding.ivCollapse.setOnClickListener {
+            val toggleDay = View.OnClickListener {
 
-                if (isCollapsed) {
+                // Use this card's own state; isCollapsed is shared by every card in the adapter
+                if (binding.periodsRv.visibility != VISIBLE) {
                     animateExpand(binding.ivCollapse, mContext)
                     binding.periodsRv.visibility = VISIBLE
+                    // Periods may still be loading if the day is opened right after the tab loads
+                    if (binding.periodsLoading.tag != null) binding.periodsLoading.visibility = VISIBLE
 //                    binding.view.visibility = VISIBLE
                     binding.addPeriodBtn.visibility = VISIBLE
 //                    binding.periodsTv.visibility = VISIBLE
@@ -464,12 +467,19 @@ class ServicesScheduleAdapter(
                 } else {
                     animateCollapse(binding.ivCollapse, mContext)
                     binding.periodsRv.visibility = GONE
+                    binding.periodsLoading.visibility = GONE
 //                    binding.view.visibility = GONE
                     binding.clinicScheduleLayout.root.visibility = GONE
                     binding.addPeriodBtn.visibility = GONE
 //                    binding.ivCollapse.visibility = GONE
                 }
 
+            }
+            binding.ivCollapse.setOnClickListener(toggleDay)
+            binding.headerClickArea.setOnClickListener(toggleDay)
+            // A collapsed card is just its header, so let a tap anywhere on it expand it
+            binding.root.setOnClickListener {
+                if (binding.periodsRv.visibility != VISIBLE) toggleDay.onClick(it)
             }
 
 
@@ -544,10 +554,21 @@ class ServicesScheduleAdapter(
             binding.addPeriodBtn.visibility = GONE
         }
 
-
+        // Token marks this card's in-flight request; a recycled card gets a new one,
+        // so a late result for its previous day can't hide the new day's spinner
+        val loadingToken = Any()
+        binding.periodsLoading.tag = loadingToken
+        binding.periodsLoading.visibility =
+            if (binding.periodsRv.visibility == VISIBLE) VISIBLE else GONE
 
         val periodsListener = object : ServicesPeriodsListener {
             override fun result(response: ServiceDayScheduleResponse) {
+
+                // Called on both success and failure, so the spinner never stays forever
+                if (binding.periodsLoading.tag === loadingToken) {
+                    binding.periodsLoading.tag = null
+                    binding.periodsLoading.visibility = GONE
+                }
 
                 when {
                     response.Success -> {
@@ -567,6 +588,8 @@ class ServicesScheduleAdapter(
             Log.d("ssdfdksjdklsjdkl","serviceId: $serviceId and id: $id and : $periodsListener and : $clinicId")
             setupServicesViewModel.getServiceDaySchedule(serviceId, id, periodsListener, clinicId)
         } else {
+            binding.periodsLoading.tag = null
+            binding.periodsLoading.visibility = GONE
             noInternetDialog = NoInternetDialog(mContext, this)
             noConnectivityDialog.noInternetDialogFragment(mContext)
 

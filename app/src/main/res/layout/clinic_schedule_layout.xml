@@ -11,6 +11,19 @@
         android:layout_marginBottom="@dimen/_8sdp"
         >
 
+        <!-- Tap target for the whole day header row; toggles the same as iv_collapse -->
+        <View
+            android:id="@+id/header_click_area"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_collapse" />
+
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="wrap_content"
@@ -74,7 +87,6 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_14sdp"
-            android:rotation="180"
             android:src="@drawable/down_arrow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -161,6 +173,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linear" />
 
+        <!-- Shown while an expanded day's periods are still loading -->
+        <ProgressBar
+            android:id="@+id/periods_loading"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:indeterminateTint="@color/new_themeBlue_color"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/periods_rv"
             android:layout_width="match_parent"
@@ -168,7 +192,7 @@
             android:layout_margin="@dimen/_10sdp"
             android:visibility="gone"
             tools:itemCount="2"
-            app:layout_constraintTop_toBottomOf="@id/linear" />
+            app:layout_constraintTop_toBottomOf="@id/periods_loading" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
