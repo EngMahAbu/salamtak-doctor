@@ -29,6 +29,12 @@ import com.salamtak.domain.entities.response.hospital.HospitalActionResponse
 import com.salamtak.domain.entities.response.hospital.HospitalBranchRequest
 import com.salamtak.domain.entities.response.hospital.HospitalBranchesResponse
 import com.salamtak.domain.entities.response.hospital.HospitalClinicsResponse
+import com.salamtak.domain.entities.response.hospital.HospitalCreateClinicRequest
+import com.salamtak.domain.entities.response.hospital.HospitalDataResponse
+import com.salamtak.domain.entities.response.hospital.HospitalDoctorProfileResponse
+import com.salamtak.domain.entities.response.hospital.HospitalScheduleRequest
+import com.salamtak.domain.entities.response.hospital.HospitalScheduleResponse
+import com.salamtak.domain.entities.response.hospital.HospitalUpdateClinicRequest
 import com.salamtak.domain.entities.response.hospital.HospitalLookupResponse
 import com.salamtak.domain.entities.response.hospital.HospitalOwnerResponse
 import com.salamtak.domain.entities.response.hospital.HospitalDashboardResponse
@@ -1092,6 +1098,110 @@ interface ApiEndpoints {
     suspend fun getAllFeatures(
         @Path("culture") culture: String
     ): Response<HospitalLookupResponse>
+
+    // Hospital Doctors tab
+
+    @GET("{culture}/Hospital/GetClinicByDoctorId")
+    suspend fun getHospitalClinicsByDoctor(
+        @Path("culture") culture: String,
+        @Query("doctorId") doctorId: Int
+    ): Response<HospitalClinicsResponse>
+
+    @POST("{culture}/Hospital/DeleteDoctorFromHospital")
+    suspend fun deleteDoctorFromHospital(
+        @Path("culture") culture: String,
+        @Query("hospitalId") hospitalId: Int,
+        @Query("doctorId") doctorId: Int
+    ): Response<HospitalActionResponse>
+
+    @DELETE("{culture}/Hospital/DeleteDoctorFromClinic")
+    suspend fun deleteDoctorFromHospitalClinic(
+        @Path("culture") culture: String,
+        @Query("clinicId") clinicId: Int,
+        @Query("doctorId") doctorId: Int
+    ): Response<HospitalActionResponse>
+
+    @POST("{culture}/Hospital/CreateHospitalClinic")
+    suspend fun createHospitalClinic(
+        @Path("culture") culture: String,
+        @Body request: HospitalCreateClinicRequest
+    ): Response<HospitalDataResponse>
+
+    @PUT("{culture}/Hospital/UpdateHospitalClinic")
+    suspend fun updateHospitalClinic(
+        @Path("culture") culture: String,
+        @Body request: HospitalUpdateClinicRequest
+    ): Response<HospitalActionResponse>
+
+    @POST("{culture}/Hospital/UploadHospitalClinicLogo")
+    suspend fun uploadHospitalClinicLogo(
+        @Path("culture") culture: String,
+        @Query("ClinicId") clinicId: Int,
+        @Body part: RequestBody
+    ): Response<HospitalActionResponse>
+
+    @GET("{culture}/Hospital/GetDoctorSchedule")
+    suspend fun getHospitalDoctorSchedule(
+        @Path("culture") culture: String,
+        @Query("healthEntityId") clinicId: Int
+    ): Response<HospitalScheduleResponse>
+
+    @POST("{culture}/Hospital/AddDoctorSchedule")
+    suspend fun addHospitalDoctorSchedule(
+        @Path("culture") culture: String,
+        @Query("doctorId") doctorId: Int,
+        @Body request: HospitalScheduleRequest
+    ): Response<HospitalActionResponse>
+
+    @DELETE("{culture}/Hospital/DeleteDoctorSchedule")
+    suspend fun deleteHospitalDoctorSchedule(
+        @Path("culture") culture: String,
+        @Query("workingDayTimeId") workingDayTimeId: Int
+    ): Response<HospitalActionResponse>
+
+    @GET("{culture}/PatientHospital/GetDoctorProfile")
+    suspend fun getHospitalDoctorProfile(
+        @Path("culture") culture: String,
+        @Query("doctorId") doctorId: Int
+    ): Response<HospitalDoctorProfileResponse>
+
+    @POST("{culture}/Hospital/UpdateDoctor")
+    suspend fun updateHospitalDoctor(
+        @Path("culture") culture: String,
+        @Body part: RequestBody
+    ): Response<HospitalActionResponse>
+
+    /** Step 1 of Add Doctor in hospital mode; parsed like the other create-doctor calls. */
+    @POST("{culture}/Hospital/AddDoctorToHospital")
+    suspend fun addDoctorToHospital(
+        @Path("culture") culture: String,
+        @Body part: RequestBody
+    ): Response<UpdateDoctorProfileResponse>
+
+    @GET("{culture}/Specialist/GetSpecialist")
+    suspend fun getSpecialistLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
+
+    @GET("{culture}/Specialist/GetSubSpecialist")
+    suspend fun getSubSpecialistLookup(
+        @Path("culture") culture: String,
+        @Query("specialListId") specialistId: Int,
+        @Query("UsertypeID") userTypeId: Int = 2
+    ): Response<HospitalLookupResponse>
+
+    @GET("{culture}/SeniorityLevel/GetSeniorityLevel")
+    suspend fun getSeniorityLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
+
+    @GET("{culture}/LookUp/GetCountries")
+    suspend fun getCountriesLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
+
+    @GET("{culture}/LookUp/GetDays")
+    suspend fun getDaysLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
+
+    @GET("{culture}/LookUp/GetDurationMedicalExamination")
+    suspend fun getDurationsLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
+
+    @GET("{culture}/LookUp/GetMedicalExaminationType")
+    suspend fun getBookingTypesLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
 
 
 }

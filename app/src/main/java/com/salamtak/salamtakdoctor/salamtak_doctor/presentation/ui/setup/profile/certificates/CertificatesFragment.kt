@@ -214,7 +214,7 @@ class CertificatesFragment :
 
         binding.profileBottomToolbar.submitBtn.setOnClickListener {
             isFinal = true
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (!DateUtils.managesDoctors()) {
                 if (adapter.list.isNotEmpty()) {
                     val intent = Intent(".Fragment.SetupProfile")
                     intent.putExtra("stepStatus", "3")
@@ -269,7 +269,7 @@ class CertificatesFragment :
 
             if (isOnline(mContext)) {
                 loadingDialog.show()
-                if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+                if (!DateUtils.managesDoctors()) {
                     screenViewModel.createDoctorCertificate(
                         createCertificateData
                     )
@@ -402,7 +402,7 @@ class CertificatesFragment :
 
     private fun subscribeToObserver() {
 
-        if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+        if (!DateUtils.managesDoctors()) {
             getCertificates()
         } else {
             callGetPolycertificate()
@@ -427,7 +427,7 @@ class CertificatesFragment :
 //                            }
 //
 //                        } else {
-                        if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+                        if (!DateUtils.managesDoctors()) {
                             getCertificates()
                         } else {
                             callGetPolycertificate()
@@ -460,7 +460,7 @@ class CertificatesFragment :
                     imageFile = null
 
                     if (it.data.MessageCode == 200) {
-                        if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+                        if (!DateUtils.managesDoctors()) {
                             getCertificates()
 
                         } else {
@@ -498,7 +498,7 @@ class CertificatesFragment :
     private fun getCertificates() {
         //TODO 29/11/22
         if (isOnline(mContext)) {
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (!DateUtils.managesDoctors()) {
                 loadingDialog.show()
                 screenViewModel.getCertificates()
             } else {
@@ -717,10 +717,10 @@ class CertificatesFragment :
     private var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             isFinal = true
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (!DateUtils.managesDoctors()) {
                 if (adapter.list.isNotEmpty()) {
 
-                    if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+                    if (!DateUtils.managesDoctors()) {
                         uploadCertificates()
                     }
 

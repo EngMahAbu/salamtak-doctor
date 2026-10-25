@@ -103,6 +103,7 @@ class NewLoginRepository {
     suspend fun updateDoctorProfileFirstStep(profileRequest: MultipartBody) = client.updateDoctorProfileFirstStep(Localization.getLanguageName(),profileRequest)
     suspend fun createProfile(profileRequest: MultipartBody) = client.createProfile(Localization.getLanguageName(),profileRequest)
     suspend fun createDoctorToPolyclinic(profileRequest: MultipartBody,clinicId: Int,userId: Int) = client.createDoctorToPolyclinic(Localization.getLanguageName(),clinicId,userId,profileRequest,)
+    suspend fun addDoctorToHospital(profileRequest: MultipartBody) = client.addDoctorToHospital(Localization.getLanguageName(),profileRequest)
     suspend fun createDoctorDocuments(documentRequest: MultipartBody) = client.CreateDoctorDocuments(Localization.getLanguageName(),documentRequest)
     suspend fun createDoctorDocumentsPolyClinic(documentRequest: MultipartBody) = client.createDoctorDocumentsPolyClinic(Localization.getLanguageName(),documentRequest)
     suspend fun updateDoctorDocument(documentRequest: MultipartBody) = client.updateDoctorDocument(Localization.getLanguageName(),documentRequest)

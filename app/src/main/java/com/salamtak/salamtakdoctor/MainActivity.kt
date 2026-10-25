@@ -144,6 +144,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             R.id.setupProfileFragment, R.id.certificatesFragment, R.id.documentsFragment, R.id.clinicScheduleFragment,R.id.videoCallFragment,R.id.gatesDetailsFragment,R.id.referenceFragment,R.id.salamtakgatesFragment,R.id.offersFragment,R.id.addOffersFragment,
             R.id.polyClinicAdminFragment,R.id.enterpriseInfoFragment,R.id.editPolyClinicAdminFragment,R.id.editEnterpriseInfoFragment,R.id.chooseClinicsFragment,R.id.doctorsVideosFragment,R.id.doctorAccountFragment,R.id.patientProfileFragment,
             R.id.patientSyemtomsFragment,R.id.emrFragment,R.id.queueFragment,R.id.hospitalProfileFragment,
+            R.id.hospitalDoctorClinicsFragment,R.id.hospitalClinicFormFragment,R.id.hospitalDoctorScheduleFragment,R.id.hospitalDoctorProfileFragment,
             R.id.addNewClinicFragment, R.id.createClinicGalleryFragment, R.id.languageFragment, R.id.vacationClinicFragment, R.id.webViewFragment,R.id.Specaility,R.id.locationFragment-> {
                 binding.navigation.visibility = GONE
             }

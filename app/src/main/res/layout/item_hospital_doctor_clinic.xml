@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:src="@drawable/image_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_clinic_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/avenir_bold"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/iv_edit"
+            app:layout_constraintStart_toEndOf="@id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo"
+            tools:text="test clinic" />
+
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_phone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_clinic_phone"
+            app:layout_constraintStart_toStartOf="@id/tv_clinic_name"
+            app:layout_constraintTop_toTopOf="@id/tv_clinic_phone" />
+
+        <TextView
+            android:id="@+id/tv_clinic_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/avenir_regular"
+            android:textColor="@color/hint_color"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_clinic_name"
+            app:layout_constraintStart_toEndOf="@id/iv_phone"
+            app:layout_constraintTop_toBottomOf="@id/tv_clinic_name"
+            tools:text="01154149069" />
+
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/hospital_edit_clinic"
+            android:padding="7dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_delete"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/hospital_remove_clinic_confirm"
+            android:padding="6dp"
+            android:src="@drawable/svg_trash"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/red" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

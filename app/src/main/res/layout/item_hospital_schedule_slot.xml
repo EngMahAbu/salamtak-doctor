@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/avenir_bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="5:44 PM - 8:44 PM" />
+
+        <TextView
+            android:id="@+id/tv_fees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:fontFamily="@font/avenir_bold"
+            android:textColor="@color/new_themeBlue_color"
+            android:textSize="13sp"
+            tools:text="10000 EGP" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/hospital_delete_slot_confirm"
+            android:padding="6dp"
+            android:src="@drawable/svg_trash"
+            app:tint="@color/red" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

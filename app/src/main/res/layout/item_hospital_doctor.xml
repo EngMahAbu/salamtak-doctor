@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_doctor"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:src="@drawable/image_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_doctor_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/avenir_bold"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/actions"
+            app:layout_constraintStart_toEndOf="@id/iv_doctor"
+            app:layout_constraintTop_toTopOf="@id/iv_doctor"
+            tools:text="Mohammed two test" />
+
+        <TextView
+            android:id="@+id/tv_doctor_specialty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/avenir_regular"
+            android:textColor="@color/hint_color"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_doctor_name"
+            app:layout_constraintStart_toStartOf="@id/tv_doctor_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_doctor_name"
+            tools:text="Dentistry" />
+
+        <LinearLayout
+            android:id="@+id/actions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Building (clinics) or "+" (no clinic yet: add one) -->
+            <ImageView
+                android:id="@+id/iv_clinic"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:contentDescription="@string/hospital_doctor_clinics"
+                android:padding="6dp"
+                android:src="@drawable/svg_hospital" />
+
+            <ImageView
+                android:id="@+id/iv_schedule"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:contentDescription="@string/hospital_doctor_schedule"
+                android:padding="6dp"
+                android:src="@drawable/new_calendar" />
+
+            <ImageView
+                android:id="@+id/iv_edit"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:contentDescription="@string/hospital_doctor_profile"
+                android:padding="7dp"
+                android:src="@drawable/ic_edit" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:contentDescription="@string/hospital_remove_doctor_confirm"
+                android:padding="6dp"
+                android:src="@drawable/svg_trash"
+                app:tint="@color/red" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

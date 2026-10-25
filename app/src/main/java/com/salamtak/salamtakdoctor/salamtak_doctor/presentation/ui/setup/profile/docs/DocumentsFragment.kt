@@ -135,7 +135,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
         setUi()
         if (editLabel.equals("edit")) {
             initEdit()
-                if (!DateUtils.getAdminOwnerId().isNullOrEmpty()){
+                if (DateUtils.managesDoctors()){
                     binding.profileBottomToolbar.submitBtn.visibility=View.GONE
                 }
           //  binding.profileBottomToolbar.submitBtn.text = "Save"
@@ -271,7 +271,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
 
     private fun setUi() {
         // handle bottom bar
-        if (!DateUtils.getAdminOwnerId().isNullOrEmpty()){
+        if (DateUtils.managesDoctors()){
             binding.profileBottomToolbar.submitBtn.visibility=View.VISIBLE
             binding.profileBottomToolbar.submitBtn.text = getString(R.string.save)
         }else{
@@ -291,7 +291,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
         // TODO 02/01/2023
         binding.profileBottomToolbar.submitBtn.setOnClickListener {
             isFinal = true
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
+            if (!DateUtils.managesDoctors()){
                // getDocuments()
                 if (nationalIdSet.size == 2 && syndicateIdIsEntered && medicalLicenseIsEntered){
                     findNavController().navigate(R.id.thankYouFragment)
@@ -306,7 +306,12 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
                 }
             }else{
                 if (nationalIdSet.size == 2 && syndicateIdIsEntered && medicalLicenseIsEntered){
-                    findNavController().navigate(R.id.clinicsFragment)
+                    if (DateUtils.isHospital()) {
+                        // Back to the Doctors tab, which reloads the list
+                        findNavController().popBackStack(R.id.hospitalDoctorsFragment, false)
+                    } else {
+                        findNavController().navigate(R.id.clinicsFragment)
+                    }
                 }else if (nationalIdSet.size != 2){
                     toast(requireContext(), getString(R.string.national_Id_required_photo))
                 }
@@ -328,7 +333,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
         //TODO 29/11/22
         if (isOnline(mContext)) {
            // loadingDialog.show()
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
+            if (!DateUtils.managesDoctors()){
                 callGetDoctorLegelDocuments()
             }else{
                 callGetPolyLegelDocuments()
@@ -445,7 +450,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
 //            } else {
 //                if (isOnline(mContext)) {
 //                    loadingDialog.show()
-//                  if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
+//                  if (!DateUtils.managesDoctors()){
 //                      polyType+=1
 //                        screenViewModel.createDoctorDocument(
 //                            CreateDoctorDocumentModel(
@@ -552,7 +557,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
     private fun getDocuments() {
         if (isOnline(mContext)) {
            // loadingDialog.show()
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (!DateUtils.managesDoctors()) {
                // screenViewModel.getLegalDocumentsItems()
 
                 callGetDoctorLegelDocuments()
@@ -582,14 +587,14 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
 //
 ////                        if (binding.profileBottomToolbar.submitBtn.text.toString()
 ////                                .toLowerCase() == "save") {
-////                            if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
+////                            if (!DateUtils.managesDoctors()){
 ////                                findNavController().navigate(R.id.thankYouFragment)
 ////                            }else{
 ////                                findNavController().navigate(R.id.clinicsFragment)
 ////                            }
 ////
 ////                        } else {
-////                            if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
+////                            if (!DateUtils.managesDoctors()){
 ////                                findNavController().navigate(R.id.thankYouFragment)
 ////                            }else{
 ////                                findNavController().navigate(R.id.clinicsFragment)
@@ -736,7 +741,7 @@ class DocumentsFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragment_
         } else {
             if (isOnline(mContext)) {
                 loadingDialog.show()
-                if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
+                if (!DateUtils.managesDoctors()){
                     checkDataForDoctorDocuments(itemId,documentOrder,0)
                 }else{
                     screenViewModel.createPolyClinicDoctorDocument(

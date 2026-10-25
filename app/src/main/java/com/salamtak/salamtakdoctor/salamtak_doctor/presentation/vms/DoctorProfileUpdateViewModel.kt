@@ -32,6 +32,9 @@ class DoctorProfileUpdateViewModel : ViewModel() {
             2->{
                 Repo.createProfile(profileRequest)
             }
+            TYPE_ADD_TO_HOSPITAL->{
+                Repo.addDoctorToHospital(profileRequest)
+            }
             else->{
                 Repo.createDoctorToPolyclinic(profileRequest,clinicId,userId)
             }
@@ -67,6 +70,11 @@ class DoctorProfileUpdateViewModel : ViewModel() {
 
     val handler = CoroutineExceptionHandler { _, exception ->
         Log.e("exception","exception: ${exception.message.toString()}")
+    }
+
+    companion object {
+        /** Hospital "Add Doctor" step 1: Hospital/AddDoctorToHospital */
+        const val TYPE_ADD_TO_HOSPITAL = 3
     }
 
 }

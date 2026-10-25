@@ -121,6 +121,12 @@ object DateUtils {
 
     fun isHospital(): Boolean = getStatus() == HOSPITAL_STATUS
 
+    /**
+     * True when the account adds and edits other doctors (polyclinic or hospital) instead of
+     * editing its own profile. Used by the shared add-doctor steps (profile, certificates, documents).
+     */
+    fun managesDoctors(): Boolean = !getAdminOwnerId().isNullOrEmpty() || isHospital()
+
     fun setHospitalInfoId(infoId: String) {
         SharedPreferencesTool.setString(context, SharedPreferencesKeys.HospitalInfoId.name, infoId)
     }

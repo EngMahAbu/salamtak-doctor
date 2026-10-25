@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_gray">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_arrowleft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_bold"
+        android:text="@string/hospital_doctor_profile"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_back"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_back">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <FrameLayout
+                android:id="@+id/btn_photo"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/image_placeholder" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_btn_blue"
+                    android:importantForAccessibility="no"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_camera"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_name_en"
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_full_name_en">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name_en"
+                    style="@style/HospitalFieldEdit"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_name_ar"
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_full_name_ar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name_ar"
+                    style="@style/HospitalFieldEdit"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_nick_name_en">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_nick_en"
+                    style="@style/HospitalFieldEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_nick_name_ar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_nick_ar"
+                    style="@style/HospitalFieldEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_phone"
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_phone"
+                    style="@style/HospitalFieldEdit"
+                    android:inputType="phone"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    style="@style/HospitalFieldEdit"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_country"
+                style="@style/HospitalPickerField"
+                android:hint="@string/hospital_country" />
+
+            <TextView
+                android:id="@+id/tv_birth_date"
+                style="@style/HospitalPickerField"
+                android:hint="@string/hospital_birth_date"
+                app:drawableEndCompat="@drawable/new_calendar" />
+
+            <!-- Male / Female toggle -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggle_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_male"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/hospital_male"
+                    android:textAllCaps="false" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_female"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/hospital_female"
+                    android:textAllCaps="false" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <TextView
+                android:id="@+id/tv_specialty"
+                style="@style/HospitalPickerField"
+                android:hint="@string/hospital_specialty" />
+
+            <TextView
+                android:id="@+id/tv_sub_specialty"
+                style="@style/HospitalPickerField"
+                android:hint="@string/hospital_sub_specialty"
+                android:maxLines="3" />
+
+            <TextView
+                android:id="@+id/tv_seniority"
+                style="@style/HospitalPickerField"
+                android:hint="@string/hospital_seniority_level" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_national_id"
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_national_id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_national_id"
+                    style="@style/HospitalFieldEdit"
+                    android:inputType="number"
+                    android:maxLength="14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_license_no">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_license"
+                    style="@style/HospitalFieldEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_syndicate_id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_syndicate"
+                    style="@style/HospitalFieldEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_update"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/new_themeBlue_color"
+        android:fontFamily="@font/avenir_bold"
+        android:text="@string/hospital_update_doctor_profile"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:indeterminateTint="@color/new_themeBlue_color"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

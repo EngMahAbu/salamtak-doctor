@@ -74,7 +74,9 @@ data class HospitalLookupResponse(
 
 data class HospitalLookup(
     val Id: Int,
-    val Name: String?
+    val Name: String?,
+    /** Only LookUp/GetDurationMedicalExamination: minutes */
+    val Duration: Int? = null
 )
 
 /** Responses of the Hospital save/delete calls; only the message and status are used. */

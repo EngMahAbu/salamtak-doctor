@@ -218,9 +218,10 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
         if (sessionManagement.hasUserData()) {
             setupData()
         }
-        if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+        if (DateUtils.managesDoctors()) {
 
-            if (args.clinicid > 0) {
+            // Hospital adds doctors without a clinic (one is added later from the Doctors tab)
+            if (args.clinicid > 0 || DateUtils.isHospital()) {
                 binding.profileBottomToolbar.submitBtn.text = getString(R.string.next_)
                 binding.horizontalScrollView.visibility = View.GONE
                 binding.yourStateProgressBarId.visibility = View.VISIBLE
@@ -335,7 +336,9 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
             findNavController().navigate(R.id.dialogCalling)
         }
         binding.profileToolbar.backBtn.setOnClickListener {
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (DateUtils.isHospital()) {
+                navController.popBackStack(R.id.hospitalDoctorsFragment, false)
+            } else if (!DateUtils.managesDoctors()) {
                 navController.navigate(R.id.moreFragment)
             } else {
                 navController.navigate(R.id.clinicsFragment)
@@ -430,7 +433,7 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
         val userLoginResponse = gson.fromJson(jsonData!!, UserDataModel::class.java)
 
         if (userLoginResponse != null) {
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (!DateUtils.managesDoctors()) {
                 binding.enNameEt.setText(userLoginResponse.name)
                 binding.nameEtArabic.setText(userLoginResponse.nameAr)
                 binding.phoneEt.setText(userLoginResponse.phone)
@@ -444,7 +447,7 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
     private fun initEdit() {
         // TODO
         if (isOnline(mContext)) {
-            if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            if (!DateUtils.managesDoctors()) {
                 viewModel.getDoctorProfile()
             } else {
                 viewModel.getDoctorProfileByID(DateUtils.getDoctorId().toString())
@@ -618,7 +621,7 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
                 val bundle = Bundle()
                 firebaseAnalytics.logEvent("Profile updates", bundle)
             } else {
-                if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+                if (!DateUtils.managesDoctors()) {
                     if (profileStatus == 0) {
                         checkValidity1()
                     } else if (profileStatus == 1) {
@@ -868,7 +871,18 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
                         nationalityId = nationalityId.toString().toInt()
                         if (isOnline(mContext)) {
                             loadingDialog.show()
-                            if (args.clinicid > 0) {
+                            if (DateUtils.isHospital()) {
+                                certificatesEdit = ""
+                                documentEdit = ""
+                                sendData(
+                                    name[0],
+                                    nameAr[0],
+                                    name[1],
+                                    nameAr[1],
+                                    name[2],
+                                    nameAr[2], DoctorProfileUpdateViewModel.TYPE_ADD_TO_HOSPITAL
+                                )
+                            } else if (args.clinicid > 0) {
                                 certificatesEdit = ""
                                 documentEdit = ""
                                 sendData(
@@ -1303,7 +1317,7 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
         super.onPause()
         val name = "${binding.nameEtArabic.text.toString()}"
         UserData.setUserBirthDate(birthEt)
-        if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+        if (!DateUtils.managesDoctors()) {
             UserData.setUserNameAR(name)
             UserData.setUserName(binding.enNameEt.text.toString())
         }
@@ -1746,7 +1760,13 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
             getString(R.string.certificates),
             getString(R.string.legal_doc)
         )
-        if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+        if (DateUtils.isHospital()) {
+            // Hospital "Add Doctor": the personal info step asks for the doctor's phone, not email
+            binding.mcardphoneLayout.visibility = View.VISIBLE
+            binding.mcardEmailLayout.visibility = View.GONE
+            binding.phoneEt.isEnabled = true
+            binding.profileToolbar.profileHeaderTv.text = getString(R.string.hospital_add_doctor)
+        } else if (DateUtils.managesDoctors()) {
             binding.mcardphoneLayout.visibility = View.GONE
             binding.mcardEmailLayout.visibility = View.GONE
         }
@@ -1775,7 +1795,11 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
                 is com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource.sucess -> {
 //                    val logger = AppEventsLogger.newLogger(requireContext())
 //                    logger.logEvent("Profile updates")
-                    if (it.data?.messageCode == 200) {
+                    if (it.data?.messageCode == 200 && it.data.data == null) {
+                        // e.g. Hospital/AddDoctorToHospital without the new doctor in Data: can't go on
+                        loadingDialog.dismiss()
+                        Toast.makeText(requireContext(), it.data.message ?: getString(R.string.hospital_info_error), Toast.LENGTH_SHORT).show()
+                    } else if (it.data?.messageCode == 200) {
                         profileStatus = it.data.data?.profileStatus!!
                         loadingDialog.dismiss()
                         binding.llSpecialty.visibility = VISIBLE
@@ -1851,6 +1875,17 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
     ) {
         if (args.clinicid != 0) {
             partMapImage = partMapImage + mapOf("clinicId" to args.clinicid)
+        }
+        if (type == DoctorProfileUpdateViewModel.TYPE_ADD_TO_HOSPITAL) {
+            // Hospital/AddDoctorToHospital takes full names and the hospital instead of name parts
+            DateUtils.getHospitalId()?.let { partMapImage = partMapImage + mapOf("HospitalId" to it) }
+            partMapImage = partMapImage + mapOf(
+                "FullName" to binding.enNameEt.text.toString().trim(),
+                "FullNameAr" to binding.nameEtArabic.text.toString().trim()
+            )
+            if (!binding.phoneEt.text.toString().isNullOrEmpty()) {
+                partMapImage = partMapImage + mapOf("Phone" to binding.phoneEt.text.toString().trim())
+            }
         }
 
         if (firstnameEn != null) {

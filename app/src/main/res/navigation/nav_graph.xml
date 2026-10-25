@@ -233,6 +233,50 @@
             android:label="HospitalDoctorsFragment"
             tools:layout="@layout/fragment_hospital_doctors" />
     <fragment
+            android:id="@+id/hospitalDoctorClinicsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.doctors.HospitalDoctorClinicsFragment"
+            android:label="HospitalDoctorClinicsFragment"
+            tools:layout="@layout/fragment_hospital_doctor_clinics">
+        <argument
+                android:name="doctorId"
+                app:argType="integer" />
+    </fragment>
+    <fragment
+            android:id="@+id/hospitalClinicFormFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.doctors.HospitalClinicFormFragment"
+            android:label="HospitalClinicFormFragment"
+            tools:layout="@layout/fragment_hospital_clinic_form">
+        <argument
+                android:name="doctorId"
+                app:argType="integer" />
+        <!-- 0 = Add Clinic -->
+        <argument
+                android:name="clinicId"
+                android:defaultValue="0"
+                app:argType="integer" />
+    </fragment>
+    <fragment
+            android:id="@+id/hospitalDoctorScheduleFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.doctors.HospitalDoctorScheduleFragment"
+            android:label="HospitalDoctorScheduleFragment"
+            tools:layout="@layout/fragment_hospital_doctor_schedule">
+        <argument
+                android:name="doctorId"
+                app:argType="integer" />
+        <argument
+                android:name="clinicId"
+                app:argType="integer" />
+    </fragment>
+    <fragment
+            android:id="@+id/hospitalDoctorProfileFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.doctors.HospitalDoctorProfileFragment"
+            android:label="HospitalDoctorProfileFragment"
+            tools:layout="@layout/fragment_hospital_doctor_profile">
+        <argument
+                android:name="doctorId"
+                app:argType="integer" />
+    </fragment>
+    <fragment
             android:id="@+id/hospitalProfileFragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.profile.HospitalProfileFragment"
             android:label="HospitalProfileFragment"
