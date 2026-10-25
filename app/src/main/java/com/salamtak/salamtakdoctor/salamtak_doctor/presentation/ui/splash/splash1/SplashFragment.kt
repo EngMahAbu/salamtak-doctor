@@ -74,7 +74,7 @@ class SplashFragment : Fragment() {
                         findNavController().navigate(R.id.moreFragment)
                         DateUtils.setLanguageFromMore("")
                     } else {
-                        if (DateUtils.getStatus() != "4") {
+                        if (DateUtils.getStatus() != "4" && !DateUtils.isHospital()) {
                             sessionManagement.clearUser()
                             UserData.logout()
 //                    navController.navigate(R.id.splash2Fragment)

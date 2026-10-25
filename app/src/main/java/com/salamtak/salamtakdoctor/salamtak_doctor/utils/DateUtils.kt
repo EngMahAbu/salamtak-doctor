@@ -116,6 +116,39 @@ object DateUtils {
         return SharedPreferencesTool.getString(context,SharedPreferencesKeys.SpecDoctor.name)
     }
 
+    // Hospital session (status "7"). Kept apart from AdminOwnerId, which marks a polyclinic.
+    const val HOSPITAL_STATUS = "7"
+
+    fun isHospital(): Boolean = getStatus() == HOSPITAL_STATUS
+
+    fun setHospitalInfoId(infoId: String) {
+        SharedPreferencesTool.setString(context, SharedPreferencesKeys.HospitalInfoId.name, infoId)
+    }
+    fun getHospitalInfoId(): Int? {
+        return SharedPreferencesTool.getString(context,SharedPreferencesKeys.HospitalInfoId.name)?.toIntOrNull()
+    }
+
+    fun setHospitalId(hospitalId: String) {
+        SharedPreferencesTool.setString(context, SharedPreferencesKeys.HospitalId.name, hospitalId)
+    }
+    fun getHospitalId(): Int? {
+        return SharedPreferencesTool.getString(context,SharedPreferencesKeys.HospitalId.name)?.toIntOrNull()
+    }
+
+    fun setHospitalOwnerId(ownerId: String) {
+        SharedPreferencesTool.setString(context, SharedPreferencesKeys.HospitalOwnerId.name, ownerId)
+    }
+    fun getHospitalOwnerId(): Int? {
+        return SharedPreferencesTool.getString(context,SharedPreferencesKeys.HospitalOwnerId.name)?.toIntOrNull()
+    }
+
+    fun setHospitalUserId(userId: String) {
+        SharedPreferencesTool.setString(context, SharedPreferencesKeys.HospitalUserId.name, userId)
+    }
+    fun getHospitalUserId(): Int? {
+        return SharedPreferencesTool.getString(context,SharedPreferencesKeys.HospitalUserId.name)?.toIntOrNull()
+    }
+
 
 
 

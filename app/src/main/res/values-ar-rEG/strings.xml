@@ -1081,4 +1081,9 @@ item 1
     <string name="queue_cancel_confirm">إلغاء دور %1$s؟</string>
     <string name="queue_yes">نعم</string>
     <string name="queue_no">لا</string>
+
+    <!-- Hospital account -->
+    <string name="hospitalaccount">حساب مستشفى</string>
+    <string name="hospital_doctors">الأطباء</string>
+    <string name="hospital_info_error">تعذر تحميل بيانات المستشفى، حاول مرة أخرى</string>
 </resources>

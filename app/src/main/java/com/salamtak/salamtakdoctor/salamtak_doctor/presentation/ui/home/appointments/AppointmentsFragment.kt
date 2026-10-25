@@ -525,7 +525,8 @@ class AppointmentsFragment : Fragment(),
         screenViewModel.getClinics()
 
         screenViewModel.clinicsResponse.observe(viewLifecycleOwner) {
-            clinicsAdapter.submitData(it.Data as ArrayList<ClinicData>)
+            // Data is null when the account has no doctor clinics (e.g. hospital)
+            clinicsAdapter.submitData(ArrayList(it.Data.orEmpty()))
         }
 
     }
@@ -551,7 +552,7 @@ class AppointmentsFragment : Fragment(),
 
         clinicsTypeViewModel.servicesTypesResponse.observe(viewLifecycleOwner) {
             clinicTypeAdapter.submitData(it.Data)
-            Log.d("getData", "getClinicType: ${it.Data.size} && ${it.Data[0].Name}")
+            Log.d("getData", "getClinicType: ${it.Data?.size} && ${it.Data?.firstOrNull()?.Name}")
         }
 
 

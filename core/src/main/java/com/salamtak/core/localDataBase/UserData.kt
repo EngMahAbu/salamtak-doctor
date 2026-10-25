@@ -64,8 +64,18 @@ object UserData {
 
         setToken("")
         setUserName("")
+        clearHospitalSession()
 
         //SharedPreferencesTool.clearAllData(context)
+    }
+
+    fun clearHospitalSession() {
+        listOf(
+            SharedPreferencesKeys.HospitalInfoId,
+            SharedPreferencesKeys.HospitalId,
+            SharedPreferencesKeys.HospitalOwnerId,
+            SharedPreferencesKeys.HospitalUserId
+        ).forEach { SharedPreferencesTool.setString(context, it.name, "") }
     }
 
     fun getUserName(): String? {

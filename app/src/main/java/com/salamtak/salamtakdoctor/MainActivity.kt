@@ -41,6 +41,7 @@ import com.salamtak.core.utils.SessionManagement
 import com.salamtak.databinding.ActivityMainBinding
 import com.salamtak.salamtakdoctor.dialog.Dialog
 import com.salamtak.salamtakdoctor.localization.DefaultLocaleHelper
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.DateUtils
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.Constant.KEY_CURRENT_VERSION
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.Constant.KEY_FORCE_UPDATE_REQUIRED
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.ForceUpdateUtils
@@ -62,6 +63,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     var type = -1
+    // Which bottom menu is inflated; activity_main starts with the Doctor/Polyclinic one.
+    private var hospitalMenuShown = false
 
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(DefaultLocaleHelper.getInstance(newBase!!).onAttach())
@@ -149,11 +152,23 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         }
 
+        applyBottomMenu()
         if (destination.id == R.id.appointmentsFragment){
             binding.navigation.menu.findItem(R.id.schedule_item).isChecked = true
         }else if (destination.id == R.id.moreFragment){
             binding.navigation.menu.findItem(R.id.more_item).isChecked = true
+        }else if (destination.id == R.id.hospitalDoctorsFragment){
+            binding.navigation.menu.findItem(R.id.doctors_item)?.isChecked = true
         }
+    }
+
+    // Hospital accounts get their own tabs; Doctor and Polyclinic keep res/menu/menu.xml.
+    private fun applyBottomMenu() {
+        val hospital = DateUtils.isHospital()
+        if (hospitalMenuShown == hospital) return
+        hospitalMenuShown = hospital
+        binding.navigation.menu.clear()
+        binding.navigation.inflateMenu(if (hospital) R.menu.menu_hospital else R.menu.menu)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean = when (item.itemId) {
@@ -172,6 +187,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         R.id.services_item -> {
 //            navController.navigate(R.id.setupServicesFragment)
             navController.navigate(R.id.myQuestionsFragment)
+            true
+        }
+
+        R.id.doctors_item -> {
+            navController.navigate(R.id.hospitalDoctorsFragment)
             true
         }
 

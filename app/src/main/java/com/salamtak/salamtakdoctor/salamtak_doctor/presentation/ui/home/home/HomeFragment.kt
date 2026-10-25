@@ -37,11 +37,14 @@ import com.salamtak.salamtakdoctor.adapter.PollyClinicsDoctorsAdapter
 import com.salamtak.salamtakdoctor.localization.DefaultLocaleHelper
 import com.salamtak.salamtakdoctor.noConnectivityDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileViewModel
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.HospitalViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.InsuranceViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.*
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.RequestCode.UNAUTHORIZED
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.NoInternetDialog
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.PickerItem
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.SearchablePickerBottomSheet
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
@@ -76,6 +79,10 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
     private lateinit var noInternetDialog: NoInternetDialog
     private lateinit var profileViewModel: DoctorProfileViewModel
     private lateinit var gatesAdapter: GatesAdapter
+    private val isHospital = DateUtils.isHospital()
+    private lateinit var hospitalViewModel: HospitalViewModel
+    private var showClinicsPickerOnLoad = false
+    private var showDoctorsPickerOnLoad = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,9 +92,14 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         polyclinicsviewModel = ViewModelProvider(this).get(PolyClinicsViewModel::class.java)
         insuranceViewModel = ViewModelProvider(this).get(InsuranceViewModel::class.java)
+        hospitalViewModel = ViewModelProvider(this).get(HospitalViewModel::class.java)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         ImageUtil.loadPicture(binding.profileDoctorImage, UserData.getImage())
-        if (Localization.getLanguageName() == "ar") {
+        if (isHospital) {
+            // Hospital greeting shows the full hospital name.
+            val name = if (Localization.getLanguageName() == "ar") UserData.getUserNameAR() else UserData.getUserName()
+            binding.userNameTv.text = name?.trim().orEmpty()
+        } else if (Localization.getLanguageName() == "ar") {
             UserData.getUserNameAR()?.let {
                 binding.userNameTv.text = it.trim().split(" ").firstOrNull() ?: it
             }
@@ -140,14 +152,18 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         initButton()
         initBottomSheetServices()
         callBack()
-        callGetQuestions()
+        if (isHospital) {
+            initHospitalObservers()
+        } else {
+            callGetQuestions()
+        }
     }
 
     override fun onResume() {
         super.onResume()
         val image = UserData.getImage()
         ImageUtil.loadPicture(binding.profileDoctorImage, image)
-        if (::profileViewModel.isInitialized) {
+        if (::profileViewModel.isInitialized && !isHospital) {
             profileViewModel.getDoctorProfile()
         }
     }
@@ -162,9 +178,18 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
 
         binding.ivDel.setOnClickListener {
             binding.dateTv.text=""
+            if (isHospital) {
+                fromDate = formattedDate
+                toDate = formattedDate
+                loadHospitalDashboard()
+            }
         }
 
         binding.tvListofDoctors.setOnClickListener {
+            if (isHospital) {
+                loadHospitalDoctorsPicker()
+                return@setOnClickListener
+            }
           callGetDoctorsClinicDayId()
             bottomsheetbeahavoir.state =
                 if (bottomsheetbeahavoir.state == BottomSheetBehavior.STATE_EXPANDED)
@@ -260,7 +285,14 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         })
 
         //todo 29/11/22
-        if (isOnline(mContext)) {
+        if (isHospital) {
+            if (isOnline(mContext)) {
+                toDate = formattedDate
+                loadHospitalDashboard()
+            } else {
+                noConnectivityDialog.noInternetDialogFragment(requireContext())
+            }
+        } else if (isOnline(mContext)) {
             viewModel.getHome(formattedDate,formattedDate,clinicId,doctorID,polyInfoID)
 //        viewModel.getHome(fromDate, toDate)
             viewModel.getHomeClinics()
@@ -372,7 +404,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
 //        binding.staticsRv.layoutManager = layoutManager
 
         binding.tvClinics.setOnClickListener {
-            showClinicsBottomSheetDialog()
+            if (isHospital) loadHospitalClinicsPicker() else showClinicsBottomSheetDialog()
         }
 
 
@@ -439,7 +471,10 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         })
 
         btnDone?.setOnClickListener {
-            if (isOnline(mContext)) {
+            if (isHospital && isOnline(mContext)) {
+                loadHospitalDashboard()
+                bottomSheetDialog.dismiss()
+            } else if (isOnline(mContext)) {
                 viewModel.getHome(fromDate,toDate,clinicId,doctorID,polyInfoID)
                 bottomSheetDialog.dismiss()
             } else {
@@ -646,7 +681,13 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
 
     private fun bindViews(){
         healthTopicsRecylerview()
-       if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+       if (isHospital) {
+           clinicId = null
+           binding.tvListofDoctors.visibility=View.VISIBLE
+           binding.profileDoctorImage.visibility=View.GONE
+           binding.descNameTv.visibility=View.GONE
+           binding.ivMessage.visibility=View.GONE
+       } else if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
            polyInfoID= DateUtils.getAdminInfoId()?.toInt()
            binding.tvListofDoctors.visibility=View.VISIBLE
            binding.profileDoctorImage.visibility=View.GONE
@@ -791,5 +832,106 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
             findNavController().navigate(action)
         }
     }
+
+    // region Hospital mode
+
+    private fun loadHospitalDashboard() {
+        val infoId = DateUtils.getHospitalInfoId() ?: return
+        hospitalViewModel.getHospitalDashboard(infoId, fromDate, toDate, clinicId, doctorID)
+    }
+
+    private fun loadHospitalClinicsPicker() {
+        val hospitalId = DateUtils.getHospitalId() ?: return
+        showClinicsPickerOnLoad = true
+        hospitalViewModel.getHospitalClinicList(hospitalId)
+    }
+
+    private fun loadHospitalDoctorsPicker() {
+        val hospitalId = DateUtils.getHospitalId() ?: return
+        showDoctorsPickerOnLoad = true
+        hospitalViewModel.getDoctors(hospitalId, clinicId)
+    }
+
+    private fun initHospitalObservers() {
+        val arabic = Localization.getLanguageName() == "ar"
+
+        hospitalViewModel.dashboardResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> loading.showLoadingDialog()
+                is Resource.sucess -> {
+                    loading.hideLoadingDialog()
+                    val data = it.data?.Data ?: return@observe
+                    binding.firstCircel.text = (data.TodayAppointmentCount ?: 0).toString()
+                    binding.middelCircel.text = (data.TotalAppointmentCount ?: 0).toString()
+                    binding.lastCircel.text = (data.UpComingAppointmentCount ?: 0).toString()
+                    // With a date range the API returns relative image paths.
+                    val cards = data.getMedicalEximationListDtos.orEmpty().map { card ->
+                        card.copy(Image = ImageUrlUtils.toFullUrl(card.Image).orEmpty())
+                    }
+                    binding.staticsRv.adapter = HomeAdapter(cards, this)
+                }
+                is Resource.Error -> loading.hideLoadingDialog()
+            }
+        }
+
+        hospitalViewModel.clinicsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> if (showClinicsPickerOnLoad) loading.showLoadingDialog()
+                is Resource.sucess -> {
+                    loading.hideLoadingDialog()
+                    if (!showClinicsPickerOnLoad) return@observe
+                    showClinicsPickerOnLoad = false
+                    val items = it.data?.Data.orEmpty().map { clinic ->
+                        PickerItem(clinic.ClinicId, (if (arabic) clinic.NameAr else clinic.Name).orEmpty())
+                    }
+                    SearchablePickerBottomSheet.show(
+                        childFragmentManager, getString(R.string.all_clinics),
+                        getString(R.string.all_clinics), items, clinicId
+                    ) { picked ->
+                        if (picked.id != clinicId) {
+                            clinicId = picked.id
+                            // The chosen doctor may not work in the new clinic.
+                            doctorID = null
+                            binding.tvListofDoctors.text = getString(R.string.alldoctors)
+                        }
+                        binding.tvClinics.text = picked.name
+                        loadHospitalDashboard()
+                    }
+                }
+                is Resource.Error -> {
+                    loading.hideLoadingDialog()
+                    showClinicsPickerOnLoad = false
+                }
+            }
+        }
+
+        hospitalViewModel.doctorsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> if (showDoctorsPickerOnLoad) loading.showLoadingDialog()
+                is Resource.sucess -> {
+                    loading.hideLoadingDialog()
+                    if (!showDoctorsPickerOnLoad) return@observe
+                    showDoctorsPickerOnLoad = false
+                    val items = it.data?.Data.orEmpty().map { doctor ->
+                        PickerItem(doctor.DoctorId, (if (arabic) doctor.DoctorNameAr else doctor.DoctorName).orEmpty())
+                    }
+                    SearchablePickerBottomSheet.show(
+                        childFragmentManager, getString(R.string.alldoctors),
+                        getString(R.string.alldoctors), items, doctorID
+                    ) { picked ->
+                        doctorID = picked.id
+                        binding.tvListofDoctors.text = picked.name
+                        loadHospitalDashboard()
+                    }
+                }
+                is Resource.Error -> {
+                    loading.hideLoadingDialog()
+                    showDoctorsPickerOnLoad = false
+                }
+            }
+        }
+    }
+
+    // endregion
 
 }

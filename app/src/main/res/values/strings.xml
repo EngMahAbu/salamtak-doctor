@@ -1417,4 +1417,9 @@
     <string name="queue_cancel_confirm">Cancel %1$s from the queue?</string>
     <string name="queue_yes">Yes</string>
     <string name="queue_no">No</string>
+
+    <!-- Hospital account -->
+    <string name="hospitalaccount">Hospital Account</string>
+    <string name="hospital_doctors">Doctors</string>
+    <string name="hospital_info_error">Couldn\'t load hospital data, please try again</string>
 </resources>

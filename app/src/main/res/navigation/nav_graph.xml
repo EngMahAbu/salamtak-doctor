@@ -228,6 +228,11 @@
 
     </fragment>
     <fragment
+            android:id="@+id/hospitalDoctorsFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.doctors.HospitalDoctorsFragment"
+            android:label="HospitalDoctorsFragment"
+            tools:layout="@layout/fragment_hospital_doctors" />
+    <fragment
             android:id="@+id/queueFragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.queue.QueueFragment"
             android:label="QueueFragment"

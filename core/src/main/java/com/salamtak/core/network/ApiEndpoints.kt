@@ -25,6 +25,10 @@ import com.salamtak.domain.entities.response.offers.OfferGallaryResponse
 import com.salamtak.domain.entities.response.offers.OfferResponse
 import com.salamtak.domain.entities.response.offers.OfferServicesResponse
 import com.salamtak.domain.entities.response.offers.SubCategoryResponse
+import com.salamtak.domain.entities.response.hospital.HospitalClinicsResponse
+import com.salamtak.domain.entities.response.hospital.HospitalDashboardResponse
+import com.salamtak.domain.entities.response.hospital.HospitalDoctorsResponse
+import com.salamtak.domain.entities.response.hospital.HospitalInfoResponse
 import com.salamtak.domain.entities.response.poly.PolyClinicAdminResponse
 import com.salamtak.domain.entities.response.poly.PolyClinicInfoResponse
 import com.salamtak.domain.entities.response.poly.PolyClinicsDoctorsResponse
@@ -996,6 +1000,40 @@ interface ApiEndpoints {
         @Path("culture") culture: String,
         @Body request: CancelQueueTicketRequest
     ): Response<QueueActionResponse>
+
+    @GET("{culture}/Hospital/GetHospitalDashboard")
+    suspend fun getHospitalDashboard(
+        @Path("culture") culture: String,
+        @Query("HospitalInfoID") hospitalInfoId: Int,
+        @Query("DateFrom") dateFrom: String? = null,
+        @Query("DateTo") dateTo: String? = null,
+        @Query("ClinicID") clinicId: Int? = null,
+        @Query("DoctorID") doctorId: Int? = null
+    ): Response<HospitalDashboardResponse>
+
+    @GET("{culture}/Hospital/GetHospitalInfoByID")
+    suspend fun getHospitalInfoById(
+        @Path("culture") culture: String,
+        @Query("InfoID") infoId: Int
+    ): Response<HospitalInfoResponse>
+
+    @GET("{culture}/Hospital/GetHospitalClinicList")
+    suspend fun getHospitalClinicList(
+        @Path("culture") culture: String,
+        @Query("hospitalId") hospitalId: Int
+    ): Response<HospitalClinicsResponse>
+
+    @GET("{culture}/Hospital/GetHospitalDoctorList")
+    suspend fun getHospitalDoctorList(
+        @Path("culture") culture: String,
+        @Query("hospitalId") hospitalId: Int
+    ): Response<HospitalDoctorsResponse>
+
+    @GET("{culture}/Hospital/GetClinicDoctors")
+    suspend fun getHospitalClinicDoctors(
+        @Path("culture") culture: String,
+        @Query("clinicId") clinicId: Int
+    ): Response<HospitalDoctorsResponse>
 
 
 }

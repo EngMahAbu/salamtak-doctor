@@ -18,6 +18,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.SnackbarLayout
@@ -43,15 +44,21 @@ fun Dialog.hideLoadingDialog() = run { if (this.isShowing) this.dismiss() }
 
 fun EditText.clear() = this.setText("")
 
+// A snackbar's parent is a FrameLayout or a CoordinatorLayout depending on the screen's root.
+private fun View.showAtTop() {
+    when (val params = layoutParams) {
+        is FrameLayout.LayoutParams -> params.gravity = Gravity.CENTER_HORIZONTAL or Gravity.TOP
+        is CoordinatorLayout.LayoutParams -> params.gravity = Gravity.CENTER_HORIZONTAL or Gravity.TOP
+        else -> return
+    }
+    requestLayout()
+}
+
 fun Fragment.errorMessage(message: String) = run {
     // create an instance of the snackbar
     val snackbar = Snackbar.make(requireView(), "", Snackbar.LENGTH_LONG)
 
-    val view:View=snackbar.view
-    val params = view.layoutParams as FrameLayout.LayoutParams
-    params.gravity = Gravity.CENTER_HORIZONTAL or Gravity.TOP
-
-    view.layoutParams=params
+    snackbar.view.showAtTop()
 
     // inflate the custom_snackbar_view created previously
     val customSnackView: View = layoutInflater.inflate(R.layout.layout_error_snackbar, null)
@@ -81,12 +88,7 @@ fun Activity.errorMessage(message: String) = run {
     // create an instance of the snackbar
     val snackbar = Snackbar.make(findViewById(android.R.id.content), "", Snackbar.LENGTH_LONG)
 
-
-    val view:View=snackbar.view
-    val params = view.layoutParams as FrameLayout.LayoutParams
-    params.gravity = Gravity.CENTER_HORIZONTAL or Gravity.TOP
-
-    view.layoutParams=params
+    snackbar.view.showAtTop()
 
 
     // inflate the custom_snackbar_view created previously

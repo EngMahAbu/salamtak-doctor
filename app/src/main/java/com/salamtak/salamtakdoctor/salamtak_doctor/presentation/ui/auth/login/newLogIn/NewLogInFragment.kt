@@ -26,9 +26,11 @@ import com.salamtak.core.utils.SessionManagement
 import com.salamtak.databinding.FragmentLoginBinding
 import com.salamtak.domain.entities.response.UserDataModel
 import com.salamtak.domain.entities.resquest.auth.LoginModel
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.HospitalViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SharedDataViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.*
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.NoInternetDialog
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource
 import org.koin.android.ext.android.inject
 
 
@@ -43,6 +45,8 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
     private val sessionManagement: SessionManagement by inject()
     private lateinit var bottomsheetbeahavoir: BottomSheetBehavior<ConstraintLayout>
     private var typeid:Int?=2
+    private lateinit var hospitalViewModel: HospitalViewModel
+    private var awaitingHospitalInfo = false
 //    private lateinit var viewModele: HomeViewModel
 
     override fun onCreateView(
@@ -54,6 +58,7 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
         loading = Dialog(requireContext())
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
         viewModel = ViewModelProvider(this).get(NewLoginViewModel::class.java)
+        hospitalViewModel = ViewModelProvider(this).get(HospitalViewModel::class.java)
 //        viewModele = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         return binding.root
@@ -177,7 +182,18 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
 //            if (it.Data.ProfileStatus == 3) {
 //                findNavController().navigate(R.id.homeFragment)
 //            }else
-            if (typeid==4){
+            if (typeid==HOSPITAL_TYPE_ID){
+                // Hospital must not set AdminOwnerId: a non-empty one means polyclinic everywhere.
+                DateUtils.setUserId("")
+                DateUtils.setAdminOwnerId("")
+                DateUtils.setHospitalUserId(it.Data.Id.toString())
+                DateUtils.setHospitalOwnerId(it.Data.OwnerID.toString())
+                DateUtils.setHospitalInfoId(it.Data.InfoID.toString())
+                UserData.setUserName(it.Data.Name)
+                it.Data.NameAR?.let { nameAr -> UserData.setUserNameAR(nameAr) }
+                awaitingHospitalInfo = true
+                hospitalViewModel.getHospitalInfoById(it.Data.InfoID)
+            }else if (typeid==4){
                 DateUtils.setUserId(it.Data.Id.toString())
                 DateUtils.setAdminOwnerId(it.Data.OwnerID.toString())
                 DateUtils.setAdminInfoId(it.Data.InfoID.toString())
@@ -212,6 +228,33 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
                 DateUtils.setAdminOwnerId("")
             }
 
+        })
+
+        hospitalViewModel.hospitalInfoResponse.observe(viewLifecycleOwner, Observer {
+            if (!awaitingHospitalInfo) return@Observer
+            when (it) {
+                is Resource.Loading -> loading.showLoadingDialog()
+                is Resource.sucess -> {
+                    awaitingHospitalInfo = false
+                    loading.hideLoadingDialog()
+                    val info = it.data?.Data
+                    val hospitalId = info?.HospitalId
+                    if (hospitalId == null) {
+                        Snackbar.make(requireView(), getString(R.string.hospital_info_error), Snackbar.LENGTH_SHORT).show()
+                        return@Observer
+                    }
+                    DateUtils.setHospitalId(hospitalId.toString())
+                    info.Name?.takeIf { name -> name.isNotBlank() }?.let { name -> UserData.setUserName(name) }
+                    info.NameAr?.takeIf { name -> name.isNotBlank() }?.let { name -> UserData.setUserNameAR(name) }
+                    DateUtils.setStatus(DateUtils.HOSPITAL_STATUS)
+                    findNavController().navigate(R.id.homeFragment)
+                }
+                is Resource.Error -> {
+                    awaitingHospitalInfo = false
+                    loading.hideLoadingDialog()
+                    Snackbar.make(requireView(), it.message ?: getString(R.string.hospital_info_error), Snackbar.LENGTH_SHORT).show()
+                }
+            }
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
@@ -308,30 +351,25 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
 
         binding.radio.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.radio_english -> {
-                    // Pirates are the best
-                    typeid = 2
-                    binding.radioEnglish.background= ContextCompat.getDrawable(requireContext(), R.drawable.bg_choose_account_radiobtn)
-                    binding.radioEnglish.buttonTintList =
-                        ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.green))
-
-                    binding.radioArabic.background= ContextCompat.getDrawable(requireContext(), R.drawable.bg_choose_account_unselected)
-                    binding.radioArabic.buttonTintList =
-                        ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.new_gray))
-                }
-                R.id.radio_arabic -> {
-                    typeid = 4
-
-                    binding.radioArabic.background= ContextCompat.getDrawable(requireContext(), R.drawable.bg_choose_account_radiobtn)
-                    binding.radioArabic.buttonTintList =
-                        ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.green))
-
-                    binding.radioEnglish.background= ContextCompat.getDrawable(requireContext(), R.drawable.bg_choose_account_unselected)
-                    binding.radioEnglish.buttonTintList =
-                        ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.new_gray))
-                }
+                R.id.radio_english -> typeid = 2
+                R.id.radio_arabic -> typeid = 4
+                R.id.radio_hospital -> typeid = HOSPITAL_TYPE_ID
+            }
+            listOf(binding.radioEnglish, binding.radioArabic, binding.radioHospital).forEach { button ->
+                val selected = button.id == checkedId
+                button.background = ContextCompat.getDrawable(
+                    requireContext(),
+                    if (selected) R.drawable.bg_choose_account_radiobtn else R.drawable.bg_choose_account_unselected
+                )
+                button.buttonTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(requireContext(), if (selected) R.color.green else R.color.new_gray)
+                )
             }
         }
+    }
+
+    companion object {
+        private const val HOSPITAL_TYPE_ID = 7
     }
 
 
