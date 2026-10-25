@@ -98,7 +98,9 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().navigate(R.id.appointmentsFragment)
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.appointmentsFragment)
+            }
         }
 
         if (!emrTitleData?.PatientEmrdetails.isNullOrEmpty()) {
@@ -189,7 +191,9 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
 //            showDialog(cameraRequestCode, galleryRequestCode)
         }
         binding.ivBack.setOnClickListener {
-            findNavController().navigate(R.id.appointmentsFragment)
+            if (!findNavController().popBackStack()) {
+                findNavController().navigate(R.id.appointmentsFragment)
+            }
         }
 
 

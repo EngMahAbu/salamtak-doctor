@@ -66,6 +66,8 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
     private lateinit var noInternetDialog: NoInternetDialog
     private var accountFragment = PatientAccountFragment()
     var documentPosition = -1
+    // reopen the emr tab when coming back from emr details
+    private var showEmrTab = false
 
     var clinicName: String = ""
     var clinicType: String = ""
@@ -133,6 +135,9 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
         }
         initButton()
 
+        if (showEmrTab) {
+            binding.emrProfileRb.performClick()
+        }
     }
     private fun initButton(){
         binding.emrSyemtomsRb.setOnClickListener {
@@ -534,6 +539,7 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
 //                replaceFragment(requireActivity(),accountFragment)
             }
             R.id.tvAddEmr -> {
+                showEmrTab = true
                 val bundle = Bundle()
                 bundle.putLong(APPOINTMENT_ID, appointmentId)
                 bundle.putLong(PATIENT_ID, patientId)
@@ -625,6 +631,7 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
     }
 
     override fun onEmrClicked(emrTitleData: EmrTitleData) {
+        showEmrTab = true
         val bundle = Bundle()
         bundle.putString("emr_data", Gson().toJson(emrTitleData))
         bundle.putString("Instructions", emrTitleData.Instructions);
