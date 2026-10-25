@@ -233,6 +233,11 @@
             android:label="HospitalDoctorsFragment"
             tools:layout="@layout/fragment_hospital_doctors" />
     <fragment
+            android:id="@+id/hospitalProfileFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.profile.HospitalProfileFragment"
+            android:label="HospitalProfileFragment"
+            tools:layout="@layout/fragment_hospital_profile" />
+    <fragment
             android:id="@+id/queueFragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.queue.QueueFragment"
             android:label="QueueFragment"

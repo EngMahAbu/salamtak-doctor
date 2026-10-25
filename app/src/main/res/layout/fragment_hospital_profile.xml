@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_gray">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_arrowleft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_bold"
+        android:text="@string/hospital_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_back"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+    <!-- Tabs -->
+    <LinearLayout
+        android:id="@+id/layout_tabs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_back">
+
+        <TextView
+            android:id="@+id/tab_admin"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_sellector"
+            android:fontFamily="@font/avenir_bold"
+            android:gravity="center"
+            android:text="@string/hospital_admin_tab"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tab_info"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_help"
+            android:fontFamily="@font/avenir_bold"
+            android:gravity="center"
+            android:text="@string/hospital_info_tab"
+            android:textColor="@color/color_primary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_tabs">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- Hospital Admin -->
+            <LinearLayout
+                android:id="@+id/container_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_admin_name_en"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_full_name_en">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_admin_name_en"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_admin_name_ar"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_full_name_ar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_admin_name_ar"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_admin_national_id"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_national_id">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_admin_national_id"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="number"
+                        android:maxLength="14" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_admin_phone"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_admin_phone"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_admin_mobile1"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_mobile1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_admin_mobile1"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_admin_mobile2"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_mobile2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_admin_mobile2"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/HospitalSectionTitle"
+                    android:text="@string/hospital_national_id_photo" />
+
+                <include
+                    android:id="@+id/id_front"
+                    layout="@layout/doc_uploading_image_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+                <include
+                    android:id="@+id/id_back"
+                    layout="@layout/doc_uploading_image_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+
+            <!-- Hospital Info -->
+            <LinearLayout
+                android:id="@+id/container_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_info_name_en"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_name_en">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_name_en"
+                        style="@style/HospitalFieldEdit" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_info_name_ar"
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_name_ar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_name_ar"
+                        style="@style/HospitalFieldEdit" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_commercial_no">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_commercial_no"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_tax_card_no">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_tax_no"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_phone"
+                        style="@style/HospitalFieldEdit"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_info_city"
+                    style="@style/HospitalPickerField"
+                    android:hint="@string/choose_city" />
+
+                <TextView
+                    android:id="@+id/tv_info_area"
+                    style="@style/HospitalPickerField"
+                    android:hint="@string/choose_area" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/street_and_landmark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_street"
+                        style="@style/HospitalFieldEdit" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_info_services"
+                    style="@style/HospitalPickerField"
+                    android:hint="@string/hospital_services"
+                    android:maxLines="3" />
+
+                <TextView
+                    android:id="@+id/tv_info_features"
+                    style="@style/HospitalPickerField"
+                    android:hint="@string/hospital_features"
+                    android:maxLines="3" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_bio_en"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="500">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_bio_en"
+                        style="@style/HospitalFieldEdit"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:maxLength="500"
+                        android:maxLines="6"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/HospitalFieldLayout"
+                    android:hint="@string/hospital_bio_ar"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="500">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_info_bio_ar"
+                        style="@style/HospitalFieldEdit"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:maxLength="500"
+                        android:maxLines="6"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/HospitalSectionTitle"
+                    android:text="@string/hospital_branches" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_branches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_hospital_branch" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_branch"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/hospital_add_branch"
+                    android:textAllCaps="false"
+                    android:textColor="@color/new_themeBlue_color"
+                    app:cornerRadius="6dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/new_themeBlue_color"
+                    app:strokeColor="@color/new_themeBlue_color" />
+
+                <TextView
+                    style="@style/HospitalSectionTitle"
+                    android:text="@string/hospital_front_tax_card_image" />
+
+                <include
+                    android:id="@+id/tax_card"
+                    layout="@layout/doc_uploading_image_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_edit"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/new_themeBlue_color"
+        android:fontFamily="@font/avenir_bold"
+        android:text="@string/hospital_edit"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:indeterminateTint="@color/new_themeBlue_color"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

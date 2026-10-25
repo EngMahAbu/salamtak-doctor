@@ -96,6 +96,21 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_queue" />
 
+                <!-- Hospital only -->
+                <TextView
+                    android:id="@+id/tv_or"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:text="@string/hospital_or"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/search" />
+
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
@@ -105,7 +120,7 @@
                     android:weightSum="2"
                     app:layout_constraintEnd_toEndOf="@+id/search"
                     app:layout_constraintStart_toStartOf="@+id/search"
-                    app:layout_constraintTop_toBottomOf="@+id/search">
+                    app:layout_constraintTop_toBottomOf="@+id/tv_or">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/date_tv"
@@ -219,6 +234,18 @@
                     app:layout_constraintEnd_toEndOf="@+id/linearLayout"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                    <!-- Hospital only -->
+                    <TextView
+                        android:id="@+id/tv_all_bookings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/sf_pro_display_semibold"
+                        android:text="@string/all_booking"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp"
+                        android:visibility="gone" />
                     <TextView
                         android:id="@+id/tv_clinics"
                         android:layout_width="wrap_content"
@@ -280,6 +307,23 @@
                     app:layout_constraintTop_toBottomOf="@id/linearLayout2"
                     tools:itemCount="2"
                     tools:listitem="@layout/item_appointment" />
+
+                <!-- Hospital empty state -->
+                <TextView
+                    android:id="@+id/tv_no_appointments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/avenir_bold"
+                    android:gravity="center"
+                    android:text="@string/hospital_no_appointments"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
 
                 <!-- Shown while the next page of appointments loads -->
                 <ProgressBar

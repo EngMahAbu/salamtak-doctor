@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Hospital profile / branch forms -->
+    <style name="HospitalFieldLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/new_themeBlue_color</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="boxCornerRadiusTopEnd">6dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusBottomEnd">6dp</item>
+        <item name="hintTextColor">@color/new_themeBlue_color</item>
+    </style>
+
+    <style name="HospitalFieldEdit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/avenir_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <!-- Read-only field that opens a picker -->
+    <style name="HospitalPickerField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:background">@drawable/bg_hospital_picker</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:fontFamily">@font/avenir_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:textSize">13sp</item>
+        <item name="drawableEndCompat">@drawable/ic_down_arrow_blue</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="HospitalSectionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">@font/avenir_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

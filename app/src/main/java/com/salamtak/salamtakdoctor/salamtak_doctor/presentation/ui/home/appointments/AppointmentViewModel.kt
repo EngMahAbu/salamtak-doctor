@@ -83,6 +83,7 @@ class AppointmentViewModel : ViewModel() {
         val pageSize: Int,
         val polyInfoID: Int?,
         val doctorID: Int?,
+        val patientName: String?,
     )
 
     fun getAppointment(
@@ -94,11 +95,12 @@ class AppointmentViewModel : ViewModel() {
         maxResultCount: Int? = null,
         polyInfoID: Int? = null,
         doctorID: Int? = null,
+        patientName: String? = null,
     ) {
         // A new search/filter starts paging over from the first page
         val query = AppointmentQuery(
             fromDate, toDate, clinicID, medicalTypeId,
-            maxResultCount ?: 10, polyInfoID, doctorID
+            maxResultCount ?: 10, polyInfoID, doctorID, patientName?.takeIf { it.isNotBlank() }
         )
         lastQuery = query
         loadingMore.value = false
@@ -136,7 +138,7 @@ class AppointmentViewModel : ViewModel() {
                     query.clinicID,
                     query.medicalTypeId,
                     skipCount,
-                    query.pageSize,query.polyInfoID,query.doctorID
+                    query.pageSize,query.polyInfoID,query.doctorID,query.patientName
                 )
             }
             // Ignore a late response for a search the user has already replaced

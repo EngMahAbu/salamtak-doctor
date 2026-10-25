@@ -55,6 +55,10 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.utils.*
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.CancelAppointmentDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.NoInternetDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.FilterBottomSheetDialog
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.PickerItem
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.bottom_sheet.SearchablePickerBottomSheet
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.HospitalViewModel
+import com.salamtak.core.localDataBase.Localization
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.core.qualifier.StringQualifier
@@ -122,6 +126,13 @@ class AppointmentsFragment : Fragment(),
     var videoCallClicked = false
     var messageCode=0
 
+    // Hospital mode: every filter reloads the paged list with PolyInfoID = hospital InfoID
+    private val isHospital = DateUtils.isHospital()
+    private lateinit var hospitalViewModel: HospitalViewModel
+    private var patientName: String? = null
+    private var showClinicsPickerOnLoad = false
+    private var showDoctorsPickerOnLoad = false
+
     companion object {
         var patientId: Long = 0L
     }
@@ -153,6 +164,7 @@ class AppointmentsFragment : Fragment(),
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         polyclinicsviewModel = ViewModelProvider(this).get(PolyClinicsViewModel::class.java)
         offersViewModel = ViewModelProvider(this).get(OffersViewModel::class.java)
+        hospitalViewModel = ViewModelProvider(this).get(HospitalViewModel::class.java)
 //        clinicsAdapter = ClinicFilterAdapter(this)
 //        clinicTypeAdapter = ClinicTypesAdapter(requireContext(), this)
 
@@ -180,6 +192,7 @@ class AppointmentsFragment : Fragment(),
         initButton()
         initBottomSheetServices()
         initQueueClinics()
+        if (isHospital) initHospitalObservers()
     }
 
     private fun initQueueClinics() {
@@ -242,6 +255,11 @@ class AppointmentsFragment : Fragment(),
     }
 
     private fun initButton(){
+        if (isHospital) {
+            binding.tvClinics.setOnClickListener { loadHospitalClinicsPicker() }
+            binding.tvListofDoctors.setOnClickListener { loadHospitalDoctorsPicker() }
+            return
+        }
         binding.tvListofDoctors.setOnClickListener {
             callGetDoctorsClinicDayId()
             bottomsheetbeahavoir.state =
@@ -317,6 +335,13 @@ class AppointmentsFragment : Fragment(),
 
         binding.search.addTextChangedListener {
             val query = it?.toString().orEmpty()
+            if (isHospital) {
+                if (query.length >= 3 || query.isEmpty()) {
+                    patientName = query
+                    loadHospitalAppointments()
+                }
+                return@addTextChangedListener
+            }
             if (query.length >= 3) {
                 if (isOnline(mContext)) {
                     filterViewModel.filter(fillFilterRequest(FilterModel()))
@@ -376,6 +401,10 @@ class AppointmentsFragment : Fragment(),
 //            } else
 //                binding.emptyPageLayout.emptyPage.visibility = View.GONE
             showAppointments(it.Data.Items)
+            if (isHospital) {
+                binding.tvNoAppointments.visibility =
+                    if (it.Data.Items.isNullOrEmpty()) View.VISIBLE else View.GONE
+            }
 
         })
 
@@ -430,7 +459,9 @@ class AppointmentsFragment : Fragment(),
         // show all count list
         ////TODO INDER
         // osama
-        if (isOnline(mContext)) {
+        if (isHospital) {
+            loadHospitalAppointments()
+        } else if (isOnline(mContext)) {
             Log.d("getReq", "initObserve: $today, $toDate,$clinicId, $appointmentId")
             Log.d("getAppointmentLog","on line 345")
             viewModel.getAppointment(today, toDate, null, appointmentId, 0, 10,polyInfoID,doctorID)
@@ -504,7 +535,8 @@ class AppointmentsFragment : Fragment(),
 //        binding.toolbar.ivBack.visibility = View.GONE
 
         getClinicType()
-        getClinincs()
+        // The doctor clinic list doesn't apply to hospitals
+        if (!isHospital) getClinincs()
     }
 
     private fun getClinincs() {
@@ -645,6 +677,10 @@ class AppointmentsFragment : Fragment(),
             }
 
             R.id.filter_iv -> {
+                if (isHospital) {
+                    showHospitalBookingTypePicker()
+                    return
+                }
 //                getClinics()
 //                getClinicType()
 //                Log.d(TAG, "mansourclick: " + clinicTypelId)
@@ -1027,7 +1063,10 @@ class AppointmentsFragment : Fragment(),
         })
 
         btnDone?.setOnClickListener {
-            if (isOnline(mContext)) {
+            if (isHospital) {
+                loadHospitalAppointments()
+                bottomSheetDialog.dismiss()
+            } else if (isOnline(mContext)) {
 //                viewModel.getHome(fromDate, toDate)
                 filterViewModel.filter(fillFilterRequest(FilterModel()))
                 bottomSheetDialog.dismiss()
@@ -1056,7 +1095,15 @@ class AppointmentsFragment : Fragment(),
     }
 
     private fun bindViews(){
-        if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+        if (isHospital) {
+            polyInfoID = DateUtils.getHospitalInfoId()
+            // CLINIC_ID defaults to 0 when Home opened the tab without a clinic filter
+            if (clinicId == 0) clinicId = null
+            // Not in the hospital design: Queue button
+            binding.btnQueue.visibility = View.GONE
+            binding.tvOr.visibility = View.VISIBLE
+            binding.tvAllBookings.visibility = View.VISIBLE
+        } else if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
             polyInfoID= DateUtils.getAdminInfoId()?.toInt()
         }else{
             binding.linearLayout2.visibility=View.GONE
@@ -1150,5 +1197,109 @@ class AppointmentsFragment : Fragment(),
             binding.tvClinics.text=clinicsdata.NameAr
         }
     }
+
+    // region Hospital mode
+
+    private fun loadHospitalAppointments() {
+        if (!isOnline(mContext)) {
+            noConnectivityDialog.noInternetDialogFragment(requireContext())
+            return
+        }
+        viewModel.getAppointment(
+            today.ifBlank { null }, toDate.ifBlank { null }, clinicId, appointmentId,
+            0, 10, polyInfoID, doctorID, patientName
+        )
+    }
+
+    private fun showHospitalBookingTypePicker() {
+        val types = clinicsTypeViewModel.servicesTypesResponse.value?.Data.orEmpty()
+        SearchablePickerBottomSheet.show(
+            childFragmentManager, getString(R.string.filter_clinic_services),
+            getString(R.string.hospital_all_booking_types),
+            types.map { PickerItem(it.Id, it.Name) },
+            appointmentId.takeIf { it != 0 }
+        ) { picked ->
+            // 0 = every booking type, as the list uses when opened without a type
+            appointmentId = picked.id ?: 0
+            binding.services.text =
+                if (picked.id == null) getString(R.string.filter_clinic_services) else picked.name
+            loadHospitalAppointments()
+        }
+    }
+
+    private fun loadHospitalClinicsPicker() {
+        val hospitalId = DateUtils.getHospitalId() ?: return
+        showClinicsPickerOnLoad = true
+        hospitalViewModel.getHospitalClinicList(hospitalId)
+    }
+
+    private fun loadHospitalDoctorsPicker() {
+        val hospitalId = DateUtils.getHospitalId() ?: return
+        showDoctorsPickerOnLoad = true
+        hospitalViewModel.getDoctors(hospitalId, clinicId)
+    }
+
+    private fun initHospitalObservers() {
+        val arabic = Localization.getLanguageName() == "ar"
+
+        hospitalViewModel.clinicsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> if (showClinicsPickerOnLoad) loading.showLoadingDialog()
+                is Resource.sucess -> {
+                    loading.hideLoadingDialog()
+                    if (!showClinicsPickerOnLoad) return@observe
+                    showClinicsPickerOnLoad = false
+                    val items = it.data?.Data.orEmpty().map { clinic ->
+                        PickerItem(clinic.ClinicId, (if (arabic) clinic.NameAr else clinic.Name).orEmpty())
+                    }
+                    SearchablePickerBottomSheet.show(
+                        childFragmentManager, getString(R.string.all_clinics),
+                        getString(R.string.all_clinics), items, clinicId
+                    ) { picked ->
+                        if (picked.id != clinicId) {
+                            clinicId = picked.id
+                            // The chosen doctor may not work in the new clinic.
+                            doctorID = null
+                            binding.tvListofDoctors.text = getString(R.string.alldoctors)
+                        }
+                        binding.tvClinics.text = picked.name
+                        loadHospitalAppointments()
+                    }
+                }
+                is Resource.Error -> {
+                    loading.hideLoadingDialog()
+                    showClinicsPickerOnLoad = false
+                }
+            }
+        }
+
+        hospitalViewModel.doctorsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> if (showDoctorsPickerOnLoad) loading.showLoadingDialog()
+                is Resource.sucess -> {
+                    loading.hideLoadingDialog()
+                    if (!showDoctorsPickerOnLoad) return@observe
+                    showDoctorsPickerOnLoad = false
+                    val items = it.data?.Data.orEmpty().map { doctor ->
+                        PickerItem(doctor.DoctorId, (if (arabic) doctor.DoctorNameAr else doctor.DoctorName).orEmpty())
+                    }
+                    SearchablePickerBottomSheet.show(
+                        childFragmentManager, getString(R.string.alldoctors),
+                        getString(R.string.alldoctors), items, doctorID
+                    ) { picked ->
+                        doctorID = picked.id
+                        binding.tvListofDoctors.text = picked.name
+                        loadHospitalAppointments()
+                    }
+                }
+                is Resource.Error -> {
+                    loading.hideLoadingDialog()
+                    showDoctorsPickerOnLoad = false
+                }
+            }
+        }
+    }
+
+    // endregion
 
 }

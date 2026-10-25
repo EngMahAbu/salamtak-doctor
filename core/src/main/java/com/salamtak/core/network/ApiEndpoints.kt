@@ -25,7 +25,12 @@ import com.salamtak.domain.entities.response.offers.OfferGallaryResponse
 import com.salamtak.domain.entities.response.offers.OfferResponse
 import com.salamtak.domain.entities.response.offers.OfferServicesResponse
 import com.salamtak.domain.entities.response.offers.SubCategoryResponse
+import com.salamtak.domain.entities.response.hospital.HospitalActionResponse
+import com.salamtak.domain.entities.response.hospital.HospitalBranchRequest
+import com.salamtak.domain.entities.response.hospital.HospitalBranchesResponse
 import com.salamtak.domain.entities.response.hospital.HospitalClinicsResponse
+import com.salamtak.domain.entities.response.hospital.HospitalLookupResponse
+import com.salamtak.domain.entities.response.hospital.HospitalOwnerResponse
 import com.salamtak.domain.entities.response.hospital.HospitalDashboardResponse
 import com.salamtak.domain.entities.response.hospital.HospitalDoctorsResponse
 import com.salamtak.domain.entities.response.hospital.HospitalInfoResponse
@@ -362,6 +367,7 @@ interface ApiEndpoints {
         @Query("MaxResultCount") maxResultCount: Int? = null,
         @Query("PolyInfoID") PolyInfoID: Int? = null,
         @Query("DoctorID") DoctorID: Int? = null,
+        @Query("PatientName") patientName: String? = null,
     ): NetworkResponse<AppointmentResponse, ErrorModel>
 
 
@@ -1034,6 +1040,58 @@ interface ApiEndpoints {
         @Path("culture") culture: String,
         @Query("clinicId") clinicId: Int
     ): Response<HospitalDoctorsResponse>
+
+    @GET("{culture}/Hospital/GetHospitalOwner")
+    suspend fun getHospitalOwner(
+        @Path("culture") culture: String,
+        @Query("hospitalId") hospitalId: Int
+    ): Response<HospitalOwnerResponse>
+
+    @POST("{culture}/Hospital/UpdateHospitalOwner")
+    suspend fun updateHospitalOwner(
+        @Path("culture") culture: String,
+        @Body part: RequestBody
+    ): Response<HospitalActionResponse>
+
+    @POST("{culture}/Hospital/UpdateHospitalInfo")
+    suspend fun updateHospitalInfo(
+        @Path("culture") culture: String,
+        @Body part: RequestBody
+    ): Response<HospitalActionResponse>
+
+    @GET("{culture}/Hospital/GetHospitalBranches")
+    suspend fun getHospitalBranches(
+        @Path("culture") culture: String,
+        @Query("hospitalId") hospitalId: Int
+    ): Response<HospitalBranchesResponse>
+
+    @POST("{culture}/Hospital/CreateHospitalBranch")
+    suspend fun createHospitalBranch(
+        @Path("culture") culture: String,
+        @Body request: HospitalBranchRequest
+    ): Response<HospitalActionResponse>
+
+    @POST("{culture}/Hospital/UpdateHospitalBranch")
+    suspend fun updateHospitalBranch(
+        @Path("culture") culture: String,
+        @Body request: HospitalBranchRequest
+    ): Response<HospitalActionResponse>
+
+    @POST("{culture}/Hospital/DeleteHospitalBranch")
+    suspend fun deleteHospitalBranch(
+        @Path("culture") culture: String,
+        @Query("branchId") branchId: Int
+    ): Response<HospitalActionResponse>
+
+    @GET("{culture}/Services/GetServices")
+    suspend fun getAllServices(
+        @Path("culture") culture: String
+    ): Response<HospitalLookupResponse>
+
+    @GET("{culture}/Services/GetFeatures")
+    suspend fun getAllFeatures(
+        @Path("culture") culture: String
+    ): Response<HospitalLookupResponse>
 
 
 }

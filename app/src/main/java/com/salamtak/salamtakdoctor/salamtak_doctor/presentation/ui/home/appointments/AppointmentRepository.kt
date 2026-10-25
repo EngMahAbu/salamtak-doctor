@@ -37,13 +37,14 @@ class AppointmentRepository {
         maxResultCount: Int? = null,
         polyInfoID: Int? = null,
         doctorID: Int? = null,
+        patientName: String? = null,
     ) = client.getCurrentDoctorAppointmentPolyclinic(Localization.getLanguageName(),
         fromDate,
         toDate,
         clinicID,
         medicalTypeId,
         skipCount,
-        maxResultCount,polyInfoID,doctorID
+        maxResultCount,polyInfoID,doctorID,patientName
     )
 
     suspend fun getHistoryAppointment() = client.getHistoryAppointment(Localization.getLanguageName())

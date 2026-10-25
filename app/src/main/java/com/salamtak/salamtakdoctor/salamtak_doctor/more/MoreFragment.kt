@@ -104,7 +104,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         super.onResume()
         val image = UserData.getImage()
         ImageUtil.loadPicture(binding.profileDoctorImage, image)
-        if (::profileViewModel.isInitialized) {
+        if (::profileViewModel.isInitialized && !DateUtils.isHospital()) {
             profileViewModel.getDoctorProfile()
         }
     }
@@ -151,7 +151,16 @@ class MoreFragment : Fragment(), View.OnClickListener {
         binding.notifictionTv.setOnClickListener(this)
         binding.langTv.setOnClickListener(this)
 
-        if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+        if (DateUtils.isHospital()) {
+            // Hospital design: no image, no videos / patient account / answers
+            binding.mcVideos.visibility = View.GONE
+            binding.mcPatientQuestions.visibility = View.GONE
+            binding.mcDoctorAccont.visibility = View.GONE
+            binding.profileDoctorImage.visibility = View.GONE
+            binding.view2.setOnClickListener {
+                findNavController().navigate(R.id.hospitalProfileFragment)
+            }
+        } else if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
             binding.view2.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("edit", "edit")
@@ -170,7 +179,10 @@ class MoreFragment : Fragment(), View.OnClickListener {
             }
         }
 
-        if (Localization.getLanguageName() == "ar") {
+        if (DateUtils.isHospital()) {
+            val name = if (Localization.getLanguageName() == "ar") UserData.getUserNameAR() else UserData.getUserName()
+            binding.doctorName.text = name?.trim().orEmpty()
+        } else if (Localization.getLanguageName() == "ar") {
             UserData.getUserNameAR()?.let {
                 binding.doctorName.text = it.trim().split("\\s+".toRegex()).take(3).joinToString(" ")
             }
