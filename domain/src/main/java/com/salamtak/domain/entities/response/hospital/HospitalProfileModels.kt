@@ -85,3 +85,39 @@ data class HospitalActionResponse(
     val MessageCode: Int?,
     val Success: Boolean?
 )
+
+/** Body of Hospital/CreateHospitalInfo (sign-up step 2). */
+data class HospitalCreateInfoRequest(
+    val Name: String,
+    val NameAr: String,
+    val CommercialRecNo: String,
+    val TaxCertificateNo: String,
+    val BioAr: String,
+    val BioEn: String,
+    val OwnerID: Int,
+    val UserID: Int,
+    val Status: Int,
+    val Email: String?,
+    val CityId: Int,
+    val AreaId: Int,
+    val Address: String,
+    val Latitude: String?,
+    val Longitude: String?,
+    val Phones: List<String>,
+    val ServiceIds: List<Int>,
+    val InsuranceIds: List<String>,
+    val Features: List<Int>
+)
+
+/** Insurance_Companies/GetAllInsurance_Companies: ids are strings (GUIDs). */
+data class HospitalInsuranceResponse(
+    val Data: List<HospitalInsurance>?,
+    val Message: String?,
+    val MessageCode: Int?,
+    val Success: Boolean?
+)
+
+data class HospitalInsurance(
+    val ID: String?,
+    val Name: String?
+)

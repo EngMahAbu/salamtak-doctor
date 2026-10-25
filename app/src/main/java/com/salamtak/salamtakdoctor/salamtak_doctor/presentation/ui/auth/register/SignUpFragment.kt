@@ -987,6 +987,10 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                 binding.filledTextField.hint=getString(R.string.poly_full_name_in_english)
                 binding.arFilledTextField.hint=getString(R.string.poly_full_name_in_arabic)
             }
+            7->{
+                binding.signUpTv.text=getString(R.string.create_hospital_account)
+                binding.createNew.text=getString(R.string.create_hospital_account)
+            }
         }
     }
 

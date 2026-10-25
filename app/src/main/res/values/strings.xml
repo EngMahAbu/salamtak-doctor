@@ -1495,4 +1495,15 @@
     <string name="hospital_license_no">Medical License No</string>
     <string name="hospital_syndicate_id">Syndicate ID</string>
     <string name="hospital_update_doctor_profile">Update Doctor Profile</string>
+    <string name="create_hospital_account">Create Hospital Account</string>
+    <string name="hospital_next">Next</string>
+    <string name="hospital_full_name_en_required">• Full Name In English Is Required</string>
+    <string name="hospital_full_name_ar_required">• Full Name In Arabic Is Required</string>
+    <string name="hospital_name_en_required">• Hospital Name In English Is Required</string>
+    <string name="hospital_name_ar_required">• Hospital Name In Arabic Is Required</string>
+    <string name="hospital_phone_required">• Phone Must Be 11 Digits</string>
+    <string name="hospital_insurance">Choose Supported Insurance Company(ies)</string>
+    <string name="hospital_next_step_profile">Next step create your Hospital profile</string>
+    <string name="hospital_profile_button">Hospital Profile</string>
+    <string name="hospital_for_completing_profile">For Completing Hospital Profile</string>
 </resources>

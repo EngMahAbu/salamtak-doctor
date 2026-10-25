@@ -1159,4 +1159,15 @@ item 1
     <string name="hospital_license_no">رقم ترخيص مزاولة المهنة</string>
     <string name="hospital_syndicate_id">رقم النقابة</string>
     <string name="hospital_update_doctor_profile">تحديث ملف الطبيب</string>
+    <string name="create_hospital_account">إنشاء حساب مستشفى</string>
+    <string name="hospital_next">التالي</string>
+    <string name="hospital_full_name_en_required">• الاسم بالكامل بالإنجليزية مطلوب</string>
+    <string name="hospital_full_name_ar_required">• الاسم بالكامل بالعربية مطلوب</string>
+    <string name="hospital_name_en_required">• اسم المستشفى بالإنجليزية مطلوب</string>
+    <string name="hospital_name_ar_required">• اسم المستشفى بالعربية مطلوب</string>
+    <string name="hospital_phone_required">• رقم الهاتف يجب أن يكون 11 رقمًا</string>
+    <string name="hospital_insurance">اختر شركات التأمين المدعومة</string>
+    <string name="hospital_next_step_profile">الخطوة التالية: إنشاء ملف المستشفى</string>
+    <string name="hospital_profile_button">ملف المستشفى</string>
+    <string name="hospital_for_completing_profile">لاستكمال ملف المستشفى</string>
 </resources>

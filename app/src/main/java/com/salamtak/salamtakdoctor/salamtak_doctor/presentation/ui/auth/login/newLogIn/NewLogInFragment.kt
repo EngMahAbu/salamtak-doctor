@@ -104,6 +104,11 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
             bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
 
         }
+        binding.layoutBottomsheetpersistant.cardview3.setOnClickListener {
+            val action=NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment(HOSPITAL_TYPE_ID)
+            findNavController().navigate(action)
+            bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
+        }
     }
 
     fun initListeners() {

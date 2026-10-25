@@ -30,6 +30,8 @@ import com.salamtak.domain.entities.response.hospital.HospitalBranchRequest
 import com.salamtak.domain.entities.response.hospital.HospitalBranchesResponse
 import com.salamtak.domain.entities.response.hospital.HospitalClinicsResponse
 import com.salamtak.domain.entities.response.hospital.HospitalCreateClinicRequest
+import com.salamtak.domain.entities.response.hospital.HospitalCreateInfoRequest
+import com.salamtak.domain.entities.response.hospital.HospitalInsuranceResponse
 import com.salamtak.domain.entities.response.hospital.HospitalDataResponse
 import com.salamtak.domain.entities.response.hospital.HospitalDoctorProfileResponse
 import com.salamtak.domain.entities.response.hospital.HospitalScheduleRequest
@@ -1202,6 +1204,30 @@ interface ApiEndpoints {
 
     @GET("{culture}/LookUp/GetMedicalExaminationType")
     suspend fun getBookingTypesLookup(@Path("culture") culture: String): Response<HospitalLookupResponse>
+
+    // Hospital sign-up
+
+    @POST("{culture}/Hospital/CreateHospitalOwner")
+    suspend fun createHospitalOwner(
+        @Path("culture") culture: String,
+        @Body part: RequestBody
+    ): Response<HospitalDataResponse>
+
+    @POST("{culture}/Hospital/CreateHospitalInfo")
+    suspend fun createHospitalInfo(
+        @Path("culture") culture: String,
+        @Body request: HospitalCreateInfoRequest
+    ): Response<HospitalDataResponse>
+
+    @POST("{culture}/Hospital/UploadHospitalInfoImage")
+    suspend fun uploadHospitalInfoImage(
+        @Path("culture") culture: String,
+        @Query("InfoID") infoId: Int,
+        @Body part: RequestBody
+    ): Response<HospitalActionResponse>
+
+    @GET(UseCaseModule.GetAllInsurance)
+    suspend fun getInsuranceLookup(@Path("culture") culture: String): Response<HospitalInsuranceResponse>
 
 
 }

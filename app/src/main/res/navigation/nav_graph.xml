@@ -233,6 +233,21 @@
             android:label="HospitalDoctorsFragment"
             tools:layout="@layout/fragment_hospital_doctors" />
     <fragment
+            android:id="@+id/hospitalSignUpAdminFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.signup.HospitalSignUpAdminFragment"
+            android:label="HospitalSignUpAdminFragment"
+            tools:layout="@layout/fragment_hospital_signup_admin" />
+    <fragment
+            android:id="@+id/hospitalSignUpInfoFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.signup.HospitalSignUpInfoFragment"
+            android:label="HospitalSignUpInfoFragment"
+            tools:layout="@layout/fragment_hospital_signup_info" />
+    <fragment
+            android:id="@+id/hospitalSignUpThanksFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.signup.HospitalSignUpThanksFragment"
+            android:label="HospitalSignUpThanksFragment"
+            tools:layout="@layout/fragment_hospital_signup_thanks" />
+    <fragment
             android:id="@+id/hospitalDoctorClinicsFragment"
             android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.doctors.HospitalDoctorClinicsFragment"
             android:label="HospitalDoctorClinicsFragment"

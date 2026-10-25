@@ -27,6 +27,7 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.BaseFragment
 import com.salamtak.salamtakdoctor.salamtak_doctor.di.ViewModelsModule
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SignUpViewModel
+import androidx.core.os.bundleOf
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.*
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.LoadingDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.NoInternetDialog
@@ -253,6 +254,13 @@ class OtpFragment : BaseFragment<SignUpViewModel>(0), DialogsListener {
                             if (typeId==2){
                                 val action=OtpFragmentDirections.actionOtpFragmentToSetupProfileFragment(0,"")
                                 navController.navigate(action)
+                            }else if (typeId==DateUtils.HOSPITAL_STATUS.toInt()){
+                                // Hospital sign-up: Hospital Admin, then Hospital Info
+                                DateUtils.setHospitalUserId(it.Data.Id.toString())
+                                navController.navigate(
+                                    R.id.hospitalSignUpAdminFragment,
+                                    bundleOf(PHONE to phone, EMAIL to email)
+                                )
                             }else{
                                 navController.navigate(R.id.enterpriseInfoFragment)
                             }
