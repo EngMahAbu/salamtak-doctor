@@ -237,23 +237,31 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
                     binding.patientProfileLayout.patientHight.text=it.Data.Height.toString()
                 }else{
                     binding.patientProfileLayout.patientHight.visibility=View.GONE
+                    binding.patientProfileLayout.tvPatientHight.visibility=View.GONE
                 }
                 if (it.Data.Weight!=null){
                     binding.patientProfileLayout.patientWeight.text=it.Data.Weight.toString()
                 }else{
                     binding.patientProfileLayout.patientWeight.visibility=View.GONE
+                    binding.patientProfileLayout.tvPatientWeight.visibility=View.GONE
                 }
 
 
-                if (!it.Data.SugarLevel.isNullOrEmpty()){
+                if (!it.Data.SugarLevel.isNullOrBlank()){
                     binding.patientProfileLayout.patientSugarLevel.text=it.Data.SugarLevel
+                    binding.patientProfileLayout.patientSugarLevel.visibility=View.VISIBLE
+                    binding.patientProfileLayout.tvPatientSugarLevel.visibility=View.VISIBLE
                 }else{
                     binding.patientProfileLayout.patientSugarLevel.visibility=View.GONE
+                    binding.patientProfileLayout.tvPatientSugarLevel.visibility=View.GONE
                 }
-                if (!it.Data.Pressure.isNullOrEmpty()){
+                if (!it.Data.Pressure.isNullOrBlank()){
                     binding.patientProfileLayout.patientPressure.text=it.Data.Pressure
+                    binding.patientProfileLayout.patientPressure.visibility=View.VISIBLE
+                    binding.patientProfileLayout.tvPatientPressure.visibility=View.VISIBLE
                 }else{
                     binding.patientProfileLayout.patientPressure.visibility=View.GONE
+                    binding.patientProfileLayout.tvPatientPressure.visibility=View.GONE
                 }
                 if (!it.Data.OtherAllergies.isNullOrEmpty()){
                     binding.patientProfileLayout.patientOtherAllergies.text=it.Data.OtherAllergies
