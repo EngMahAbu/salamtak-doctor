@@ -558,13 +558,17 @@ class PatientProfileFragment : Fragment(), View.OnClickListener,
         viewModel.patientEmrModel.observe(viewLifecycleOwner, Observer {
 
             // hide add emr if doctor add before
-            if (it.Data.isEmpty()) {
+            if (it.Data.isNullOrEmpty()) {
 //                binding.emrSendLayout.containerPatientLobby.visibility = View.VISIBLE
+                binding.patientEmrLayout.relativeLayout.visibility = View.VISIBLE
             } else {
-                emrTitleData=it.Data[0]
+                binding.patientEmrLayout.relativeLayout.visibility = View.GONE
+                // show only the latest emr
+                val latestEmr = it.Data.maxBy { emr -> emr.EmrId }
+                emrTitleData=latestEmr
 //            emr_recycler_view.adapter = EmrPatientAdapter(it.Data)
                 binding.patientEmrLayout.emrRecyclerView.adapter =
-                    EmrPatientAdapter(it.Data, this, requireContext(), listener, this, this)
+                    EmrPatientAdapter(listOf(latestEmr), this, requireContext(), listener, this, this)
              //   adapter.setResults(it.Data)
             }
         })
