@@ -100,4 +100,5 @@
     <color name="alert_box_stroke">#F09A9A</color>
     <color name="alert_box_text">#C0392B</color>
     <color name="alert_box_icon">#D32F2F</color>
+    <color name="queue_serving_bg">#EEEEFA</color>
 </resources>

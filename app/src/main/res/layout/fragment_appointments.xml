@@ -46,6 +46,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_queue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/avenir_bold"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:minHeight="0dp"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="8dp"
+                    android:text="@string/queue"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:cornerRadius="50dp"
+                    app:icon="@drawable/ic_queue_people"
+                    app:iconPadding="8dp"
+                    app:iconSize="20dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/background_gray_toolbar" />
+
 <!--                android:id="@+id/filter_iv"-->
 
                 <EditText
@@ -53,7 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="12dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/bg_btn_border_gray_transprent"
                     android:drawableStart="@drawable/ic_search2"
                     android:drawablePadding="8dp"
@@ -69,7 +94,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.483"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/background_gray_toolbar" />
+                    app:layout_constraintTop_toBottomOf="@id/btn_queue" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"

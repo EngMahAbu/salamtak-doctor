@@ -223,7 +223,24 @@
                 app:destination="@id/videoCallFragment"/>
         <action android:id="@+id/action_appointmentsFragment_to_audioCallFragment"
                 app:destination="@id/audioCallFragment"/>
+        <action android:id="@+id/action_appointmentsFragment_to_queueFragment"
+                app:destination="@id/queueFragment"/>
 
+    </fragment>
+    <fragment
+            android:id="@+id/queueFragment"
+            android:name="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.queue.QueueFragment"
+            android:label="QueueFragment"
+            tools:layout="@layout/fragment_queue">
+        <argument
+                android:name="clinicId"
+                app:argType="integer"
+                android:defaultValue="0"/>
+        <argument
+                android:name="clinicName"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"/>
     </fragment>
     <fragment
             android:id="@+id/clinicsFragment"

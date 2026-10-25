@@ -28,6 +28,10 @@ import com.salamtak.domain.entities.response.offers.SubCategoryResponse
 import com.salamtak.domain.entities.response.poly.PolyClinicAdminResponse
 import com.salamtak.domain.entities.response.poly.PolyClinicInfoResponse
 import com.salamtak.domain.entities.response.poly.PolyClinicsDoctorsResponse
+import com.salamtak.domain.entities.response.queue.CancelQueueTicketRequest
+import com.salamtak.domain.entities.response.queue.QueueActionResponse
+import com.salamtak.domain.entities.response.queue.QueueBoardResponse
+import com.salamtak.domain.entities.response.queue.QueueTicketActionRequest
 import com.salamtak.domain.entities.response.poly.get.GetPolyInfoResponse
 import com.salamtak.domain.entities.response.poly.get.GetPolyResponse
 import com.salamtak.domain.entities.response.poly.get.update.UpdatePolyClinicInfo
@@ -973,6 +977,25 @@ interface ApiEndpoints {
         @Path("culture") culture: String,
         @Body part: RequestBody
     ): Response<UpdateDoctorProfileResponse>
+
+    @GET("{culture}/Queue/GetQueueBoard")
+    suspend fun getQueueBoard(
+        @Path("culture") culture: String,
+        @Query("HealthEntityId") healthEntityId: Int,
+        @Query("QueueDate") queueDate: String
+    ): Response<QueueBoardResponse>
+
+    @POST("{culture}/Queue/Complete")
+    suspend fun completeQueueTicket(
+        @Path("culture") culture: String,
+        @Body request: QueueTicketActionRequest
+    ): Response<QueueActionResponse>
+
+    @POST("{culture}/Queue/Cancel")
+    suspend fun cancelQueueTicket(
+        @Path("culture") culture: String,
+        @Body request: CancelQueueTicketRequest
+    ): Response<QueueActionResponse>
 
 
 }

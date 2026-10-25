@@ -1405,4 +1405,16 @@
     <string name="verification_code_will_be_sent_within">Verification code will be sent within</string>
     <string name="welcome_subtitle">Book your appointment with the best doctors easily and conveniently</string>
     <string name="welcome_alert_message">Congratulations! You downloaded Salamtak Doctors Application. If you are a Patient, Please Download Salamtak Patients Application instead</string>
+    <!-- Queue -->
+    <string name="queue">Queue</string>
+    <string name="queue_clinics">Clinics</string>
+    <string name="currently_serving">Currently Serving</string>
+    <string name="original_booking_time">Original Booking Time</string>
+    <string name="estimated_waiting_time">Estimated Waiting Time</string>
+    <string name="queue_minutes">%1$d min</string>
+    <string name="queue_empty">No patients in the queue</string>
+    <string name="queue_complete">Complete</string>
+    <string name="queue_cancel_confirm">Cancel %1$s from the queue?</string>
+    <string name="queue_yes">Yes</string>
+    <string name="queue_no">No</string>
 </resources>

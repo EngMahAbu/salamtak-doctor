@@ -29,6 +29,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.salamtak.R
+import com.salamtak.databinding.BottomSheetQueueClinicsBinding
 import com.salamtak.databinding.FragmentAppointmentsBinding
 import com.salamtak.domain.entities.response.*
 import com.salamtak.domain.entities.response.poly.ListOfDoctors
@@ -40,10 +41,12 @@ import com.salamtak.salamtakdoctor.model.PatientProfile
 import com.salamtak.salamtakdoctor.noConnectivityDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.di.ViewModelsModule
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.filter.FilterViewModel
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.queue.QueueClinicsAdapter
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.clinics.adapters.ClinicFilterAdapter
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.clinics.adapters.ClinicTypesAdapter
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.home.HomeViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.home.adapter.SliderAdapter
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.OffersViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SetupClinicViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SetupServicesViewModel
@@ -83,6 +86,11 @@ class AppointmentsFragment : Fragment(),
     private lateinit var bottomsheetbeahavoirClinics: BottomSheetBehavior<ConstraintLayout>
     private lateinit var pollyClinicsDoctorsAdapter: PollyClinicsDoctorsAdapter
     private lateinit var appointmetsPollyClinicsDoctorsAdapter: AppointemtsPollyClinicsAdapter
+    // queue clinic picker
+    private lateinit var offersViewModel: OffersViewModel
+    private lateinit var queueClinicsAdapter: QueueClinicsAdapter
+    private var queueClinicsSheet: BottomSheetDialog? = null
+    private var queueSheetBinding: BottomSheetQueueClinicsBinding? = null
    // private val sessionManagement: SessionManagement by inject()
     val list = ArrayList<String>()
     var onActionPosition = 0
@@ -144,6 +152,7 @@ class AppointmentsFragment : Fragment(),
         filterViewModel = ViewModelProvider(this).get(FilterViewModel::class.java)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         polyclinicsviewModel = ViewModelProvider(this).get(PolyClinicsViewModel::class.java)
+        offersViewModel = ViewModelProvider(this).get(OffersViewModel::class.java)
 //        clinicsAdapter = ClinicFilterAdapter(this)
 //        clinicTypeAdapter = ClinicTypesAdapter(requireContext(), this)
 
@@ -170,6 +179,66 @@ class AppointmentsFragment : Fragment(),
         initObserve()
         initButton()
         initBottomSheetServices()
+        initQueueClinics()
+    }
+
+    private fun initQueueClinics() {
+        queueClinicsAdapter = QueueClinicsAdapter { clinicId, clinicName ->
+            queueClinicsSheet?.dismiss()
+            findNavController().navigate(
+                AppointmentsFragmentDirections.actionAppointmentsFragmentToQueueFragment()
+                    .setClinicId(clinicId)
+                    .setClinicName(clinicName)
+            )
+        }
+
+        offersViewModel.clinicsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> {
+                    queueSheetBinding?.progressBar?.visibility = View.VISIBLE
+                }
+
+                is Resource.sucess -> {
+                    queueSheetBinding?.progressBar?.visibility = View.GONE
+                    queueClinicsAdapter.submitList(it.data?.data.orEmpty())
+                }
+
+                is Resource.Error -> {
+                    queueSheetBinding?.progressBar?.visibility = View.GONE
+                    it.message?.let { message -> errorMessage(message) }
+                }
+            }
+        }
+
+        binding.btnQueue.setOnClickListener { showQueueClinicsSheet() }
+    }
+
+    private fun showQueueClinicsSheet() {
+        if (queueClinicsAdapter.currentList.isEmpty()) {
+            if (!isOnline(mContext)) {
+                noConnectivityDialog.noInternetDialogFragment(requireContext())
+                return
+            }
+            offersViewModel.getDoctorClinics()
+        }
+        val sheetBinding = BottomSheetQueueClinicsBinding.inflate(layoutInflater)
+        sheetBinding.rvClinics.adapter = queueClinicsAdapter
+        sheetBinding.progressBar.visibility =
+            if (offersViewModel.clinicsResponse.value is Resource.Loading) View.VISIBLE else View.GONE
+        queueSheetBinding = sheetBinding
+
+        queueClinicsSheet = BottomSheetDialog(requireContext(), R.style.QueueSheetDialogTheme).apply {
+            setContentView(sheetBinding.root)
+            // open fully but leave the top of the screen visible; the list scrolls inside
+            behavior.maxHeight = (resources.displayMetrics.heightPixels * 0.85).toInt()
+            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            behavior.skipCollapsed = true
+            setOnDismissListener {
+                queueClinicsSheet = null
+                queueSheetBinding = null
+            }
+            show()
+        }
     }
 
     private fun initButton(){
@@ -247,14 +316,14 @@ class AppointmentsFragment : Fragment(),
         binding.appointmentRv.layoutManager = LinearLayoutManager(requireContext())
 
         binding.search.addTextChangedListener {
-            if (it?.length!! >= 3) {
+            val query = it?.toString().orEmpty()
+            if (query.length >= 3) {
                 if (isOnline(mContext)) {
                     filterViewModel.filter(fillFilterRequest(FilterModel()))
                 } else {
                     noConnectivityDialog.noInternetDialogFragment(requireContext())
                 }
-            }
-            if (it.isEmpty()) {
+            } else if (query.isEmpty()) {
                 if (isOnline(mContext)) {
                     Log.d("getReq", "initObserve: $today, $toDate,$clinicId, $appointmentId")
                     Log.d("getAppointmentLog","on line 252")
@@ -639,6 +708,7 @@ class AppointmentsFragment : Fragment(),
 
     override fun onDestroyView() {
         super.onDestroyView()
+        queueClinicsSheet?.dismiss()
         if (loading.isShowing) {
             loading.dismiss()
         }

@@ -1069,4 +1069,16 @@ item 1
 
     </string-array>
 
+    <!-- Queue -->
+    <string name="queue">الدور</string>
+    <string name="queue_clinics">العيادات</string>
+    <string name="currently_serving">جاري الكشف الآن</string>
+    <string name="original_booking_time">موعد الحجز الأصلي</string>
+    <string name="estimated_waiting_time">وقت الانتظار المتوقع</string>
+    <string name="queue_minutes">%1$d دقيقة</string>
+    <string name="queue_empty">لا يوجد مرضى في الدور</string>
+    <string name="queue_complete">إنهاء</string>
+    <string name="queue_cancel_confirm">إلغاء دور %1$s؟</string>
+    <string name="queue_yes">نعم</string>
+    <string name="queue_no">لا</string>
 </resources>

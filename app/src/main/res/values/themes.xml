@@ -47,6 +47,15 @@
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
 
+    <!-- Queue clinic sheet: transparent container, the content draws its own rounded top -->
+    <style name="QueueSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/QueueSheetModalStyle</item>
+    </style>
+
+    <style name="QueueSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/rounded_dialog</item>
     </style>

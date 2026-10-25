@@ -157,6 +157,8 @@ class AppointmentFragment : Fragment(),
             binding.appointmentRv.adapter?.notifyDataSetChanged()
         }
         noInternetDialog = NoInternetDialog(mContext, this)
+        // shares fragment_appointments; the queue picker only lives on the Appointments tab
+        binding.btnQueue.visibility = View.GONE
 
         try {
             if (!args?.clinicId.isNullOrEmpty()){
@@ -235,14 +237,14 @@ class AppointmentFragment : Fragment(),
         binding.appointmentRv.layoutManager = LinearLayoutManager(requireContext())
 
         binding.search.addTextChangedListener {
-            if (it?.length!! >= 3) {
+            val query = it?.toString().orEmpty()
+            if (query.length >= 3) {
                 if (isOnline(mContext)) {
                     filterViewModel.filter(fillFilterRequest(FilterModel()))
                 } else {
                     noConnectivityDialog.noInternetDialogFragment(requireContext())
                 }
-            }
-            if (it.isEmpty()) {
+            } else if (query.isEmpty()) {
                 if (isOnline(mContext)) {
                     Log.d("getReq", "initObserve: $today, $toDate,$clinicId, $appointmentId")
                     Log.d("getAppointmentLog","on line 252")
