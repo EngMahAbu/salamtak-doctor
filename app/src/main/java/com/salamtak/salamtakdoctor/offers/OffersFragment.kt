@@ -1,6 +1,7 @@
 package com.salamtak.salamtakdoctor.offers
 
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -57,7 +58,16 @@ class OffersFragment : Fragment(),OffersAdapter.SelectOfferId{
             findNavController().navigate(action)
         }
         binding.ivArrow.setOnClickListener {
-            findNavController().popBackStack()
+            backToMore()
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            backToMore()
+        }
+    }
+
+    private fun backToMore() {
+        if (!findNavController().popBackStack()) {
+            findNavController().navigate(R.id.moreFragment)
         }
     }
 

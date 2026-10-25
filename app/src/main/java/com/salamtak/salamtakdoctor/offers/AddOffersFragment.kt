@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
@@ -142,7 +143,10 @@ class AddOffersFragment : NewBaseFragment(R.layout.add_offersfragment), ChooseCl
         }
 
         binding.ivArrow.setOnClickListener {
-            findNavController().navigate(R.id.offersFragment)
+            backToOffers()
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            backToOffers()
         }
 
         binding.btnLayoutChooseClinic.setOnClickListener {
@@ -683,7 +687,7 @@ class AddOffersFragment : NewBaseFragment(R.layout.add_offersfragment), ChooseCl
                             this.offerId = response.data.data.offerId
                         }
                         if (images.isNullOrEmpty()) {
-                            findNavController().navigate(R.id.offersFragment)
+                            backToOffers()
                         } else {
                             for (i in 0 until images.size) {
                                 sendData(offerId, i)
@@ -718,7 +722,7 @@ class AddOffersFragment : NewBaseFragment(R.layout.add_offersfragment), ChooseCl
                             this.offerId = response.data.data.offerId
                         }
                         if (images.isNullOrEmpty()) {
-                            findNavController().navigate(R.id.offersFragment)
+                            backToOffers()
                         } else {
                             for (i in 0 until images.size) {
                                 sendData(args.offerId, i)
@@ -745,6 +749,12 @@ class AddOffersFragment : NewBaseFragment(R.layout.add_offersfragment), ChooseCl
             })
         }
 
+    }
+
+    private fun backToOffers() {
+        if (!findNavController().popBackStack(R.id.offersFragment, false)) {
+            findNavController().navigate(R.id.offersFragment)
+        }
     }
 
     private fun sendData(offerId: Int, index: Int) {
@@ -785,7 +795,7 @@ class AddOffersFragment : NewBaseFragment(R.layout.add_offersfragment), ChooseCl
                         Snackbar.LENGTH_SHORT
                     ).show()
                     if (index == images.size - 1) {
-                        findNavController().navigate(R.id.offersFragment)
+                        backToOffers()
                     }
                 }
 
