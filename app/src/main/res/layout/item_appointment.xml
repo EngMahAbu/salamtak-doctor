@@ -111,7 +111,8 @@
             android:textColor="@color/new_title_color"
             android:textSize="@dimen/_16ssp"
             android:singleLine="true"
-            app:layout_constraintHorizontal_bias="1.0"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Mohamed Mansour" />
