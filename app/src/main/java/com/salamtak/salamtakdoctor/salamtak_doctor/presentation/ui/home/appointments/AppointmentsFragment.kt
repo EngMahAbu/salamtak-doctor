@@ -1096,7 +1096,6 @@ class AppointmentsFragment : Fragment(),
 
     private fun bindViews(){
         if (isHospital) {
-            polyInfoID = DateUtils.getHospitalInfoId()
             // CLINIC_ID defaults to 0 when Home opened the tab without a clinic filter
             if (clinicId == 0) clinicId = null
             // Not in the hospital design: Queue button
@@ -1205,9 +1204,11 @@ class AppointmentsFragment : Fragment(),
             noConnectivityDialog.noInternetDialogFragment(requireContext())
             return
         }
-        viewModel.getAppointment(
-            today.ifBlank { null }, toDate.ifBlank { null }, clinicId, appointmentId,
-            0, 10, polyInfoID, doctorID, patientName
+        val hospitalId = DateUtils.getHospitalId() ?: return
+        // Per doctor: the polyclinic list (PolyInfoID) returns nothing for hospital clinics
+        viewModel.getHospitalAppointments(
+            hospitalId, clinicId, doctorID,
+            today.ifBlank { null }, toDate.ifBlank { null }, appointmentId, patientName
         )
     }
 

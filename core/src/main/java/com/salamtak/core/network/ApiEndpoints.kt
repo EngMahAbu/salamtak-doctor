@@ -364,6 +364,22 @@ interface ApiEndpoints {
         @Query("MaxResultCount") maxResultCount: Int? = null
     ): NetworkResponse<AppointmentResponse, ErrorModel>
 
+    /**
+     * Hospital: the current-appointments list only answers per doctor (without DoctorID it
+     * returns 500, and the polyclinic endpoint finds nothing for hospital clinics).
+     */
+    @GET(UseCaseModule.GET_CURRENT_APPOINTMENT)
+    suspend fun getHospitalDoctorAppointments(
+        @Path("culture") culture: String,
+        @Query("DoctorID") doctorId: Int,
+        @Query("DateFrom") dateFrom: String? = null,
+        @Query("DateTo") dateTo: String? = null,
+        @Query("medicalTypeId") medicalTypeId: Int? = null,
+        @Query("PatientName") patientName: String? = null,
+        @Query("SkipCount") skipCount: Int? = null,
+        @Query("MaxResultCount") maxResultCount: Int? = null
+    ): NetworkResponse<AppointmentResponse, ErrorModel>
+
     @GET("{culture}/DoctorAppointment/GetCurrentDoctorAppointmentPolyclinic")
     suspend fun getCurrentDoctorAppointmentPolyclinic(
         @Path("culture") culture: String,

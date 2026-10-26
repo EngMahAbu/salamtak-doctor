@@ -9,6 +9,10 @@ import com.salamtak.core.newNetwork.NetworkResponse
 import com.salamtak.domain.entities.response.AgoraMeetingResponse
 import com.salamtak.domain.entities.response.AppointmentResponse
 import com.salamtak.domain.entities.response.Item
+import com.salamtak.domain.entities.response.NewsData
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.hospital.HospitalRepository
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
 class AppointmentViewModel : ViewModel() {
@@ -74,6 +78,10 @@ class AppointmentViewModel : ViewModel() {
     var loadingMore = MutableLiveData(false)
     private var totalAppointments = 0
     private var lastQuery: AppointmentQuery? = null
+
+    // Hospital list (see getHospitalAppointments)
+    private val hospitalRepo = HospitalRepository()
+    private var hospitalRequest: Any? = null
 
     private data class AppointmentQuery(
         val fromDate: String?,
@@ -165,6 +173,62 @@ class AppointmentViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Hospital list: GetCurrentDoctorAppointment only answers per doctor, so ask for [doctorId] or,
+     * with "All Doctors", for every doctor of the clinic / hospital, and merge by date.
+     * Not paged: each doctor's page is large enough for the current list.
+     */
+    fun getHospitalAppointments(
+        hospitalId: Int,
+        clinicId: Int?,
+        doctorId: Int?,
+        fromDate: String?,
+        toDate: String?,
+        medicalTypeId: Int?,
+        patientName: String?,
+    ) {
+        lastQuery = null
+        loadingMore.value = false
+        showLoading.value = true
+        val request = Any()
+        hospitalRequest = request
+        viewModelScope.launch {
+            val doctorIds = if (doctorId != null) listOf(doctorId) else runCatching {
+                val response = if (clinicId != null) hospitalRepo.getClinicDoctors(clinicId)
+                else hospitalRepo.getHospitalDoctorList(hospitalId)
+                response.body()?.Data.orEmpty().map { it.DoctorId }.distinct()
+            }.getOrDefault(emptyList())
+
+            val results = doctorIds.map { id ->
+                async {
+                    repo.getHospitalDoctorAppointments(
+                        id, fromDate, toDate, medicalTypeId?.takeIf { it != 0 },
+                        patientName?.takeIf { it.isNotBlank() }, HOSPITAL_PAGE_SIZE
+                    )
+                }
+            }.awaitAll()
+            // Ignore a late response for a filter the user has already replaced
+            if (request !== hospitalRequest) return@launch
+
+            val items = results.filterIsInstance<NetworkResponse.Success<AppointmentResponse>>()
+                .flatMap { it.body.Data.Items.orEmpty() }
+                .sortedBy { it.AppointmentDate }
+            loadedAppointments.clear()
+            loadedAppointments.addAll(items)
+            totalAppointments = items.size
+            val first = results.firstOrNull { it is NetworkResponse.Success } as? NetworkResponse.Success
+            if (first != null || doctorIds.isEmpty()) {
+                val body = first?.body
+                AppointmentModel.value = body?.copy(Data = body.Data.copy(Items = loadedAppointments, TotalCount = items.size))
+                    ?: AppointmentResponse(NewsData(loadedAppointments, 0), "", 200, true)
+            } else {
+                (results.firstOrNull { it is NetworkResponse.ApiError } as? NetworkResponse.ApiError)
+                    ?.let { error.value = it.body }
+            }
+            showLoading.value = false
+        }
+    }
+
     fun getHistoryAppointment() {
         // History isn't paged; stop paging the current list
         lastQuery = null
@@ -252,4 +316,8 @@ class AppointmentViewModel : ViewModel() {
 //        }
 //    }
 
+    companion object {
+        /** Per-doctor page for the hospital list (merged, not paged further). */
+        private const val HOSPITAL_PAGE_SIZE = 100
+    }
 }

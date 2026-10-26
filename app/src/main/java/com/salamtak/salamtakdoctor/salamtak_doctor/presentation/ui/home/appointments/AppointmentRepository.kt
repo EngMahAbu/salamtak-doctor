@@ -47,6 +47,18 @@ class AppointmentRepository {
         maxResultCount,polyInfoID,doctorID,patientName
     )
 
+    suspend fun getHospitalDoctorAppointments(
+        doctorId: Int,
+        fromDate: String?,
+        toDate: String?,
+        medicalTypeId: Int?,
+        patientName: String?,
+        maxResultCount: Int
+    ) = client.getHospitalDoctorAppointments(
+        Localization.getLanguageName(), doctorId, fromDate, toDate, medicalTypeId, patientName,
+        0, maxResultCount
+    )
+
     suspend fun getHistoryAppointment() = client.getHistoryAppointment(Localization.getLanguageName())
 
     suspend fun cancelAppointment(appointmentId: Int, cancelReason: String?=null) = client.cancelAppointment(Localization.getLanguageName(),appointmentId,cancelReason)
