@@ -46,7 +46,7 @@ class HospitalDoctorsAdapter(
             ImageUtil.loadPicture(ivDoctor, doctor.DoctorImage)
 
             val hasClinic = row.clinic != null
-            ivClinic.setImageResource(if (hasClinic) R.drawable.svg_hospital else R.drawable.ic_add)
+            ivClinic.setImageResource(if (hasClinic) R.drawable.svg_hospital else R.drawable.svg_add_clinic)
             ivClinic.setOnClickListener {
                 if (hasClinic) listener.onClinics(row) else listener.onAddClinic(row)
             }

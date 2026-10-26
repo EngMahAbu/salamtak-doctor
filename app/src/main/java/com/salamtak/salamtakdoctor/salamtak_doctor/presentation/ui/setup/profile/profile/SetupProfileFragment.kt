@@ -182,8 +182,11 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
             binding.yourStateProgressBarId.visibility = View.GONE
             binding.horizontalScrollView.visibility = VISIBLE
             binding.profileToolbar.backBtn.visibility = GONE
-            binding.profileToolbar.backBtn.setOnClickListener {
-                navController.navigate(R.id.moreFragment)
+            // editClick is "" by default, so this also runs for Add Doctor: keep the hospital's back target
+            if (!DateUtils.isHospital()) {
+                binding.profileToolbar.backBtn.setOnClickListener {
+                    navController.navigate(R.id.moreFragment)
+                }
             }
 
         }

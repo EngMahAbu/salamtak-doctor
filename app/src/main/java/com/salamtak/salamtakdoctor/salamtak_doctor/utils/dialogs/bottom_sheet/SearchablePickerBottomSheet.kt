@@ -76,6 +76,10 @@ class SearchablePickerBottomSheet : BottomSheetDialogFragment() {
         binding.choicesRv.adapter = adapter
         adapter.filter("")
 
+        // Open, so tapping anywhere on the bar starts typing (not only the magnifier icon)
+        binding.search.setIconifiedByDefault(false)
+        binding.search.isIconified = false
+        binding.search.clearFocus()
         binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean = false
 
