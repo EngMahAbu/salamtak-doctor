@@ -85,6 +85,8 @@ class AppointmentAdapter(
 //            holder.binding.accountButton.visibility = View.VISIBLE
 //        }
         holder.binding.appointment = appointList[position]
+        val managesDoctors = DateUtils.managesDoctors()
+        if (managesDoctors) resetStatusChip(holder)
         if (DateUtils.getAdminOwnerId().isNullOrEmpty()){
             holder.binding.rlLayoutdoctor.visibility=View.GONE
         }else{
@@ -286,6 +288,64 @@ class AppointmentAdapter(
             }
 
         }
+
+        if (managesDoctors) bindManagerActions(holder, appointList[position], position)
+    }
+
+    // Recycled cards keep the previous card's chip colours otherwise
+    private fun resetStatusChip(holder: ViewHolder) {
+        holder.binding.cardclinic.background.setTint(ContextCompat.getColor(context, R.color.appointment_status_bg))
+        holder.binding.clinicNameTextview.setTextColor(ContextCompat.getColor(context, R.color.black))
+    }
+
+    // Polyclinic / hospital: an upcoming booking shows Confirm / Amend / Cancel until it's
+    // confirmed, then Patient Profile / Account + Cancel
+    private fun bindManagerActions(holder: ViewHolder, item: Item, position: Int) {
+        val binding = holder.binding
+        binding.confirmButton.setOnClickListener {
+            onAppointmentClickListener.onConfirmClicked(item, position)
+        }
+        binding.amendButton.setOnClickListener {
+            onAppointmentClickListener.onAmendClicked(item)
+        }
+        binding.cancleButton.backgroundTintList = null
+        binding.cancleButton.setBackgroundResource(R.drawable.bg_appointment_cancel)
+        binding.cancleButton.setTextColor(ContextCompat.getColor(context, R.color.appointment_cancel))
+        binding.completedButton.backgroundTintList = null
+        binding.completedButton.setBackgroundResource(R.drawable.bg_appointment_complete)
+        binding.completedButton.setTextColor(ContextCompat.getColor(context, R.color.appointment_confirm))
+        binding.completedButton.text = context.getString(R.string.appointment_complete)
+        binding.nowShowButton.backgroundTintList = null
+        binding.nowShowButton.setBackgroundResource(R.drawable.bg_appointment_no_show)
+        binding.nowShowButton.setTextColor(ContextCompat.getColor(context, R.color.appointment_no_show))
+        // A past booking waiting for Complete / No Show shows "View Patient" (design)
+        binding.accountButton.text = context.getString(
+            if (binding.completedButton.visibility == View.VISIBLE) R.string.appointment_view_patient
+            else R.string.account
+        )
+
+        val upcoming = !item.IsCancel && !item.IsCompleted && !item.IsNoShow &&
+                isDateGreaterThanCurrent(item.AppointmentDate)
+        // TODO(confirm-api): read the confirmed flag from the appointment list response once the
+        //  backend returns one (add it to Item like IsCompleted / IsNoShow) instead of the device list
+        val confirmed = item.AppointmentId in DateUtils.getConfirmedAppointments()
+        val awaitingConfirm = upcoming && !confirmed
+        binding.confirmButton.visibility = if (awaitingConfirm) View.VISIBLE else View.GONE
+        binding.amendButton.visibility = if (awaitingConfirm) View.VISIBLE else View.GONE
+        if (!upcoming) return
+
+        binding.cancleButton.visibility = View.VISIBLE
+        binding.accountButton.visibility = if (confirmed) View.VISIBLE else View.GONE
+        binding.clinicNameTextview.visibility = View.VISIBLE
+        if (confirmed) {
+            binding.clinicNameTextview.text = context.getString(R.string.appointment_confirmed)
+            binding.clinicNameTextview.setTextColor(ContextCompat.getColor(context, R.color.appointment_confirm))
+            binding.cardclinic.background.setTint(ContextCompat.getColor(context, R.color.appointment_confirm_bg))
+        } else {
+            binding.clinicNameTextview.text = context.getString(R.string.pending)
+            binding.clinicNameTextview.setTextColor(ContextCompat.getColor(context, R.color.new_themeBlue_color))
+            binding.cardclinic.background.setTint(ContextCompat.getColor(context, R.color.appointment_pending_bg))
+        }
     }
 
     private fun showVideoCallButton(dateFromApi: String, holder: ViewHolder, timeFromApi: String) {
@@ -327,6 +387,8 @@ class AppointmentAdapter(
         fun onAppointmentClicked(newsData: Item)
         fun onVideoCallClicked(appointmentId: Long)
         fun onVoiceCallClicked(appointmentId: Long, appointmentItem: Item)
+        fun onConfirmClicked(appointment: Item, position: Int) {}
+        fun onAmendClicked(appointment: Item) {}
     }
 
     interface OnCancelAppointmentClickListener {

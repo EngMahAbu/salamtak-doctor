@@ -1506,4 +1506,8 @@
     <string name="hospital_next_step_profile">Next step create your Hospital profile</string>
     <string name="hospital_profile_button">Hospital Profile</string>
     <string name="hospital_for_completing_profile">For Completing Hospital Profile</string>
+    <string name="appointment_amend">Amend</string>
+    <string name="appointment_confirmed">Confirmed</string>
+    <string name="appointment_view_patient">View Patient</string>
+    <string name="appointment_complete">Complete</string>
 </resources>

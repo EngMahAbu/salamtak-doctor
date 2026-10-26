@@ -539,7 +539,7 @@
                     android:id="@+id/completed_button"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_margin="8dp"
+                    android:layout_margin="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_btn_blue"
                     android:backgroundTint="@color/green"
@@ -565,11 +565,46 @@
                 android:visibility="gone"
                />
 
+            <!-- Polyclinic / hospital only: upcoming appointments not confirmed yet -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirm_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_appointment_confirm"
+                android:drawableStart="@drawable/ic_appointment_confirm"
+                android:fontFamily="@font/avenir_regular"
+                android:paddingHorizontal="@dimen/_6sdp"
+                android:singleLine="true"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/appointment_confirm"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/amend_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_appointment_amend"
+                android:drawableStart="@drawable/ic_appointment_amend"
+                android:fontFamily="@font/avenir_regular"
+                android:paddingHorizontal="@dimen/_6sdp"
+                android:singleLine="true"
+                android:text="@string/appointment_amend"
+                android:textAllCaps="false"
+                android:textColor="@color/new_themeBlue_color"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone" />
+
             <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/cancle_button"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_margin="8dp"
+                    android:layout_margin="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_btn_blue"
                     android:text="@string/cancel"

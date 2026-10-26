@@ -155,6 +155,18 @@ object DateUtils {
         return SharedPreferencesTool.getString(context,SharedPreferencesKeys.HospitalUserId.name)?.toIntOrNull()
     }
 
+    // The backend has no confirm endpoint yet, so confirmed appointments live on the device
+    // TODO(confirm-api): remove these two helpers, SharedPreferencesKeys.ConfirmedAppointments and
+    //  its reset in UserData.logout() once confirmation comes from the backend
+    fun getConfirmedAppointments(): Set<Long> {
+        return SharedPreferencesTool.getString(context, SharedPreferencesKeys.ConfirmedAppointments.name)
+            ?.split(",")?.mapNotNull { it.toLongOrNull() }?.toSet().orEmpty()
+    }
+    fun addConfirmedAppointment(appointmentId: Long) {
+        val ids = getConfirmedAppointments() + appointmentId
+        SharedPreferencesTool.setString(context, SharedPreferencesKeys.ConfirmedAppointments.name, ids.joinToString(","))
+    }
+
 
 
 

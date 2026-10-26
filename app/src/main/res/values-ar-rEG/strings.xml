@@ -1170,4 +1170,8 @@ item 1
     <string name="hospital_next_step_profile">الخطوة التالية: إنشاء ملف المستشفى</string>
     <string name="hospital_profile_button">ملف المستشفى</string>
     <string name="hospital_for_completing_profile">لاستكمال ملف المستشفى</string>
+    <string name="appointment_amend">تعديل</string>
+    <string name="appointment_confirmed">تم التأكيد</string>
+    <string name="appointment_view_patient">عرض المريض</string>
+    <string name="appointment_complete">إتمام</string>
 </resources>

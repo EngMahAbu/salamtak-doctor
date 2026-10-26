@@ -101,4 +101,11 @@
     <color name="alert_box_text">#C0392B</color>
     <color name="alert_box_icon">#D32F2F</color>
     <color name="queue_serving_bg">#EEEEFA</color>
+    <color name="appointment_confirm">#4CAF3E</color>
+    <color name="appointment_confirm_bg">#E8F3E5</color>
+    <color name="appointment_amend_bg">#E8E8FD</color>
+    <color name="appointment_cancel">#E5534B</color>
+    <color name="appointment_pending_bg">#E9E9EE</color>
+    <color name="appointment_status_bg">#EBFAF9</color>
+    <color name="appointment_no_show">#E5B92E</color>
 </resources>

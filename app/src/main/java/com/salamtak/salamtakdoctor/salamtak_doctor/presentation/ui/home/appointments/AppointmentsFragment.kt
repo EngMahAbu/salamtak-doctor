@@ -424,11 +424,12 @@ class AppointmentsFragment : Fragment(),
         viewModel.cancel.observe(viewLifecycleOwner, Observer {
 
             if (it.Success) {
-                viewModel.AppointmentModel.observe(viewLifecycleOwner, Observer { it1 ->
-                    it1.Data.Items[onActionPosition].IsCancel = true
-                    binding.appointmentRv.adapter!!.notifyItemChanged(onActionPosition)
-
-                })
+                // Mark the card that was cancelled in the list on screen (search / filter
+                // results are a different list than AppointmentModel)
+                shownAppointments()?.getOrNull(onActionPosition)?.let { item ->
+                    item.IsCancel = true
+                    binding.appointmentRv.adapter?.notifyItemChanged(onActionPosition)
+                }
                 messageCode=it.MessageCode
                 if (it.MessageCode==201){
                     findNavController().navigate(R.id.appointmentsFragment)
@@ -720,7 +721,29 @@ class AppointmentsFragment : Fragment(),
         }
     }
 
+    private fun shownAppointments(): List<Item>? =
+        (binding.appointmentRv.adapter as? AppointmentAdapter)?.appointList
+
+    // No confirm endpoint on the backend yet: confirmation is kept on the device
+    // TODO(confirm-api): when the backend adds a confirm endpoint, call it here (like
+    //  onActionClicked → viewModel.changeAppointmentStatus) and mark the card on success
+    //  instead of DateUtils.addConfirmedAppointment. Also see AppointmentAdapter.bindManagerActions
+    //  and DateUtils.getConfirmedAppointments.
+    override fun onConfirmClicked(appointment: Item, position: Int) {
+        DateUtils.addConfirmedAppointment(appointment.AppointmentId)
+        binding.appointmentRv.adapter?.notifyItemChanged(position)
+    }
+
+    // Changes to a booking go through support
+    override fun onAmendClicked(appointment: Item) {
+        findNavController().navigate(R.id.dialogCalling)
+    }
+
     override fun onCancelAppointmentClicked(newsData: Item) {
+        // The cancel result marks this card, so remember where it is
+        onActionPosition = shownAppointments()
+            ?.indexOfFirst { it.AppointmentId == newsData.AppointmentId }
+            ?.takeIf { it >= 0 } ?: onActionPosition
         val bottomSheetDialog = BottomSheetDialog(requireContext())
         bottomSheetDialog.setContentView(R.layout.cancelappointmentbottomsheet)
 

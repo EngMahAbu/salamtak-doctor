@@ -187,6 +187,12 @@ class AppointmentViewModel : ViewModel() {
         medicalTypeId: Int?,
         patientName: String?,
     ) {
+        // TODO(dummy-appointments): remove once the hospital has an appointments endpoint
+        if (DummyAppointments.enabled) {
+            // Hospital debug builds show static appointments (see DummyAppointments)
+            showDummyAppointments(patientName)
+            return
+        }
         lastQuery = null
         loadingMore.value = false
         showLoading.value = true
@@ -229,6 +235,18 @@ class AppointmentViewModel : ViewModel() {
         }
     }
 
+    private fun showDummyAppointments(patientName: String?) {
+        lastQuery = null
+        hospitalRequest = null
+        loadingMore.value = false
+        val items = DummyAppointments.items(patientName)
+        loadedAppointments.clear()
+        loadedAppointments.addAll(items)
+        totalAppointments = items.size
+        AppointmentModel.value =
+            AppointmentResponse(NewsData(loadedAppointments, items.size), "", 200, true)
+    }
+
     fun getHistoryAppointment() {
         // History isn't paged; stop paging the current list
         lastQuery = null
@@ -253,7 +271,14 @@ class AppointmentViewModel : ViewModel() {
         }
     }
 
+    // TODO(dummy-appointments): dummy appointments are changed locally, never sent to the API
+    private fun dummySuccess() = ErrorModel(Any(), null, 200, true, 200)
+
     fun cancelAppointment(appointmentId: Int, cancelReason: String?=null) {
+        if (DummyAppointments.isDummy(appointmentId.toLong())) {
+            cancel.value = dummySuccess()
+            return
+        }
         showLoading.value = true
         viewModelScope.launch {
             val cancelAppointment = repo.cancelAppointment(appointmentId, cancelReason)
@@ -275,6 +300,10 @@ class AppointmentViewModel : ViewModel() {
     }
 
     fun changeAppointmentStatus(appointmentId: Int, statusId: Int?=null) {
+        if (DummyAppointments.isDummy(appointmentId.toLong())) {
+            changeAppointmentStatusResponse.value = dummySuccess()
+            return
+        }
 //        showLoading.value = true
         viewModelScope.launch {
             val changeAppointmentStatus = repo.changeAppointmentStatus(appointmentId, statusId)

@@ -65,6 +65,7 @@ object UserData {
         setToken("")
         setUserName("")
         clearHospitalSession()
+        SharedPreferencesTool.setString(context, SharedPreferencesKeys.ConfirmedAppointments.name, "")
 
         //SharedPreferencesTool.clearAllData(context)
     }
