@@ -1147,6 +1147,7 @@ class AppointmentsFragment : Fragment(),
     private fun initObserveClinics(){
 
         homeViewModel.clinicModel.observe(viewLifecycleOwner, Observer {
+            ClinicAreas.setClinics(it.Data)
             appointmetsPollyClinicsDoctorsAdapter.submitList(it.Data as MutableList<ClinicData>)
             appointmetsPollyClinicsDoctorsAdapter.notifyDataSetChanged()
             Log.d(TAG, "initObserve: ${it.Data}")

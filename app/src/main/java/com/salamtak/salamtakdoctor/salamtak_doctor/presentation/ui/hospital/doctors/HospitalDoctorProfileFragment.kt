@@ -60,18 +60,18 @@ class HospitalDoctorProfileFragment : NewBaseFragment(R.layout.fragment_hospital
         binding.tvCountry.setOnClickListener {
             pick(R.string.hospital_country, HospitalLookupKind.COUNTRIES, countryId) { item ->
                 countryId = item.id
-                binding.tvCountry.text = item.name
+                binding.tvCountry.setText(item.name)
             }
         }
         binding.tvSpecialty.setOnClickListener {
             pick(R.string.hospital_specialty, HospitalLookupKind.SPECIALISTS, specialistId) { item ->
                 if (item.id == specialistId) return@pick
                 specialistId = item.id
-                binding.tvSpecialty.text = item.name
+                binding.tvSpecialty.setText(item.name)
                 // Sub-specialities belong to the specialty
                 subSpecialistIds = emptySet()
                 subSpecialistItems = emptyList()
-                binding.tvSubSpecialty.text = ""
+                binding.tvSubSpecialty.setText("")
                 item.id?.let { id -> viewModel.loadSubSpecialists(id) }
             }
         }
@@ -87,7 +87,7 @@ class HospitalDoctorProfileFragment : NewBaseFragment(R.layout.fragment_hospital
         binding.tvSeniority.setOnClickListener {
             pick(R.string.hospital_seniority_level, HospitalLookupKind.SENIORITY, seniorityId) { item ->
                 seniorityId = item.id
-                binding.tvSeniority.text = item.name
+                binding.tvSeniority.setText(item.name)
             }
         }
         binding.btnUpdate.setOnClickListener { save() }
@@ -147,7 +147,7 @@ class HospitalDoctorProfileFragment : NewBaseFragment(R.layout.fragment_hospital
 
         // "0001-01-01" means not set
         birthday = data.Birthday?.take(10)?.takeIf { !it.startsWith("0001") && it.isNotBlank() }
-        binding.tvBirthDate.text = birthday.orEmpty()
+        binding.tvBirthDate.setText(birthday.orEmpty())
 
         when (data.GenderId) {
             1 -> binding.toggleGender.check(R.id.btn_male)
@@ -162,14 +162,15 @@ class HospitalDoctorProfileFragment : NewBaseFragment(R.layout.fragment_hospital
     private fun showLookupNames() {
         val lookups = viewModel.lookups.value.orEmpty()
         fun nameOf(kind: HospitalLookupKind, id: Int?) = lookups[kind]?.firstOrNull { it.id == id }?.name
-        nameOf(HospitalLookupKind.COUNTRIES, countryId)?.let { binding.tvCountry.text = it }
-        nameOf(HospitalLookupKind.SPECIALISTS, specialistId)?.let { binding.tvSpecialty.text = it }
-        nameOf(HospitalLookupKind.SENIORITY, seniorityId)?.let { binding.tvSeniority.text = it }
+        nameOf(HospitalLookupKind.COUNTRIES, countryId)?.let { binding.tvCountry.setText(it) }
+        nameOf(HospitalLookupKind.SPECIALISTS, specialistId)?.let { binding.tvSpecialty.setText(it) }
+        nameOf(HospitalLookupKind.SENIORITY, seniorityId)?.let { binding.tvSeniority.setText(it) }
     }
 
     private fun showSubSpecialists() {
-        binding.tvSubSpecialty.text =
+        binding.tvSubSpecialty.setText(
             subSpecialistItems.filter { it.id in subSpecialistIds }.joinToString(", ") { it.name }
+        )
     }
 
     private fun pick(title: Int, kind: HospitalLookupKind, selected: Int?, onPicked: (PickerItem) -> Unit) {
@@ -186,7 +187,7 @@ class HospitalDoctorProfileFragment : NewBaseFragment(R.layout.fragment_hospital
             requireContext(),
             { _, year, month, day ->
                 birthday = String.format(Locale.ENGLISH, "%04d-%02d-%02d", year, month + 1, day)
-                binding.tvBirthDate.text = birthday
+                binding.tvBirthDate.setText(birthday)
             },
             calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
         ).apply { datePicker.maxDate = System.currentTimeMillis() }.show()

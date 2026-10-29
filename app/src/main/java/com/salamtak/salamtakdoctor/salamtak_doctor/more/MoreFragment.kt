@@ -154,8 +154,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
         if (DateUtils.isHospital()) {
             // Hospital design: no image, no videos / patient account / answers
             binding.mcVideos.visibility = View.GONE
+            binding.dividerVideos.visibility = View.GONE
             binding.mcPatientQuestions.visibility = View.GONE
+            binding.dividerPatientQuestions.visibility = View.GONE
             binding.mcDoctorAccont.visibility = View.GONE
+            binding.dividerDoctorAccount.visibility = View.GONE
             binding.profileDoctorImage.visibility = View.GONE
             binding.view2.setOnClickListener {
                 findNavController().navigate(R.id.hospitalProfileFragment)

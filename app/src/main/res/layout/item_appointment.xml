@@ -5,7 +5,6 @@
 
     <data>
         <import type="android.view.View" />
-        <import type="android.text.TextUtils" />
         <import type="com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.appointments.ClinicAreas" />
         <variable
             name="appointment"
@@ -326,7 +325,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_10ssp"
-                    android:text="@{appointment.clinicName}"
+                    android:text="@{ClinicAreas.clinicNameFor(appointment.clinicName, appointment.specName)}"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black"
@@ -339,8 +338,7 @@
                 android:id="@+id/rl_clinic_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:visibility="@{TextUtils.isEmpty(ClinicAreas.areaFor(appointment.clinicName, appointment.clinicAddress)) ? View.GONE : View.VISIBLE}">
+                android:layout_marginTop="@dimen/_10sdp">
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/clinic_area_image"
                     android:layout_width="20dp"

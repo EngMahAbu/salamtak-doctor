@@ -43,7 +43,12 @@ class HospitalViewModel : ViewModel() {
     fun getHospitalClinicList(hospitalId: Int) =
         viewModelScope.launch(Dispatchers.IO + handler(clinicsResponse)) {
             clinicsResponse.postValue(Resource.Loading())
-            clinicsResponse.postValue(handle(repo.getHospitalClinicList(hospitalId)))
+            val response = handle(repo.getHospitalClinicList(hospitalId))
+            val body = response.data
+            clinicsResponse.postValue(
+                if (body == null) response
+                else Resource.sucess(body.copy(Data = body.Data?.filterNot { it.ClinicId in HIDDEN_CLINIC_IDS }))
+            )
         }
 
     /** Doctors of one clinic when [clinicId] is set, otherwise all doctors of the hospital. */
@@ -68,4 +73,9 @@ class HospitalViewModel : ViewModel() {
             Log.e("HospitalViewModel", "exception: ${exception.message}")
             target.postValue(Resource.Error(exception.message ?: "Error"))
         }
+
+    companion object {
+        // Prime Dental, Smile Care and Dental Care: kept out of the All Clinics pickers on request
+        private val HIDDEN_CLINIC_IDS = setOf(38914, 38915, 38916)
+    }
 }

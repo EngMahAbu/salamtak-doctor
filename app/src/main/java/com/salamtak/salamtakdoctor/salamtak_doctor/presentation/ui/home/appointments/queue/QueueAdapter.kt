@@ -35,10 +35,12 @@ class QueueAdapter(
             tvPatientName.text = ticket.patientName.orEmpty()
             tvClinicName.text = clinicName
             tvBookingTime.text = formatTime(ticket.originalBookingTime)
-            tvWait.text = ticket.estimatedWaitMinutes
-                ?.let { context.getString(R.string.queue_minutes, it) } ?: "--"
+            // Backend doesn't send the estimate on the queue board yet; default to 15 min
+            tvWait.text = context.getString(
+                R.string.queue_minutes, ticket.estimatedWaitMinutes ?: DEFAULT_WAIT_MINUTES
+            )
             tvStatus.text = ticket.statusName.orEmpty()
-            cardStatus.visibility =
+            tvStatus.visibility =
                 if (ticket.statusName.isNullOrEmpty()) View.GONE else View.VISIBLE
 
             val isServing = ticket.id == currentlyServingTicketId
@@ -78,6 +80,10 @@ class QueueAdapter(
         override fun areContentsTheSame(oldItem: QueueTicket, newItem: QueueTicket): Boolean {
             return oldItem == newItem
         }
+    }
+
+    companion object {
+        private const val DEFAULT_WAIT_MINUTES = 15
     }
 
     interface Action {

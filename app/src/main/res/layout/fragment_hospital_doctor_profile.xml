@@ -132,60 +132,86 @@
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_country"
-                style="@style/HospitalPickerField"
-                android:hint="@string/hospital_country" />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_country">
 
-            <TextView
-                android:id="@+id/tv_birth_date"
-                style="@style/HospitalPickerField"
-                android:hint="@string/hospital_birth_date"
-                app:drawableEndCompat="@drawable/new_calendar" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_country"
+                    style="@style/HospitalPickerEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Male / Female toggle -->
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/toggle_gender"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_birth_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_birth_date"
+                    style="@style/HospitalPickerEdit"
+                    android:drawableEnd="@drawable/new_calendar" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Male / Female toggle, boxed with a border label like the fields -->
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:selectionRequired="true"
-                app:singleSelection="true">
+                android:layout_marginTop="4dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_male"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:text="@string/hospital_male"
-                    android:textAllCaps="false" />
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggle_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_hospital_picker"
+                    android:paddingHorizontal="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_female"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:text="@string/hospital_female"
-                    android:textAllCaps="false" />
-            </com.google.android.material.button.MaterialButtonToggleGroup>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_male"
+                        style="@style/HospitalGenderButton"
+                        android:text="@string/hospital_male" />
 
-            <TextView
-                android:id="@+id/tv_specialty"
-                style="@style/HospitalPickerField"
-                android:hint="@string/hospital_specialty" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_female"
+                        style="@style/HospitalGenderButton"
+                        android:text="@string/hospital_female" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
 
-            <TextView
-                android:id="@+id/tv_sub_specialty"
-                style="@style/HospitalPickerField"
-                android:hint="@string/hospital_sub_specialty"
-                android:maxLines="3" />
+                <TextView
+                    style="@style/HospitalBoxLabel"
+                    android:text="@string/hospital_gender" />
+            </FrameLayout>
 
-            <TextView
-                android:id="@+id/tv_seniority"
-                style="@style/HospitalPickerField"
-                android:hint="@string/hospital_seniority_level" />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_specialty">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_specialty"
+                    style="@style/HospitalPickerEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_sub_specialty">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_sub_specialty"
+                    style="@style/HospitalPickerEdit"
+                    android:maxLines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/HospitalFieldLayout"
+                android:hint="@string/hospital_seniority_level">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_seniority"
+                    style="@style/HospitalPickerEdit" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_national_id"

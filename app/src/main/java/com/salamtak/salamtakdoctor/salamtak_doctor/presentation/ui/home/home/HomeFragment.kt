@@ -237,9 +237,13 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
 
 
         viewModel.clinicModel.observe(viewLifecycleOwner, Observer {
-            binding.clinicsHomeRv.adapter = ClinicHomeAdapter(it.Data, this)
+            // GetDoctorClinics can list the same clinic more than once
+            val clinics = it.Data.orEmpty().distinctBy { clinic -> clinic.ClinicId }
+            binding.clinicsHomeRv.adapter = ClinicHomeAdapter(clinics, this)
 
-            clinicData.addAll(it.Data)
+            // Replace, don't append: the list outlives the view and the clinics are refetched on every return to Home
+            clinicData.clear()
+            clinicData.addAll(clinics)
 
             Log.d(TAG, "initObserve: ${it.Data}")
         })

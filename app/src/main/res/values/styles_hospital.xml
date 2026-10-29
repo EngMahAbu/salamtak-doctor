@@ -45,6 +45,43 @@
         <item name="android:drawablePadding">8dp</item>
     </style>
 
+    <!-- Read-only edit inside a HospitalFieldLayout that opens a picker on click,
+         so it gets the same floating label as the typed fields -->
+    <style name="HospitalPickerEdit" parent="HospitalFieldEdit">
+        <item name="android:focusable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:inputType">none</item>
+        <item name="android:drawableEnd">@drawable/ic_down_arrow_blue</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <!-- Label sitting on the border of a non-text box, drawn like the
+         collapsed floating label of HospitalFieldLayout -->
+    <style name="HospitalBoxLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:fontFamily">@font/avenir_regular</item>
+        <item name="android:textColor">#99000000</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Male / Female toggle button: filled blue when checked, white when not -->
+    <style name="HospitalGenderButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/avenir_regular</item>
+        <item name="android:textColor">@color/white_blue_choose_selector</item>
+        <item name="backgroundTint">@color/hospital_gender_bg_selector</item>
+        <item name="strokeColor">@color/new_themeBlue_color</item>
+        <item name="rippleColor">@color/text_gray4</item>
+    </style>
+
     <style name="HospitalSectionTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

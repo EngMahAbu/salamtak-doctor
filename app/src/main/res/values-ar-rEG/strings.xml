@@ -1073,8 +1073,8 @@ item 1
     <string name="queue">الدور</string>
     <string name="queue_clinics">العيادات</string>
     <string name="currently_serving">جاري الكشف الآن</string>
-    <string name="original_booking_time">موعد الحجز الأصلي</string>
-    <string name="estimated_waiting_time">وقت الانتظار المتوقع</string>
+    <string name="original_booking_time">موعد الحجز\nالأصلي</string>
+    <string name="estimated_waiting_time">وقت الانتظار\nالمتوقع</string>
     <string name="queue_minutes">%1$d دقيقة</string>
     <string name="queue_empty">لا يوجد مرضى في الدور</string>
     <string name="queue_complete">إنهاء</string>
@@ -1156,6 +1156,7 @@ item 1
     <string name="hospital_specialty">التخصص</string>
     <string name="hospital_sub_specialty">التخصص الفرعي</string>
     <string name="hospital_seniority_level">الدرجة العلمية</string>
+    <string name="hospital_gender">النوع</string>
     <string name="hospital_license_no">رقم ترخيص مزاولة المهنة</string>
     <string name="hospital_syndicate_id">رقم النقابة</string>
     <string name="hospital_update_doctor_profile">تحديث ملف الطبيب</string>
