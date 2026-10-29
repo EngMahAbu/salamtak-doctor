@@ -959,7 +959,7 @@ item 1
     <string name="medication_instrucations_120_charactres_left">تعليمات تناول الدواء </string>
     <string name="sendtosalamtakpharmacy">إرسال الى صيدليات سلامتك</string>
     <string name="clinicaddress">عنوان العيادة</string>
-    <string name="feedback">تعليق/ الاشعة والتحاليل المطلوبة ( تطلبا للحالة)</string>
+    <string name="feedback">تعليق</string>
     <string name="balanceitem">الرصيد</string>
     <string name="total_service_fee">إجمالي رسوم الخدمة</string>
     <string name="total_paid">إجمالي المبلغ المدفوع</string>

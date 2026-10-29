@@ -1382,14 +1382,14 @@
     <string name="medication_instrucations_120_charactres_left">Description Details</string>
     <string name="sendtosalamtakpharmacy">Send to salamtak pharmacy</string>
     <string name="clinicaddress">Clinic Address</string>
-    <string name="feedback">Feedback/required rediology,x-ray,lab test (if need it)</string>
+    <string name="feedback">Feedback</string>
     <string name="balanceitem">Balance</string>
     <string name="total_service_fee">Total Service Fee</string>
     <string name="total_paid">Total Paid</string>
     <string name="clinicname">Clinic Name</string>
     <string name="chooseaccountfirst">"Choose Account first "</string>
     // new strings
-    <string name="accountsettings">AccountSettings</string>
+    <string name="accountsettings">Account Settings</string>
     <string name="support_help"><![CDATA[Support & Help]]></string>
     <string name="settings_amp_preferences"><![CDATA[Settings & Preferences]]></string>
     <string name="security_amp_logout"><![CDATA[Security & Logout]]></string>
