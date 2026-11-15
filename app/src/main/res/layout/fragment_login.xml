@@ -152,8 +152,12 @@
                             android:textColor="@color/black"
                             />
 
+                        <!-- TODO(hospital): The hospital account feature is hidden for this
+                             release; the implementation is kept in place. Explain here why it
+                             was hidden, then remove visibility="gone" to bring it back. -->
                         <RadioButton
                             android:id="@+id/radio_hospital"
+                            android:visibility="gone"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="50dp"

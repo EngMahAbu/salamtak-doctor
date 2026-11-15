@@ -104,6 +104,10 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
             bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
 
         }
+        // TODO(hospital): The hospital account feature is hidden for this release (its login
+        //  radio button and this sign-up card are visibility="gone" in the layouts); the
+        //  implementation is kept in place. Document why it was hidden here, and unhide both
+        //  views to bring it back.
         binding.layoutBottomsheetpersistant.cardview3.setOnClickListener {
             val action=NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment(HOSPITAL_TYPE_ID)
             findNavController().navigate(action)
