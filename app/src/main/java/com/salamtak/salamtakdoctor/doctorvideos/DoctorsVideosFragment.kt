@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.salamtak.R
 import com.salamtak.databinding.DoctorsVideosfragmentBinding
@@ -76,7 +76,7 @@ private lateinit var binding:DoctorsVideosfragmentBinding
         imageVideoAdapter = ImageVideoAdapter(this)
         binding.viewPager.apply {
             adapter = imageVideoAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(requireContext(), 2)
             setHasFixedSize(true)
         }
     }

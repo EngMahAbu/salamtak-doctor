@@ -920,6 +920,8 @@ item 1
     <string name="showDoctorclinics">Choose Clinics</string>
     <string name="doctorsvideos">فيديوهات الاطباء</string>
     <string name="adddoctorvideos">اضافة فيديوهات طبية</string>
+    <string name="introductory_video_about_yourself">فيديو تعريفي عنك</string>
+    <string name="add_video">اضف فيديو</string>
     <string name="choose_account_first">اختار حسابك اولا</string>
     <string name="polyclinicinfo">نبذة عن المركز الطبى</string>
     <string name="polyclinicinfoar">نبذة عن المركز الطبى باللغ العربية</string>
