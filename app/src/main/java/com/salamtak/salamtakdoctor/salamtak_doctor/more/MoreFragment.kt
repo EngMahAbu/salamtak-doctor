@@ -158,11 +158,12 @@ class MoreFragment : Fragment(), View.OnClickListener {
         binding.notifictionTv.setOnClickListener(this)
         binding.langTv.setOnClickListener(this)
 
-        // ERP System link is for individual doctors only (not polyclinic or hospital)
-        if (DateUtils.managesDoctors()) {
-            binding.mcErpSystem.visibility = View.GONE
-            binding.dividerErpSystem.visibility = View.GONE
-        }
+        // TODO(erp): The ERP System row is hidden for every account type in this release.
+        //  Explain here why it was hidden, then restore the original rule below (show it to
+        //  individual doctors only, not polyclinic or hospital):
+        //  if (DateUtils.managesDoctors()) { hide mcErpSystem and dividerErpSystem }
+        binding.mcErpSystem.visibility = View.GONE
+        binding.dividerErpSystem.visibility = View.GONE
 
         if (DateUtils.isHospital()) {
             // Hospital design: no image, no videos / patient account / answers
