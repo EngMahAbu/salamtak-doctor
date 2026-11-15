@@ -61,6 +61,8 @@ class NotificationListFragment : Fragment() {
                 if (it.data != null) {
                     notificationsAdapter.submitList(it.data)
                 }
+                binding.tvNoNotifications.visibility =
+                    if (it.data.isNullOrEmpty()) View.VISIBLE else View.GONE
                 polyClinicsViewModel.updateNotification()
 
             })
