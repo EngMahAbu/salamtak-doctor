@@ -1404,8 +1404,8 @@
     <string name="anthorpatientname"> Name</string>
     <string name="relationtype">Relation Type</string>
     <string name="diagnosisandprescriptions"><![CDATA[Dignosis&Prescriptions]]></string>
-    <string name="blocknumber">BlockNo</string>
-    <string name="FloorNo">FloorNo</string>
+    <string name="blocknumber">Block No</string>
+    <string name="FloorNo">Floor No</string>
     <string name="no_data_registed">No Data Registed</string>
     <string name="verification_code_will_be_sent_within">Verification code will be sent within</string>
     <string name="welcome_subtitle">Book your appointment with the best doctors easily and conveniently</string>

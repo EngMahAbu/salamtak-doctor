@@ -834,42 +834,6 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcard_Durationofconsultation_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_14sdp"
-                    app:cardCornerRadius="@dimen/_6sdp"
-                    app:cardElevation="@dimen/_2sdp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                    app:layout_constraintStart_toStartOf="@id/start_guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/mcardphone_layout3"
-                    tools:layout_editor_absoluteX="21dp">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/durationofconsultation"
-                        app:boxBackgroundMode="none"
-                        app:hintTextColor="#AEB3BE"
-                        app:boxStrokeColor="@android:color/transparent"
-                        app:boxStrokeWidth="0dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/clinic_Durationofconsultation"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:background="@color/white"
-                            android:fontFamily="@font/avenir_regular"
-                            android:inputType="number"
-                            android:paddingBottom="2dp"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_10ssp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-                </com.google.android.material.card.MaterialCardView>
                 <TextView
                     android:id="@+id/services_select"
                     android:layout_width="0dp"
@@ -890,7 +854,7 @@
                     app:layout_constraintEnd_toEndOf="@id/end_guideline"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@id/start_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/mcard_Durationofconsultation_layout" />
+                    app:layout_constraintTop_toBottomOf="@id/mcardphone_layout3" />
 
                 <TextView
                     android:id="@+id/services_tv"
