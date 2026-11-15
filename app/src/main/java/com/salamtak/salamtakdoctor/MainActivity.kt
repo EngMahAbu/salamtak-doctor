@@ -155,6 +155,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
 
         applyBottomMenu()
+        applyQuestionsTabVisibility()
         if (destination.id == R.id.appointmentsFragment){
             binding.navigation.menu.findItem(R.id.schedule_item).isChecked = true
         }else if (destination.id == R.id.moreFragment){
@@ -171,6 +172,13 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         hospitalMenuShown = hospital
         binding.navigation.menu.clear()
         binding.navigation.inflateMenu(if (hospital) R.menu.menu_hospital else R.menu.menu)
+    }
+
+    // The Questions tab is for individual doctors only. Polyclinic shares menu.xml, so hide it
+    // there; the hospital menu has no Questions tab. Re-checked on every destination change
+    // because the same menu stays inflated when the account switches between Doctor and Polyclinic.
+    private fun applyQuestionsTabVisibility() {
+        binding.navigation.menu.findItem(R.id.services_item)?.isVisible = !DateUtils.managesDoctors()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean = when (item.itemId) {

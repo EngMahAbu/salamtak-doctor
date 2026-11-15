@@ -222,6 +222,10 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
                 }
 
             }else {
+                // Clear any polyclinic leftovers before navigating: navigation re-checks the
+                // account type (e.g. the Questions tab), and a stale AdminOwnerId reads as polyclinic.
+                DateUtils.setUserId("")
+                DateUtils.setAdminOwnerId("")
                 UserData.setUserName(it.Data.Name)
                 it?.Data?.NameAR?.let {
                     UserData.setUserNameAR(it)
@@ -233,8 +237,6 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
                     val action =NewLogInFragmentDirections.actionLoginFragmentToSetupProfileFragment(0,"")
                     findNavController().navigate(action)
                 }
-                DateUtils.setUserId("")
-                DateUtils.setAdminOwnerId("")
             }
 
         })
