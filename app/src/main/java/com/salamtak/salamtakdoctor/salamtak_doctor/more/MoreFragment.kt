@@ -178,6 +178,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.hospitalProfileFragment)
             }
         } else if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
+            // Doctor: medical videos instead of the patient financial account
+            binding.mcDoctorAccont.visibility = View.GONE
+            binding.dividerDoctorAccount.visibility = View.GONE
             binding.view2.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("edit", "edit")
@@ -189,6 +192,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
             }
         } else {
             binding.mcVideos.visibility = View.GONE
+            binding.dividerVideos.visibility = View.GONE
             binding.mcPatientQuestions.visibility = View.GONE
             binding.dividerPatientQuestions.visibility = View.GONE
             binding.profileDoctorImage.visibility=View.GONE
