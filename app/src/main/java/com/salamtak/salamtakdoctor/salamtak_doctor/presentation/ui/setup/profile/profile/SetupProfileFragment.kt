@@ -448,7 +448,9 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
     }
 
     private fun initEdit() {
-        // TODO
+        // Edit profile (from More tab): email isn't editable here; it's still loaded and sent unchanged
+        binding.mcardEmailLayout.visibility = View.GONE
+        binding.tvEmailError.visibility = View.GONE
         if (isOnline(mContext)) {
             if (!DateUtils.managesDoctors()) {
                 viewModel.getDoctorProfile()
