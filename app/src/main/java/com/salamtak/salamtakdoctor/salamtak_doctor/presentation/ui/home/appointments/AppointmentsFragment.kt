@@ -1127,6 +1127,8 @@ class AppointmentsFragment : Fragment(),
             binding.tvAllBookings.visibility = View.VISIBLE
         } else if (!DateUtils.getAdminOwnerId().isNullOrEmpty()) {
             polyInfoID= DateUtils.getAdminInfoId()?.toInt()
+            // Queue is for individual doctors only
+            binding.btnQueue.visibility = View.GONE
         }else{
             binding.linearLayout2.visibility=View.GONE
         }
