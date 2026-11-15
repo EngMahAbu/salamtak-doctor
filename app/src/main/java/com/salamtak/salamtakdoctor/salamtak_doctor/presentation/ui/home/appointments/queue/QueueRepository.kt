@@ -15,6 +15,9 @@ class QueueRepository {
     suspend fun completeTicket(ticketId: Int) =
         client.completeQueueTicket(Localization.getLanguageName(), QueueTicketActionRequest(ticketId))
 
-    suspend fun cancelTicket(ticketId: Int) =
-        client.cancelQueueTicket(Localization.getLanguageName(), CancelQueueTicketRequest(ticketId))
+    suspend fun cancelTicket(ticketId: Int, cancelReason: String?) =
+        client.cancelQueueTicket(
+            Localization.getLanguageName(),
+            CancelQueueTicketRequest(ticketId, cancelReason)
+        )
 }

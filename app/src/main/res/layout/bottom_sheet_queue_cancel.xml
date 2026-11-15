@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_dialog"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:paddingTop="@dimen/_24sdp"
+    android:paddingBottom="@dimen/_24sdp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir_bold"
+        android:gravity="center"
+        android:text="@string/queue_cancel_ticket_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:fontFamily="@font/avenir_regular"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:textColor="@color/new_gray"
+        android:textSize="@dimen/_12ssp" />
+
+    <EditText
+        android:id="@+id/et_cancel_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:background="@drawable/bg_queue_cancel_reason"
+        android:fontFamily="@font/avenir_regular"
+        android:hint="@string/queue_cancel_reason_hint"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine|textCapSentences"
+        android:maxLength="250"
+        android:maxLines="4"
+        android:minHeight="@dimen/_40sdp"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textColorHint="@color/new_dark_gray"
+        android:textSize="@dimen/_12ssp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/avenir_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/queue_ok"
+            android:textAllCaps="false"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/_12ssp"
+            app:cornerRadius="@dimen/_6sdp"
+            app:strokeColor="@color/color_primary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_ticket"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:backgroundTint="#E5544B"
+            android:fontFamily="@font/avenir_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/queue_cancel_ticket_title"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:cornerRadius="@dimen/_6sdp" />
+    </LinearLayout>
+
+</LinearLayout>

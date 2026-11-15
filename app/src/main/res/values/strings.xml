@@ -1416,9 +1416,10 @@
     <string name="queue_minutes">%1$d min</string>
     <string name="queue_empty">No patients in the queue</string>
     <string name="queue_complete">Complete</string>
-    <string name="queue_cancel_confirm">Cancel %1$s from the queue?</string>
-    <string name="queue_yes">Yes</string>
-    <string name="queue_no">No</string>
+    <string name="queue_cancel_ticket_title">Cancel Ticket</string>
+    <string name="queue_cancel_confirm">Are you sure you want to cancel %1$s\'s ticket?</string>
+    <string name="queue_cancel_reason_hint">Cancellation reason (optional)</string>
+    <string name="queue_ok">Ok</string>
 
     <!-- Hospital account -->
     <string name="hospitalaccount">Hospital Account</string>

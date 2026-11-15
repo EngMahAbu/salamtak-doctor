@@ -1080,9 +1080,10 @@ item 1
     <string name="queue_minutes">%1$d دقيقة</string>
     <string name="queue_empty">لا يوجد مرضى في الدور</string>
     <string name="queue_complete">إنهاء</string>
-    <string name="queue_cancel_confirm">إلغاء دور %1$s؟</string>
-    <string name="queue_yes">نعم</string>
-    <string name="queue_no">لا</string>
+    <string name="queue_cancel_ticket_title">إلغاء الدور</string>
+    <string name="queue_cancel_confirm">هل أنت متأكد من إلغاء دور %1$s؟</string>
+    <string name="queue_cancel_reason_hint">سبب الإلغاء (اختياري)</string>
+    <string name="queue_ok">حسناً</string>
 
     <!-- Hospital account -->
     <string name="hospitalaccount">حساب مستشفى</string>

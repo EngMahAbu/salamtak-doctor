@@ -31,9 +31,9 @@ class QueueViewModel : ViewModel() {
         queueActionResponse.postValue(handleResponse(response, QueueActionResponse::class.java) { it.message })
     }
 
-    fun cancelTicket(ticketId: Int) = viewModelScope.launch(Dispatchers.IO + handler) {
+    fun cancelTicket(ticketId: Int, cancelReason: String?) = viewModelScope.launch(Dispatchers.IO + handler) {
         queueActionResponse.postValue(Resource.Loading())
-        val response = repo.cancelTicket(ticketId)
+        val response = repo.cancelTicket(ticketId, cancelReason)
         queueActionResponse.postValue(handleResponse(response, QueueActionResponse::class.java) { it.message })
     }
 

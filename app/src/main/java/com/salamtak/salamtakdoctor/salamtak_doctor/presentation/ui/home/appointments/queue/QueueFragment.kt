@@ -5,14 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.salamtak.R
 import com.salamtak.core.localDataBase.Localization
+import com.salamtak.databinding.BottomSheetQueueCancelBinding
 import com.salamtak.databinding.FragmentQueueBinding
 import com.salamtak.domain.entities.response.queue.QueueBoardData
 import com.salamtak.domain.entities.response.queue.QueueTicket
@@ -32,6 +35,7 @@ class QueueFragment : Fragment(), QueueAdapter.Action {
     private lateinit var queueAdapter: QueueAdapter
     private val args: QueueFragmentArgs by navArgs()
     private val queueDate = Calendar.getInstance()
+    private var cancelSheet: BottomSheetDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -158,16 +162,38 @@ class QueueFragment : Fragment(), QueueAdapter.Action {
     }
 
     override fun onCancelClick(ticket: QueueTicket) {
-        MaterialAlertDialogBuilder(requireContext())
-            .setMessage(getString(R.string.queue_cancel_confirm, ticket.patientName.orEmpty()))
-            .setPositiveButton(R.string.queue_yes) { _, _ ->
-                if (isOnline(requireContext())) {
-                    viewModel.cancelTicket(ticket.id)
-                } else {
-                    noConnectivityDialog.noInternetDialogFragment(requireContext())
-                }
+        cancelSheet?.dismiss()
+        val sheetBinding = BottomSheetQueueCancelBinding.inflate(layoutInflater)
+        sheetBinding.tvMessage.text =
+            getString(R.string.queue_cancel_confirm, ticket.patientName.orEmpty())
+
+        val sheet = BottomSheetDialog(requireContext(), R.style.QueueSheetDialogTheme).apply {
+            setContentView(sheetBinding.root)
+            // keep the buttons above the keyboard while typing the reason
+            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            behavior.skipCollapsed = true
+            setOnDismissListener { if (cancelSheet === this) cancelSheet = null }
+        }
+
+        sheetBinding.btnOk.setOnClickListener { sheet.dismiss() }
+        sheetBinding.btnCancelTicket.setOnClickListener {
+            if (isOnline(requireContext())) {
+                val reason = sheetBinding.etCancelReason.text?.toString()?.trim()
+                viewModel.cancelTicket(ticket.id, reason?.takeIf { it.isNotEmpty() })
+                sheet.dismiss()
+            } else {
+                noConnectivityDialog.noInternetDialogFragment(requireContext())
             }
-            .setNegativeButton(R.string.queue_no, null)
-            .show()
+        }
+
+        cancelSheet = sheet
+        sheet.show()
+    }
+
+    override fun onDestroyView() {
+        cancelSheet?.dismiss()
+        cancelSheet = null
+        super.onDestroyView()
     }
 }
