@@ -1345,6 +1345,8 @@
     <string name="adddoctorvideos">Add Medical Videos</string>
     <string name="introductory_video_about_yourself">Introductory Video About Yourself</string>
     <string name="add_video">Add Video</string>
+    <string name="patient_financial_account">Patient Financial Account</string>
+    <string name="questions_answers">Questions/Answers</string>
     <string name="choose_account_first">"Choose Account first "</string>
     <string name="polyclinicinfo">PolyClinic Info In English</string>
     <string name="polyclinicinfoar">PolyClinic Info In Arabic</string>

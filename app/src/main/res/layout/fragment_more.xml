@@ -249,61 +249,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/mc_DoctorAccont"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="2dp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                       android:background="@drawable/more_background"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:paddingVertical="@dimen/_8sdp">
-
-                            <ImageView
-                                android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="@dimen/_10sdp"
-                                android:src="@drawable/svg_patient__account"
-                                app:tint="@color/colorBlack" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="@dimen/_6sdp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/avenir_regular"
-                                android:text="@string/patient_account"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_12sdp" />
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginEnd="@dimen/_12sdp"
-                                android:src="@drawable/svg_arrow_right" />
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <ImageView
-                        android:id="@+id/divider_doctor_account"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_new_line"
-                        app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/mc_PatientQuestions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -334,7 +279,7 @@
                                 android:layout_marginStart="@dimen/_6sdp"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="@string/myanswers"
+                                android:text="@string/questions_answers"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12sdp" />
 
@@ -348,6 +293,61 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <ImageView
                         android:id="@+id/divider_patient_questions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_new_line"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_MedicalRecord"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mc_DoctorAccont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                       android:background="@drawable/more_background"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/svg_patient__account"
+                                app:tint="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/avenir_regular"
+                                android:text="@string/patient_financial_account"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:src="@drawable/svg_arrow_right" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/divider_doctor_account"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"

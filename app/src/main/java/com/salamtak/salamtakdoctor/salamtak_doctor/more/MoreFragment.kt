@@ -189,6 +189,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         } else {
             binding.mcVideos.visibility = View.GONE
             binding.mcPatientQuestions.visibility = View.GONE
+            binding.dividerPatientQuestions.visibility = View.GONE
             binding.profileDoctorImage.visibility=View.GONE
             binding.view2.setOnClickListener {
                 findNavController().navigate(R.id.editEnterpriseInfoFragment)

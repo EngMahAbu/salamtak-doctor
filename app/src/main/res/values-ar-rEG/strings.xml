@@ -922,6 +922,8 @@ item 1
     <string name="adddoctorvideos">اضافة فيديوهات طبية</string>
     <string name="introductory_video_about_yourself">فيديو تعريفي عنك</string>
     <string name="add_video">اضف فيديو</string>
+    <string name="patient_financial_account">الحسابات المالية للمرضى</string>
+    <string name="questions_answers">الأسئلة/الأجوبة</string>
     <string name="choose_account_first">اختار حسابك اولا</string>
     <string name="polyclinicinfo">نبذة عن المركز الطبى</string>
     <string name="polyclinicinfoar">نبذة عن المركز الطبى باللغ العربية</string>
