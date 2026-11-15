@@ -274,7 +274,7 @@
                         android:id="@+id/FloorNo_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/blocknumber"
+                        android:text="@string/FloorNo"
                         android:layout_marginStart="@dimen/_8ssp"
                         android:layout_marginTop="@dimen/_2sdp"
                         style="@style/headTextviewStyle"
