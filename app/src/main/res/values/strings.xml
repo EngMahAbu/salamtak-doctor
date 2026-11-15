@@ -359,6 +359,8 @@
     <string name="dates">Dates</string>
     <string name="filter_result">Filter Result</string>
     <string name="change_password">Change Password</string>
+    <string name="my_clinic_erp_system">My Clinic (ERP System)</string>
+    <string name="no_browser_found">No browser found to open the link</string>
     <string name="choose_city">Choose City</string>
     <string name="choose_area">Choose Area</string>
 

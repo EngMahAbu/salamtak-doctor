@@ -134,6 +134,13 @@ class MoreFragment : Fragment(), View.OnClickListener {
         binding.mcPatientQuestions.setOnClickListener {
             findNavController().navigate(R.id.answersFragment)
         }
+        binding.mcErpSystem.setOnClickListener {
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://salamtakgroup.com/ERP_System/")))
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), getString(R.string.no_browser_found), Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun initListener() {
@@ -150,6 +157,12 @@ class MoreFragment : Fragment(), View.OnClickListener {
         binding.termsConditionTv.setOnClickListener(this)
         binding.notifictionTv.setOnClickListener(this)
         binding.langTv.setOnClickListener(this)
+
+        // ERP System link is for individual doctors only (not polyclinic or hospital)
+        if (DateUtils.managesDoctors()) {
+            binding.mcErpSystem.visibility = View.GONE
+            binding.dividerErpSystem.visibility = View.GONE
+        }
 
         if (DateUtils.isHospital()) {
             // Hospital design: no image, no videos / patient account / answers

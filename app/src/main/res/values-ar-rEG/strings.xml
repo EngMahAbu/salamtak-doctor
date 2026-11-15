@@ -340,6 +340,8 @@
     <string name="dates">Dates</string>
     <string name="filter_result">Filter Result</string>
     <string name="change_password">تغيير كلمة المرور</string>
+    <string name="my_clinic_erp_system">عيادتي نظام ERP</string>
+    <string name="no_browser_found">لا يوجد متصفح لفتح الرابط</string>
     <string name="choose_city">اختر المدينة</string>
     <string name="choose_area">اختر المنطقة</string>
     <string name="about_us">من نحن</string>
