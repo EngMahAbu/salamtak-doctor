@@ -1388,6 +1388,9 @@
     <string name="balanceitem">Balance</string>
     <string name="total_service_fee">Total Service Fee</string>
     <string name="total_paid">Total Paid</string>
+    <string name="grand_total_service_fees">Grand Total Service Fees:</string>
+    <string name="grand_total_paid">Grand Total Paid:</string>
+    <string name="grand_total_balance">Grand Total Balance:</string>
     <string name="clinicname">Clinic Name</string>
     <string name="chooseaccountfirst">"Choose Account first "</string>
     // new strings

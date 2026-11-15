@@ -473,6 +473,17 @@ class PatientAccountFragment : Fragment(), PatientAccountAdapter.OnEditClickList
                         binding.progressBar.visibility = View.GONE
                         maindoctorAccountAdapter.submitList(response.data?.data?.data)
                         maindoctorAccountAdapter.notifyDataSetChanged()
+                        val totals = response.data?.data
+                        if (totals == null || totals.data.isNullOrEmpty()) {
+                            binding.totalsLayout.visibility = View.GONE
+                        } else {
+                            val fees = totals.totalServiceFee ?: 0
+                            val paid = totals.totalPaid ?: 0
+                            binding.totalServiceFeesTv.text = fees.toString()
+                            binding.totalPaidTv.text = paid.toString()
+                            binding.totalBalanceTv.text = (fees - paid).toString()
+                            binding.totalsLayout.visibility = View.VISIBLE
+                        }
                     }
 
                     is Resource.Error -> {

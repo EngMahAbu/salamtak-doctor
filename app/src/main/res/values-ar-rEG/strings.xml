@@ -965,6 +965,9 @@ item 1
     <string name="balanceitem">الرصيد</string>
     <string name="total_service_fee">إجمالي رسوم الخدمة</string>
     <string name="total_paid">إجمالي المبلغ المدفوع</string>
+    <string name="grand_total_service_fees">إجمالي رسوم الخدمات:</string>
+    <string name="grand_total_paid">إجمالي المدفوع:</string>
+    <string name="grand_total_balance">إجمالي الرصيد المتبقي:</string>
     <string name="clinicname">اسم العيادة</string>
     <string name="chooseaccountfirst">اختر الحساب أولاً</string>
     <string name="accountsettings">إعدادات الحساب</string>
