@@ -26,6 +26,9 @@ import com.salamtak.core.localDataBase.Localization
 import com.salamtak.core.localDataBase.UserData
 import com.salamtak.core.utils.SessionManagement
 import com.salamtak.databinding.FragmentEmrBinding
+import com.salamtak.databinding.ItemEmrMedicationBinding
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import com.salamtak.domain.entities.response.AttachmentEmrData
 import com.salamtak.domain.entities.response.EmrTitleData
 import com.salamtak.domain.entities.resquest.auth.EmrDescriptionModel
@@ -71,6 +74,7 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
     var isFilled = false
     var documentAdapter: ErmDocumentAdatper? = null
     var addemr=""
+    private val medicationRows = mutableListOf<ItemEmrMedicationBinding>()
 
 
     override fun onCreateView(
@@ -103,19 +107,22 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
             }
         }
 
+        val savedMedications = mutableListOf<String>()
         if (!emrTitleData?.PatientEmrdetails.isNullOrEmpty()) {
-            if (!emrTitleData?.PatientEmrdetails?.get(0)?.Description.isNullOrEmpty()) {
-                binding.emrSendLayout.rxDescriptionEt.setText(
-                    emrTitleData?.PatientEmrdetails?.get(
-                        0
-                    )?.Description
-                )
+            val description = emrTitleData?.PatientEmrdetails?.get(0)?.Description
+            if (!description.isNullOrEmpty()) {
+                binding.emrSendLayout.rxDescriptionEt.setText(description)
             }
             binding.emrSendLayout.instructionsEmrEt.setText(emrTitleData?.Instructions)
-            binding.emrSendLayout.rxTitleEt.setText(
-                emrTitleData?.PatientEmrdetails?.get(0)?.Title ?: ""
-            )
+            emrTitleData?.PatientEmrdetails?.forEach { detail ->
+                // Older EMRs sent the description as the medication title too; skip those duplicates.
+                if (detail.Title.isNullOrBlank() || detail.Title == detail.Description) return@forEach
+                savedMedications += detail.Title.split(MEDICATION_SEPARATOR)
+                    .map { it.trim() }
+                    .filter { it.isNotEmpty() }
+            }
         }
+        initMedications(savedMedications)
         binding.emrSendLayout.etSpecialistEn.setText(DateUtils.getSpecDoctor())
         if (Localization.getLanguageName() == "ar") {
             UserData.getUserNameAR()?.let {
@@ -158,8 +165,7 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
 
 
         binding.confirmBtn.setOnClickListener {
-            if (binding.emrSendLayout.rxTitleEt.text.toString().isNotEmpty()
-                || binding.emrSendLayout.rxTitleEt.text.toString().isNotEmpty()
+            if (medications().isNotEmpty()
                 || binding.emrSendLayout.rxDescriptionEt.text.toString().isNotEmpty()
             ) {
                 //TODO
@@ -177,7 +183,7 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
 
 
         binding.emrSendLayout.resetButton.setOnClickListener {
-            binding.emrSendLayout.rxTitleEt.setText("")
+            initMedications(emptyList())
             binding.emrSendLayout.rxDescriptionEt.setText("")
         }
 
@@ -214,7 +220,7 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
 
     fun fillEmrDescriptionRequest(emrDescriptionModel: EmrDescriptionModel): EmrDescriptionModel {
 
-        emrDescriptionModel.Title = binding.emrSendLayout.rxTitleEt.text.toString()
+        emrDescriptionModel.Title = medications().joinToString(MEDICATION_SEPARATOR)
         emrDescriptionModel.Description = binding.emrSendLayout.rxDescriptionEt.text.toString()
         emrDescriptionModel.AppointmentId = appointmentId.toInt()
         return emrDescriptionModel
@@ -366,12 +372,15 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
         if (!binding.emrSendLayout.instructionsEmrEt.text.toString().isNullOrEmpty()) {
             partMapImage = partMapImage + mapOf("Instructions" to binding.emrSendLayout.instructionsEmrEt.text.toString())
         }
-        if (!binding.emrSendLayout.rxTitleEt.text.toString().isNullOrEmpty()) {
-            partMapImage = partMapImage + mapOf("MedicationTitle" to binding.emrSendLayout.rxTitleEt.text.toString())
+        val medications = medications()
+        if (medications.isNotEmpty()) {
+            partMapImage = partMapImage + mapOf("MedicationTitle" to medications.joinToString(MEDICATION_SEPARATOR))
         }
         if (!binding.emrSendLayout.rxDescriptionEt.text.toString().isNullOrEmpty()) {
             partMapImage = partMapImage + mapOf("MedicationDescription" to binding.emrSendLayout.rxDescriptionEt.text.toString())
-            partMapImage = partMapImage + mapOf("MedicationTitle" to binding.emrSendLayout.rxDescriptionEt.text.toString())
+            if (medications.isEmpty()) {
+                partMapImage = partMapImage + mapOf("MedicationTitle" to binding.emrSendLayout.rxDescriptionEt.text.toString())
+            }
         }
         imageFile?.let {
             partMapImage = partMapImage + mapOf("files" to it)
@@ -390,6 +399,52 @@ class EmrFragment : Fragment(), RecyclerViewOnClickListener {
             builder.addFormDataPart(key, item.value.toString())
         }
         doctorProfileViewModel.createPatientEmrAl(builder.build())
+    }
+
+    private fun initMedications(saved: List<String>) {
+        binding.emrSendLayout.medicationsContainer.removeAllViews()
+        medicationRows.clear()
+        if (saved.isEmpty()) addMedicationRow() else saved.forEach { addMedicationRow(it) }
+    }
+
+    private fun addMedicationRow(text: String = "", requestFocus: Boolean = false) {
+        val row = ItemEmrMedicationBinding.inflate(
+            layoutInflater, binding.emrSendLayout.medicationsContainer, false
+        )
+        row.medicationEt.setText(text)
+        row.medicationEt.doAfterTextChanged { refreshMedicationRows() }
+        row.deleteMedicationIv.setOnClickListener { removeMedicationRow(row) }
+        row.addMedicationBtn.setOnClickListener { addMedicationRow(requestFocus = true) }
+        medicationRows.add(row)
+        binding.emrSendLayout.medicationsContainer.addView(row.root)
+        refreshMedicationRows()
+        if (requestFocus) row.medicationEt.requestFocus()
+    }
+
+    private fun removeMedicationRow(row: ItemEmrMedicationBinding) {
+        if (medicationRows.size > 1) {
+            medicationRows.remove(row)
+            binding.emrSendLayout.medicationsContainer.removeView(row.root)
+        } else {
+            row.medicationEt.text?.clear()
+        }
+        refreshMedicationRows()
+    }
+
+    /** Delete shows once a row has text (or when there is more than one row); plus only on the last filled row. */
+    private fun refreshMedicationRows() {
+        medicationRows.forEachIndexed { index, row ->
+            val hasText = !row.medicationEt.text.isNullOrBlank()
+            row.deleteMedicationIv.isVisible = hasText || medicationRows.size > 1
+            row.addMedicationBtn.isVisible = hasText && index == medicationRows.lastIndex
+        }
+    }
+
+    private fun medications(): List<String> =
+        medicationRows.map { it.medicationEt.text.toString().trim() }.filter { it.isNotEmpty() }
+
+    companion object {
+        private const val MEDICATION_SEPARATOR = "\n"
     }
 
 
