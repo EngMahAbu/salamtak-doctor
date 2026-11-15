@@ -599,5 +599,5 @@
     <include
         android:id="@+id/layoutBottomsheetpersistant"
         layout="@layout/layout_bottomsheet_alldoctors"
-        android:visibility="gone" />
+        android:visibility="visible" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

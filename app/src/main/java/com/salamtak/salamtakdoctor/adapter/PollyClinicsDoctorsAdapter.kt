@@ -17,6 +17,7 @@ import com.salamtak.domain.entities.response.data.DataInfo
 import com.salamtak.domain.entities.response.offers.Offers
 import com.salamtak.domain.entities.response.poly.ListOfDoctors
 import com.salamtak.salamtakdoctor.localization.DefaultLocaleHelper
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.ImageUrlUtils
 
 
 class PollyClinicsDoctorsAdapter(val iSelectDoctor:ISelectDoctor):ListAdapter<ListOfDoctors,PollyClinicsDoctorsAdapter.ViewHolder>(DiffCallback()) {
@@ -44,7 +45,9 @@ class PollyClinicsDoctorsAdapter(val iSelectDoctor:ISelectDoctor):ListAdapter<Li
 
         }
 
-        holder.binding.ivDoctorProfile.load(data.image) {
+        holder.binding.ivDoctorProfile.load(ImageUrlUtils.toFullUrl(data.image)) {
+            placeholder(R.drawable.image_placeholder)
+            error(R.drawable.image_placeholder)
             crossfade(true)
             crossfade(1000)
             transformations(CircleCropTransformation())

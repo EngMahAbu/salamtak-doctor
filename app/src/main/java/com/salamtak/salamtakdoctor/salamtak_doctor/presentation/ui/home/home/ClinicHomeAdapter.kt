@@ -14,6 +14,7 @@ import com.salamtak.R
 import com.salamtak.core.localDataBase.Localization
 import com.salamtak.databinding.ItemHomeClinicBinding
 import com.salamtak.domain.entities.response.ClinicData
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.ImageUrlUtils
 
 class ClinicHomeAdapter(val clinicsList : List<ClinicData>,
     val onClinicClickListener: ClinicHomeAdapter.OnClinicClickListener
@@ -33,7 +34,10 @@ class ClinicHomeAdapter(val clinicsList : List<ClinicData>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(clinicsList[position], position)
-       holder.binding.ivDoctorProfile.load("https://salamtechapi.azurewebsites.net/${clinicsList[position].Logo}") {
+       // Logos are stored in blob storage; the API may return a relative path or a full URL
+       holder.binding.ivDoctorProfile.load(ImageUrlUtils.toFullUrl(clinicsList[position].Logo)) {
+            placeholder(R.drawable.image_placeholder)
+            error(R.drawable.image_placeholder)
             crossfade(true)
             crossfade(1000)
             transformations(CircleCropTransformation())

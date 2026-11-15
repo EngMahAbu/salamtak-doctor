@@ -137,7 +137,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         }
         formattedDate = formatter.format(now.time)
         fromDate = formatter.format(now.time)
-        toDate== formatter.format(now.time)
+        toDate = formatter.format(now.time)
         bindViews()
         navController = Navigation.findNavController(binding.root)
         mContext = binding.root.context
@@ -501,6 +501,12 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
     }
 
     override fun onClinicClicked(clinicData: ClinicData) {
+        if (clinicData.ClinicId != clinicId) {
+            // The picked doctor may not work in the new clinic
+            doctorID = null
+            binding.tvListofDoctors.text = getString(R.string.alldoctors)
+            pollyClinicsDoctorsAdapter.submitList(emptyList())
+        }
         clinicId = clinicData.ClinicId!!
         if (Localization.getLanguageName()=="ar"){
             binding.tvClinics.text=clinicData.NameAr
@@ -709,7 +715,8 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
 
     override fun onDoctorSelected(listOfDoctors: ListOfDoctors) {
         this.doctorID=listOfDoctors.id
-        viewModel.getHome(formattedDate,formattedDate,null,doctorID,polyInfoID)
+        // Keep the picked clinic and date range: the doctor filters within them
+        viewModel.getHome(fromDate,toDate,clinicId,doctorID,polyInfoID)
         if (DefaultLocaleHelper.getInstance(requireContext()).getCurrentLocale()=="en"){
             binding.tvListofDoctors.text=listOfDoctors.fullName
         }else{
