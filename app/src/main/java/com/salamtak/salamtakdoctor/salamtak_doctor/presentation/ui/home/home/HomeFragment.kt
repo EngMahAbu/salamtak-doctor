@@ -206,7 +206,8 @@ class HomeFragment : Fragment(), HomeAdapter.OnAppointmentClickListener,
         binding.layoutBottomsheetpersistant.rvClinks.apply {
             adapter = pollyClinicsDoctorsAdapter
             layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
+            // wrap_content list in a bottom sheet: it must re-measure when rows arrive
+            setHasFixedSize(false)
         }
     }
 

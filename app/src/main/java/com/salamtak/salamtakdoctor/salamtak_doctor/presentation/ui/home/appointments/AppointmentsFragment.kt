@@ -288,7 +288,8 @@ class AppointmentsFragment : Fragment(),
         binding.layoutBottomsheetpersistant.rvClinks.apply {
             adapter = pollyClinicsDoctorsAdapter
             layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
+            // wrap_content list in a bottom sheet: it must re-measure when rows arrive
+            setHasFixedSize(false)
         }
     }
 
@@ -297,7 +298,7 @@ class AppointmentsFragment : Fragment(),
         binding.layoutBottomsheetpersistantclinics.rvClinks.apply {
             adapter = appointmetsPollyClinicsDoctorsAdapter
             layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
+            setHasFixedSize(false)
         }
     }
 
@@ -1206,7 +1207,8 @@ class AppointmentsFragment : Fragment(),
 
     override fun onDoctorSelected(listOfDoctors: ListOfDoctors) {
         this.doctorID=listOfDoctors.id
-        viewModel.getAppointment(today, toDate, null, appointmentId, 0, 10,polyInfoID,doctorID)
+        // Keep the picked clinic: the doctor filters within it
+        viewModel.getAppointment(today, toDate, clinicId, appointmentId, 0, 10,polyInfoID,doctorID)
         if (DefaultLocaleHelper.getInstance(requireContext()).getCurrentLocale()=="en"){
             binding.tvListofDoctors.text=listOfDoctors.fullName
         }else{
@@ -1214,6 +1216,12 @@ class AppointmentsFragment : Fragment(),
         }
     }
     override fun onClinicsSelected(clinicsdata: ClinicData) {
+        if (clinicsdata.ClinicId != clinicId) {
+            // The picked doctor may not work in the new clinic
+            doctorID = null
+            binding.tvListofDoctors.text = getString(R.string.alldoctors)
+            pollyClinicsDoctorsAdapter.submitList(emptyList())
+        }
         this.clinicId=clinicsdata.ClinicId
         viewModel.getAppointment(today, toDate, clinicId, appointmentId, 0, 10,polyInfoID,doctorID)
         if (DefaultLocaleHelper.getInstance(requireContext()).getCurrentLocale()=="en"){
