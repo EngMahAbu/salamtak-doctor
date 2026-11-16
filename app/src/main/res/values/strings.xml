@@ -1225,6 +1225,7 @@
     <string name="check_phone">Phone Verification</string>
     <string name="addreport">Add Report</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="edit_polyclinic">Edit Polyclinic</string>
     <string name="change_language">Change Language</string>
     <string name="add_atleast_1_certificate_before_continuing">Add atleast 1 Certificate before continuing</string>
     <string name="your_schedule_deleted_successfully">your Schedule deleted Successfully</string>

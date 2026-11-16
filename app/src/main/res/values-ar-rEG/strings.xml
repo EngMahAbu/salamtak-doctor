@@ -802,6 +802,7 @@ item 1
     <string name="check_phone">التحقق من الهاتف</string>
     <string name="addreport">+ اضافة ملف او تقرير</string>
     <string name="edit_profile"> تعديل الملف الشخصى</string>
+    <string name="edit_polyclinic">تعديل المركز الطبى</string>
     <string name="change_language">اختر اللغة</string>
     <string name="add_atleast_1_certificate_before_continuing">يجب اضافة شهادة واحدة على الاقل</string>
     <string name="your_schedule_deleted_successfully">تم حذف الجدول الخاص بك بنجاح</string>
