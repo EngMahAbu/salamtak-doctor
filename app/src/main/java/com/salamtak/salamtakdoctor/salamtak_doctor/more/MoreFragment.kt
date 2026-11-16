@@ -185,9 +185,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         binding.dividerErpSystem.visibility = View.GONE
 
         if (DateUtils.isHospital()) {
-            // Hospital design: no image, no videos / patient account / answers
-            binding.mcVideos.visibility = View.GONE
-            binding.dividerVideos.visibility = View.GONE
+            // Hospital design: no image, no patient financial account / answers
             binding.mcPatientQuestions.visibility = View.GONE
             binding.dividerPatientQuestions.visibility = View.GONE
             binding.mcDoctorAccont.visibility = View.GONE
@@ -197,9 +195,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.hospitalProfileFragment)
             }
         } else if (DateUtils.getAdminOwnerId().isNullOrEmpty()) {
-            // Doctor: medical videos instead of the patient financial account
-            binding.mcDoctorAccont.visibility = View.GONE
-            binding.dividerDoctorAccount.visibility = View.GONE
+            // Doctor: both medical videos and the patient financial account
             binding.view2.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("edit", "edit")
@@ -210,8 +206,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
                 editClick = "edit"
             }
         } else {
-            binding.mcVideos.visibility = View.GONE
-            binding.dividerVideos.visibility = View.GONE
+            // Polyclinic: medical videos instead of the patient financial account
+            binding.mcDoctorAccont.visibility = View.GONE
+            binding.dividerDoctorAccount.visibility = View.GONE
             binding.mcPatientQuestions.visibility = View.GONE
             binding.dividerPatientQuestions.visibility = View.GONE
             binding.profileDoctorImage.visibility=View.GONE
