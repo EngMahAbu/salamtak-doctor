@@ -26,7 +26,6 @@ import com.salamtak.salamtakdoctor.salamtak_doctor.di.ViewModelsModule
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.ui.home.clinics.adapters.ClinicsAdapter
 import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.SetupClinicViewModel
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.CLINIC_ID
-import com.salamtak.salamtakdoctor.salamtak_doctor.utils.DateUtils
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.DialogsListener
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.dialogs.NoInternetDialog
 import com.salamtak.salamtakdoctor.salamtak_doctor.utils.isOnline
@@ -77,9 +76,6 @@ class ClinicsFragment : com.salamtak.salamtakdoctor.salamtak_doctor.BaseFragment
     }
 
     private fun setUi() {
-       if (!DateUtils.getAdminOwnerId().isNullOrEmpty()){
-           binding.addBtn.visibility=View.GONE
-       }
         binding.toolbar.ivBack.setOnClickListener {
             navController.popBackStack()
         }
@@ -115,8 +111,10 @@ class ClinicsFragment : com.salamtak.salamtakdoctor.salamtak_doctor.BaseFragment
                     findNavController().navigate(R.id.addNewClinicFragment)
                 }
 
-            } else
+            } else {
                 binding.emptyPageLayout.emptyPage.visibility = View.GONE
+                binding.addBtn.visibility = View.VISIBLE
+            }
 
             clinicsAdapter.submitData(it.Data as ArrayList<ClinicData>)
         }
