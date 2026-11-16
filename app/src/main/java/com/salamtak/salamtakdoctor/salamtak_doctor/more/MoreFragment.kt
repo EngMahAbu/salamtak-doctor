@@ -35,6 +35,8 @@ import org.koin.android.ext.android.inject
 
 import androidx.lifecycle.ViewModelProvider
 import com.salamtak.salamtakdoctor.salamtak_doctor.doctorProfile.DoctorProfileViewModel
+import com.salamtak.salamtakdoctor.salamtak_doctor.presentation.vms.PolyClinicsViewModel
+import com.salamtak.salamtakdoctor.salamtak_doctor.utils.util.Resource
 
 class MoreFragment : Fragment(), View.OnClickListener {
 
@@ -46,6 +48,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
     lateinit var binding: FragmentMoreBinding
     private val sessionManagement: SessionManagement by inject()
     private lateinit var profileViewModel: DoctorProfileViewModel
+    private lateinit var polyViewModel: PolyClinicsViewModel
     var REQUEST_PHONE_CALL = 1
 
 
@@ -97,14 +100,30 @@ class MoreFragment : Fragment(), View.OnClickListener {
             }
         }
 
+        // Polyclinic: the card shows the polyclinic's name, not the admin's or a doctor's.
+        polyViewModel = ViewModelProvider(this)[PolyClinicsViewModel::class.java]
+        polyViewModel.polyInfoIdResponse.observe(viewLifecycleOwner) { response ->
+            if (response !is Resource.sucess) return@observe
+            val info = response.data?.data ?: return@observe
+            // Gson can leave these null despite the non-null types, so treat them as nullable.
+            val en: String? = info.name?.trim()?.takeIf { it.isNotBlank() }
+            val ar: String? = (info.nameAr as Any?)?.toString()?.trim()?.takeIf { it.isNotBlank() && it != "null" }
+            val name = if (Localization.getLanguageName() == "ar") ar ?: en else en ?: ar
+            name?.let { binding.doctorName.text = it }
+        }
+
         initButton()
     }
+
+    private fun isPolyclinic() = !DateUtils.isHospital() && !DateUtils.getAdminOwnerId().isNullOrEmpty()
 
     override fun onResume() {
         super.onResume()
         val image = UserData.getImage()
         ImageUtil.loadPicture(binding.profileDoctorImage, image)
-        if (::profileViewModel.isInitialized && !DateUtils.isHospital()) {
+        if (isPolyclinic()) {
+            DateUtils.getAdminInfoId()?.toIntOrNull()?.let { polyViewModel.getPolyClinicInfoByID(it) }
+        } else if (::profileViewModel.isInitialized && !DateUtils.isHospital()) {
             profileViewModel.getDoctorProfile()
         }
     }
