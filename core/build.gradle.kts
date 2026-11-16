@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.salamtak.core"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24

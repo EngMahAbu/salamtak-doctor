@@ -10,11 +10,11 @@ plugins {
 
 android {
     namespace = "com.salamtak"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.salamtak.salamtakdoctor"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 38
         versionName = "2.2.9"
         multiDexEnabled = true
