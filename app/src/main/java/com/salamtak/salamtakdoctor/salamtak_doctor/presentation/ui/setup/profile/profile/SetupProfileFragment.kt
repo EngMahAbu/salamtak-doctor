@@ -1167,11 +1167,11 @@ class SetupProfileFragment : BaseFragment<SetupProfileViewModel>(R.layout.fragme
                         binding.nationalIdEt.error = getString(R.string.nationalid_lenght)
 
 
-                    if (!isEnglishValid(binding.biographyEnEt.text.toString()) && binding.biographyEnEt.text.toString() != "") {
+                    if (!isEnglishBioValid(binding.biographyEnEt.text.toString()) && binding.biographyEnEt.text.toString() != "") {
                         binding.biographyEnEt.error = getString(R.string.english_name)
                     }
 
-                    if (!isArabicValid(binding.biographyArEt.text.toString()) && binding.biographyArEt.text.toString() != "") {
+                    if (!isArabicBioValid(binding.biographyArEt.text.toString()) && binding.biographyArEt.text.toString() != "") {
                         binding.biographyArEt.error = getString(R.string.arabic_name)
                     }
                     toast(mContext, getString(R.string.fields_required))

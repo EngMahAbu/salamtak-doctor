@@ -76,6 +76,13 @@ fun isArabicValid(email: String?): Boolean {
     return matcher.matches()
 }
 
+// Bio text: letters plus digits and common punctuation.
+fun isEnglishBioValid(text: String?): Boolean =
+    text != null && Regex("^[A-Za-z0-9 .,،\\-()/:;'\"!?%&+]+$").matches(text)
+
+fun isArabicBioValid(text: String?): Boolean =
+    text != null && Regex("^[\\u0600-\\u06FF0-9 .,\\-()/:;'\"!?%&+]+$").matches(text)
+
 fun isClinicPhoneValid(phone: String?): Boolean {
 
     return ((phone!!.length >= 5 && phone.length <= 11)
