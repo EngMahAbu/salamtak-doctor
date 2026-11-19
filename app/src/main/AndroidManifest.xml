@@ -24,6 +24,12 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
 
     <application
         android:name=".salamtakdoctor.MyApplication"
