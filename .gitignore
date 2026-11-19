@@ -17,3 +17,7 @@ local.properties
 
 # IDEA
 .idea
+# Signing keys and release output
+*.jks
+*.keystore
+/app/release/
