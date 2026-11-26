@@ -94,12 +94,12 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
         }
 
         binding.layoutBottomsheetpersistant.cardview.setOnClickListener {
-            val action=NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment(2)
+            val action = NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment().setTypId(2)
             findNavController().navigate(action)
             bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
         }
         binding.layoutBottomsheetpersistant.cardview2.setOnClickListener {
-            val action=NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment(4)
+            val action = NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment().setTypId(4)
             findNavController().navigate(action)
             bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
 
@@ -109,7 +109,7 @@ class NewLogInFragment : Fragment(), DialogsListener, View.OnClickListener {
         //  implementation is kept in place. Document why it was hidden here, and unhide both
         //  views to bring it back.
         binding.layoutBottomsheetpersistant.cardview3.setOnClickListener {
-            val action=NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment(HOSPITAL_TYPE_ID)
+            val action = NewLogInFragmentDirections.actionLoginFragmentToSignUpFragment().setTypId(HOSPITAL_TYPE_ID)
             findNavController().navigate(action)
             bottomsheetbeahavoir.state = BottomSheetBehavior.STATE_HIDDEN
         }

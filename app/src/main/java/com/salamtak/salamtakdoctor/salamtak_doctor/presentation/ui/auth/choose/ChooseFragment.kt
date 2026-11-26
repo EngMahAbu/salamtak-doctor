@@ -66,7 +66,10 @@ class ChooseFragment : Fragment() {
         }
 
         binding.toNewAccountBtn.setOnClickListener {
-            navController.navigate(R.id.signUpFragment)
+            val bundle = Bundle().apply {
+                putInt("typId", com.salamtak.salamtakdoctor.salamtak_doctor.utils.DOCTOR_TYPE_ID)
+            }
+            navController.navigate(R.id.signUpFragment, bundle)
         }
 
     }

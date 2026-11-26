@@ -40,7 +40,7 @@ class WelcomeFragment : Fragment() {
         }
         binding.btnDoctor.setOnClickListener {
             val bundle = Bundle().apply {
-                putInt("typId", 0)
+                putInt("typId", com.salamtak.salamtakdoctor.salamtak_doctor.utils.DOCTOR_TYPE_ID)
             }
 
             findNavController().navigate(

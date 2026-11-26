@@ -17,7 +17,9 @@ local.properties
 
 # IDEA
 .idea
+.kotlin
 # Signing keys and release output
 *.jks
 *.keystore
 /app/release/
+/app/debug/

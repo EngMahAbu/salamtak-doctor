@@ -69,6 +69,9 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
 
     val TAG = SignUpFragment::class.java.simpleName
 
+    private val userTypeId: Int
+        get() = if (args.typId == 0) DOCTOR_TYPE_ID else args.typId
+
     //private var imageFile: File? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -331,7 +334,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                                                     null,
                                                     binding.passwordEt.text.toString(),
                                                     binding.nameEt.text.toString(),
-                                                    args.typId
+                                                    userTypeId
                                                 )
                                                 subscribeToObserver(registerModel)
                                             } else {
@@ -341,7 +344,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                                                     null,
                                                     binding.passwordEt.text.toString(),
                                                     binding.nameEt.text.toString(),
-                                                    args.typId
+                                                    userTypeId
                                                 )
                                                 subscribeToObserver(registerModel)
                                             }
@@ -736,7 +739,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
                     bundle.putString(PASSWORD, registerModel.password)
                     bundle.putString(DOCTOR_NAME, registerModel.name)
                     bundle.putString(NEW_OTP_CODE, it.Data.Code.toString())
-                    bundle.putInt(TypeId, args.typId)
+                    bundle.putInt(TypeId, userTypeId)
                     Log.d(TAG, "subscribeToObserver: ${it.Data.Code}")
                     val gson = Gson()
                     val userData = UserDataModel(
@@ -980,7 +983,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_signup), 
 
 
     private fun bindViews(){
-        when (args.typId){
+        when (userTypeId){
             4->{
                 binding.signUpTv.text=getString(R.string.create_poly_clinic_account)
                 binding.createNew.text=getString(R.string.create_poly_clinic_account)

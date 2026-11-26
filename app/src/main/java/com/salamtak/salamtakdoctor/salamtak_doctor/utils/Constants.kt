@@ -101,6 +101,7 @@ const val CLINIC_ID = "clinicId"
 const val USER_ID = "userId"
 const val NEW_OTP_CODE = "newotpCode"
 const val TypeId ="TypeId"
+const val DOCTOR_TYPE_ID = 2
 
 const val CLINIC_NAME = "clinic_name"
 const val Patient_NAME = "patient_name"
