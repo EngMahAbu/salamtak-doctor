@@ -269,7 +269,7 @@
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_10sdp"
-                                android:src="@drawable/ic_question_mark"
+                                android:src="@drawable/ic_questions_mark"
                                 app:tint="@color/colorBlack" />
 
                             <TextView

@@ -16,10 +16,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import com.fawry.fawrypay.FawrySdk
-import com.fawry.fawrypay.interfaces.FawryPreLaunch
-import com.fawry.fawrypay.interfaces.FawrySdkCallbacks
-import com.fawry.fawrypay.models.*
+import com.fawry.fawrypay.utils.fawrySdk.LaunchFawrySdk
+import com.fawry.fawrypay.utils.fawrySdk.enums.Languages
+import com.fawry.fawrypay.utils.fawrySdk.enums.PaymentStatus
+import com.fawry.fawrypay.utils.FawrySdkCallbacks
+import com.fawry.fawrypay.domain.models.*
 import com.salamtak.R
 import com.salamtak.core.localDataBase.Localization
 import com.salamtak.databinding.StatisticsfragmentBinding
@@ -69,7 +70,7 @@ class StatisticsFragment : Fragment(), StatisticsMonthAdapter.Action, Statistics
     val merchantSecretCode = "791b1e13-e4bc-4026-8f89-2476633b6c71"
 
 
-    val chargeItems = ArrayList<PayableItem>()
+    val chargeItems = ArrayList<BillItems>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -378,12 +379,12 @@ class StatisticsFragment : Fragment(), StatisticsMonthAdapter.Action, Statistics
 
 
     private fun startPayment() {
-        var lang = FawrySdk.Languages.ARABIC
+        var lang = Languages.ARABIC
         if (Localization.getLanguageName() == "en") {
-            lang = FawrySdk.Languages.ENGLISH
+            lang = Languages.ENGLISH
         }
 
-        FawrySdk.launchAnonymousSDK(
+        LaunchFawrySdk.launchAnonymousSDK(
             requireActivity(), lang, baseUrl,
             FawryLaunchModel(
                 launchCustomerModel = LaunchCustomerModel(
@@ -400,40 +401,18 @@ class StatisticsFragment : Fragment(), StatisticsMonthAdapter.Action, Statistics
                 allow3DPayment = true,
                 chargeItems = chargeItems,
                 skipReceipt = false,
-                skipLogin = true,
                 payWithCardToken = true,
                 authCaptureMode = false
             ),
             object : FawrySdkCallbacks {
-                override fun onPreLaunch(onPreLaunch: FawryPreLaunch) {
-                    onPreLaunch.onContinue()
-                }
-
-                override fun onInit() {
-
-                }
-
-                override fun onSuccess(msg: String, data: Any?) {
+                override fun onSuccess(paymentStatus: PaymentStatus, data: CreatePayRefNoResponse?) {
                     Log.d("SDK_Team", "$data")
-                    //           Toast.makeText(this@MainActivity, "on success ${msg}", Toast.LENGTH_SHORT)
-                    //      .show()
                 }
 
-                override fun onPaymentCompleted(msg: String, data: Any?) {
-
-//                    Toast.makeText(
-//                        requireContext(),
-//                        "on payment completed $data",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
+                override fun onPaymentCompleted(paymentStatus: PaymentStatus, data: CreatePayRefNoResponse?, error: FawryPayError?) {
                 }
 
-                override fun onFailure(error: String) {
-//                    Toast.makeText(
-//                        requireContext(),
-//                        "on failure ${error}",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
+                override fun onFailure(error: FawryPayError) {
                 }
             })
     }

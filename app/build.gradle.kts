@@ -177,13 +177,17 @@ dependencies {
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.32")
     implementation("androidx.work:work-runtime-ktx:2.11.0")
     implementation("com.airbnb.android:lottie:6.7.0")
-    implementation("com.archit.calendar:awesome-calendar:2.0.0")
+    implementation("io.github.architshah248.calendar:awesome-calendar:2.0.0")
     implementation("com.hbb20:ccp:2.7.3")
     implementation("com.github.jonasmferreira:StateProgressBar:1.0")
     implementation("io.agora.rtc:full-sdk:4.6.0")
     implementation("commons-codec:commons-codec:1.20.0")
     implementation("io.coil-kt:coil:2.7.0")
-    implementation("com.fawry.fawrypay:sdk:0.1.84")
+    implementation("com.fawry.fawrypay:sdk:2.1.84") {
+        artifact {
+            type = "aar"
+        }
+    }
     implementation("com.karumi:dexter:6.2.3")
     implementation("com.makeramen:roundedimageview:2.3.0")
     implementation("com.intuit.sdp:sdp-android:1.1.1")
